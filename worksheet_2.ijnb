@@ -1,0 +1,446 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "bf6098af-acbb-4b72-be4d-05f2455f235b",
+      "cell_type": "markdown",
+      "source": "# Worksheet 2: Java & object-oriented programming\n\nJava tutorial\nhttps://docs.oracle.com/javase/tutorial/java/nutsandbolts/index.html\n\nJava notebook tutorials\nhttps://github.com/oracle/javavscode/wiki/Interactive-Java-Notebooks",
+      "metadata": {
+        "language": "markdown",
+        "id": "bf6098af-acbb-4b72-be4d-05f2455f235b"
+      }
+    },
+    {
+      "id": "e609a140-0c56-4b9c-aa42-4737716556a4",
+      "cell_type": "markdown",
+      "source": "Example 1: Write the equivalent Java code for the Python 'Hello world' program below\n\n    print('Hello world')",
+      "metadata": {
+        "language": "markdown",
+        "id": "e609a140-0c56-4b9c-aa42-4737716556a4"
+      }
+    },
+    {
+      "id": "90ac1265-eb9b-45ea-aa2c-d0a1ebca5ee3",
+      "cell_type": "code",
+      "source": "System.out.println(\"Hello world\")",
+      "metadata": {
+        "language": "java",
+        "id": "90ac1265-eb9b-45ea-aa2c-d0a1ebca5ee3",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Hello world\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "04bb8261-e944-424a-8573-e3cd44438c54",
+      "cell_type": "markdown",
+      "source": "Example 2 (variables, types, assignment, and expressions): Write the equivalent Java code for the Python program below\n\n    score = 5\n    a = 1\n    b = 2\n    print(a // b == 0)\n    print(a/b == 0.5)",
+      "metadata": {
+        "language": "markdown",
+        "id": "04bb8261-e944-424a-8573-e3cd44438c54"
+      }
+    },
+    {
+      "id": "7b15930b-dcfc-4bab-a6ab-38dda79da2d3",
+      "cell_type": "code",
+      "source": "int score = 5;\r\nint a = 1;\r\nint b = 2;\r\nIO.println(a/b == 0);\r\nIO.println( a/b == 0.5);\r\nIO.println( a * 1.0 /b == 0.5);\r\nIO.println((double) a/b == 0.5);\r\n",
+      "metadata": {
+        "language": "java",
+        "id": "7b15930b-dcfc-4bab-a6ab-38dda79da2d3",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\nfalse\r\ntrue\r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "id": "7ca305cb-fce6-4dc0-8483-0ecc7be6f50b",
+      "cell_type": "markdown",
+      "source": "Example 3 (statements): Write the equivalent Java code for the Python program below\n\n    dryMass = 100\n    propellantMass = 56\n    vehicleMass = dryMass + \\\n                  propellantMass\n    print(vehicleMass)  ",
+      "metadata": {
+        "language": "markdown",
+        "id": "7ca305cb-fce6-4dc0-8483-0ecc7be6f50b"
+      }
+    },
+    {
+      "id": "94ee3122-4bc1-4afe-ba8b-d34160fe8586",
+      "cell_type": "code",
+      "source": "int dryMass = 100;\r\nint propellantMass = 56;\r\nint vehicleMass;\r\nvehicleMass = dryMass + propellantMass;\r\nIO.println(vehicleMass);",
+      "metadata": {
+        "language": "java",
+        "id": "94ee3122-4bc1-4afe-ba8b-d34160fe8586",
+        "executionSummary": {
+          "executionOrder": 49,
+          "success": true
+        }
+      },
+      "execution_count": 49,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "156\r\n"
+          },
+          "metadata": {},
+          "execution_count": 49
+        }
+      ]
+    },
+    {
+      "id": "60d77118-d197-407a-8454-24dea339040f",
+      "cell_type": "markdown",
+      "source": "Example 4 (functions, conditionals, and statement blocks): Write the equivalent Java code for the Python program below\n\n    def max3(x, y, z):\n        if x > y or z > y:\n            if x > z:\n                return x\n            else:\n                return z\n        else:\n            return y\n\n    print(max3(1, 2, 3))\n    print(max3(4, 6, 2))\n    print(max3(10, 5, 1))\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "60d77118-d197-407a-8454-24dea339040f"
+      }
+    },
+    {
+      "id": "1ba56cfe-dc7a-4f8f-be7a-aa3709596763",
+      "cell_type": "code",
+      "source": "int max3(int x, int y, int z){\r\n    if ((x > y) || (z>y)){\r\n        if (x> z) {return x;}\r\n        else{return z;}\r\n    }\r\n    else{return y;}\r\n}\r\n\r\nIO.println(max3(1,2,3));\r\nIO.println(max3(4, 6, 2));\r\nIO.println(max3(10, 5, 1));",
+      "metadata": {
+        "language": "java",
+        "id": "1ba56cfe-dc7a-4f8f-be7a-aa3709596763",
+        "executionSummary": {
+          "executionOrder": 50,
+          "success": true
+        }
+      },
+      "execution_count": 50,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "3\r\n6\r\n10\r\n"
+          },
+          "metadata": {},
+          "execution_count": 50
+        }
+      ]
+    },
+    {
+      "id": "c6bc68e3-ca08-4be7-b4c1-454ca4dda70f",
+      "cell_type": "markdown",
+      "source": "Example 5 (comments): Write the equivalent Java code for the Python program below\n    t = 0 # Reset the clock\n\n    fSun = 100.4\n    fSunEarth = 20.5\n\n    # In Earth-centered frame, must substract\n    # Sun' gravity at Earth's center\n    fSun = fSun - fSunEarth\n\n    def reciprocal(x):\n        \"\"\" Return 1 divided by the argument\"\"\"\n        return 1/x\n\n    print(reciprocal(fSun))",
+      "metadata": {
+        "language": "markdown",
+        "id": "c6bc68e3-ca08-4be7-b4c1-454ca4dda70f"
+      }
+    },
+    {
+      "id": "e42f1a81-87ed-4c08-acb2-46ac3a371835",
+      "cell_type": "code",
+      "source": "int t = 0; // Reset the clock\r\n\r\ndouble  fSun = 100.4;\r\ndouble fSunEarth = 20.5;\r\n\r\nfSun = fSun - fSunEarth;\r\n\r\n// In Earth-centered frame, must substract\r\n//  Sun' gravity at Earth's center\r\n\r\ndouble reciproca1(double x){\r\n    /* Return 1 divided by the argument*/ \r\n    return 1/x;\r\n}\r\nIO.println(reciproca1(fSun));\r\n",
+      "metadata": {
+        "language": "java",
+        "id": "e42f1a81-87ed-4c08-acb2-46ac3a371835",
+        "executionSummary": {
+          "executionOrder": 52,
+          "success": true
+        }
+      },
+      "execution_count": 52,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "0.012515644555694618\r\n"
+          },
+          "metadata": {},
+          "execution_count": 52
+        }
+      ]
+    },
+    {
+      "id": "3ed25d71-ce5a-4f46-b041-f898c94b9ca4",
+      "cell_type": "markdown",
+      "source": "Example 6 (scope): Write the equivalent Java code for the Python program below AND CHECK THE RESULT\n\n    if 1 > 0:\n        x = 5\n    print(x) # t is printed out",
+      "metadata": {
+        "language": "markdown",
+        "id": "3ed25d71-ce5a-4f46-b041-f898c94b9ca4"
+      }
+    },
+    {
+      "id": "a67f2359-96cc-43a9-a173-4641f9d8f096",
+      "cell_type": "code",
+      "source": "int x;\r\nif (1 > 0){\r\n    x = 5;\r\n}\r\nIO.println(x);",
+      "metadata": {
+        "language": "java",
+        "id": "a67f2359-96cc-43a9-a173-4641f9d8f096",
+        "executionSummary": {
+          "executionOrder": 40,
+          "success": true
+        }
+      },
+      "execution_count": 40,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "5\r\n"
+          },
+          "metadata": {},
+          "execution_count": 40
+        }
+      ]
+    },
+    {
+      "id": "8713b6c3-e88c-4b1f-917b-f5d54e4cdad0",
+      "cell_type": "markdown",
+      "source": "Example 7 (arrays): Write the equivalent Java code for the Python program below\n\n    u = [3, 1, 4]\n    v = 3*u[0]\n    for i in range(len(u)):\n        v[i] = 2*u[i]\n    print(v)",
+      "metadata": {
+        "language": "markdown",
+        "id": "8713b6c3-e88c-4b1f-917b-f5d54e4cdad0"
+      }
+    },
+    {
+      "id": "b905905e-5af1-4244-8e9e-3a42b872698c",
+      "cell_type": "code",
+      "source": "int[] u = {3,1,4};\r\nint[] v = new int[u.length];\r\nfor (int i =0; i < u.length; i++){\r\n    v[i] = 2* u[i];\r\n}\r\n\r\nfor (int i = 0; i < v.length; i ++){\r\n    IO.print(v[i]);\r\n    IO.print(\", \");\r\n}\r\nIO.println(Arrays.toString(v));",
+      "metadata": {
+        "language": "java",
+        "id": "b905905e-5af1-4244-8e9e-3a42b872698c",
+        "executionSummary": {
+          "executionOrder": 68,
+          "success": true
+        }
+      },
+      "execution_count": 68,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "6, 2, 8, [6, 2, 8]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 68
+        }
+      ]
+    },
+    {
+      "id": "d5f6f468-5fa0-48d4-9767-679734fd056c",
+      "cell_type": "code",
+      "source": "int[] u = {3,1,4};\r\nint[] v = new int[u.length];\r\nfor (int i =0; i < u.length; i++){\r\n    v[i] = 2* u[i];\r\n}\r\n\r\nfor (int i = 0; i < v.length; i ++)\r\n    IO.print(v[i]);\r\n    IO.print(\", \");\r\n",
+      "metadata": {
+        "language": "java",
+        "id": "d5f6f468-5fa0-48d4-9767-679734fd056c",
+        "executionSummary": {
+          "executionOrder": 69,
+          "success": true
+        }
+      },
+      "execution_count": 69,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "628, "
+          },
+          "metadata": {},
+          "execution_count": 69
+        }
+      ]
+    },
+    {
+      "id": "1b375df1-5aa9-49ae-9bd5-439079b7cf3c",
+      "cell_type": "markdown",
+      "source": "Example 8 (chained conditionals): Write the equivalent Java code for the Python program below\n\n    # Chained conditional\n\n    def print_letter_grade(score):\n        if score >= 90:\n            print(\"Grade A\")\n        elif score >= 80:\n            print(\"Grade B\")\n        elif score >= 70:\n            print(\"Grade C\")\n        else:\n            print(\"Grade D or below\")\n\n    print_letter_grade(96)\n    print_letter_grade(85)\n    print_letter_grade(70)\n    print_letter_grade(63)",
+      "metadata": {
+        "language": "markdown",
+        "id": "1b375df1-5aa9-49ae-9bd5-439079b7cf3c"
+      }
+    },
+    {
+      "id": "6794bc2c-411a-4ad4-bef6-ae3918336108",
+      "cell_type": "code",
+      "source": "//Chained conditional\r\n\r\n    void print_letter_grade(int score){\r\n        if (score >= 90){\r\n            IO.println(\"Grade A\");}\r\n        else if (score >= 80){\r\n            IO.println(\"Grade B\");}\r\n        else if (score >= 70){\r\n            IO.println(\"Grade C\");}\r\n        else{\r\n            IO.println(\"Grade D or below\");}\r\n    }\r\n\r\n    print_letter_grade(96);\r\n    print_letter_grade(85);\r\n    print_letter_grade(70);\r\n    print_letter_grade(63);",
+      "metadata": {
+        "language": "java",
+        "id": "6794bc2c-411a-4ad4-bef6-ae3918336108",
+        "executionSummary": {
+          "executionOrder": 74,
+          "success": true
+        }
+      },
+      "execution_count": 74,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Grade A\r\nGrade B\r\nGrade C\r\nGrade D or below\r\n"
+          },
+          "metadata": {},
+          "execution_count": 74
+        }
+      ]
+    },
+    {
+      "id": "4aded62a-0cba-465b-a3fc-f16b318d8300",
+      "cell_type": "markdown",
+      "source": "Example 8 (definite iteration): Write the equivalent Java code for the Python program below\n    \n    v = [1, 2, 3, 4, 5, 6, 7, 8]\n    for i in range(5):\n        print(v[i])\n    ",
+      "metadata": {
+        "language": "markdown",
+        "id": "4aded62a-0cba-465b-a3fc-f16b318d8300"
+      }
+    },
+    {
+      "id": "7e8f76eb-9942-42be-ac0d-d2babb08e0ac",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "9c355724-6444-4827-adfd-d64578471f6f",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "b3a72f3d-2a3f-47be-99f5-8d9928e919c7",
+      "cell_type": "markdown",
+      "source": "Example 9 (iteration over a list): Write the equivalent Java code for the Python program below\n    \n    numbers = [1, 2, 3, 4]\n    for number in numbers:\n        print(numbers)\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "b3a72f3d-2a3f-47be-99f5-8d9928e919c7"
+      }
+    },
+    {
+      "id": "34dbfa3f-841b-48f7-a3fb-31016696fa08",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "bf6e0cee-1ec3-4248-a934-61539c20f04d",
+      "cell_type": "markdown",
+      "source": "Example 10 (iteration over a list): Write the equivalent Java code for the Python program below\n    \n    numbers = [1, 2, 4, 0, 5, 0]\n    i = 0\n    while v[i] != 0:\n        i = i + 1\n\n    print(i)",
+      "metadata": {
+        "language": "markdown",
+        "id": "bf6e0cee-1ec3-4248-a934-61539c20f04d"
+      }
+    },
+    {
+      "id": "de6577e7-dc29-4deb-8576-ac52d586eb20",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "03a000d1-ddfc-44d8-8fb9-4a4d198bb247",
+      "cell_type": "markdown",
+      "source": "Example 11: Write a Java program to print the unit matrix of a given size n\n\n    Example: if n = 5 the matrix is printed out as \n        1 0 0 0 0 0\n        0 1 0 0 0 0\n        0 0 1 0 0 0\n        0 0 0 1 0 0\n        0 0 0 0 1 0\n        0 0 0 0 0 1 ",
+      "metadata": {
+        "language": "markdown",
+        "id": "03a000d1-ddfc-44d8-8fb9-4a4d198bb247"
+      }
+    },
+    {
+      "id": "2662e863-7c37-42cf-a972-66ad2eee4a72",
+      "cell_type": "code",
+      "source": "public void print_matrix(int n){\r\n    for(int i = 0; i<n; i++){\r\n        for(int j=0; j<n; j++){\r\n            if(i == j){\r\n                IO.print(\"1 \");\r\n            }\r\n            else{IO.print(\"0 \");}\r\n        }\r\n        IO.println(\" \");\r\n\r\n    }\r\n\r\n}\r\n\r\nprint_matrix(5)",
+      "metadata": {
+        "language": "java",
+        "id": "2662e863-7c37-42cf-a972-66ad2eee4a72",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "1 0 0 0 0  \r\n0 1 0 0 0  \r\n0 0 1 0 0  \r\n0 0 0 1 0  \r\n0 0 0 0 1  \r\n"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "id": "3b71e968-bf86-4702-93a2-11aeb5d81b35",
+      "cell_type": "markdown",
+      "source": "Example 12: Check if an array is an increasing one?\n\n    Example:\n        {1, 3, 5, 10} -> Yes\n        {4, 10, 3, 20} -> No\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "3b71e968-bf86-4702-93a2-11aeb5d81b35"
+      }
+    },
+    {
+      "id": "3b16bdc1-3910-45f8-afad-71bf47248f0a",
+      "cell_type": "code",
+      "source": "\r\n\r\nString checkarray(int[] lst;){\r\n\r\n}\r\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "964fd4e5-88d6-4370-933e-9478b0798869",
+      "cell_type": "markdown",
+      "source": "Example 13: Implement a class named FUV_student can be initialized with first name, last name, and student ID has a method get_FUV_email that returns the student email\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "964fd4e5-88d6-4370-933e-9478b0798869"
+      }
+    },
+    {
+      "id": "4932fc2f-8c1e-46b3-b879-a672438612af",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
