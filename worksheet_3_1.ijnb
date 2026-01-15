@@ -26,7 +26,7 @@
       }
     },
     {
-      "id": "a255ab59-2c7d-4df5-9026-358060f617ad",
+      "id": "075fa5ad-b9aa-418f-9a39-5ffa552b0a41",
       "cell_type": "code",
       "source": "int[] student_ids = {200102, 210206, 210230, 220221, 220027, 220050, 220216, 230248, 230036};\r\n//Loop through elements\r\nfor (int x: student_ids ){\r\n    IO.println(x);\r\n}",
       "metadata": {
@@ -139,7 +139,7 @@
       ]
     },
     {
-      "id": "d7f98ed7-9151-4413-94f0-85491aec2b9d",
+      "id": "816fa6ee-dcdd-4350-9a6f-604b0ebca533",
       "cell_type": "code",
       "source": "import java.util.Random;\r\nString[] students_ = {\r\n        \"200102\", \"210206\", \"210230\", \r\n        \"220221\", \"220027\", \"220050\", \r\n        \"220216\", \"230248\", \"230036\"\r\n};\r\n\r\nint[] group1;\r\nint[] group2;\r\nint[] group3;\r\n\r\nRandom rand = new Random();\r\n\r\nfor (int i=0; i<100; i++){\r\n    int pos1 = rand.nextInt(students.length);\r\n    int pos2 = rand.nextInt(students.length);\r\n    String temp = students[pos1];\r\n    students[pos1] = students[pos2];\r\n    students[pos2] = temp;\r\n}\r\n\r\nIO.println(\"First group\");\r\nfor (int i=0; i<3; i++){\r\n    IO.println(students[i]);\r\n}\r\nIO.println(\"Second group\");\r\nfor (int i=3; i<6; i++){\r\n    IO.println(students[i]);\r\n}\r\nIO.println(\"Third group\");\r\nfor (int i=6; i<9; i++){\r\n    IO.println(students[i]);\r\n}",
       "metadata": {
@@ -162,7 +162,7 @@
       ]
     },
     {
-      "id": "210e85a0-bc29-4fe4-9e6c-c808522d6415",
+      "id": "caaa01bc-b431-4f06-bfe5-be1a85313b8f",
       "cell_type": "code",
       "source": "int[] x = new int[4];\r\nfor (int i: x)\r\n    IO.print(i +\" \");\r\nIO.println(\" \");\r\n\r\nboolean[] x2 = new boolean[4];\r\nfor (boolean i: x2)\r\n    IO.print(i +\" \");\r\nIO.println(\" \");\r\n\r\nString[] x3 = new String[4];\r\nfor (String i: x3)\r\n    IO.print(i +\" \");",
       "metadata": {
@@ -196,24 +196,24 @@
     {
       "id": "8029f3a8-1211-4331-b694-962bc58e184e",
       "cell_type": "code",
-      "source": "",
+      "source": "void find_index(int[] numbers, int n){\r\n    int result = -1;\r\n    for (int i=0; i<numbers.length; i++){\r\n        if (numbers[i]== n){\r\n            result = i;\r\n        };\r\n    };\r\n    IO.println(result);\r\n};\r\n\r\nint[] lst = {1,3,5,6,7,9};\r\nint[] lst2 ={};\r\nfind_index(lst2, 2);\r\nfind_index(lst, 3);",
       "metadata": {
         "language": "java",
         "id": "8029f3a8-1211-4331-b694-962bc58e184e",
         "executionSummary": {
-          "executionOrder": 8,
+          "executionOrder": 59,
           "success": true
         }
       },
-      "execution_count": 8,
+      "execution_count": 59,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "2"
+            "text/plain": "-1\r\n1\r\n"
           },
           "metadata": {},
-          "execution_count": 8
+          "execution_count": 59
         }
       ]
     }
