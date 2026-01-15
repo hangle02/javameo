@@ -1,0 +1,120 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "61875849-1f1e-4962-b7a9-6bbb66bdbf23",
+      "cell_type": "markdown",
+      "source": "# Worksheet 3: Arrays",
+      "metadata": {
+        "language": "markdown",
+        "id": "61875849-1f1e-4962-b7a9-6bbb66bdbf23"
+      }
+    },
+    {
+      "id": "46e6816c-4072-48a9-87f5-1254eb34f92b",
+      "cell_type": "markdown",
+      "source": "# Question 1: \nWrite a program to \n    (i) create an array of 9 student ID numbers including 200102, 210206, 210230, 220221, 220027, 220050, 220216, 230248, 230036\n    (ii) then print these numbers out line by line\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "46e6816c-4072-48a9-87f5-1254eb34f92b"
+      }
+    },
+    {
+      "id": "b8e730b2-56c6-4709-a5aa-fcd285a01236",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "e7d2a651-f3d2-41a2-938e-703aaca25ab9",
+      "cell_type": "markdown",
+      "source": "# Question 2: \nWrite a program to \n    (i)create an array of 7 days (i.e. Mon, Tue, etc)\n    (ii) then print all days out line by line ",
+      "metadata": {
+        "language": "markdown",
+        "id": "e7d2a651-f3d2-41a2-938e-703aaca25ab9"
+      }
+    },
+    {
+      "id": "550816c0-2efa-42c6-9e24-e69d28d287c8",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "257174b8-2802-4277-92ba-5a2d1a78aee3",
+      "cell_type": "markdown",
+      "source": "# Question 3: \n\nWrite a program to assign 9 students into 3 groups randomly\n\nHere is the code to randomize an integer\nimport java.util.Random;\n…\n        Random rand = new Random();\n        int temp = rand.nextInt();\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "257174b8-2802-4277-92ba-5a2d1a78aee3"
+      }
+    },
+    {
+      "id": "eb1da725-566b-4ec3-b930-34c26230cb8f",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "9404ac8b-0220-4b2c-9de7-96336024c644",
+      "cell_type": "markdown",
+      "source": "# Question 4: \nWrite a program to search an integer from a given list of integers \nInput\n    An array a of n integers\n    An integer x\nOutput\n    An index i such that a[i] = x, if i exists\n    -1, otherwise \n",
+      "metadata": {
+        "language": "markdown",
+        "id": "9404ac8b-0220-4b2c-9de7-96336024c644"
+      }
+    },
+    {
+      "id": "8029f3a8-1211-4331-b694-962bc58e184e",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 8,
+          "success": true
+        }
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "2"
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    }
+  ]
+}

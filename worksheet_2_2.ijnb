@@ -127,7 +127,7 @@
     {
       "id": "bc5668d0-9226-406a-ae25-e538e9b2f35d",
       "cell_type": "code",
-      "source": "import java.util.Random;\r\n        Random rand = new Random();\r\n        int temp = rand.nextInt();",
+      "source": "import java.util.Random;\r\n\r\nString[] students = {\r\n        \"200102\", \"210206\", \"210230\", \r\n        \"220221\", \"220027\", \"220050\", \r\n        \"220216\", \"230248\", \"230036\"\r\n};\r\n\r\n        Random rand = new Random();\r\nfor (int i = 0; i< students.length; i++){\r\n        int temp = rand.nextInt(students.length);\r\n        String stu = students[i];\r\n        students[i] = students[temp];\r\n        students[temp] = stu;\r\n};\r\n        IO.println(\r\n\r\n        int temp = rand.nextInt();",
       "metadata": {
         "language": "java"
       },
