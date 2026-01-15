@@ -26,14 +26,51 @@
       }
     },
     {
+      "id": "a255ab59-2c7d-4df5-9026-358060f617ad",
+      "cell_type": "code",
+      "source": "int[] student_ids = {200102, 210206, 210230, 220221, 220027, 220050, 220216, 230248, 230036};\r\n//Loop through elements\r\nfor (int x: student_ids ){\r\n    IO.println(x);\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 10,
+          "success": true
+        }
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "200102\r\n210206\r\n210230\r\n220221\r\n220027\r\n220050\r\n220216\r\n230248\r\n230036\r\n"
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
       "id": "b8e730b2-56c6-4709-a5aa-fcd285a01236",
       "cell_type": "code",
-      "source": "",
+      "source": "String[] students = {\r\n        \"200102\", \"210206\", \"210230\", \r\n        \"220221\", \"220027\", \"220050\", \r\n        \"220216\", \"230248\", \"230036\"\r\n};\r\n//loop through indexs\r\nfor (int i=0; i< students.length; i++){\r\n    IO.println(students[i]);\r\n};",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "b8e730b2-56c6-4709-a5aa-fcd285a01236",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "200102\r\n210206\r\n210230\r\n220221\r\n220027\r\n220050\r\n220216\r\n230248\r\n230036\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
     },
     {
       "id": "e7d2a651-f3d2-41a2-938e-703aaca25ab9",
@@ -47,12 +84,26 @@
     {
       "id": "550816c0-2efa-42c6-9e24-e69d28d287c8",
       "cell_type": "code",
-      "source": "",
+      "source": "String[] weekdays = {\"Monday\", \"Tuesday\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\"};\r\nfor (String x: weekdays){\r\n    IO.println(x);\r\n}",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "550816c0-2efa-42c6-9e24-e69d28d287c8",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Monday\r\nTuesday\r\nWed\r\nThu\r\nFri\r\nSat\r\nSun\r\n"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
     },
     {
       "id": "257174b8-2802-4277-92ba-5a2d1a78aee3",
@@ -66,21 +117,70 @@
     {
       "id": "eb1da725-566b-4ec3-b930-34c26230cb8f",
       "cell_type": "code",
-      "source": "",
+      "source": "import java.util.Random;\r\n//Array of 9 students\r\nString[] students_ = {\r\n        \"200102\", \"210206\", \"210230\", \r\n        \"220221\", \"220027\", \"220050\", \r\n        \"220216\", \"230248\", \"230036\"\r\n};\r\n\r\n\r\n void assign_stu(String[] students){\r\n    Random rand = new Random();\r\n    for (int i=0; i<students.length; i++){\r\n        int ran_index = rand.nextInt(students.length);\r\n        String student = students[i];\r\n        students[i] = students[ran_index];\r\n        students[ran_index] = student;\r\n    }\r\n    IO.println(students[0]+ \" \" + students[1]+ \" \"+ students[2]);\r\n    IO.println(students[3]+ \" \" + students[4]+ \" \"+ students[5]);\r\n    IO.println(students[6]+ \" \" + students[7]+ \" \"+ students[8]);\r\n}\r\n\r\nassign_stu(students_);\r\n",
       "metadata": {
         "language": "java",
+        "id": "eb1da725-566b-4ec3-b930-34c26230cb8f",
         "executionSummary": {
-          "executionOrder": 2,
+          "executionOrder": 29,
           "success": true
         }
       },
-      "execution_count": 2,
+      "execution_count": 29,
       "outputs": [
         {
           "output_type": "execute_result",
-          "data": {},
+          "data": {
+            "text/plain": "210206 210230 230248\r\n200102 220050 230036\r\n220027 220216 220221\r\n"
+          },
           "metadata": {},
-          "execution_count": 2
+          "execution_count": 29
+        }
+      ]
+    },
+    {
+      "id": "d7f98ed7-9151-4413-94f0-85491aec2b9d",
+      "cell_type": "code",
+      "source": "import java.util.Random;\r\nString[] students_ = {\r\n        \"200102\", \"210206\", \"210230\", \r\n        \"220221\", \"220027\", \"220050\", \r\n        \"220216\", \"230248\", \"230036\"\r\n};\r\n\r\nint[] group1;\r\nint[] group2;\r\nint[] group3;\r\n\r\nRandom rand = new Random();\r\n\r\nfor (int i=0; i<100; i++){\r\n    int pos1 = rand.nextInt(students.length);\r\n    int pos2 = rand.nextInt(students.length);\r\n    String temp = students[pos1];\r\n    students[pos1] = students[pos2];\r\n    students[pos2] = temp;\r\n}\r\n\r\nIO.println(\"First group\");\r\nfor (int i=0; i<3; i++){\r\n    IO.println(students[i]);\r\n}\r\nIO.println(\"Second group\");\r\nfor (int i=3; i<6; i++){\r\n    IO.println(students[i]);\r\n}\r\nIO.println(\"Third group\");\r\nfor (int i=6; i<9; i++){\r\n    IO.println(students[i]);\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 51,
+          "success": true
+        }
+      },
+      "execution_count": 51,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "First group\r\n220221\r\n220050\r\n220216\r\nSecond group\r\n200102\r\n230036\r\n230248\r\nThird group\r\n220027\r\n210206\r\n210230\r\n"
+          },
+          "metadata": {},
+          "execution_count": 51
+        }
+      ]
+    },
+    {
+      "id": "210e85a0-bc29-4fe4-9e6c-c808522d6415",
+      "cell_type": "code",
+      "source": "int[] x = new int[4];\r\nfor (int i: x)\r\n    IO.print(i +\" \");\r\nIO.println(\" \");\r\n\r\nboolean[] x2 = new boolean[4];\r\nfor (boolean i: x2)\r\n    IO.print(i +\" \");\r\nIO.println(\" \");\r\n\r\nString[] x3 = new String[4];\r\nfor (String i: x3)\r\n    IO.print(i +\" \");",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 52,
+          "success": true
+        }
+      },
+      "execution_count": 52,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "0 0 0 0  \r\nfalse false false false  \r\nnull null null null "
+          },
+          "metadata": {},
+          "execution_count": 52
         }
       ]
     },
@@ -99,6 +199,7 @@
       "source": "",
       "metadata": {
         "language": "java",
+        "id": "8029f3a8-1211-4331-b694-962bc58e184e",
         "executionSummary": {
           "executionOrder": 8,
           "success": true
