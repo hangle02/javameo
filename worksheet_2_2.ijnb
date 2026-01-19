@@ -61,24 +61,24 @@
     {
       "id": "9a0a4848-ab87-40eb-9dff-c18f4e92a978",
       "cell_type": "code",
-      "source": "String s = \"@student.fulbright.edu.vn\";\r\nIO.println(s.length());\r\nString email =\"Khoi.Bui.123456@student.fulbright.edu.vn\";\r\nIO.println(email.substring(email.length()-25));\r\n",
+      "source": "String s = \"@student.fulbright.edu.vn\";\r\nIO.println(s.length());\r\nString email =\"Khoi.Bui.123456@student.fulbright.edu.vn\";\r\nIO.println(email.substring(email.length()-31, email.length()-25));\r\n",
       "metadata": {
         "language": "java",
         "id": "9a0a4848-ab87-40eb-9dff-c18f4e92a978",
         "executionSummary": {
-          "executionOrder": 47,
+          "executionOrder": 2,
           "success": true
         }
       },
-      "execution_count": 47,
+      "execution_count": 2,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "25\r\n@student.fulbright.edu.vn\r\n"
+            "text/plain": "25\r\n123456\r\n"
           },
           "metadata": {},
-          "execution_count": 47
+          "execution_count": 2
         }
       ]
     },
