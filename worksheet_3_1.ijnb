@@ -31,6 +31,7 @@
       "source": "int[] student_ids = {200102, 210206, 210230, 220221, 220027, 220050, 220216, 230248, 230036};\r\n//Loop through elements\r\nfor (int x: student_ids ){\r\n    IO.println(x);\r\n}",
       "metadata": {
         "language": "java",
+        "id": "075fa5ad-b9aa-418f-9a39-5ffa552b0a41",
         "executionSummary": {
           "executionOrder": 10,
           "success": true
@@ -144,6 +145,7 @@
       "source": "import java.util.Random;\r\nString[] students_ = {\r\n        \"200102\", \"210206\", \"210230\", \r\n        \"220221\", \"220027\", \"220050\", \r\n        \"220216\", \"230248\", \"230036\"\r\n};\r\n\r\nint[] group1;\r\nint[] group2;\r\nint[] group3;\r\n\r\nRandom rand = new Random();\r\n\r\nfor (int i=0; i<100; i++){\r\n    int pos1 = rand.nextInt(students.length);\r\n    int pos2 = rand.nextInt(students.length);\r\n    String temp = students[pos1];\r\n    students[pos1] = students[pos2];\r\n    students[pos2] = temp;\r\n}\r\n\r\nIO.println(\"First group\");\r\nfor (int i=0; i<3; i++){\r\n    IO.println(students[i]);\r\n}\r\nIO.println(\"Second group\");\r\nfor (int i=3; i<6; i++){\r\n    IO.println(students[i]);\r\n}\r\nIO.println(\"Third group\");\r\nfor (int i=6; i<9; i++){\r\n    IO.println(students[i]);\r\n}",
       "metadata": {
         "language": "java",
+        "id": "816fa6ee-dcdd-4350-9a6f-604b0ebca533",
         "executionSummary": {
           "executionOrder": 51,
           "success": true
@@ -167,6 +169,7 @@
       "source": "int[] x = new int[4];\r\nfor (int i: x)\r\n    IO.print(i +\" \");\r\nIO.println(\" \");\r\n\r\nboolean[] x2 = new boolean[4];\r\nfor (boolean i: x2)\r\n    IO.print(i +\" \");\r\nIO.println(\" \");\r\n\r\nString[] x3 = new String[4];\r\nfor (String i: x3)\r\n    IO.print(i +\" \");",
       "metadata": {
         "language": "java",
+        "id": "caaa01bc-b431-4f06-bfe5-be1a85313b8f",
         "executionSummary": {
           "executionOrder": 52,
           "success": true
@@ -214,6 +217,38 @@
           },
           "metadata": {},
           "execution_count": 59
+        }
+      ]
+    },
+    {
+      "id": "4b4b637f-8b3d-47a8-bb14-bf36c41794f2",
+      "cell_type": "markdown",
+      "source": "# Question 5: \r\nHow to compare 2 arrays?",
+      "metadata": {
+        "language": "markdown",
+        "id": "4b4b637f-8b3d-47a8-bb14-bf36c41794f2"
+      }
+    },
+    {
+      "id": "467ceafa-0771-4bc1-b328-3da80a7815ce",
+      "cell_type": "code",
+      "source": "int[] arr1 = {1,2,3};\r\nint[] arr2 = arr1;\r\nint[] arr3 = {1,2,3};\r\nIO.println(arr1==arr2);\r\nIO.println(arr1==arr3);\r\nIO.println(arr3==arr2);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\nfalse\r\nfalse\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
         }
       ]
     }
