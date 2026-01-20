@@ -33,30 +33,6 @@
         "language": "java",
         "id": "075fa5ad-b9aa-418f-9a39-5ffa552b0a41",
         "executionSummary": {
-          "executionOrder": 10,
-          "success": true
-        }
-      },
-      "execution_count": 10,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": "200102\r\n210206\r\n210230\r\n220221\r\n220027\r\n220050\r\n220216\r\n230248\r\n230036\r\n"
-          },
-          "metadata": {},
-          "execution_count": 10
-        }
-      ]
-    },
-    {
-      "id": "b8e730b2-56c6-4709-a5aa-fcd285a01236",
-      "cell_type": "code",
-      "source": "String[] students = {\r\n        \"200102\", \"210206\", \"210230\", \r\n        \"220221\", \"220027\", \"220050\", \r\n        \"220216\", \"230248\", \"230036\"\r\n};\r\n//loop through indexs\r\nfor (int i=0; i< students.length; i++){\r\n    IO.println(students[i]);\r\n};",
-      "metadata": {
-        "language": "java",
-        "id": "b8e730b2-56c6-4709-a5aa-fcd285a01236",
-        "executionSummary": {
           "executionOrder": 2,
           "success": true
         }
@@ -70,6 +46,30 @@
           },
           "metadata": {},
           "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "b8e730b2-56c6-4709-a5aa-fcd285a01236",
+      "cell_type": "code",
+      "source": "String[] students = {\r\n        \"200102\", \"210206\", \"210230\", \r\n        \"220221\", \"220027\", \"220050\", \r\n        \"220216\", \"230248\", \"230036\"\r\n};\r\n//loop through indexs\r\nfor (int i=0; i< students.length; i++){\r\n    IO.println(students[i]);\r\n};",
+      "metadata": {
+        "language": "java",
+        "id": "b8e730b2-56c6-4709-a5aa-fcd285a01236",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "200102\r\n210206\r\n210230\r\n220221\r\n220027\r\n220050\r\n220216\r\n230248\r\n230036\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
         }
       ]
     },
@@ -90,11 +90,11 @@
         "language": "java",
         "id": "550816c0-2efa-42c6-9e24-e69d28d287c8",
         "executionSummary": {
-          "executionOrder": 12,
+          "executionOrder": 4,
           "success": true
         }
       },
-      "execution_count": 12,
+      "execution_count": 4,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -102,7 +102,7 @@
             "text/plain": "Monday\r\nTuesday\r\nWed\r\nThu\r\nFri\r\nSat\r\nSun\r\n"
           },
           "metadata": {},
-          "execution_count": 12
+          "execution_count": 4
         }
       ]
     },
@@ -123,19 +123,19 @@
         "language": "java",
         "id": "eb1da725-566b-4ec3-b930-34c26230cb8f",
         "executionSummary": {
-          "executionOrder": 29,
+          "executionOrder": 5,
           "success": true
         }
       },
-      "execution_count": 29,
+      "execution_count": 5,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "210206 210230 230248\r\n200102 220050 230036\r\n220027 220216 220221\r\n"
+            "text/plain": "230036 200102 220221\r\n210230 220216 230248\r\n220050 210206 220027\r\n"
           },
           "metadata": {},
-          "execution_count": 29
+          "execution_count": 5
         }
       ]
     },
@@ -147,19 +147,19 @@
         "language": "java",
         "id": "816fa6ee-dcdd-4350-9a6f-604b0ebca533",
         "executionSummary": {
-          "executionOrder": 51,
+          "executionOrder": 6,
           "success": true
         }
       },
-      "execution_count": 51,
+      "execution_count": 6,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "First group\r\n220221\r\n220050\r\n220216\r\nSecond group\r\n200102\r\n230036\r\n230248\r\nThird group\r\n220027\r\n210206\r\n210230\r\n"
+            "text/plain": "First group\r\n220216\r\n220221\r\n210206\r\nSecond group\r\n230036\r\n230248\r\n200102\r\nThird group\r\n220050\r\n210230\r\n220027\r\n"
           },
           "metadata": {},
-          "execution_count": 51
+          "execution_count": 6
         }
       ]
     },
@@ -171,11 +171,11 @@
         "language": "java",
         "id": "caaa01bc-b431-4f06-bfe5-be1a85313b8f",
         "executionSummary": {
-          "executionOrder": 52,
+          "executionOrder": 7,
           "success": true
         }
       },
-      "execution_count": 52,
+      "execution_count": 7,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -183,7 +183,7 @@
             "text/plain": "0 0 0 0  \r\nfalse false false false  \r\nnull null null null "
           },
           "metadata": {},
-          "execution_count": 52
+          "execution_count": 7
         }
       ]
     },
@@ -204,38 +204,6 @@
         "language": "java",
         "id": "8029f3a8-1211-4331-b694-962bc58e184e",
         "executionSummary": {
-          "executionOrder": 59,
-          "success": true
-        }
-      },
-      "execution_count": 59,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": "-1\r\n1\r\n"
-          },
-          "metadata": {},
-          "execution_count": 59
-        }
-      ]
-    },
-    {
-      "id": "b235bb73-c752-458e-910e-020de8331b2e",
-      "cell_type": "markdown",
-      "source": "# Question 5: \r\nHow to compare 2 arrays?",
-      "metadata": {
-        "language": "markdown",
-        "id": "b235bb73-c752-458e-910e-020de8331b2e"
-      }
-    },
-    {
-      "id": "55963538-a023-4fbe-bb78-925e344852a8",
-      "cell_type": "code",
-      "source": "//String is immutable --> create same content at same address\r\nString s1 =\"hehe\";\r\nString s2 = s1;\r\nString s3 = \"hehe\";\r\nIO.println(s1==s2);\r\nIO.println(s2==s3);\r\nIO.println(s1==s3);",
-      "metadata": {
-        "language": "java",
-        "executionSummary": {
           "executionOrder": 8,
           "success": true
         }
@@ -245,7 +213,7 @@
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "true\r\ntrue\r\ntrue\r\n"
+            "text/plain": "-1\r\n1\r\n"
           },
           "metadata": {},
           "execution_count": 8
@@ -253,17 +221,51 @@
       ]
     },
     {
-      "id": "66620f76-d7c0-4137-a700-2b7ac30c1e20",
+      "id": "7c50c40f-59a5-4a52-9ffe-3ca862610361",
+      "cell_type": "markdown",
+      "source": "# Question 5: \r\nHow to compare 2 arrays?",
+      "metadata": {
+        "language": "markdown",
+        "id": "7c50c40f-59a5-4a52-9ffe-3ca862610361"
+      }
+    },
+    {
+      "id": "2641dab3-328c-44f2-b096-de755ed55b34",
+      "cell_type": "code",
+      "source": "//String is immutable --> create same content at same address\r\nString s1 =\"hehe\";\r\nString s2 = s1;\r\nString s3 = \"hehe\";\r\nIO.println(s1==s2);\r\nIO.println(s2==s3);\r\nIO.println(s1==s3);",
+      "metadata": {
+        "language": "java",
+        "id": "2641dab3-328c-44f2-b096-de755ed55b34",
+        "executionSummary": {
+          "executionOrder": 9,
+          "success": true
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\ntrue\r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "id": "42a5bb6d-0a3d-45a9-be69-c94ad1ffbdd2",
       "cell_type": "code",
       "source": "int[] arr1 = {1,2,3};\r\nint[] arr2 = arr1;\r\nint[] arr3 = {1,2,3};\r\nIO.println(arr1==arr2);\r\nIO.println(arr1.equals(arr3));\r\nIO.println(Arrays.equals(arr3,arr1));\r\nIO.println(arr3==arr2);\r\n\r\nIO.println(\"\");\r\n\r\nboolean compare(int[] arr_1, int[] arr_2){\r\n    if (arr_1==null && arr_2 == null){return true;}\r\n    if (arr_1 != null || arr_2 ==null){return false; }\r\n    int len1 = arr_1.length;\r\n    int len2 = arr_2.length;\r\n    if (len1!=len2){return false;}\r\n    for (int i=0; i< len1; i++){\r\n        if (arr_1[i]!=arr_2[i]){\r\n            return false;\r\n        }\r\n    }\r\n    return true;\r\n}\r\n\r\nint[] arr4;\r\n\r\nIO.println(compare(arr1, arr4));\r\n",
       "metadata": {
         "language": "java",
+        "id": "42a5bb6d-0a3d-45a9-be69-c94ad1ffbdd2",
         "executionSummary": {
-          "executionOrder": 17,
+          "executionOrder": 10,
           "success": true
         }
       },
-      "execution_count": 17,
+      "execution_count": 10,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -271,49 +273,66 @@
             "text/plain": "true\r\nfalse\r\ntrue\r\nfalse\r\n\r\nfalse\r\n"
           },
           "metadata": {},
-          "execution_count": 17
+          "execution_count": 10
         }
       ]
     },
     {
-      "id": "c2d319ad-730f-448f-941a-4b01b9709a80",
+      "id": "55c8d848-a438-44e8-b6d9-4495daf3b34d",
       "cell_type": "markdown",
       "source": "# Question 6: \r\nBINARY SORT",
       "metadata": {
         "language": "markdown",
-        "id": "c2d319ad-730f-448f-941a-4b01b9709a80"
+        "id": "55c8d848-a438-44e8-b6d9-4495daf3b34d"
       }
     },
     {
-      "id": "dfde0502-ff37-4b81-91ef-343a6fa921d8",
+      "id": "ce74adba-4e31-4a11-b1ee-84cb5d6fbf3a",
       "cell_type": "code",
-      "source": "int binary_search(int[] arr, int target){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid - 1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left =mid+1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\r\n\r\nint[] arr_1;\r\nint[] arr_2 = {1, 2, 3, 4, 6, 10, 20, 50};\r\nIO.println(binary_search(arr_1, 1) == -1);\r\nIO.println(binary_search(arr_1, 2) == -1);\r\nIO.println(binary_search(arr_2, 1) == 0);\r\nIO.println(binary_search(arr_2, 4) == 3);\r\nIO.println(binary_search(arr_2, 0) == -1);\r\nIO.println(binary_search(arr_2, 15) == -1);\r\nIO.println(binary_search(arr_2, 60) == -1);",
+      "source": "int binary_search(int[] arr, int target){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\r\n\r\nint[] arr_1;\r\nint[] arr_2 = {1, 2, 3, 4, 6, 10, 20, 50};\r\nIO.println(binary_search(arr_1, 1) == -1);\r\nIO.println(binary_search(arr_1, 2) == -1);\r\nIO.println(binary_search(arr_2, 1) == 0);\r\nIO.println(binary_search(arr_2, 4) == 3);\r\nIO.println(binary_search(arr_2, 0) == -1);\r\nIO.println(binary_search(arr_2, 15) == -1);\r\nIO.println(binary_search(arr_2, 60) == -1);",
       "metadata": {
         "language": "java",
+        "id": "ce74adba-4e31-4a11-b1ee-84cb5d6fbf3a",
         "executionSummary": {
-          "executionOrder": 26,
-          "success": false
+          "executionOrder": 11,
+          "success": true
         }
       },
-      "execution_count": 26,
+      "execution_count": 11,
       "outputs": [
         {
           "output_type": "execute_result",
-          "data": {},
+          "data": {
+            "text/plain": "true\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\n"
+          },
           "metadata": {},
-          "execution_count": 26
+          "execution_count": 11
         }
       ]
     },
     {
-      "id": "a252a78f-0e49-4f4a-9cb8-ae98a441f191",
+      "id": "37025965-56db-41e6-8ce9-2260b2073785",
       "cell_type": "code",
-      "source": "int binary_search(int[] arr, int target){\r\n    \r\n}",
+      "source": "int binary_search(int[] arr, int targe, int left=0, int right =1){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\r\n\r\nint[] arr_1;\r\nint[] arr_2 = {1, 2, 3, 4, 6, 10, 20, 50};\r\nIO.println(binary_search(arr_1, 1) == -1);\r\nIO.println(binary_search(arr_1, 2) == -1);\r\nIO.println(binary_search(arr_2, 1) == 0);\r\nIO.println(binary_search(arr_2, 4) == 3);\r\nIO.println(binary_search(arr_2, 0) == -1);\r\nIO.println(binary_search(arr_2, 15) == -1);\r\nIO.println(binary_search(arr_2, 60) == -1);",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "37025965-56db-41e6-8ce9-2260b2073785",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
     }
   ]
 }
