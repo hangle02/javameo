@@ -146,7 +146,7 @@
     {
       "id": "b7472d2c-7838-4516-99fb-88ef8fb018be",
       "cell_type": "code",
-      "source": "String s3 = 123 + 456 + \" \";\r\n//String s1 = 1;\r\nString s4 = \"579 \";\r\nString x = s4;\r\nIO.println(s3 == s4);\r\nIO.println(s3.equals(s4));\r\nIO.println(x==s4);\r\n",
+      "source": "String s3 = 123 + 456 + \" \";\r\n//String s1 = 1;\r\nString s4 = \"579 \";\r\nString x = s4;\r\nIO.println(s3 == s4);\r\nIO.println(s3.equals(s4));\r\nIO.println(x==s4);\r\n\r\n\r\n",
       "metadata": {
         "language": "java",
         "id": "b7472d2c-7838-4516-99fb-88ef8fb018be",

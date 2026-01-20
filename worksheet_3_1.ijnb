@@ -221,36 +221,69 @@
       ]
     },
     {
-      "id": "4b4b637f-8b3d-47a8-bb14-bf36c41794f2",
+      "id": "92485d8f-41e7-4a6d-a0f4-64f75c895fbc",
       "cell_type": "markdown",
       "source": "# Question 5: \r\nHow to compare 2 arrays?",
       "metadata": {
         "language": "markdown",
-        "id": "4b4b637f-8b3d-47a8-bb14-bf36c41794f2"
+        "id": "92485d8f-41e7-4a6d-a0f4-64f75c895fbc"
       }
     },
     {
-      "id": "467ceafa-0771-4bc1-b328-3da80a7815ce",
+      "id": "da028b3c-bc12-493c-9114-0e8f1e0dc2e3",
       "cell_type": "code",
-      "source": "int[] arr1 = {1,2,3};\r\nint[] arr2 = arr1;\r\nint[] arr3 = {1,2,3};\r\nIO.println(arr1==arr2);\r\nIO.println(arr1==arr3);\r\nIO.println(arr3==arr2);",
+      "source": "//String is immutable --> create same content at same address\r\nString s1 =\"hehe\";\r\nString s2 = s1;\r\nString s3 = \"hehe\";\r\nIO.println(s1==s2);\r\nIO.println(s2==s3);\r\nIO.println(s1==s3);",
       "metadata": {
         "language": "java",
         "executionSummary": {
-          "executionOrder": 2,
+          "executionOrder": 8,
           "success": true
         }
       },
-      "execution_count": 2,
+      "execution_count": 8,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "true\r\nfalse\r\nfalse\r\n"
+            "text/plain": "true\r\ntrue\r\ntrue\r\n"
           },
           "metadata": {},
-          "execution_count": 2
+          "execution_count": 8
         }
       ]
+    },
+    {
+      "id": "6b5f40c5-d4dd-461a-a0d7-f277bfe0149e",
+      "cell_type": "code",
+      "source": "int[] arr1 = {1,2,3};\r\nint[] arr2 = arr1;\r\nint[] arr3 = {1,2,3};\r\nIO.println(arr1==arr2);\r\nIO.println(arr1.equals(arr3));\r\nIO.println(Arrays.equals(arr3,arr1));\r\nIO.println(arr3==arr2);\r\n\r\nIO.println(\"\");\r\n\r\nboolean compare(int[] arr_1, int[] arr_2){\r\n    if (arr_1==null && arr_2 == null){return true;}\r\n    if (arr_1 != null || arr_2 ==null){return false; }\r\n    int len1 = arr_1.length;\r\n    int len2 = arr_2.length;\r\n    if (len1!=len2){return false;}\r\n    for (int i=0; i< len1; i++){\r\n        if (arr_1[i]!=arr_2[i]){\r\n            return false;\r\n        }\r\n    }\r\n    return true;\r\n}\r\n\r\nint[] arr4;\r\n\r\nIO.println(compare(arr1, arr4));\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 17,
+          "success": true
+        }
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\nfalse\r\ntrue\r\nfalse\r\n\r\nfalse\r\n"
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "id": "12245759-d9b6-4292-a5c3-baf58e5decbb",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
     }
   ]
 }
