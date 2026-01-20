@@ -1,0 +1,40 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "feff94e8-cc65-425f-ad64-860623cee6ba",
+      "cell_type": "markdown",
+      "source": "# Empty Notebook\n\nThe notebook file appears to be empty.",
+      "metadata": {
+        "language": "markdown",
+        "id": "feff94e8-cc65-425f-ad64-860623cee6ba"
+      }
+    },
+    {
+      "id": "7effacbb-0b99-4a25-8cf0-3027455dd5f5",
+      "cell_type": "code",
+      "source": "int[] arr_1 = {1, 2, 3};\nint[] arr_2 = arr_1;\nint[] arr_3 = {1, 2, 3};\n\n//IO.println(arr_1 == arr_2); // True            True\n//IO.println(arr_2 == arr_3); // True            False\n//IO.println(arr_1 == arr_3); // False           False\n\n//IO.println(arr_1.equals(arr_3));\n//IO.println(Arrays.equals(arr_1, arr_2));\n//IO.println(\"\");\n\nString s1 = \"Fulbright\";\nString s2 = s1;\nString s3 = \"Fulbright\";\n\n//IO.println(s1 == s2);\n//IO.println(s2 == s3);\n//IO.println(s1 == s3);\n//IO.println(s1.equals(s2));\n\n// arr_1 = {1, 2, 3}\nboolean compare(int[] a_1, int[] a_2) {\n    if (a_1 == null && a_2 == null)\n        return true;\n    if (a_1 == null || a_2 == null)\n        return false;\n    if (a_1.length != a_2.length)\n        return false;\n    for (int i = 0; i < a_1.length; i++) {\n        if (a_1[i] != a_2[i])\n            return false;\n    }\n    return true;\n}\n\n\nint[] arr_4 = {2, 3, 4};\nIO.println(compare(arr_1, arr_3) == true);\nIO.println(compare(arr_1, arr_4) == false);\nint[] arr_5;\nint[] arr_6 = {1, 2};\nIO.println(compare(arr_4, arr_5) == false);\nIO.println(compare(arr_4, arr_6) == false);\nIO.println(compare(arr_5, arr_6) == false);\n\n\n\n\n\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "2867e39f-c3a4-45e2-aa5e-23a24a9f0158",
+      "cell_type": "code",
+      "source": "int binary_search(int[] arr, int target) {\n\n    // Your work here!!!\n}\n\nint[] arr_1;\nint[] arr_2 = {1, 2, 3, 4, 6, 10, 20, 50};\nIO.println(binary_search(arr_1, 1) == -1);\nIO.println(binary_search(arr_1, 2) == -1);\nIO.println(binary_search(arr_2, 1) == 0);\nIO.println(binary_search(arr_2, 4) == 3);\nIO.println(binary_search(arr_2, 0) == -1);\nIO.println(binary_search(arr_2, 15) == -1);\nIO.println(binary_search(arr_2, 60) == -1);\n\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}

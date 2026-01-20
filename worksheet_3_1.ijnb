@@ -221,16 +221,16 @@
       ]
     },
     {
-      "id": "92485d8f-41e7-4a6d-a0f4-64f75c895fbc",
+      "id": "b235bb73-c752-458e-910e-020de8331b2e",
       "cell_type": "markdown",
       "source": "# Question 5: \r\nHow to compare 2 arrays?",
       "metadata": {
         "language": "markdown",
-        "id": "92485d8f-41e7-4a6d-a0f4-64f75c895fbc"
+        "id": "b235bb73-c752-458e-910e-020de8331b2e"
       }
     },
     {
-      "id": "da028b3c-bc12-493c-9114-0e8f1e0dc2e3",
+      "id": "55963538-a023-4fbe-bb78-925e344852a8",
       "cell_type": "code",
       "source": "//String is immutable --> create same content at same address\r\nString s1 =\"hehe\";\r\nString s2 = s1;\r\nString s3 = \"hehe\";\r\nIO.println(s1==s2);\r\nIO.println(s2==s3);\r\nIO.println(s1==s3);",
       "metadata": {
@@ -253,7 +253,7 @@
       ]
     },
     {
-      "id": "6b5f40c5-d4dd-461a-a0d7-f277bfe0149e",
+      "id": "66620f76-d7c0-4137-a700-2b7ac30c1e20",
       "cell_type": "code",
       "source": "int[] arr1 = {1,2,3};\r\nint[] arr2 = arr1;\r\nint[] arr3 = {1,2,3};\r\nIO.println(arr1==arr2);\r\nIO.println(arr1.equals(arr3));\r\nIO.println(Arrays.equals(arr3,arr1));\r\nIO.println(arr3==arr2);\r\n\r\nIO.println(\"\");\r\n\r\nboolean compare(int[] arr_1, int[] arr_2){\r\n    if (arr_1==null && arr_2 == null){return true;}\r\n    if (arr_1 != null || arr_2 ==null){return false; }\r\n    int len1 = arr_1.length;\r\n    int len2 = arr_2.length;\r\n    if (len1!=len2){return false;}\r\n    for (int i=0; i< len1; i++){\r\n        if (arr_1[i]!=arr_2[i]){\r\n            return false;\r\n        }\r\n    }\r\n    return true;\r\n}\r\n\r\nint[] arr4;\r\n\r\nIO.println(compare(arr1, arr4));\r\n",
       "metadata": {
@@ -276,9 +276,39 @@
       ]
     },
     {
-      "id": "12245759-d9b6-4292-a5c3-baf58e5decbb",
+      "id": "c2d319ad-730f-448f-941a-4b01b9709a80",
+      "cell_type": "markdown",
+      "source": "# Question 6: \r\nBINARY SORT",
+      "metadata": {
+        "language": "markdown",
+        "id": "c2d319ad-730f-448f-941a-4b01b9709a80"
+      }
+    },
+    {
+      "id": "dfde0502-ff37-4b81-91ef-343a6fa921d8",
       "cell_type": "code",
-      "source": "",
+      "source": "int binary_search(int[] arr, int target){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid - 1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left =mid+1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\r\n\r\nint[] arr_1;\r\nint[] arr_2 = {1, 2, 3, 4, 6, 10, 20, 50};\r\nIO.println(binary_search(arr_1, 1) == -1);\r\nIO.println(binary_search(arr_1, 2) == -1);\r\nIO.println(binary_search(arr_2, 1) == 0);\r\nIO.println(binary_search(arr_2, 4) == 3);\r\nIO.println(binary_search(arr_2, 0) == -1);\r\nIO.println(binary_search(arr_2, 15) == -1);\r\nIO.println(binary_search(arr_2, 60) == -1);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 26,
+          "success": false
+        }
+      },
+      "execution_count": 26,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 26
+        }
+      ]
+    },
+    {
+      "id": "a252a78f-0e49-4f4a-9cb8-ae98a441f191",
+      "cell_type": "code",
+      "source": "int binary_search(int[] arr, int target){\r\n    \r\n}",
       "metadata": {
         "language": "java"
       },
