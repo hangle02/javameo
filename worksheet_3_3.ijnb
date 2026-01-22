@@ -127,12 +127,49 @@
     {
       "id": "5b6c17b3-7c26-4fd5-81e5-765461fa594c",
       "cell_type": "code",
-      "source": "",
+      "source": "int binary_search1(int[] arr, int target){\r\n    //long cur_time = System.currentTimeMillis();\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        int mid = left+ (-left+right)/2;\r\n        //int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    //long dur_time = System.currentTimeMillis() - cur_time;\r\n    //IO.println(dur_time);\r\n    return -1;\r\n    \r\n}\r\n\r\nint linear_search(int[] numbers, int n){\r\n    //long cur_time = System.currentTimeMillis();\r\n    int result = -1;\r\n    for (int i=0; i<numbers.length; i++){\r\n        if (numbers[i]== n){\r\n            return i;\r\n\r\n        };\r\n    };\r\n    //long dur_time = System.currentTimeMillis() - cur_time;\r\n    //IO.println(dur_time);\r\n    return -1;\r\n};\r\n\r\nint size = 10000000;\r\nint[] sorted_array = new int[size];\r\nRandom rand = new Random();\r\n\r\nfor (int i = 0; i< size; i++){\r\n    if(i == 0){\r\n        sorted_array[i] = rand.nextInt(size);\r\n    }\r\n    else{\r\n        sorted_array[i] = sorted_array[i-1] + Math.abs(rand.nextInt(100));\r\n    }\r\n}\r\n\r\nint t = sorted_array[rand.nextInt(size)];\r\n\r\n//IO.println(Arrays.toString(sorted_array));\r\nlong start_t = System.currentTimeMillis();\r\nIO.println(binary_search1(sorted_array, t));\r\nlong end_t = System.currentTimeMillis();\r\nIO.println((end_t - start_t));\r\n\r\nlong start_l = System.currentTimeMillis();\r\nIO.println(linear_search(sorted_array, t));\r\nlong end_l = System.currentTimeMillis();\r\nIO.println(end_l-start_l);\r\n// int[] arr_1;\r\n// int[] arr_2 = {1, 2, 3, 4, 6, 10, 20, 50};\r\n// IO.println(binary_search1(arr_1, 1) == -1);\r\n// IO.println(binary_search1(arr_1, 2) == -1);\r\n// IO.println(binary_search1(arr_2, 1) == 0);\r\n// IO.println(binary_search1(arr_2, 4) == 3);\r\n// IO.println(binary_search1(arr_2, 0) == -1);\r\n// IO.println(binary_search1(arr_2, 15) == -1);\r\n// IO.println(binary_search1(arr_2, 60) == -1);",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "5b6c17b3-7c26-4fd5-81e5-765461fa594c",
+        "executionSummary": {
+          "executionOrder": 73,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 73,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "6009928\r\n16\r\n6009928\r\n17\r\n"
+          },
+          "metadata": {},
+          "execution_count": 73
+        }
+      ]
+    },
+    {
+      "id": "b6214b6f-21ba-46a4-ab08-e6e13bc7a0ff",
+      "cell_type": "code",
+      "source": "import java.util.Random;\r\nimport java.util.Arrays;\r\n\r\n// --- Hàm Binary Search (Giữ nguyên logic của bạn) ---\r\nint binary_search1(int[] arr, int target){\r\n    if (arr == null){ return -1;}\r\n    int left = 0;\r\n    int right = arr.length - 1;\r\n    while(left <= right){\r\n        int mid = left + (right - left)/2; // Sửa công thức này cho gọn và chuẩn\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target < arr[mid]){\r\n            right = mid - 1;\r\n        } else { // Dùng else để tối ưu số lần so sánh\r\n            left = mid + 1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\r\n\r\n// --- Hàm Linear Search ---\r\nint linear_search(int[] numbers, int n){\r\n    for (int i=0; i<numbers.length; i++){\r\n        if (numbers[i] == n){\r\n            return i;\r\n        }\r\n    } // Bỏ dấu ; dư thừa\r\n    return -1;\r\n} // Bỏ dấu ; dư thừa\r\n\r\n// --- CHƯƠNG TRÌNH CHÍNH ---\r\n\r\nint size = 1000000; \r\nint[] sorted_array = new int[size];\r\nRandom rand = new Random();\r\n\r\n// 1. SỬA LỖI TRÀN SỐ: Tạo mảng tăng dần nhưng bước nhảy nhỏ\r\n// sorted_array[0] = 0; // Bắt đầu từ 0 cho an toàn\r\nfor (int i = 0; i < size; i++){\r\n    if(i == 0){\r\n        sorted_array[i] = rand.nextInt(10); // Số đầu nhỏ thôi\r\n    }\r\n    else{\r\n        // Chỉ cộng thêm 1 lượng nhỏ (1 đến 10) để không bị tràn quá 2 tỷ\r\n        sorted_array[i] = sorted_array[i-1] + rand.nextInt(10) + 1;\r\n    }\r\n}\r\n\r\n// Chọn một số ngẫu nhiên có trong mảng để tìm\r\nint t = sorted_array[rand.nextInt(size)];\r\n\r\n// 2. SỬA LỖI ĐO THỜI GIAN: Dùng nanoTime\r\n\r\n// --- Test Binary Search ---\r\nlong start_b = System.nanoTime(); // Dùng nanoTime\r\nint res_b = binary_search1(sorted_array, t);\r\nlong end_b = System.nanoTime();\r\n// IO.println(\"Binary result index: \" + res_b);\r\nIO.println(\"Binary time (ns): \" + (end_b - start_b));\r\n\r\n// --- Test Linear Search ---\r\nlong start_l = System.nanoTime();\r\nint res_l = linear_search(sorted_array, t);\r\nlong end_l = System.nanoTime();\r\n// IO.println(\"Linear result index: \" + res_l);\r\nIO.println(\"Linear time (ns): \" + (end_l - start_l));",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 98,
+          "success": true
+        }
+      },
+      "execution_count": 98,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Binary time (ns): 9891900\r\nLinear time (ns): 11988600\r\n"
+          },
+          "metadata": {},
+          "execution_count": 98
+        }
+      ]
     },
     {
       "id": "54223d6d-ab4e-4414-aa32-e976d0de5ec8",

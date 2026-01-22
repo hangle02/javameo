@@ -294,57 +294,57 @@
         "language": "java",
         "id": "ce74adba-4e31-4a11-b1ee-84cb5d6fbf3a",
         "executionSummary": {
-          "executionOrder": 11,
-          "success": true
+          "executionOrder": 5,
+          "success": false
         }
       },
-      "execution_count": 11,
+      "execution_count": 5,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "true\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\n"
+            "text/plain": "Created method binary_search. However, it cannot be referenced until variable target is declared\ntrue\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\n"
           },
           "metadata": {},
-          "execution_count": 11
+          "execution_count": 5
         }
       ]
     },
     {
       "id": "37025965-56db-41e6-8ce9-2260b2073785",
       "cell_type": "code",
-      "source": "int binary_search(int[] arr, int targe, int left=0, int right =1){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\r\n\r\nint[] arr_1;\r\nint[] arr_2 = {1, 2, 3, 4, 6, 10, 20, 50};\r\nIO.println(binary_search(arr_1, 1) == -1);\r\nIO.println(binary_search(arr_1, 2) == -1);\r\nIO.println(binary_search(arr_2, 1) == 0);\r\nIO.println(binary_search(arr_2, 4) == 3);\r\nIO.println(binary_search(arr_2, 0) == -1);\r\nIO.println(binary_search(arr_2, 15) == -1);\r\nIO.println(binary_search(arr_2, 60) == -1);",
+      "source": "int binary_search(int[] arr, int targe){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\r\n\r\nint[] arr_1;\r\nint[] arr_2 = {1, 2, 3, 4, 6, 10, 20, 50};\r\nIO.println(binary_search(arr_1, 1) == -1);\r\nIO.println(binary_search(arr_1, 2) == -1);\r\nIO.println(binary_search(arr_2, 1) == 0);\r\nIO.println(binary_search(arr_2, 4) == 3);\r\nIO.println(binary_search(arr_2, 0) == -1);\r\nIO.println(binary_search(arr_2, 15) == -1);\r\nIO.println(binary_search(arr_2, 60) == -1);",
       "metadata": {
         "language": "java",
         "id": "37025965-56db-41e6-8ce9-2260b2073785",
         "executionSummary": {
-          "executionOrder": 12,
-          "success": true
+          "executionOrder": 4,
+          "success": false
         }
       },
-      "execution_count": 12,
+      "execution_count": 4,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "true\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\n"
+            "text/plain": "Created method binary_search. However, it cannot be invoked or used or instantiated until variable target is declared\nCreated method binary_search. However, it cannot be referenced until variable target is declared\nAttempt to use definition snippet with unresolved references in MethodSnippet:binary_search/(int[],int)int-int binary_search(int[] arr, int targe){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\nAttempt to use definition snippet with unresolved references in MethodSnippet:binary_search/(int[],int)int-int binary_search(int[] arr, int targe){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\nAttempt to use definition snippet with unresolved references in MethodSnippet:binary_search/(int[],int)int-int binary_search(int[] arr, int targe){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\nAttempt to use definition snippet with unresolved references in MethodSnippet:binary_search/(int[],int)int-int binary_search(int[] arr, int targe){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\nAttempt to use definition snippet with unresolved references in MethodSnippet:binary_search/(int[],int)int-int binary_search(int[] arr, int targe){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\nAttempt to use definition snippet with unresolved references in MethodSnippet:binary_search/(int[],int)int-int binary_search(int[] arr, int targe){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\nAttempt to use definition snippet with unresolved references in MethodSnippet:binary_search/(int[],int)int-int binary_search(int[] arr, int targe){\r\n    if (arr == null){ return -1;}\r\n    int left =0;\r\n    int right = arr.length -1;\r\n    while(left<=right){\r\n        //int mid = left+ (-left+right)/2;\r\n        int mid = (left+right)/2;\r\n        if(target == arr[mid]){\r\n            return mid;\r\n        }\r\n        if(target< arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(target > arr[mid]){\r\n            left = mid +1;\r\n        }    \r\n    }\r\n    return -1;\r\n}\n"
           },
           "metadata": {},
-          "execution_count": 12
+          "execution_count": 4
         }
       ]
     },
     {
-      "id": "51302ddb-989a-483d-9b7e-6b68486febfd",
+      "id": "669c953f-0c81-488a-bfe4-b2446a77dfe2",
       "cell_type": "markdown",
       "source": "# BUBBLE SORT",
       "metadata": {
         "language": "markdown",
-        "id": "51302ddb-989a-483d-9b7e-6b68486febfd"
+        "id": "669c953f-0c81-488a-bfe4-b2446a77dfe2"
       }
     },
     {
-      "id": "00882078-2221-4eb9-8b03-a85f98c0b167",
+      "id": "5a5aff7e-40d7-4292-8e7c-8ed6f3a7f619",
       "cell_type": "code",
       "source": "int[] bubble_sort(int[] arr){\r\n    \r\n}",
       "metadata": {
