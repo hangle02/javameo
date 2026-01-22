@@ -1,0 +1,157 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "1ba71854-a90b-4796-8331-fc6395af1f9b",
+      "cell_type": "markdown",
+      "source": "# Empty Notebook\n\nThe notebook file appears to be empty.",
+      "metadata": {
+        "language": "markdown",
+        "id": "1ba71854-a90b-4796-8331-fc6395af1f9b"
+      }
+    },
+    {
+      "id": "bb3e3fe9-8b05-470f-9cb4-40436d8f4c89",
+      "cell_type": "markdown",
+      "source": "# Question 1: Implement the bubble sort\n    ",
+      "metadata": {
+        "language": "markdown",
+        "id": "bb3e3fe9-8b05-470f-9cb4-40436d8f4c89"
+      }
+    },
+    {
+      "id": "413e49e7-9ec5-44b5-ba03-429bdcfef889",
+      "cell_type": "code",
+      "source": "import java.util.Arrays;\nvoid bubble_sort(int[] arr) {\n    int[] r_arr\n    if (arr.length<2){\n        int[] r_arr = arr;\n        break;\n    }\n    int temp=0;\n    for (int k, )\n    for (int i, i < arr.length, i++){\n        if (arr[i]> arr[i+1]){\n            \n        }    \n    }\n\n    \n}\n\n// Unit test\nint[] input_arr = {5, 6, 1, 4, 2, 3};\nint[] output_arr = {};\nbubble_sort(input_arr);\nArrays.equals(input_arr, output_arr);",
+      "metadata": {
+        "language": "java",
+        "id": "413e49e7-9ec5-44b5-ba03-429bdcfef889",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "4\n"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "id": "c33df483-30a9-4e81-b1fe-5c7d6433afb0",
+      "cell_type": "markdown",
+      "source": "# Question 2: Implement the insertion sort",
+      "metadata": {
+        "language": "markdown",
+        "id": "c33df483-30a9-4e81-b1fe-5c7d6433afb0"
+      }
+    },
+    {
+      "id": "6701edfc-294d-4a6f-94d9-66f98da321d6",
+      "cell_type": "code",
+      "source": "import java.util.Arrays;\nvoid insertion_sort(int[] arr) {\n    int n = arr.length;\n    for (int i =1; i< n; i++){\n        int key = arr[i];\n        int j = i-1;\n        while(j>=0 && arr[j]>key){\n            arr[j+1] = arr[j];\n            j = j-1;\n        }\n        arr[j+1]= key;\n    }\n}\n\n// Unit test\nint[] input_arr = {5, 6, 1, 4, 2, 3};\nint[] output_arr = {1,2,3,4,5,6};\ninsertion_sort(input_arr);\nIO.println(Arrays.equals(input_arr, output_arr));",
+      "metadata": {
+        "language": "java",
+        "id": "6701edfc-294d-4a6f-94d9-66f98da321d6",
+        "executionSummary": {
+          "executionOrder": 13,
+          "success": true
+        }
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "id": "5e65950d-d8d1-4921-842b-d50063add80b",
+      "cell_type": "markdown",
+      "source": "# Question 3: Implement the selection sort",
+      "metadata": {
+        "language": "markdown",
+        "id": "5e65950d-d8d1-4921-842b-d50063add80b"
+      }
+    },
+    {
+      "id": "551deaf7-c6f6-4c0f-8656-83ccf8a07378",
+      "cell_type": "code",
+      "source": "import java.util.Arrays;\nvoid selection_sort(int[] arr) {\n    int n =arr.length;\n    for(int i=0; i<n-1; i++ ){\n        int minIndex = i;\n        for(int j = i+1; j<n; j++){\n            if(arr[j]<arr[minIndex]){\n                minIndex = j;\n            }\n        }\n        int temp = arr[minIndex];\n        arr[minIndex] = arr[i];\n        arr[i] = temp;\n    }\n}\n\n// Unit test\nint[] input_arr = {5, 6, 1, 4, 2, 3};\nint[] output_arr = {1,2,3,4,5,6};\ninsertion_sort(input_arr);\nIO.println(Arrays.equals(input_arr, output_arr));",
+      "metadata": {
+        "language": "java",
+        "id": "551deaf7-c6f6-4c0f-8656-83ccf8a07378",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "7183c165-2961-4b47-b2dd-4db704574a58",
+      "cell_type": "markdown",
+      "source": "# Question 4: Compare sequential search vs binary search\n\nNote that you can get the time from the system by using this function\n    long current_time = System.currentTimeMillis();\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "7183c165-2961-4b47-b2dd-4db704574a58"
+      }
+    },
+    {
+      "id": "5b6c17b3-7c26-4fd5-81e5-765461fa594c",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "54223d6d-ab4e-4414-aa32-e976d0de5ec8",
+      "cell_type": "markdown",
+      "source": "# Question 5: Compare bubble sort vs selection sort vs insertion sort",
+      "metadata": {
+        "language": "markdown",
+        "id": "54223d6d-ab4e-4414-aa32-e976d0de5ec8"
+      }
+    },
+    {
+      "id": "eaf68164-de68-4a34-bb1b-196430943a05",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
