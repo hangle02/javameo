@@ -48,11 +48,11 @@
         "language": "java",
         "id": "2867e39f-c3a4-45e2-aa5e-23a24a9f0158",
         "executionSummary": {
-          "executionOrder": 2,
+          "executionOrder": 1,
           "success": false
         }
       },
-      "execution_count": 2,
+      "execution_count": 1,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -60,7 +60,7 @@
             "text/plain": "missing return statement\nint binary_search(int[] arr, int target) {\n                                         ^\ncannot find symbol\n  symbol:   method binary_search(int[],int)\nIO.println(binary_search(arr_1, 1) == -1);\n           ^-----------^\ncannot find symbol\n  symbol:   method binary_search(int[],int)\nIO.println(binary_search(arr_1, 2) == -1);\n           ^-----------^\ncannot find symbol\n  symbol:   method binary_search(int[],int)\nIO.println(binary_search(arr_2, 1) == 0);\n           ^-----------^\ncannot find symbol\n  symbol:   method binary_search(int[],int)\nIO.println(binary_search(arr_2, 4) == 3);\n           ^-----------^\ncannot find symbol\n  symbol:   method binary_search(int[],int)\nIO.println(binary_search(arr_2, 0) == -1);\n           ^-----------^\ncannot find symbol\n  symbol:   method binary_search(int[],int)\nIO.println(binary_search(arr_2, 15) == -1);\n           ^-----------^\ncannot find symbol\n  symbol:   method binary_search(int[],int)\nIO.println(binary_search(arr_2, 60) == -1);\n           ^-----------^\n"
           },
           "metadata": {},
-          "execution_count": 2
+          "execution_count": 1
         }
       ]
     }
