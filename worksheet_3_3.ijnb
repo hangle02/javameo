@@ -190,6 +190,26 @@
       },
       "execution_count": null,
       "outputs": []
+    },
+    {
+      "id": "af0594de-a8da-46f6-8616-ebecaf264f07",
+      "cell_type": "code",
+      "source": "\r\npublic class Poker_hand_hw2{\r\n    final String[] suit1 = {\"H\", \"D\", \"C\", \"S\"};\r\n    final String[] rank1 = {\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"};\r\n    private String[] cards_= new String[5]; \r\n\r\n    public Poker_hand_hw2(String[] cards2){\r\n        if (cards2==null || cards2.length != 5) {\r\n            throw new IllegalArgumentException() ;        \r\n        }\r\n        if (!checkvalidcard(cards2, suit1, rank1)){\r\n            throw new IllegalArgumentException() ;\r\n        }\r\n        \r\n        this.cards_ = cards2;\r\n\r\n    }\r\n    private int search_index(String[] elements, String key){\r\n        for (int i = 0; i<elements.length; i++){\r\n            if(elements[i].equals(key)){\r\n                return i;\r\n            }\r\n        }\r\n        return -1;\r\n    }\r\n    private boolean checkvalidcard(String[] cards_set, String[] suit, String[] rank){\r\n        int len = cards_set.length;\r\n        for (int i=0; i< len; i++){\r\n            String card = cards_set[i];\r\n            if(search_index(rank, card.substring(0, 1))==-1){\r\n                return false;\r\n            }\r\n            if(search_index(suit, card.substring(1))==-1){\r\n                return false;\r\n            }\r\n        }\r\n        return true;\r\n    }\r\n\r\n    private int[] count_set(String[] cards3, String[] sets){\r\n        int[] set_ = new int[sets.length];\r\n        for (int i =0; i< cards3.length; i++){\r\n            for (int j = 0; j< sets.length; j++){\r\n                if(cards3[i].substring(1).equals(sets[j])){\r\n                    set_[j]+=1;\r\n                }\r\n            }\r\n        }\r\n        return set_;\r\n    }\r\n    private boolean checkin(int[] element, int key){\r\n        for(int i=0; i<element.length; i++){\r\n            if(element[i]==key){\r\n                return true;\r\n            }\r\n        }\r\n        return false;\r\n    }\r\n\r\n    private boolean is_FourOfKind(int[] suit_, int[] rank_){\r\n        if (checkin(rank_, 4)) {\r\n            return true;            \r\n        }\r\n        return false;\r\n    }\r\n    \r\n\r\n    public int get_category(){\r\n\r\n    }\r\n    public static void main(String[] args) {\r\n    }\r\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "f169e4f8-90f6-4dee-9824-a1f741931f2a",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
     }
   ]
 }
