@@ -64,6 +64,7 @@
       "source": "// int n =3;\r\n// int[] incomplete_str = new int[n];\r\n// int pos;\r\npublic void print_all_binary_string(int n, int[] incomplete_str, int pos){\r\n    if (pos ==n){\r\n        System.out.println(Arrays.toString(incomplete_str));\r\n        return;\r\n    }\r\n    else{\r\n        // incomplete_str[pos] = 0;\r\n        // print_all_binary_string(n, incomplete_str, pos+1);\r\n        // incomplete_str[pos] = 1;\r\n        // print_all_binary_string(n, incomplete_str, pos+1);\r\n        for(int i =0; i<=1; i++){\r\n            incomplete_str[pos] = i;\r\n            print_all_binary_string(n, incomplete_str, pos+1);\r\n        }\r\n    }\r\n}\r\n// public static void main(String[] args){\r\n//     int n = 3;\r\n//     int[] arr = new int[n];\r\n//     print_all_binary_string(n, arr, -1);\r\n// }\r\n\r\npublic void print_all_bin_str(int n){\r\n    int[] arr = new int[n];\r\n    print_all_binary_string(n, arr, 0);\r\n}\r\n\r\n    print_all_bin_str(3);\r\n\r\n\r\n",
       "metadata": {
         "language": "java",
+        "id": "10adabb0-def6-43f8-8d15-31c283851c1e",
         "executionSummary": {
           "executionOrder": 41,
           "success": true
@@ -87,6 +88,7 @@
       "source": "import java.util.Arrays;\r\n\r\n// 1. Hàm đệ quy\r\nvoid print_all_binary_string(int n, int[] incomplete_str, int pos) {\r\n    if (pos == n) {\r\n        System.out.println(Arrays.toString(incomplete_str));\r\n        return;\r\n    }\r\n    for (int i = 0; i <= 1; i++) {\r\n        incomplete_str[pos] = i;\r\n        print_all_binary_string(n, incomplete_str, pos + 1);\r\n    }\r\n}\r\n\r\n// 2. Hàm gọi\r\nvoid print_all_bin_str(int n) {\r\n    int[] arr = new int[n];\r\n    // Bắt đầu từ 0\r\n    print_all_binary_string(n, arr, 0);\r\n}\r\n\r\n// 3. LỆNH CHẠY (Gõ dòng này thì nó mới in ra!)\r\nprint_all_bin_str(3);",
       "metadata": {
         "language": "java",
+        "id": "086ca41f-6f9d-4d36-bfd0-7316a31c9174",
         "executionSummary": {
           "executionOrder": 40,
           "success": true
@@ -134,29 +136,6 @@
           },
           "metadata": {},
           "execution_count": 57
-        }
-      ]
-    },
-    {
-      "id": "3123edc2-ae1d-4e82-924b-f28f9125bd05",
-      "cell_type": "code",
-      "source": "import java.util.Arrays;\r\n\r\n// 1. Hàm đệ quy\r\nvoid print_all_permutations2(int n, int[] incomplete_str, int pos) {\r\n    if (pos == n) {\r\n        System.out.println(Arrays.toString(incomplete_str));\r\n        return;\r\n    }\r\n    for (int i = 1; i <= n; i++) {\r\n        boolean is_used = false;\r\n        for(int k =0; k< pos; k++){\r\n            if(incomplete_str[k] == i){\r\n                is_used = true;\r\n                break;\r\n            }\r\n        }\r\n        if(is_used){\r\n            break;\r\n        }\r\n        else{\r\n            incomplete_str[pos] = i;\r\n            print_all_permutations2(n, incomplete_str, pos+1);\r\n        }\r\n    }\r\n}\r\n\r\n// 2. Hàm gọi\r\nvoid print_all_permu2(int n) {\r\n    boolean[] used = new boolean[n+1];\r\n    int[] arr = new int[n];\r\n    // Bắt đầu từ 0\r\n    print_all_permutations2(n, arr,used, 0);\r\n}\r\n\r\n// 3. LỆNH CHẠY (Gõ dòng này thì nó mới in ra!)\r\nprint_all_permu2(4);",
-      "metadata": {
-        "language": "java",
-        "executionSummary": {
-          "executionOrder": 62,
-          "success": false
-        }
-      },
-      "execution_count": 62,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": "method print_all_permutations2 in class  cannot be applied to given types;\n  required: int,int[],int\n  found:    int,int[],boolean[],int\n  reason: actual and formal argument lists differ in length\n    print_all_permutations2(n, arr,used, 0);\n    ^---------------------^\nmethod print_all_permutations2 in class  cannot be applied to given types;\n  required: int,int[],int\n  found:    int,int[],boolean[],int\n  reason: actual and formal argument lists differ in length\n    print_all_permutations2(n, arr,used, 0);\n    ^---------------------^\nAttempt to use definition snippet with unresolved references in MethodSnippet:print_all_permu2/(int)void-// 2. Hàm gọi\r\nvoid print_all_permu2(int n) {\r\n    boolean[] used = new boolean[n+1];\r\n    int[] arr = new int[n];\r\n    // Bắt đầu từ 0\r\n    print_all_permutations2(n, arr,used, 0);\r\n}\n"
-          },
-          "metadata": {},
-          "execution_count": 62
         }
       ]
     },
