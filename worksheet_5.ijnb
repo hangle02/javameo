@@ -151,7 +151,7 @@
     {
       "id": "8c5aa3f7-b6cc-43ef-91da-bd7fd9b653f6",
       "cell_type": "code",
-      "source": "",
+      "source": "import java.util.Arrays;\r\n\r\n// 1. Hàm đệ quy\r\nvoid print_all_subsets(int n, int[] current_digit, int pos) {\r\n    if (pos == n) {\r\n        System.out.println(Arrays.toString(incomplete_str));\r\n        return;\r\n    }\r\n    for (int i = 1; i <= n; i++) {\r\n        if (used[i] == false){\r\n            incomplete_str[pos] = i;\r\n            used[i] = true;\r\n            print_all_permutations(n, incomplete_str, used, pos + 1);\r\n            used[i] = false;\r\n        }\r\n    }\r\n}\r\n\r\n// 2. Hàm gọi\r\nvoid print_all_sub(int n) {\r\n    boolean[] used = new boolean[n+1];\r\n    int[] arr = new int[n];\r\n    // Bắt đầu từ 0\r\n    print_all_subsets(n, arr,used, 0);\r\n}\r\n\r\n// 3. LỆNH CHẠY (Gõ dòng này thì nó mới in ra!)\r\nprint_all_permu(4);",
       "metadata": {
         "language": "java"
       },
@@ -161,7 +161,7 @@
     {
       "id": "a91ded37-a82e-4f68-9027-f405e8ba4cf6",
       "cell_type": "markdown",
-      "source": "# Example 4 (Eight queens puzzle): How to place 8 queens on an 8×8 chessboard so that no two queens threaten each other?\n\n",
+      "source": "# Example 4 (Eight queens puzzle): How to place 8 queens on an 8×8 chessboard so that no two queens threaten each other?\n1. What is the partial candidate? \n- array chứa row mà Q đang đứng (index = num of coll) eg [2,7,6,...]\n2. How to represent it? \n\n3. Stop require? \n",
       "metadata": {
         "language": "markdown",
         "id": "a91ded37-a82e-4f68-9027-f405e8ba4cf6"
@@ -170,12 +170,24 @@
     {
       "id": "83757193-f9ff-4e6a-ae71-d8b7dc83d8e4",
       "cell_type": "code",
-      "source": "",
+      "source": "import java.util.Arrays;\r\n\r\n// 1. Hàm đệ quy\r\nvoid solve_n_queen_puzzle (int n, int[] queen_position, int pos){\r\n    //solve the nxn queen puzzle\r\n    //n: chessboard size\r\n    //queen_position[i] = is the row of ith col of the ith queen\r\n    //pos = num of queen that already placed on the board\r\n    if(pos == n){\r\n        System.out.println(Arrays.toString(queen_position));\r\n        return;\r\n    }\r\n    else{//other wise\r\n        //take the next decision: place the (pos +1)th queen on the board\r\n        //available choice: n\r\n        for (int row = 0; row < n; row++){\r\n            //form a new partial candidate\r\n            queen_position[pos] = row;\r\n            //check\r\n            boolean is_candidate_ok = true;\r\n            for( int first_queen_col=0; first_queen_col<= pos; first_queen_col++){\r\n                for(int second_queen_col=first_queen_col+1; second_queen_col<= pos; second_queen_col++){\r\n                    //check if 2 q on the same row\r\n                    if(queen_position[first_queen_col]==queen_position[second_queen_col]){\r\n                        is_candidate_ok = false;\r\n                        break;\r\n                    }\r\n                    //check if 2q on the same diagonal\r\n                    if((queen_position[first_queen_col]-first_queen_col)==(queen_position[second_queen_col]-second_queen_col)){\r\n                        is_candidate_ok = false;\r\n                        break;\r\n                    }\r\n                     //check if 2q on the same counter-diagonal\r\n                    if((queen_position[first_queen_col]+first_queen_col)==(queen_position[second_queen_col]+second_queen_col)){\r\n                        is_candidate_ok = false;\r\n                        break;\r\n                    }\r\n                }\r\n                if(!is_candidate_ok){ break;}\r\n            }\r\n\r\n            //if the new candidate is ok, then use recursion\r\n            if(is_candidate_ok){\r\n                solve_n_queen_puzzle(n,queen_position, pos+1);\r\n            }\r\n        }\r\n\r\n    }\r\n}\r\n\r\n// 2. Hàm gọi\r\nvoid solve_n_queen_puz(int n){\r\n    int[] tmp = new int[n];\r\n    solve_n_queen_puzzle(n, tmp, 0);\r\n}\r\n\r\n\r\n// 3. LỆNH CHẠY (Gõ dòng này thì nó mới in ra!)\r\nsolve_n_queen_puz(3);",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "83757193-f9ff-4e6a-ae71-d8b7dc83d8e4",
+        "executionSummary": {
+          "executionOrder": 4,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
     },
     {
       "id": "3b39244d-f4f7-4e49-a3ae-442b9da269e0",
