@@ -1,5 +1,4 @@
 package hw_3;
-//package com.gradescope.cs201;
 
 public class SortedArrayBlackbox {
     private int[] internal_array;
