@@ -123,11 +123,11 @@
         "language": "java",
         "id": "3d2db600-c7fe-4b13-9de4-a116d66305a5",
         "executionSummary": {
-          "executionOrder": 57,
+          "executionOrder": 2,
           "success": true
         }
       },
-      "execution_count": 57,
+      "execution_count": 2,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -135,7 +135,7 @@
             "text/plain": "[1, 2, 3, 4]\r\n[1, 2, 4, 3]\r\n[1, 3, 2, 4]\r\n[1, 3, 4, 2]\r\n[1, 4, 2, 3]\r\n[1, 4, 3, 2]\r\n[2, 1, 3, 4]\r\n[2, 1, 4, 3]\r\n[2, 3, 1, 4]\r\n[2, 3, 4, 1]\r\n[2, 4, 1, 3]\r\n[2, 4, 3, 1]\r\n[3, 1, 2, 4]\r\n[3, 1, 4, 2]\r\n[3, 2, 1, 4]\r\n[3, 2, 4, 1]\r\n[3, 4, 1, 2]\r\n[3, 4, 2, 1]\r\n[4, 1, 2, 3]\r\n[4, 1, 3, 2]\r\n[4, 2, 1, 3]\r\n[4, 2, 3, 1]\r\n[4, 3, 1, 2]\r\n[4, 3, 2, 1]\r\n"
           },
           "metadata": {},
-          "execution_count": 57
+          "execution_count": 2
         }
       ]
     },
@@ -151,12 +151,26 @@
     {
       "id": "8c5aa3f7-b6cc-43ef-91da-bd7fd9b653f6",
       "cell_type": "code",
-      "source": "import java.util.Arrays;\r\n\r\n// 1. Hàm đệ quy\r\nvoid print_all_subsets(int n, int[] current_digit, int pos) {\r\n    if (pos == n) {\r\n        System.out.println(Arrays.toString(incomplete_str));\r\n        return;\r\n    }\r\n    for (int i = 1; i <= n; i++) {\r\n        if (used[i] == false){\r\n            incomplete_str[pos] = i;\r\n            used[i] = true;\r\n            print_all_permutations(n, incomplete_str, used, pos + 1);\r\n            used[i] = false;\r\n        }\r\n    }\r\n}\r\n\r\n// 2. Hàm gọi\r\nvoid print_all_sub(int n) {\r\n    boolean[] used = new boolean[n+1];\r\n    int[] arr = new int[n];\r\n    // Bắt đầu từ 0\r\n    print_all_subsets(n, arr,used, 0);\r\n}\r\n\r\n// 3. LỆNH CHẠY (Gõ dòng này thì nó mới in ra!)\r\nprint_all_permu(4);",
+      "source": "import java.util.Arrays;\r\n\r\n// 1. Hàm đệ quy\r\nvoid print_all_subsets(int n, int index, int[] current_subset) {\r\n   //dung khi chay het so\r\n    if(index > n){\r\n        System.out.println(Arrays.toString(current_subset));\r\n        return;\r\n   }\r\n\r\n   int[] new_subset = Arrays.copyOf(current_subset, current_subset.length + 1);\r\n   new_subset[new_subset.length - 1] = index;\r\n   print_all_subsets(n, index+1, new_subset);\r\n\r\n   print_all_subsets(n, index+1, current_subset);\r\n\r\n   \r\n}\r\n\r\n// 2. Hàm gọi\r\nvoid print_all_sub(int n) {\r\n    int[] arr = new int[0]; // Khởi tạo mảng rỗng\r\n    // Bắt đầu từ 1\r\n    print_all_subsets(n,1, arr);\r\n}\r\n\r\n// 3. LỆNH CHẠY (Gõ dòng này thì nó mới in ra!)\r\nprint_all_sub(4);",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "8c5aa3f7-b6cc-43ef-91da-bd7fd9b653f6",
+        "executionSummary": {
+          "executionOrder": 10,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "[1, 2, 3, 4]\r\n[1, 2, 3]\r\n[1, 2, 4]\r\n[1, 2]\r\n[1, 3, 4]\r\n[1, 3]\r\n[1, 4]\r\n[1]\r\n[2, 3, 4]\r\n[2, 3]\r\n[2, 4]\r\n[2]\r\n[3, 4]\r\n[3]\r\n[4]\r\n[]\r\n"
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
     },
     {
       "id": "a91ded37-a82e-4f68-9027-f405e8ba4cf6",
@@ -266,6 +280,39 @@
       },
       "execution_count": null,
       "outputs": []
+    },
+    {
+      "id": "dda3e76e-b799-42eb-b43a-0ddf4ce7495d",
+      "cell_type": "markdown",
+      "source": "hw4\r\n9x9 matrix + vi tri\r\nfrom x --> mot int[] chua so cac so con lai theo hang ngang\r\nfrom y --> mot int[] chua so cac so con lai theo hang doc\r\n\r\n\r\nco the tim giao dua fx va fy la ra",
+      "metadata": {
+        "language": "markdown",
+        "id": "dda3e76e-b799-42eb-b43a-0ddf4ce7495d"
+      }
+    },
+    {
+      "id": "1766c4a9-d911-44ad-9fa7-7e7df6e8d204",
+      "cell_type": "code",
+      "source": "import java.util.Arrays;\r\n\r\nint[] find_possible_values(int[][] matrix, int x, int y){\r\n    int[] arr_1 = new int[0];\r\n    int[] arr_2 = new int[0];\r\n    int[] miss_x = find_row_missing(matrix, 1, arr_1, x);\r\n    int[] miss_y = find_col_missing(matrix, 1, arr_2, y);\r\n    int[] r = check_same_value(miss_x, miss_y);\r\n    return r;\r\n\r\n}\r\n\r\nint[] find_row_missing(int[][] matrix, int index, int[] current_num, int x){\r\n    if (index>9){\r\n        return current_num;\r\n    }\r\n    for (int i=0; i<9; i++ ){\r\n        if(matrix[x][i] == index){\r\n            find_row_missing(matrix, index+1, current_num, x);\r\n        }\r\n    }\r\n    int[] new_num = Arrays.copyOf(current_num, current_num.length + 1);\r\n    new_num[new_num.length-1] = index;\r\n    find_row_missing(matrix, index+1, new_num, x);\r\n}\r\n\r\nint[] find_col_missing(int[][] matrix, int index, int[] current_num, int y){\r\n    if (index>9){\r\n        return current_num;\r\n    }\r\n    for (int i=0; i<9; i++ ){\r\n        if(matrix[i][y] == index){\r\n            find_col_missing(matrix, index+1, current_num, y);\r\n        }\r\n    }\r\n    int[] new_num = Arrays.copyOf(current_num, current_num.length + 1);\r\n    new_num[new_num.length-1] = index;\r\n    find_col_missing(matrix, index+1, new_num, y);\r\n}\r\n\r\nint[] check_same_value(int[] row, int[] col){\r\n    int n=0;\r\n    for(int i=0; i< row.length; i++){\r\n        for(int j=0; j<col.length; j++){\r\n            if(col[j]==row[i]){\r\n                n= n+1;\r\n            }\r\n        }\r\n    }\r\n    int[] same = new int[n];\r\n    for(int k=0; k< n; k++){\r\n        for(int i=0; i< row.length; i++){\r\n            for(int j=0; j<col.length; j++){\r\n            if(col[j]==row[i]){\r\n                same[k]=col[j];\r\n            }\r\n        }\r\n    }}\r\n    return same;\r\n}\r\n\r\nint[][] matrix_1 = {{0, 5, 0, 0, 0, 2, 0, 0, 6},\r\n{0, 8, 0, 0, 0, 6, 7, 0, 3},\r\n{0, 0, 0, 7, 4, 0, 0, 0, 8},\r\n{6, 7, 0, 9, 8, 0, 0, 0, 0},\r\n{0, 3, 1, 0, 5, 0, 6, 0, 9},\r\n{0, 0, 0, 0, 0, 3, 8, 2, 0},\r\n{0, 0, 0, 0, 0, 0, 1, 8, 0},\r\n{0, 0, 0, 3, 0, 0, 0, 0, 2},\r\n{9, 2, 0, 5, 0, 0, 0, 7, 0}};\r\n\r\nfind_possible_values(matrix_1,0,0);\r\n",
+      "metadata": {
+        "language": "java",
+        "id": "1766c4a9-d911-44ad-9fa7-7e7df6e8d204",
+        "executionSummary": {
+          "executionOrder": 18,
+          "success": false
+        }
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Created method find_possible_values. However, it cannot be invoked or used or instantiated until method find_row_missing(int[][],int,int[],int), method find_col_missing(int[][],int,int[],int) is declared\nCreated method find_possible_values. However, it cannot be referenced until method find_row_missing(int[][],int,int[],int), method find_col_missing(int[][],int,int[],int) is declared\nmissing return statement\nint[] find_row_missing(int[][] matrix, int index, int[] current_num, int x){\n                                                                           ^\nmissing return statement\nint[] find_col_missing(int[][] matrix, int index, int[] current_num, int y){\n                                                                           ^\nAttempt to use definition snippet with unresolved references in MethodSnippet:find_possible_values/(int[][],int,int)int[]-int[] find_possible_values(int[][] matrix, int x, int y){\r\n    int[] arr_1 = new int[0];\r\n    int[] arr_2 = new int[0];\r\n    int[] miss_x = find_row_missing(matrix, 1, arr_1, x);\r\n    int[] miss_y = find_col_missing(matrix, 1, arr_2, y);\r\n    int[] r = check_same_value(miss_x, miss_y);\r\n    return r;\r\n\r\n}\n"
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
     }
   ]
 }

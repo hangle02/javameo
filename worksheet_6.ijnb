@@ -1,0 +1,60 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "8cfaf1c0-585c-4d9e-9bf6-ede527ce8f1f",
+      "cell_type": "markdown",
+      "source": "# LECTURE 6: STACKS, QUEUE, \n\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "8cfaf1c0-585c-4d9e-9bf6-ede527ce8f1f"
+      }
+    },
+    {
+      "id": "721c9a16-0674-4028-9867-a35707273d2d",
+      "cell_type": "markdown",
+      "source": "Abstract Data Types (ADTs) vs Data Structure\r\n- Abstract Data Types:  \r\n  = something that not concrete = logical concept  \r\n  + Concerned with\tWhat operations can be done.\r\n  + represent in java: interface \r\n  example: Stack, queue, graph, list\r\n- Data Structure:  \r\n  = concrete implementation \r\n  + How operations are executed.\r\n  + represent in java: class\r\n  example: Array, Linked List, Hash Table, ...",
+      "metadata": {
+        "language": "markdown",
+        "id": "721c9a16-0674-4028-9867-a35707273d2d"
+      }
+    },
+    {
+      "id": "4c8a73fa-f83e-4c08-83d0-bb869417f730",
+      "cell_type": "code",
+      "source": "interface Stack<T> {\r\n    //<T> for define specific type --> generics types (java, python) = template (c++)\r\n    // isEmpty: check if the stack is empty\r\n    public boolean isEmpty();\r\n    \r\n    // push: put a new item on top of the stack\r\n    public void push(T item);\r\n\r\n    // pop: remove the top item from the top of the stack and return it\r\n    public T pop();\r\n    \r\n    // peek: return the top item from the stack, but don't remove it from the stack\r\n    public T peek();\r\n\r\n};\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 1,
+          "success": true
+        }
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "id": "c1532180-b3ec-4697-bbf9-d1a084797a4e",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
