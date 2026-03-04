@@ -8,25 +8,43 @@
   },
   "cells": [
     {
-      "id": "8cfaf1c0-585c-4d9e-9bf6-ede527ce8f1f",
+      "id": "fbf73beb-d886-4b41-a58a-a86688985d4e",
       "cell_type": "markdown",
       "source": "# LECTURE 6: STACKS, QUEUE, \n\n",
       "metadata": {
         "language": "markdown",
-        "id": "8cfaf1c0-585c-4d9e-9bf6-ede527ce8f1f"
+        "id": "fbf73beb-d886-4b41-a58a-a86688985d4e"
       }
     },
     {
-      "id": "721c9a16-0674-4028-9867-a35707273d2d",
+      "id": "20659676-1295-40fd-9111-3daf5c35c576",
       "cell_type": "markdown",
-      "source": "Abstract Data Types (ADTs) vs Data Structure\r\n- Abstract Data Types:  \r\n  = something that not concrete = logical concept  \r\n  + Concerned with\tWhat operations can be done.\r\n  + represent in java: interface \r\n  example: Stack, queue, graph, list\r\n- Data Structure:  \r\n  = concrete implementation \r\n  + How operations are executed.\r\n  + represent in java: class\r\n  example: Array, Linked List, Hash Table, ...",
+      "source": "Abstract Data Types (ADTs) vs Data Structure\r\n- Abstract Data Types:  \r\n  = something that not concrete = logical concept  \r\n  + Concerned with\tWhat operations can be done.\r\n  + represent in java: interface   \r\n  + Have at least 2 way to implement  \r\n  example: Stack, queue, graph, list \r\n\r\n- Data Structure:  \r\n  = concrete implementation \r\n  + How operations are executed.\r\n  + represent in java: class\r\n  + Have only 1 way to implement  \r\n  example: Array, Linked List, Hash Table, ...",
       "metadata": {
         "language": "markdown",
-        "id": "721c9a16-0674-4028-9867-a35707273d2d"
+        "id": "20659676-1295-40fd-9111-3daf5c35c576"
       }
     },
     {
-      "id": "4c8a73fa-f83e-4c08-83d0-bb869417f730",
+      "id": "3f6734d3-5e88-4b1c-94d2-031c0244ca62",
+      "cell_type": "markdown",
+      "source": "Loop VS Recursion:\r\n- Loop: You know exactly how many times you need to repeat something, or you are prioritizing speed and memory efficiency.\r\n\r\n- Recursion: You are working with complex, branching data (like search algorithms or trees) and want your code to be highly readable and elegant.  \r\n  + requires the computer to pause the current function, save its exact state in memory (on the \"Call Stack\"), and open a brand new copy of the function. If you recurse too many times, your program will run out of memory and crash with a famous StackOverflowError.",
+      "metadata": {
+        "language": "markdown",
+        "id": "3f6734d3-5e88-4b1c-94d2-031c0244ca62"
+      }
+    },
+    {
+      "id": "e5a793ed-71fe-4616-8a8a-4120af18c999",
+      "cell_type": "markdown",
+      "source": "STACK:\r\nLIFO - Last In First Out",
+      "metadata": {
+        "language": "markdown",
+        "id": "e5a793ed-71fe-4616-8a8a-4120af18c999"
+      }
+    },
+    {
+      "id": "8f13b97e-749a-4578-85aa-b8a2896b124b",
       "cell_type": "code",
       "source": "interface Stack<T> {\r\n    //<T> for define specific type --> generics types (java, python) = template (c++)\r\n    // isEmpty: check if the stack is empty\r\n    public boolean isEmpty();\r\n    \r\n    // push: put a new item on top of the stack\r\n    public void push(T item);\r\n\r\n    // pop: remove the top item from the top of the stack and return it\r\n    public T pop();\r\n    \r\n    // peek: return the top item from the stack, but don't remove it from the stack\r\n    public T peek();\r\n\r\n};\r\n",
       "metadata": {
@@ -47,7 +65,44 @@
       ]
     },
     {
-      "id": "c1532180-b3ec-4697-bbf9-d1a084797a4e",
+      "id": "29061fd1-ef66-4160-9eff-72b5910240bb",
+      "cell_type": "markdown",
+      "source": "- QUEUE  \r\n  FIFO - FIRST IN FIRST OUT\r\n- Priority queues:  \r\n + item are ranked by another label\r\n + if 2 item have same label --> FIFO again\r\n\r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "29061fd1-ef66-4160-9eff-72b5910240bb"
+      }
+    },
+    {
+      "id": "1e56cf4a-8877-4780-a88e-fbcaa1857fd0",
+      "cell_type": "code",
+      "source": "interface Queue<T> {\r\n    // isEmpty: check if the queue is empty\r\n    public boolean isEmpty();\r\n    \r\n    // enqueue: put a new item to the end of the queue\r\n    public void enqueue(T item);\r\n\r\n    // dequeue: remove the item from the head of the queue and return it\r\n    public T dequeue();\r\n    \r\n    // peek: return the item from the head of the queue, but don't remove it\r\n    public T peek();\r\n\r\n};\r\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "2e4954a5-8a36-4c34-840d-ab17c397945f",
+      "cell_type": "markdown",
+      "source": "$\\textbf{LIST}$\r\n\r\n- For list, array, stack, queue have odering  \r\n  --> can access by index\r\n\r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "2e4954a5-8a36-4c34-840d-ab17c397945f"
+      }
+    },
+    {
+      "id": "234a82d7-f362-415d-a217-3fb146d47a7a",
+      "cell_type": "markdown",
+      "source": "$\\textbf{SETS:}$  \r\n - Usually unordered (unless using a specialized Set like TreeSet).\r\n - Implementation: (can use array), HashSet\r\n   + even using array, we cannot access by index (because it not public)\r\n ",
+      "metadata": {
+        "language": "markdown",
+        "id": "234a82d7-f362-415d-a217-3fb146d47a7a"
+      }
+    },
+    {
+      "id": "024d5f1e-fabe-4ef7-ac1c-0e078feca752",
       "cell_type": "code",
       "source": "",
       "metadata": {
@@ -55,6 +110,24 @@
       },
       "execution_count": null,
       "outputs": []
+    },
+    {
+      "id": "cfdb821b-7cbb-4101-9cf9-2c6befd07b75",
+      "cell_type": "markdown",
+      "source": "$\\textbf{MAPS}$\r\n\r\n- Maps = Dictionary (in python)\r\n- to clear an array, just set the size = 0\r\n\r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "cfdb821b-7cbb-4101-9cf9-2c6befd07b75"
+      }
+    },
+    {
+      "id": "72ced47e-6532-4e15-a8a4-c0c86916e453",
+      "cell_type": "markdown",
+      "source": "# Q&A\r\n1. Reverse a stack using queue? YES\r\n2. Delete a middle element of a stack? \r\n3. Implement a Queue using Stack?\r\n4. Implement a Stack using Queue\r\n\r\nuuuuu\r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "72ced47e-6532-4e15-a8a4-c0c86916e453"
+      }
     }
   ]
 }
