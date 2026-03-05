@@ -8,25 +8,25 @@
   },
   "cells": [
     {
-      "id": "2c7d3037-e782-4f20-9d48-f48d005a350e",
+      "id": "0b910b6d-9d34-4b74-83ad-bbf26081e45f",
       "cell_type": "markdown",
       "source": "# Linked List & Interation",
       "metadata": {
         "language": "markdown",
-        "id": "2c7d3037-e782-4f20-9d48-f48d005a350e"
+        "id": "0b910b6d-9d34-4b74-83ad-bbf26081e45f"
       }
     },
     {
-      "id": "139742fe-15b2-48fd-a7be-816547f1b270",
+      "id": "ada28c76-c60b-4af7-b310-c090ec35bcbb",
       "cell_type": "markdown",
       "source": "1. LIST\r\n- List is an ADT\r\n-  \r\n- How to implement a list:  \r\n  + Arraylists: Need to specify the size (Migrate the data if need to store more data)\r\n  + Linkedlists\r\n",
       "metadata": {
         "language": "markdown",
-        "id": "139742fe-15b2-48fd-a7be-816547f1b270"
+        "id": "ada28c76-c60b-4af7-b310-c090ec35bcbb"
       }
     },
     {
-      "id": "50ac3591-3fd3-4f00-a43d-c5247a18e76f",
+      "id": "9f63065e-4677-4344-872d-b9ffa8079563",
       "cell_type": "code",
       "source": "class Node<T>{\r\n    T data;\r\n    Node<T> next;\r\n    Node(T _data, Node<T> _next){ //Constructor\r\n        data = _data;\r\n        next = _next;\r\n    }\r\n}\r\n\r\nNode<Integer> node_1 = new Node<Integer>(10, null);\r\nIO.println(node_1);\r\nIO.println(node_1.data);\r\nIO.println(node_1.next);",
       "metadata": {
@@ -49,12 +49,12 @@
       ]
     },
     {
-      "id": "5feb4d0e-629b-4679-946d-e651ea64e02c",
+      "id": "c3d4a164-aa08-464d-9903-91da7b1f363c",
       "cell_type": "markdown",
-      "source": "Node@377dca04 = memory address",
+      "source": "Node@377dca04 = memory address\r\n\r\nCircular linkedlist\r\n\r\n2\r\n4\r\n",
       "metadata": {
         "language": "markdown",
-        "id": "5feb4d0e-629b-4679-946d-e651ea64e02c"
+        "id": "c3d4a164-aa08-464d-9903-91da7b1f363c"
       }
     }
   ]
