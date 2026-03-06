@@ -1,0 +1,75 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "e0059a86-32d1-4d8c-807a-2ab1b5f6ed0e",
+      "cell_type": "markdown",
+      "source": "# Empty Notebook\n\nThe notebook file appears to be empty.",
+      "metadata": {
+        "language": "markdown",
+        "id": "e0059a86-32d1-4d8c-807a-2ab1b5f6ed0e"
+      }
+    },
+    {
+      "id": "3ec06928-9df9-46bc-b311-41c43837d037",
+      "cell_type": "markdown",
+      "source": "Rule:\r\n- Tổng số () phải là số chẵn\r\n- ) không được đặt ở đầu\r\n- chạy loop qua string để lưu () lại ở một string khác,\r\n- lưu index trong hai chuỗi open, close\r\n- loop trong string đấy để check, cứ mỗi lần gặp một ) thì xóa nó và open gần nhất, index nhỏ hơn nó, đến khi hết chuỗi\r\ncheck xem nếu chuỗi rỗng thì return true ",
+      "metadata": {
+        "language": "markdown",
+        "id": "3ec06928-9df9-46bc-b311-41c43837d037"
+      }
+    },
+    {
+      "id": "b1454bc1-4401-4efc-b1c9-858501248bcf",
+      "cell_type": "code",
+      "source": "\r\n    public static boolean check_balanced_parenthesis_str(String s){\r\n        int count = 0;\r\n        for (int i=0; i<s.length(); i++){\r\n            char c = s.charAt(i);\r\n            if(c=='('){\r\n                count++;\r\n            }\r\n            if(s.charAt(i)==')'){\r\n                count--;\r\n            }\r\n            if(count<0){\r\n                return false;\r\n            }\r\n        }\r\n        if(count ==0){return true;}\r\n        return false;\r\n\r\n   }\r\n   System.out.println(check_balanced_parenthesis_str(\")(())\")); // true \r\n\r\n\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 19,
+          "success": true
+        }
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "id": "b82f537a-635f-4087-a06c-f72b2f93c62c",
+      "cell_type": "code",
+      "source": "String x = \"abc\";\r\nx=x.replace(\"b\",\"\");\r\nIO.println(x);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 7,
+          "success": true
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "ac\r\n"
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    }
+  ]
+}

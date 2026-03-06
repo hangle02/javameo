@@ -7,7 +7,21 @@ interface Hw5_interface {
 
 public class Hw5 {
    public static boolean check_balanced_parenthesis_str(String s){
-    return true;
+    int count = 0;
+    for (int i=0; i<s.length(); i++){
+        char c = s.charAt(i);
+        if(c=='('){
+            count++;
+        }
+        if(s.charAt(i)==')'){
+            count--;
+        }
+        if(count<0){
+            return false;
+        }
+        }
+    if(count ==0){return true;}
+    return false;
    } 
 
    public static int estimate_visit_time(String[][] patient_procedures){
@@ -18,16 +32,8 @@ public class Hw5 {
     String[] a = new String[0];
     return a;
    }
-   
+
    public static void main(String[] args) {
-    String s = "((()))";
-    System.out.println(check_balanced_parenthesis_str(s));
-    String[][] patient_procedures = {{"X-ray", "MRI"}, {"Blood Test"}, {"Ultrasound", "CT Scan"}};
-    System.out.println(estimate_visit_time(patient_procedures));
-    String sentence = "Hello world! This is a test.";
-    String[] word_list = find_word_list(sentence);
-    for (String word : word_list) {
-        System.out.println(word);
-    }
-   }
+   
+}
 }
