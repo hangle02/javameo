@@ -31,6 +31,7 @@
       "source": "class Node<T>{\r\n    T data;\r\n    Node<T> next;\r\n    Node(T _data, Node<T> _next){ //Constructor\r\n        data = _data;\r\n        next = _next;\r\n    }\r\n}\r\n\r\nNode<Integer> node_1 = new Node<Integer>(10, null);\r\nIO.println(node_1);\r\nIO.println(node_1.data);\r\nIO.println(node_1.next);",
       "metadata": {
         "language": "java",
+        "id": "9f63065e-4677-4344-872d-b9ffa8079563",
         "executionSummary": {
           "executionOrder": 4,
           "success": true
@@ -56,6 +57,25 @@
         "language": "markdown",
         "id": "c3d4a164-aa08-464d-9903-91da7b1f363c"
       }
+    },
+    {
+      "id": "b966b626-984c-424d-8f7e-ce1a58eefa15",
+      "cell_type": "markdown",
+      "source": "- parent node\r\n- child node\r\n- orphan node(no one can access--> garbage)",
+      "metadata": {
+        "language": "markdown",
+        "id": "b966b626-984c-424d-8f7e-ce1a58eefa15"
+      }
+    },
+    {
+      "id": "142ed523-6e53-4954-82ce-37da61be6bcf",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
     }
   ]
 }
