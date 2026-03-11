@@ -11,11 +11,11 @@ interface List<T>{
 
     public boolean isEmpty();
 
-    public void remove(T value);
+    public boolean remove(T value);
 
     public void clear();
 
-    public void removeI(int index);
+    public boolean removeI(int index);
 
     public int size();
 
@@ -102,13 +102,55 @@ public class linklist<T> implements List<T> {
     }
 
     public int indexOf(T value){
-        return 0;
+        Node<T> current_node = head;
+        int index = 0;
+        if(current_node == null){
+            return -1;
+        }
+        while (current_node != null) {
+            if(current_node.data.equals(value)){
+                return index;
+            }
+            current_node = current_node.next;
+            index++; 
+        }
+        return -1;
     }
 
-    public void remove(T value){}
+    public boolean remove(T value){
+        Node<T> current_node = head;
+        if(current_node == null){
+            return false;
+        }
+        while (current_node!= null) { 
+            if(current_node.data.equals(value)){
+                current_node.data = null;
+                length = length-1;
+                return true;
+            }
+            current_node = current_node.next;
+        }
+       return false;
+    }
 
 
-    public void removeI(int index){}
+    public boolean removeI(int index){
+        Node<T> current_node = head;
+        int i = -1;
+        if(current_node == null){
+            return false;
+        }
+        while (current_node!= null) {
+            i++;
+            if(i==index){
+                current_node.data = null;
+                length = length-1;
+                return true;
+            }
+            current_node = current_node.next;
+        }
+       return false;
+    }
 
 
     public void set(int index, T value){}
@@ -124,11 +166,14 @@ public class linklist<T> implements List<T> {
         //list_1.add(-1);
         list_1.add(10);
         list_1.add(6);
+        list_1.add(1);
+        list_1.add(2);
+        list_1.add(3);
 
         IO.println(list_1.contains(10));
         IO.println(list_1.isEmpty());
-
-
+        IO.println(list_1.remove(3));
+        IO.println(list_1.contains(3));
 
     }
 
