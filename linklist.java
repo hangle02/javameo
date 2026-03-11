@@ -40,7 +40,7 @@ public class linklist<T> implements List<T> {
     }
 
     public boolean isEmpty(){
-        return (head == null || length ==0);
+        return (head == null);
     }
 
     public void clear(){
@@ -70,10 +70,17 @@ public class linklist<T> implements List<T> {
 
         // 2nd solution
         Node<T> last_node = head;
+        if(head == null){
+            head = tmp;
+            length++;
+        }
+        else{
         while (last_node.next != null) { 
             last_node = last_node.next;
         }
         last_node.next = tmp;
+        }
+
     }
 
     //add(index, value)
@@ -81,6 +88,9 @@ public class linklist<T> implements List<T> {
 
     public boolean contains(T value){
         Node<T> current_node = head;
+        if(current_node == null){
+            return false;
+        }
         while (current_node.next != null) { 
             if(current_node.data == value){
                 return true;
@@ -101,6 +111,25 @@ public class linklist<T> implements List<T> {
 
 
     public void set(int index, T value){}
+
+    public static void main(String[] args) {
+        linklist<Integer> list_1 = new linklist();
+        list_1.add(1);
+        list_1.add(2);
+        list_1.add(3);
+
+        list_1.clear();
+
+        //list_1.add(-1);
+        list_1.add(10);
+        list_1.add(6);
+
+        IO.println(list_1.contains(10));
+        IO.println(list_1.isEmpty());
+
+
+
+    }
 
 }
 
