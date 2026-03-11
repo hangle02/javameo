@@ -57,6 +57,7 @@ public class linklist<T> implements List<T> {
     public void add(T value){
         //need 2 step: 1. which memory address that this value store
         Node<T> tmp = new Node(value, null);
+        length++;
 
         //2. modify the link of the last element to this
         //Where the last node?
@@ -72,7 +73,7 @@ public class linklist<T> implements List<T> {
         Node<T> last_node = head;
         if(head == null){
             head = tmp;
-            length++;
+            
         }
         else{
         while (last_node.next != null) { 
