@@ -43,7 +43,7 @@
     {
       "id": "2867e39f-c3a4-45e2-aa5e-23a24a9f0158",
       "cell_type": "code",
-      "source": "int binary_search(int[] arr, int target) {\n\n    // Your work here!!!\n}\n\nint[] arr_1;\nint[] arr_2 = {1, 2, 3, 4, 6, 10, 20, 50};\nIO.println(binary_search(arr_1, 1) == -1);\nIO.println(binary_search(arr_1, 2) == -1);\nIO.println(binary_search(arr_2, 1) == 0);\nIO.println(binary_search(arr_2, 4) == 3);\nIO.println(binary_search(arr_2, 0) == -1);\nIO.println(binary_search(arr_2, 15) == -1);\nIO.println(binary_search(arr_2, 60) == -1);\n\n",
+      "source": "int binary_search(int[] arr, int target) {\n    // Your work here!!!\n}\n\nint[] arr_1;\nint[] arr_2 = {1, 2, 3, 4, 6, 10, 20, 50};\nIO.println(binary_search(arr_1, 1) == -1);\nIO.println(binary_search(arr_1, 2) == -1);\nIO.println(binary_search(arr_2, 1) == 0);\nIO.println(binary_search(arr_2, 4) == 3);\nIO.println(binary_search(arr_2, 0) == -1);\nIO.println(binary_search(arr_2, 15) == -1);\nIO.println(binary_search(arr_2, 60) == -1);\n\n",
       "metadata": {
         "language": "java",
         "id": "2867e39f-c3a4-45e2-aa5e-23a24a9f0158",

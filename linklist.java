@@ -48,7 +48,6 @@ public class linklist<T> implements List<T> {
         length =0;
     }
 
-    
     public int size(){
         return length;
     }
@@ -153,7 +152,18 @@ public class linklist<T> implements List<T> {
     }
 
 
-    public void set(int index, T value){}
+    public void set(int index, T value){
+        Node<T> new_Node = new Node(value, null);
+        Node<T> leftNode = head;
+        Node<T> rightNode = head;
+        if(head == null){
+            head = new_Node;
+        }
+        while (true) { 
+            
+        }
+
+    }
 
     public static void main(String[] args) {
         linklist<Integer> list_1 = new linklist();
