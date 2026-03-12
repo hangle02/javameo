@@ -8,67 +8,55 @@
   },
   "cells": [
     {
-      "id": "45bf6f36-409a-461c-8c8b-e08164134e9f",
+      "id": "5824deb8-c9bd-4a52-86c8-94fc5cb0a649",
       "cell_type": "markdown",
       "source": "# Empty Notebook\n\nThe notebook file appears to be empty.",
       "metadata": {
         "language": "markdown",
-        "id": "45bf6f36-409a-461c-8c8b-e08164134e9f"
+        "id": "5824deb8-c9bd-4a52-86c8-94fc5cb0a649"
       }
     },
     {
-      "id": "dec9fef6-be58-47b1-bb37-d6df8d0eeb67",
+      "id": "2088c785-189b-456e-baa0-687918409caf",
       "cell_type": "markdown",
       "source": "Bubble sort",
       "metadata": {
         "language": "markdown",
-        "id": "dec9fef6-be58-47b1-bb37-d6df8d0eeb67"
+        "id": "2088c785-189b-456e-baa0-687918409caf"
       }
     },
     {
-      "id": "f97f703f-c99a-47a3-96d1-2df7cd235870",
+      "id": "dba143d2-11aa-427f-ba42-8c989f89d674",
       "cell_type": "code",
       "source": "void bubble_sort(int[] arr){\r\n    //check arr\r\n    if(arr==null || arr.length<2){\r\n        return;\r\n    }\r\n    for(int k=0; k<arr.length-1; k++){\r\n        boolean swap = false;\r\n        for(int i=0; i<arr.length-1-k; i++){\r\n            if(arr[i]>arr[i+1]){\r\n                int tmp = arr[i];\r\n                arr[i] = arr[i+1];\r\n                arr[i+1] = tmp;\r\n                swap = true;\r\n            }\r\n        }\r\n        if (!swap){break;}\r\n    }\r\n}",
       "metadata": {
         "language": "java",
+        "id": "dba143d2-11aa-427f-ba42-8c989f89d674",
         "executionSummary": {
           "executionOrder": 2,
           "success": true
         }
       },
       "execution_count": 2,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 2
-        }
-      ]
+      "outputs": []
     },
     {
-      "id": "97443475-75a8-411e-9217-5e84964f33e1",
+      "id": "c029075b-1d43-4447-8d82-5ac2cb02c1c8",
       "cell_type": "code",
       "source": "void selection_sorting(int[] arr){\r\n    if(arr==null||arr.length<2){\r\n        return;\r\n    }\r\n    for(int i=0; i< arr.length-1; i++){\r\n        int minIndex = i;\r\n        for(int j=i+1; j<arr.length; j++ ){\r\n            if(arr[minIndex]> arr[j]){\r\n                minIndex = j;\r\n            }\r\n        }\r\n        int tmp = arr[i];\r\n        arr[i] = arr[minIndex];\r\n        arr[minIndex] = arr[i];\r\n\r\n    }\r\n}",
       "metadata": {
         "language": "java",
+        "id": "c029075b-1d43-4447-8d82-5ac2cb02c1c8",
         "executionSummary": {
           "executionOrder": 8,
           "success": true
         }
       },
       "execution_count": 8,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 8
-        }
-      ]
+      "outputs": []
     },
     {
-      "id": "6d40912c-c9a2-444b-954b-768ca3a177b2",
+      "id": "2fde3776-1b26-439e-9c81-5e92e60b6782",
       "cell_type": "code",
       "source": "void insertion_sort(int[] arr){\r\n    if(arr==null||arr.length<2){\r\n        return;\r\n    }\r\n    for(int i=1; i<arr.length; i++){\r\n        int key = arr[i];\r\n        int j = i-1;\r\n        while(j>=0 && arr[j]>key){\r\n            arr[j+1] = arr[j];\r\n            j = j-1;\r\n        }\r\n        arr[j+1] = key;\r\n    }\r\n}",
       "metadata": {
@@ -78,11 +66,12 @@
       "outputs": []
     },
     {
-      "id": "5d8fb4ca-0a3d-4e5c-830c-2457c1768c62",
+      "id": "71f1eb84-4324-43bf-900b-e59d2d0cee98",
       "cell_type": "code",
       "source": "int linear_search(int[] arr, int key){\r\n    if(arr==null){return -1;}\r\n    for(int i=0; i<arr.length; i++){\r\n        if(key==arr[i]){return i;}\r\n    }\r\n    return -1;\r\n}\r\n\r\nint[] arr_1 ={1,2,3,5,8};\r\nIO.println(linear_search(arr_1, 3));",
       "metadata": {
         "language": "java",
+        "id": "71f1eb84-4324-43bf-900b-e59d2d0cee98",
         "executionSummary": {
           "executionOrder": 13,
           "success": true
@@ -101,11 +90,12 @@
       ]
     },
     {
-      "id": "300632f1-2d08-430a-95a7-8987db5b2d8d",
+      "id": "df491128-30cc-4140-bcfe-71a6f91348ac",
       "cell_type": "code",
       "source": "int binary_search(int[] arr, int key){\r\n    if(arr==null){return -1;}\r\n    int left =0;\r\n    int right = arr.length-1;\r\n    while(left<=right){\r\n        int mid = left + (right-left)/2;\r\n        if(key<arr[mid]){\r\n            right = mid-1;\r\n        }\r\n        if(key> arr[mid]){\r\n            left = mid+1;\r\n        }\r\n        if(key == arr[mid]){\r\n            return mid;\r\n        }\r\n    }\r\n    return -1;\r\n}\r\nint[] arr_1 ={1,2,3,5,8};\r\nIO.println(binary_search(arr_1, 3));",
       "metadata": {
         "language": "java",
+        "id": "df491128-30cc-4140-bcfe-71a6f91348ac",
         "executionSummary": {
           "executionOrder": 16,
           "success": true
@@ -124,7 +114,7 @@
       ]
     },
     {
-      "id": "806a625e-66b6-43c7-9bac-adb459732597",
+      "id": "b38a0909-e9f3-4ee6-afe6-50e689b1bdb6",
       "cell_type": "code",
       "source": "void backtracking(int[] result, boolean[] used, int pos, int n){\r\n    //base case\r\n    if(pos==n){\r\n        IO.println(result);\r\n        return;\r\n    }\r\n    for(int i =1; i<=n; i++){ \r\n        if(!used[i]){\r\n            result[pos] =i;\r\n            used[i] = true;\r\n\r\n            backtracking(result, used, pos+1,n);\r\n            used[i] = false;\r\n        }\r\n    }\r\n}",
       "metadata": {
@@ -134,32 +124,27 @@
       "outputs": []
     },
     {
-      "id": "5460ce1e-523c-45b7-bf1d-fc9c47926f7c",
+      "id": "2ff47ffa-277c-49cc-a40a-e7ce6bdf1c7b",
       "cell_type": "code",
       "source": "void print_permutations(int n, int pos, boolean[] used, int[] result){\r\n     //base case: \r\n     if(pos == n){\r\n        IO.println(Arrays.toString(result));\r\n        return;\r\n     }\r\n    for(int i =0; i<=n; i++){\r\n        if(used[i]==false){\r\n            result[pos] =i;\r\n            used[i] = true;\r\n            print_permutations(n, pos+1, used, result);\r\n            used[i] = false;\r\n        }\r\n\r\n    }\r\n}\r\n\r\nvoid print_all_permutation(int n){\r\n    int[] result = new int[n];\r\n    boolean[] used = new boolean[n+1];\r\n    print_permutations(n, 0, used, result);\r\n\r\n}",
       "metadata": {
         "language": "java",
+        "id": "2ff47ffa-277c-49cc-a40a-e7ce6bdf1c7b",
         "executionSummary": {
           "executionOrder": 17,
           "success": true
         }
       },
       "execution_count": 17,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 17
-        }
-      ]
+      "outputs": []
     },
     {
-      "id": "b31b105d-09d6-453d-9eb3-6201c57a797e",
+      "id": "a0f6a22c-c248-45bf-99dd-c589637a0f30",
       "cell_type": "code",
       "source": "void print_subsets(int n, int pos, int[] current_subset){\r\n    if(pos>n){\r\n        IO.println(Arrays.toString(current_subset));\r\n        return;\r\n    }\r\n\r\n    int[] new_subset = Arrays.copyOf(current_subset, current_subset.length+1);\r\n    new_subset[new_subset.length-1] = pos;\r\n    print_subsets(n, pos+1, new_subset);\r\n    print_subsets(n, pos+1, current_subset);\r\n}\r\n\r\nvoid print_all_subsets(int n){\r\n    int[] arr = new int[0];\r\n    print_subsets(n, 1, arr);\r\n}\r\n\r\nprint_all_subsets(2);",
       "metadata": {
         "language": "java",
+        "id": "a0f6a22c-c248-45bf-99dd-c589637a0f30",
         "executionSummary": {
           "executionOrder": 24,
           "success": true
@@ -178,27 +163,44 @@
       ]
     },
     {
-      "id": "b59d0915-3e12-425e-9fd0-4ffe42befe8f",
+      "id": "76d8d1bd-0a63-49d6-b3b9-243b23a4badf",
       "cell_type": "code",
-      "source": "boolean check_balanced_parenthesis_str(String str){\r\n    int count=0;\r\n    for(int i=0; i<str.length; i++){\r\n        char c= str.charAt(i);\r\n        if(c=='{'){\r\n            count++;\r\n        }\r\n        if(c=='}'){\r\n            count--;\r\n        }\r\n        if(count<0){\r\n            return false;\r\n        }\r\n    }\r\n    if(count==0){\r\n        return true;\r\n    }\r\n    return false;\r\n}\r\n",
+      "source": "boolean check_balanced_parenthesis_str(String str){\r\n    int count=0;\r\n    for(int i=0; i<str.length(); i++){\r\n        char c= str.charAt(i);\r\n        if(c=='{'){\r\n            count++;\r\n        }\r\n        if(c=='}'){\r\n            count--;\r\n        }\r\n        if(count<0){\r\n            return false;\r\n        }\r\n    }\r\n    if(count==0){\r\n        return true;\r\n    }\r\n    return false;\r\n}\r\n",
       "metadata": {
         "language": "java",
+        "id": "76d8d1bd-0a63-49d6-b3b9-243b23a4badf",
         "executionSummary": {
-          "executionOrder": 35,
-          "success": false
+          "executionOrder": 37,
+          "success": true
         }
       },
-      "execution_count": 35,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": "cannot find symbol\n  symbol:   variable length\n    for(int i=0; i<str.length; i++){\n                   ^--------^\n"
-          },
-          "metadata": {},
-          "execution_count": 35
+      "execution_count": 37,
+      "outputs": []
+    },
+    {
+      "id": "d831cca4-fe1c-4c99-9e3a-56f317b1ffdc",
+      "cell_type": "code",
+      "source": "import java.util.Queue;\r\nimport java.util.LinkedList;\r\n\r\nString[] split_sentence(String s){\r\n    String[] str = s.split(\" \");\r\n    Queue<String> word = new LinkedList<>();\r\n    for(String w: str){\r\n        if(!word.contains(w)){\r\n            word.offer(w);\r\n        }\r\n    }\r\n    String[] r = new String[word.size()];\r\n    for(int i=0; i<r.length; i++){\r\n        r[i] = word.poll();\r\n    }\r\n    return r;\r\n}",
+      "metadata": {
+        "language": "java",
+        "id": "d831cca4-fe1c-4c99-9e3a-56f317b1ffdc",
+        "executionSummary": {
+          "executionOrder": 40,
+          "success": true
         }
-      ]
+      },
+      "execution_count": 40,
+      "outputs": []
+    },
+    {
+      "id": "b0ed0dcc-df15-40d4-b6e0-104304b2a375",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
     }
   ]
 }

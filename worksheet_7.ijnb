@@ -76,6 +76,15 @@
       },
       "execution_count": null,
       "outputs": []
+    },
+    {
+      "id": "9b6d21c0-6e4b-47c0-a173-1d785099227d",
+      "cell_type": "markdown",
+      "source": "# Traversing a linked list\r\n\r\n- use a for loop\r\n- use a while loop\r\n- better solution  \r\n    + use an iterator=attribute(interable = class)\r\n    + \r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "9b6d21c0-6e4b-47c0-a173-1d785099227d"
+      }
     }
   ]
 }
