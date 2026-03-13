@@ -22,17 +22,17 @@ interface List<T>{
     public void set(int index, T value);
 }
 
-class Node<T>{
+class Node1<T>{
     T data;
-    Node<T> next;
-    Node(T _data, Node<T> _next){ //Constructor
+    Node1<T> next;
+    Node1(T _data, Node1<T> _next){ //Constructor
         data = _data;
         next = _next;
     }
 }
 
 public class linklist<T> implements List<T> {
-    Node<T> head;
+    Node1<T> head;
     int length;
     public linklist(){
         head = null;
@@ -55,30 +55,30 @@ public class linklist<T> implements List<T> {
      //add value
     public void add(T value){
         //need 2 step: 1. which memory address that this value store
-        Node<T> tmp = new Node(value, null);
+        Node1<T> tmp = new Node1(value, null);
         length++;
 
         //2. modify the link of the last element to this
-        //Where the last node?
+        //Where the last Node1?
         //Standard solution
-        // Node<T> current_node = head;
-        // while (current_node.next != null) { 
-        //     current_node = current_node.next;
+        // Node1<T> current_Node1 = head;
+        // while (current_Node1.next != null) { 
+        //     current_Node1 = current_Node1.next;
         // }
-        // Node<T> last_node = current_node;
-        // last_node.next = tmp;
+        // Node1<T> last_Node1 = current_Node1;
+        // last_Node1.next = tmp;
 
         // 2nd solution
-        Node<T> last_node = head;
+        Node1<T> last_Node1 = head;
         if(head == null){
             head = tmp;
             
         }
         else{
-        while (last_node.next != null) { 
-            last_node = last_node.next;
+        while (last_Node1.next != null) { 
+            last_Node1 = last_Node1.next;
         }
-        last_node.next = tmp;
+        last_Node1.next = tmp;
         }
 
     }
@@ -87,77 +87,77 @@ public class linklist<T> implements List<T> {
     public void addbyIndex(int index, T value){}
 
     public boolean contains(T value){
-        Node<T> current_node = head;
-        if(current_node == null){
+        Node1<T> current_Node1 = head;
+        if(current_Node1 == null){
             return false;
         }
-        while (current_node.next != null) { 
-            if(current_node.data == value){
+        while (current_Node1.next != null) { 
+            if(current_Node1.data == value){
                 return true;
             }
-            current_node = current_node.next;
+            current_Node1 = current_Node1.next;
         }
         return false;
     }
 
     public int indexOf(T value){
-        Node<T> current_node = head;
+        Node1<T> current_Node1 = head;
         int index = 0;
-        if(current_node == null){
+        if(current_Node1 == null){
             return -1;
         }
-        while (current_node != null) {
-            if(current_node.data.equals(value)){
+        while (current_Node1 != null) {
+            if(current_Node1.data.equals(value)){
                 return index;
             }
-            current_node = current_node.next;
+            current_Node1 = current_Node1.next;
             index++; 
         }
         return -1;
     }
 
     public boolean remove(T value){
-        Node<T> current_node = head;
-        if(current_node == null){
+        Node1<T> current_Node1 = head;
+        if(current_Node1 == null){
             return false;
         }
-        while (current_node!= null) { 
-            if(current_node.data.equals(value)){
-                current_node.data = null;
+        while (current_Node1!= null) { 
+            if(current_Node1.data.equals(value)){
+                current_Node1.data = null;
                 length = length-1;
                 return true;
             }
-            current_node = current_node.next;
+            current_Node1 = current_Node1.next;
         }
        return false;
     }
 
 
     public boolean removeI(int index){
-        Node<T> current_node = head;
+        Node1<T> current_Node1 = head;
         int i = -1;
-        if(current_node == null){
+        if(current_Node1 == null){
             return false;
         }
-        while (current_node!= null) {
+        while (current_Node1!= null) {
             i++;
             if(i==index){
-                current_node.data = null;
+                current_Node1.data = null;
                 length = length-1;
                 return true;
             }
-            current_node = current_node.next;
+            current_Node1 = current_Node1.next;
         }
        return false;
     }
 
 
     public void set(int index, T value){
-        Node<T> new_Node = new Node(value, null);
-        Node<T> leftNode = head;
-        Node<T> rightNode = head;
+        Node1<T> new_Node1 = new Node1(value, null);
+        Node1<T> leftNode1 = head;
+        Node1<T> rightNode1 = head;
         if(head == null){
-            head = new_Node;
+            head = new_Node1;
         }
         while (true) { 
             
