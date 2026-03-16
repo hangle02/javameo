@@ -1,4 +1,5 @@
 package com.gradescope.cs201;
+
 interface Hw6_interface<T> {
     public Node<T> reverse(Node<T> input_node);
     public void delete_duplicate(Node<T> input_node);
