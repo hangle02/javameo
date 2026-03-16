@@ -1,4 +1,4 @@
-//package com.gradescope.cs201;
+package com.gradescope.cs201;
 interface Hw6_interface<T> {
     public Node<T> reverse(Node<T> input_node);
     public void delete_duplicate(Node<T> input_node);
@@ -11,7 +11,7 @@ class Node<T> {
         next = _next;
     }
 }
-public class NodeOperation_hw6 implements Hw6_interface<T> {
+public class NodeOperation_hw6<T> implements Hw6_interface<T> {
     public Node<T> reverse(Node<T> input_node){
         Node<T> head = input_node;
         if(head==null|| head.next==null){
@@ -27,12 +27,25 @@ public class NodeOperation_hw6 implements Hw6_interface<T> {
             preNode = curNode;
             curNode = nextNode;
         }
-        head = preNode;
-
-        return input_node;
+        return preNode;
     }
     public void delete_duplicate(Node<T> input_node){
+        Node<T> head = input_node;
+        if(head==null|| head.next==null){
+            return;}
+        
+        Node<T> curNode = head;
+        //Node<T> nextNode = null;
 
+        while(curNode!=null && curNode.next!=null){
+            if(curNode.data.equals(curNode.next.data)){
+                curNode.next = curNode.next.next;
+            }
+            else{
+                curNode = curNode.next;
+            }
+            
+        }
     }
     public static void main(String[] args) {
         
