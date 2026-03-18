@@ -31,6 +31,10 @@ interface List<T>{
     public void printlinklist();
 
     public void linklistSort(Comparator<T> comparator);
+
+    public boolean checkCircular();
+
+    public T getMid();
 }
 
 class Node1<T>{
@@ -240,7 +244,39 @@ public class linklist<T> implements List<T> {
         }
     }
 
-    
+    public boolean checkCircular(){
+        if(head == null || length <2){
+            return false;
+        }
+
+        Node1<T> slow = head;
+        Node1<T> fast = head.next;
+
+        while(fast!= null  && fast.next!=null){
+            if(slow == fast){
+                return true;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+
+        }
+        return false;
+    }
+
+    public T getMid(){
+        if(head==null){
+            return null;
+        }
+        Node1<T> slow = head;
+        Node1<T> fast = head;
+
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow.data;
+    }
+
     public static void main(String[] args) {
         linklist<Integer> list_1 = new linklist<>();
         list_1.add(1);
