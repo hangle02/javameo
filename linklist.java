@@ -1,3 +1,6 @@
+
+import java.util.Comparator;
+
 interface List<T>{
     //add value
     public void add(T value);
@@ -20,6 +23,14 @@ interface List<T>{
     public int size();
 
     public void set(int index, T value);
+
+    public void reverse();
+
+    public void delete_duplicate();
+
+    public void printlinklist();
+
+    public void linklistSort(Comparator<T> comparator);
 }
 
 class Node1<T>{
@@ -165,8 +176,73 @@ public class linklist<T> implements List<T> {
 
     }
 
+    public void reverse(){
+        //check linked list
+        if(length<2 || head == null){
+            return;
+        }
+        Node1<T> preNode = null;
+        Node1<T> curNode = head;
+        Node1<T> nextNode = null;
+        while( curNode!=null){
+            nextNode = curNode.next;
+            curNode.next = preNode;
+            preNode = curNode;
+            curNode = nextNode;
+        }
+        head = preNode;
+    }
+
+    public void delete_duplicate(){
+        Node1<T> curNode = head;
+        if(length <2 || head == null){
+            return;
+        }
+        while(curNode!= null && curNode.next != null){
+            if(curNode.data.equals(curNode.next.data) ){
+                curNode.next = curNode.next.next;
+                length--;
+            }
+            else{curNode = curNode.next;}
+
+        }
+
+    }
+
+    public void printlinklist(){
+        Node1<T> curNode = head;
+        while(curNode!= null){
+            IO.println(curNode.data);
+            curNode = curNode.next;
+        }
+    }
+
+    public void linklistSort(Comparator<T> comparator){
+       
+        if(head == null || length<2){return;}
+
+        boolean swapped=true;
+
+        while(swapped){
+            Node1<T> curNode = head;
+            swapped = false;
+            while(curNode!=null && curNode.next!=null){
+                T curdata = curNode.data;
+                T nextdata = curNode.next.data;
+
+                if(comparator.compare(curdata, nextdata)>0 ){
+                    curNode.data = nextdata;
+                    curNode.next.data = curdata;
+                    swapped = true;
+                }
+                curNode = curNode.next;
+            }
+        }
+    }
+
+    
     public static void main(String[] args) {
-        linklist<Integer> list_1 = new linklist();
+        linklist<Integer> list_1 = new linklist<>();
         list_1.add(1);
         list_1.add(2);
         list_1.add(3);
@@ -177,13 +253,11 @@ public class linklist<T> implements List<T> {
         list_1.add(10);
         list_1.add(6);
         list_1.add(1);
-        list_1.add(2);
-        list_1.add(3);
+        list_1.add(1);
+        list_1.add(1);
 
-        IO.println(list_1.contains(10));
-        IO.println(list_1.isEmpty());
-        IO.println(list_1.remove(3));
-        IO.println(list_1.contains(3));
+        list_1.linklistSort((a,b)-> a-b);
+        list_1.printlinklist();
 
     }
 
