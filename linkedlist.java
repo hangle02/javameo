@@ -307,6 +307,31 @@ public class linkedlist<T> implements List2<T> {
         return true;
     }
 
+    // public Node2<T> add2node(Node2<T> list_1, Node2<T> list_2){
+    //     Node2<T> result = new Node2(0, null);
+    //     Node2<T> current = result;
+    //     int carry =0;
+    //     while(list_1!=null || list_2!=null || carry!=0){
+    //         if(list_1!=null){
+    //             T x = list_1.data;
+    //         }
+    //         else{T x = 0;}
+    //         if(list_2!= null){
+    //             T y = list_2.data;
+    //         }
+    //         else{T y =0;}
+    //         T sum = x + y + carry;
+    //         carry = sum/10;
+    //         int digit = sum%10;
+    //         current.next = new Node2(digit, null);
+    //         current = current.next;
+    //         if(list_1!=null){list_1=list_1.next;}
+    //         if(list_2!=null){list_2=list_2.next;}
+    //     }
+
+    //     return result.next;
+    // }
+
     public static void main(String[] args) {
         linkedlist<Integer> list_1 = new linkedlist<>();
         list_1.add(1);
