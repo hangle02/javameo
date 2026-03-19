@@ -24,7 +24,7 @@ interface List2<T>{
 
     public int size();
 
-    // public void set(int index, T value);
+    public void set(int index, T value);
 
     public void reverse();
 
@@ -36,7 +36,9 @@ interface List2<T>{
 
     public boolean checkCircular();
 
-    // public T getMid();
+    public boolean checkpalindrome();
+
+    public T getMid();
 }
 
 class Node2<T>{
@@ -179,7 +181,29 @@ public class linkedlist<T> implements List2<T> {
         return length;
     }
 
-    // public void set(int index, T value){}
+    public void set(int index, T value){
+        if(index>length){return;}
+        Node2<T> newNode = new Node2(value, null);
+        if(index ==0){
+            newNode.next = head;
+            head = newNode;
+            length++;
+        }
+        else{
+            Node2<T> curNode = head;
+            int curIndex = 0;
+            while(curNode!=null){
+                if(curIndex==(index-1)){
+                    newNode.next = curNode.next;
+                    curNode.next = newNode;
+                    length++;
+                    break;
+                }
+                curNode = curNode.next;
+                curIndex++;
+            }
+        }
+    }
 
     public void reverse(){
         if(head == null||length<2){return;}
@@ -249,6 +273,40 @@ public class linkedlist<T> implements List2<T> {
         }
         return slow.data;
     }
+
+    public boolean checkpalindrome(){
+        if(head == null || head.next == null){return true;}
+        // Find mid point
+        Node2<T> slow = head;
+        Node2<T> fast = head;
+        while(fast!=null){
+            slow=slow.next;
+            fast = fast.next.next;
+        }
+        // reverse the list from mid point
+
+        Node2<T> preNode = null;
+        Node2<T> curNode = slow;
+        Node2<T> nextNode = null;
+        while (curNode!=null) { 
+          nextNode = curNode.next;
+          curNode.next = preNode;
+          preNode = curNode;
+          curNode = nextNode;  
+        }
+        // compare 2 part
+        Node2<T> right = preNode;
+        Node2<T> left = head;
+        while (right!=null) { 
+            if(!right.data.equals(left.data)){
+                return false;
+            }
+            right = right.next;
+            left = left.next;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         linkedlist<Integer> list_1 = new linkedlist<>();
         list_1.add(1);
@@ -260,8 +318,7 @@ public class linkedlist<T> implements List2<T> {
         // IO.println(list_1.addbyIndex(1, 5));
         // IO.println(list_1.contains(10));
         // IO.println(list_1.contains(11)==false);
-        IO.println(list_1.indexOf(2)==1);
-        list_1.removeI(0);
+       list_1.set(3,4);
         list_1.printlinklist();
     }
 }
