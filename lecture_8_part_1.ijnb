@@ -17,7 +17,7 @@
       }
     },
     {
-      "id": "977b117c-b912-4caf-84d4-f224a12f91bc",
+      "id": "7872a866-49d4-49a7-88ec-8045ffa28f4c",
       "cell_type": "code",
       "source": "class BinaryTreeNode<T> {\r\n    T data;\r\n    BinaryTreeNode<T> left, right;\r\n\r\n    // constructor\r\n    public BinaryTreeNode(T data_, BinaryTreeNode<T> left_, BinaryTreeNode<T> right_) {\r\n        data = data_;\r\n        left = left_;\r\n        right = right_;\r\n    }\r\n    public void pre_order_print(){\r\n    if(this!=null){\r\n        IO.print(data.toString() + \" \");\r\n        if(left!=null){left.pre_order_print();}\r\n        \r\n        if(right!=null){right.pre_order_print();}\r\n    }\r\n}\r\n}\r\n\r\nBinaryTreeNode<Integer> n1= new BinaryTreeNode<Integer>(-2,null,null);\r\nBinaryTreeNode<Integer> n2 = new BinaryTreeNode<>(3,null,null);\r\nBinaryTreeNode<Integer> n3 = new BinaryTreeNode<>(7,null,null);\r\nBinaryTreeNode<Integer> n4 = new BinaryTreeNode<>(2,null,n1);\r\nBinaryTreeNode<Integer> n5 = new BinaryTreeNode<>(4,n2,n3);\r\nBinaryTreeNode<Integer> root1 = new BinaryTreeNode<>(1, n4, n5);\r\n\r\nBinaryTreeNode<String> l1= new BinaryTreeNode<String>(\"C\",null,null);\r\nBinaryTreeNode<String> l2 = new BinaryTreeNode<>(\"G\",null,null);\r\nBinaryTreeNode<String> l3 = new BinaryTreeNode<>(\"E\",null,null);\r\nBinaryTreeNode<String> l4 = new BinaryTreeNode<>(\"B\",new BinaryTreeNode<String>(\"A\",null,null),l1);\r\nBinaryTreeNode<String> l5 = new BinaryTreeNode<>(\"F\",l2,l3);\r\nBinaryTreeNode<String> root2 = new BinaryTreeNode<>(\"D\", l4, l5);\r\n\r\nroot2.pre_order_print();\r\n",
       "metadata": {
@@ -71,30 +71,30 @@
       ]
     },
     {
-      "id": "a4777d99-25c3-4dd5-89e7-2e2ce06ad072",
+      "id": "c4275cb8-92f7-4e53-a4d6-03a629a19f93",
       "cell_type": "markdown",
       "source": "- int is a primitive data type. It is raw, naked data.\r\n- Integer (with a capital I) is a Wrapper Class. It is a full-blown Object that acts like a box. Inside that box, it holds a primitive int.\r\n- When you define a class like class Node1<T>, Java has a strict rule: The Generic type <T> can ONLY be an Object. It cannot be a primitive.",
       "metadata": {
         "language": "markdown",
-        "id": "a4777d99-25c3-4dd5-89e7-2e2ce06ad072"
+        "id": "c4275cb8-92f7-4e53-a4d6-03a629a19f93"
       }
     },
     {
-      "id": "4da1ae42-bd46-41f1-bf79-0eb953b22cab",
+      "id": "1a468ff7-d5bc-4d72-860c-446ee276db78",
       "cell_type": "markdown",
       "source": "           D\r\n        /     \\\r\n       B       F \r\n      / \\     /  \\\r\n    A    C   E    G",
       "metadata": {
         "language": "markdown",
-        "id": "4da1ae42-bd46-41f1-bf79-0eb953b22cab"
+        "id": "1a468ff7-d5bc-4d72-860c-446ee276db78"
       }
     },
     {
-      "id": "0bc2e5d2-6dc7-434f-9d1a-9f8540a96700",
+      "id": "699a02a8-f5c9-40af-bfed-b0f6b8ea0fcd",
       "cell_type": "markdown",
       "source": "1. Tree traversals  \r\n- Depth-first search (DFS)  \r\n    + Preorder: visit, left, right  \r\n        eg. D (BAC) (FEG)\r\n    + Inorder: left, visit, right  \r\n        eg. (ABC) D (EFG)\r\n    + Postorder: left, right, visit  \r\n        eg. (ACB) (EGF) D\r\n\r\n- Breadth-first search (BFS)  \r\n    eg. D (BF) (ACEG)\r\n\r\n2. Depth of a node  \r\n=length or distance from the root\r\n",
       "metadata": {
         "language": "markdown",
-        "id": "0bc2e5d2-6dc7-434f-9d1a-9f8540a96700"
+        "id": "699a02a8-f5c9-40af-bfed-b0f6b8ea0fcd"
       }
     },
     {
@@ -178,9 +178,9 @@
       }
     },
     {
-      "id": "ac166f82-a611-40ce-af75-0787d9625f1e",
+      "id": "c9283663-3921-4eea-9997-8e1eeb6cca21",
       "cell_type": "code",
-      "source": "import java.util.Queue;\r\nimport java.util.LinkedList;\r\npublic <T> void print_BFS(BinaryTreeNode<T> tree_root){\r\n    Queue<BinaryTreeNode<T>> queue = new LinkedList<>();;\r\n    queue.offer(tree_root);\r\n    while(!queue.isEmpty){\r\n        BinaryTreeNode<T> tmp = queue.poll();\r\n        if(tmp!=null){\r\n            IO.print(tmp.data.toString() + \" \");\r\n            queue.offer(tmp.left);\r\n            queue.offer(tmp.right);\r\n        }\r\n    }\r\n\r\n}",
+      "source": "import java.util.Queue;\r\nimport java.util.LinkedList;\r\npublic <T> void print_BFS(BinaryTreeNode<T> tree_root){\r\n    Queue<BinaryTreeNode<T>> queue = new LinkedList<>();;\r\n    queue.offer(tree_root);\r\n    while(!queue.isEmpty){\r\n        BinaryTreeNode<T> tmp = queue.poll();\r\n        if(tmp!=null){\r\n            IO.print(tmp.data.toString() + \" \");\r\n            queue.offer(tmp.left);\r\n            queue.offer(tmp.right);\r\n        }\r\n    }\r\n}",
       "metadata": {
         "language": "java"
       },
