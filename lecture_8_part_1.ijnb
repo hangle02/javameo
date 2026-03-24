@@ -1,0 +1,191 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "94555683-2bfb-4211-a93d-199aba7a97af",
+      "cell_type": "markdown",
+      "source": "# TREE\n\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "94555683-2bfb-4211-a93d-199aba7a97af"
+      }
+    },
+    {
+      "id": "977b117c-b912-4caf-84d4-f224a12f91bc",
+      "cell_type": "code",
+      "source": "class BinaryTreeNode<T> {\r\n    T data;\r\n    BinaryTreeNode<T> left, right;\r\n\r\n    // constructor\r\n    public BinaryTreeNode(T data_, BinaryTreeNode<T> left_, BinaryTreeNode<T> right_) {\r\n        data = data_;\r\n        left = left_;\r\n        right = right_;\r\n    }\r\n    public void pre_order_print(){\r\n    if(this!=null){\r\n        IO.print(data.toString() + \" \");\r\n        if(left!=null){left.pre_order_print();}\r\n        \r\n        if(right!=null){right.pre_order_print();}\r\n    }\r\n}\r\n}\r\n\r\nBinaryTreeNode<Integer> n1= new BinaryTreeNode<Integer>(-2,null,null);\r\nBinaryTreeNode<Integer> n2 = new BinaryTreeNode<>(3,null,null);\r\nBinaryTreeNode<Integer> n3 = new BinaryTreeNode<>(7,null,null);\r\nBinaryTreeNode<Integer> n4 = new BinaryTreeNode<>(2,null,n1);\r\nBinaryTreeNode<Integer> n5 = new BinaryTreeNode<>(4,n2,n3);\r\nBinaryTreeNode<Integer> root1 = new BinaryTreeNode<>(1, n4, n5);\r\n\r\nBinaryTreeNode<String> l1= new BinaryTreeNode<String>(\"C\",null,null);\r\nBinaryTreeNode<String> l2 = new BinaryTreeNode<>(\"G\",null,null);\r\nBinaryTreeNode<String> l3 = new BinaryTreeNode<>(\"E\",null,null);\r\nBinaryTreeNode<String> l4 = new BinaryTreeNode<>(\"B\",new BinaryTreeNode<String>(\"A\",null,null),l1);\r\nBinaryTreeNode<String> l5 = new BinaryTreeNode<>(\"F\",l2,l3);\r\nBinaryTreeNode<String> root2 = new BinaryTreeNode<>(\"D\", l4, l5);\r\n\r\nroot2.pre_order_print();\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 21,
+          "success": true
+        }
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "D B A C F G E "
+          },
+          "metadata": {},
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "id": "e3259227-9213-4c37-b317-34a6e6832782",
+      "cell_type": "markdown",
+      "source": "Exercise 1: Create the root node of the tree below\n\n           1\n        /     \\\n       2       4 \n        \\     /  \\\n        -2   3    7",
+      "metadata": {
+        "language": "markdown",
+        "id": "e3259227-9213-4c37-b317-34a6e6832782"
+      }
+    },
+    {
+      "id": "f550596b-74a5-468f-b755-bd0f803743f7",
+      "cell_type": "code",
+      "source": "BinaryTreeNode<Integer> n1= new BinaryTreeNode<Integer>(-2,null,null);\r\nBinaryTreeNode<Integer> n2 = new BinaryTreeNode<>(3,null,null);\r\nBinaryTreeNode<Integer> n3 = new BinaryTreeNode<>(7,null,null);\r\nBinaryTreeNode<Integer> n4 = new BinaryTreeNode<>(2,null,n1);\r\nBinaryTreeNode<Integer> n5 = new BinaryTreeNode<>(4,n2,n3);\r\nBinaryTreeNode<Integer> root1 = new BinaryTreeNode<>(1, n4, n5);\r\n\r\nBinaryTreeNode<String> l1= new BinaryTreeNode<String>(\"C\",null,null);\r\nBinaryTreeNode<String> l2 = new BinaryTreeNode<>(\"G\",null,null);\r\nBinaryTreeNode<String> l3 = new BinaryTreeNode<>(\"E\",null,null);\r\nBinaryTreeNode<String> l4 = new BinaryTreeNode<>(\"B\",new BinaryTreeNode<String>(\"A\",null,null),l1);\r\nBinaryTreeNode<String> l5 = new BinaryTreeNode<>(\"F\",l2,l3);\r\nBinaryTreeNode<String> root2 = new BinaryTreeNode<>(\"D\", l4, l5);",
+      "metadata": {
+        "language": "java",
+        "id": "f550596b-74a5-468f-b755-bd0f803743f7",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "a4777d99-25c3-4dd5-89e7-2e2ce06ad072",
+      "cell_type": "markdown",
+      "source": "- int is a primitive data type. It is raw, naked data.\r\n- Integer (with a capital I) is a Wrapper Class. It is a full-blown Object that acts like a box. Inside that box, it holds a primitive int.\r\n- When you define a class like class Node1<T>, Java has a strict rule: The Generic type <T> can ONLY be an Object. It cannot be a primitive.",
+      "metadata": {
+        "language": "markdown",
+        "id": "a4777d99-25c3-4dd5-89e7-2e2ce06ad072"
+      }
+    },
+    {
+      "id": "4da1ae42-bd46-41f1-bf79-0eb953b22cab",
+      "cell_type": "markdown",
+      "source": "           D\r\n        /     \\\r\n       B       F \r\n      / \\     /  \\\r\n    A    C   E    G",
+      "metadata": {
+        "language": "markdown",
+        "id": "4da1ae42-bd46-41f1-bf79-0eb953b22cab"
+      }
+    },
+    {
+      "id": "0bc2e5d2-6dc7-434f-9d1a-9f8540a96700",
+      "cell_type": "markdown",
+      "source": "1. Tree traversals  \r\n- Depth-first search (DFS)  \r\n    + Preorder: visit, left, right  \r\n        eg. D (BAC) (FEG)\r\n    + Inorder: left, visit, right  \r\n        eg. (ABC) D (EFG)\r\n    + Postorder: left, right, visit  \r\n        eg. (ACB) (EGF) D\r\n\r\n- Breadth-first search (BFS)  \r\n    eg. D (BF) (ACEG)\r\n\r\n2. Depth of a node  \r\n=length or distance from the root\r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "0bc2e5d2-6dc7-434f-9d1a-9f8540a96700"
+      }
+    },
+    {
+      "id": "e03b7367-c864-4b2d-83f3-6f3c6a258ab8",
+      "cell_type": "markdown",
+      "source": "Exercise 2: Print the tree using the preorder (i.e. visit, left, right)\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "e03b7367-c864-4b2d-83f3-6f3c6a258ab8"
+      }
+    },
+    {
+      "id": "3b28702e-89f4-4955-b37b-cb307a84f21c",
+      "cell_type": "code",
+      "source": "public <T> void pre_order_print(BinaryTreeNode<T> root){\r\n    if(root==null){\r\n        return;\r\n    }\r\n    else{\r\n        IO.print(root.data.toString() + \" \");\r\n        pre_order_print(root.left);\r\n        pre_order_print(root.right);\r\n    }\r\n}\r\n\r\npre_order_print(root2);",
+      "metadata": {
+        "language": "java",
+        "id": "3b28702e-89f4-4955-b37b-cb307a84f21c",
+        "executionSummary": {
+          "executionOrder": 19,
+          "success": true
+        }
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "D B A C F G E "
+          },
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "id": "314ac116-2ecb-4b99-a056-ba92804ae3e5",
+      "cell_type": "markdown",
+      "source": "Exercise 3: Print the tree using the inorder (i.e. left, visit, right)",
+      "metadata": {
+        "language": "markdown",
+        "id": "314ac116-2ecb-4b99-a056-ba92804ae3e5"
+      }
+    },
+    {
+      "id": "80809dca-7b56-4219-9400-b1856468dfaa",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "b39898b2-0c19-49a2-a78a-c18c2f94a095",
+      "cell_type": "markdown",
+      "source": "Exercise 4: Print the tree using the postorder (i.e. left, right, visit)",
+      "metadata": {
+        "language": "markdown",
+        "id": "b39898b2-0c19-49a2-a78a-c18c2f94a095"
+      }
+    },
+    {
+      "id": "f895bab9-bfdd-4795-81c4-970c3c2efcff",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "39e47d8f-75f5-42e3-a7ff-d9f989d03543",
+      "cell_type": "markdown",
+      "source": "Exercise 5: Print the tree using the breadth-first search (BFS)",
+      "metadata": {
+        "language": "markdown",
+        "id": "39e47d8f-75f5-42e3-a7ff-d9f989d03543"
+      }
+    },
+    {
+      "id": "ac166f82-a611-40ce-af75-0787d9625f1e",
+      "cell_type": "code",
+      "source": "import java.util.Queue;\r\nimport java.util.LinkedList;\r\npublic <T> void print_BFS(BinaryTreeNode<T> tree_root){\r\n    Queue<BinaryTreeNode<T>> queue = new LinkedList<>();;\r\n    queue.offer(tree_root);\r\n    while(!queue.isEmpty){\r\n        BinaryTreeNode<T> tmp = queue.poll();\r\n        if(tmp!=null){\r\n            IO.print(tmp.data.toString() + \" \");\r\n            queue.offer(tmp.left);\r\n            queue.offer(tmp.right);\r\n        }\r\n    }\r\n\r\n}",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
