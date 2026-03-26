@@ -22,6 +22,7 @@
       "source": "class BinaryTreeNode<T> {\r\n    T data;\r\n    BinaryTreeNode<T> left, right;\r\n\r\n    // constructor\r\n    public BinaryTreeNode(T data_, BinaryTreeNode<T> left_, BinaryTreeNode<T> right_) {\r\n        data = data_;\r\n        left = left_;\r\n        right = right_;\r\n    }\r\n    public void pre_order_print(){\r\n    if(this!=null){\r\n        IO.print(data.toString() + \" \");\r\n        if(left!=null){left.pre_order_print();}\r\n        \r\n        if(right!=null){right.pre_order_print();}\r\n    }\r\n}\r\n}\r\n\r\nBinaryTreeNode<Integer> n1= new BinaryTreeNode<Integer>(-2,null,null);\r\nBinaryTreeNode<Integer> n2 = new BinaryTreeNode<>(3,null,null);\r\nBinaryTreeNode<Integer> n3 = new BinaryTreeNode<>(7,null,null);\r\nBinaryTreeNode<Integer> n4 = new BinaryTreeNode<>(2,null,n1);\r\nBinaryTreeNode<Integer> n5 = new BinaryTreeNode<>(4,n2,n3);\r\nBinaryTreeNode<Integer> root1 = new BinaryTreeNode<>(1, n4, n5);\r\n\r\nBinaryTreeNode<String> l1= new BinaryTreeNode<String>(\"C\",null,null);\r\nBinaryTreeNode<String> l2 = new BinaryTreeNode<>(\"G\",null,null);\r\nBinaryTreeNode<String> l3 = new BinaryTreeNode<>(\"E\",null,null);\r\nBinaryTreeNode<String> l4 = new BinaryTreeNode<>(\"B\",new BinaryTreeNode<String>(\"A\",null,null),l1);\r\nBinaryTreeNode<String> l5 = new BinaryTreeNode<>(\"F\",l2,l3);\r\nBinaryTreeNode<String> root2 = new BinaryTreeNode<>(\"D\", l4, l5);\r\n\r\nroot2.pre_order_print();\r\n",
       "metadata": {
         "language": "java",
+        "id": "7872a866-49d4-49a7-88ec-8045ffa28f4c",
         "executionSummary": {
           "executionOrder": 21,
           "success": true
@@ -61,14 +62,7 @@
         }
       },
       "execution_count": 14,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 14
-        }
-      ]
+      "outputs": []
     },
     {
       "id": "c4275cb8-92f7-4e53-a4d6-03a629a19f93",
@@ -186,6 +180,47 @@
       },
       "execution_count": null,
       "outputs": []
+    },
+    {
+      "id": "2ffacf6e-25a9-40ed-91cf-4c46ae8c6de0",
+      "cell_type": "markdown",
+      "source": "# How to implement a basic database server\r\n- Need a DS with insertion/deletion/search operations\r\n- why not list for big DS:  \r\n    + LINKED LIST operation need O(N) (N~1B)  \r\n    + ARRAYLIST operation need O(log(N)) (N~1B) but need costly memory",
+      "metadata": {
+        "language": "markdown",
+        "id": "2ffacf6e-25a9-40ed-91cf-4c46ae8c6de0"
+      }
+    },
+    {
+      "id": "61d65bda-86c1-4a6f-aab7-fff1aa1cd193",
+      "cell_type": "markdown",
+      "source": "# BINARY SEARCH TREE (BST)\r\n- How to check if a binary tree is a BTS?\r\n- Where the minimum \r\n- Where the maximum\r\n\r\n1. Basic operations  / Time complexity\r\n- Searching ~ binary search / O depends on the tree structure matters\r\n- Insertion: search first / \r\n- Deletion: search first  \r\n    + need to find the min of right-sub tree\r\n\r\n2. Height of a tree\r\n- Balance factor:  \r\n    $$ BF(node) = H(node.right) - H(node.left)$$\r\n\r\n3. AVL tree (Adelson-Velsky and Landis)  \r\n- Self-balance tree, $BF \\in \\{-1;0;1\\}$\r\n- Rebalnce the tree  \r\n    + right rotation: bright left node --> root\r\n    + left rotation\r\n    + combine\r\n\r\n\r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "61d65bda-86c1-4a6f-aab7-fff1aa1cd193"
+      }
+    },
+    {
+      "id": "67a09e76-54fb-4cba-9027-3dbf173fb3ce",
+      "cell_type": "code",
+      "source": "class BST<T> extends BinaryTreeNode<T>{\r\n    public BinaryTreeNode<T> insert_(BinaryTreeNode<T> origin_root, T key){\r\n        if(origin_root == null){\r\n            return new BinaryTreeNode(key, null, null);\r\n        }\r\n        else{\r\n            if(origin_root.data == key){\r\n                IO.print(\"Duplicate key\");\r\n            }\r\n            if(origin_root.data > key){\r\n\r\n            }\r\n        }\r\n    }\r\n    public void insert(T key){\r\n        root = insert_(root, key);\r\n    }\r\n    public void delete(T key){\r\n        \r\n    }\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 1,
+          "success": false
+        }
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "illegal start of expression\n            if(){\n               ^\n"
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
     }
   ]
 }
