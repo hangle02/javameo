@@ -24,11 +24,11 @@
         "language": "java",
         "id": "7872a866-49d4-49a7-88ec-8045ffa28f4c",
         "executionSummary": {
-          "executionOrder": 21,
+          "executionOrder": 3,
           "success": true
         }
       },
-      "execution_count": 21,
+      "execution_count": 3,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -36,7 +36,7 @@
             "text/plain": "D B A C F G E "
           },
           "metadata": {},
-          "execution_count": 21
+          "execution_count": 3
         }
       ]
     },
@@ -57,17 +57,17 @@
         "language": "java",
         "id": "f550596b-74a5-468f-b755-bd0f803743f7",
         "executionSummary": {
-          "executionOrder": 14,
+          "executionOrder": 4,
           "success": true
         }
       },
-      "execution_count": 14,
+      "execution_count": 4,
       "outputs": []
     },
     {
       "id": "c4275cb8-92f7-4e53-a4d6-03a629a19f93",
       "cell_type": "markdown",
-      "source": "- int is a primitive data type. It is raw, naked data.\r\n- Integer (with a capital I) is a Wrapper Class. It is a full-blown Object that acts like a box. Inside that box, it holds a primitive int.\r\n- When you define a class like class Node1<T>, Java has a strict rule: The Generic type <T> can ONLY be an Object. It cannot be a primitive.",
+      "source": "- int is a primitive data type. It is raw, naked data.\r\n- Integer (with a capital I) is a Wrapper Class. It is a full-blown Object that acts like a box. Inside that box, it holds a primitive int.\r\n- When you define a class like class Node1<Integer>, Java has a strict rule: The Generic type <Integer> can ONLY be an Object. It cannot be a primitive.",
       "metadata": {
         "language": "markdown",
         "id": "c4275cb8-92f7-4e53-a4d6-03a629a19f93"
@@ -108,11 +108,11 @@
         "language": "java",
         "id": "3b28702e-89f4-4955-b37b-cb307a84f21c",
         "executionSummary": {
-          "executionOrder": 19,
+          "executionOrder": 5,
           "success": true
         }
       },
-      "execution_count": 19,
+      "execution_count": 5,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -120,7 +120,7 @@
             "text/plain": "D B A C F G E "
           },
           "metadata": {},
-          "execution_count": 19
+          "execution_count": 5
         }
       ]
     },
@@ -176,10 +176,24 @@
       "cell_type": "code",
       "source": "import java.util.Queue;\r\nimport java.util.LinkedList;\r\npublic <T> void print_BFS(BinaryTreeNode<T> tree_root){\r\n    Queue<BinaryTreeNode<T>> queue = new LinkedList<>();;\r\n    queue.offer(tree_root);\r\n    while(!queue.isEmpty){\r\n        BinaryTreeNode<T> tmp = queue.poll();\r\n        if(tmp!=null){\r\n            IO.print(tmp.data.toString() + \" \");\r\n            queue.offer(tmp.left);\r\n            queue.offer(tmp.right);\r\n        }\r\n    }\r\n}",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "c9283663-3921-4eea-9997-8e1eeb6cca21",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": false
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Created method print_BFS. However, it cannot be invoked or used or instantiated until variable isEmpty is declared\n"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
     },
     {
       "id": "2ffacf6e-25a9-40ed-91cf-4c46ae8c6de0",
@@ -202,25 +216,56 @@
     {
       "id": "67a09e76-54fb-4cba-9027-3dbf173fb3ce",
       "cell_type": "code",
-      "source": "class BST<T> extends BinaryTreeNode<T>{\r\n    public BinaryTreeNode<T> insert_(BinaryTreeNode<T> origin_root, T key){\r\n        if(origin_root == null){\r\n            return new BinaryTreeNode(key, null, null);\r\n        }\r\n        else{\r\n            if(origin_root.data == key){\r\n                IO.print(\"Duplicate key\");\r\n            }\r\n            if(origin_root.data > key){\r\n\r\n            }\r\n        }\r\n    }\r\n    public void insert(T key){\r\n        root = insert_(root, key);\r\n    }\r\n    public void delete(T key){\r\n        \r\n    }\r\n}",
+      "source": "class BST{\r\n    BinaryTreeNode<Integer> root;\r\n\r\n    public BST() {\r\n        root = null;\r\n    }\r\n    public BinaryTreeNode<Integer> insert_(BinaryTreeNode<Integer> origin_root, Integer key){\r\n        if(origin_root == null){\r\n            return new BinaryTreeNode<>(key, null, null);\r\n        }\r\n        else{\r\n            if(origin_root.data.equals(key)){\r\n                IO.print(\"Duplicate key\");\r\n            }\r\n            if(origin_root.data.compareTo(key)>0){\r\n                origin_root.left= insert_(origin_root.left,key);\r\n            }\r\n            if(origin_root.data.compareTo(key)<0){\r\n                origin_root.right =  insert_(origin_root.right,key);\r\n            }\r\n        }\r\n        return origin_root;\r\n\r\n    }\r\n    public void insert(Integer key){\r\n        root = insert_(root, key);\r\n    }\r\n\r\n    public boolean search(Integer key){\r\n        return search_(root, key);\r\n        \r\n    }\r\n\r\n    public boolean search_(BinaryTreeNode<Integer> node, Integer key){\r\n        if(node == null){\r\n            return false;\r\n        }\r\n        else{\r\n            if(key.equals(node.data)){\r\n                return true;\r\n            }\r\n            if(key.compareTo(node.data)<0){\r\n                return search_(node.left, key);\r\n            }\r\n            else{\r\n                return search_(node.right, key);\r\n            }\r\n        }\r\n    }\r\n\r\n    public void delete(int key){\r\n        root = delete_(root, key);\r\n    }\r\n\r\n    public BinaryTreeNode<Integer> delete_(BinaryTreeNode<Integer> node, Integer key){\r\n        if(node==null){\r\n            return null;\r\n        }\r\n        else{\r\n            if(node.data.compareTo(key)>0){\r\n                node.left = delete_(node.left, key);\r\n            }\r\n            if(node.data.compareTo(key)<0){\r\n                node.right = delete_(node.right, key);\r\n            }\r\n            else{\r\n                // node has only one/0 child\r\n                if(node.left == null){\r\n                    return node.right;\r\n                }\r\n                if(node.right == null){\r\n                    return node.left;\r\n                }\r\n                //if node has 2 child\r\n                else{\r\n                    //find min of right-sub tree\r\n                    Integer minVal = node.data;\r\n                    while(node.left!=null){\r\n                        minVal = node.left.data;\r\n                        node = node.left;\r\n                    }\r\n                    node.data = minVal;\r\n                    node.right = delete_(node.right, minVal);\r\n                }\r\n            }\r\n        }\r\n        return node;\r\n\r\n    }\r\n}",
       "metadata": {
         "language": "java",
+        "id": "67a09e76-54fb-4cba-9027-3dbf173fb3ce",
         "executionSummary": {
-          "executionOrder": 1,
-          "success": false
+          "executionOrder": 39,
+          "success": true
         }
       },
-      "execution_count": 1,
+      "execution_count": 39,
+      "outputs": []
+    },
+    {
+      "id": "f67c43bb-ebb7-4c00-baab-30f8c6971c55",
+      "cell_type": "code",
+      "source": "BST myTree = new BST();\r\n        // Chọn 50 làm gốc (Root)\r\n        myTree.insert(50);\r\n        \r\n        // Chèn các nhánh bên trái (Nhỏ hơn 50)\r\n        myTree.insert(30);\r\n        myTree.insert(20);\r\n        myTree.insert(40);\r\n        \r\n        // Chèn các nhánh bên phải (Lớn hơn 50)\r\n        myTree.insert(70);\r\n        myTree.insert(60);\r\n        myTree.insert(80);\r\n\r\nIO.println(myTree.search(70));\r\nmyTree.delete(70);\r\nIO.println(myTree.search(70));\r\nIO.println(myTree.search(60));",
+      "metadata": {
+        "language": "java",
+        "id": "f67c43bb-ebb7-4c00-baab-30f8c6971c55",
+        "executionSummary": {
+          "executionOrder": 41,
+          "success": true
+        }
+      },
+      "execution_count": 41,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "illegal start of expression\n            if(){\n               ^\n"
+            "text/plain": "true\r\nfalse\r\ntrue\r\n"
           },
           "metadata": {},
-          "execution_count": 1
+          "execution_count": 41
         }
       ]
+    },
+    {
+      "id": "9171c159-2066-4851-bb1e-c5a19b01c019",
+      "cell_type": "code",
+      "source": "public class BST {\r\n    \r\n    BinaryTreeNode<Integer> root;\r\n\r\n    public BST() {\r\n        root = null;\r\n    }\r\n\r\n    // --- INSERTION ---\r\n    public void insert(Integer key) {\r\n        root = insert_(root, key);\r\n    }\r\n\r\n    private BinaryTreeNode<Integer> insert_(BinaryTreeNode<Integer> node, Integer key) {\r\n        // Base case: Found an empty spot, create the node!\r\n        if (node == null) {\r\n            return new BinaryTreeNode<>(key, null, null);\r\n        }\r\n\r\n        // If key is smaller, go LEFT and RE-ATTACH\r\n        if (key.compareTo(node.data) < 0) {\r\n            node.left = insert_(node.left, key);\r\n        } \r\n        // If key is larger, go RIGHT and RE-ATTACH\r\n        else if (key.compareTo(node.data) > 0) {\r\n            node.right = insert_(node.right, key);\r\n        } \r\n        // If equal, it's a duplicate\r\n        else {\r\n            System.out.println(\"Duplicate key: \" + key);\r\n        }\r\n\r\n        // Return the unchanged node pointer to keep the tree connected!\r\n        return node;\r\n    }\r\n\r\n    // --- DELETION ---\r\n    public void delete(Integer key) {\r\n        root = delete_(root, key);\r\n    }\r\n\r\n    private BinaryTreeNode<Integer> delete_(BinaryTreeNode<Integer> node, Integer key) {\r\n        // Base Case: If the tree is empty or we didn't find the key\r\n        if (node == null) {\r\n            return null;\r\n        }\r\n\r\n        // 1. Traverse down the tree to find the node\r\n        if (key.compareTo(node.data) < 0) {\r\n            node.left = delete_(node.left, key);\r\n        } else if (key.compareTo(node.data) > 0) {\r\n            node.right = delete_(node.right, key);\r\n        } \r\n        // 2. We found the node to delete!\r\n        else {\r\n            // Case 1 & 2: Node has only one child or no child\r\n            if (node.left == null) {\r\n                return node.right; // Replaces current node with its right child (or null)\r\n            } else if (node.right == null) {\r\n                return node.left;  // Replaces current node with its left child\r\n            }\r\n\r\n            // Case 3: Node has TWO children\r\n            // Step A: Find the smallest value in the right subtree\r\n            Integer minValue = findMin(node.right);\r\n            \r\n            // Step B: Replace the current node's data with that minimum value\r\n            node.data = minValue;\r\n            \r\n            // Step C: Recursively delete that minimum value from the right subtree\r\n            node.right = delete_(node.right, minValue);\r\n        }\r\n\r\n        return node;\r\n    }\r\n\r\n    // Helper method to find the smallest value in a subtree\r\n    private Integer findMin(BinaryTreeNode<Integer> node) {\r\n        Integer minVal = node.data;\r\n        while (node.left != null) {\r\n            minVal = node.left.data;\r\n            node = node.left;\r\n        }\r\n        return minVal;\r\n    }\r\n}",
+      "metadata": {
+        "language": "java",
+        "id": "9171c159-2066-4851-bb1e-c5a19b01c019",
+        "executionSummary": {
+          "executionOrder": 15,
+          "success": true
+        }
+      },
+      "execution_count": 15,
+      "outputs": []
     }
   ]
 }
