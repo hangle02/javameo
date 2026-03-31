@@ -214,7 +214,7 @@
     {
       "id": "61d65bda-86c1-4a6f-aab7-fff1aa1cd193",
       "cell_type": "markdown",
-      "source": "# BINARY SEARCH TREE (BST)\r\n- How to check if a binary tree is a BTS?\r\n- Where the minimum \r\n- Where the maximum\r\n\r\n1. Basic operations  / Time complexity\r\n- Searching ~ binary search / O depends on the tree structure matters\r\n- Insertion: search first / \r\n- Deletion: search first  \r\n    + need to find the min of right-sub tree\r\n\r\n2. Height of a tree\r\n- Balance factor:  \r\n    $$ BF(node) = H(node.right) - H(node.left)$$\r\n\r\n3. AVL tree (Adelson-Velsky and Landis)  \r\n- Self-balance tree, $BF \\in \\{-1;0;1\\}$\r\n- Rebalnce the tree  \r\n    + right rotation: bright left node --> root\r\n    + left rotation\r\n    + combine\r\n\r\n\r\n",
+      "source": "# BINARY SEARCH TREE (BST)\r\n- How to check if a binary tree is a BTS?\r\n- Where the minimum \r\n- Where the maximum\r\n\r\n1. Basic operations  / Time complexity\r\n- Searching ~ binary search / O depends on the tree structure matters\r\n- Insertion: search first / \r\n- Deletion: search first  \r\n    + need to find the min of right-sub tree\r\n\r\n2. Height of a tree\r\n- Balance factor:  \r\n    $$ BF(node) = H(node.right) - H(node.left)$$\r\n\r\n3. AVL tree (Adelson-Velsky and Landis)  \r\n- Self-balance tree, $BF \\in \\{-1;0;1\\}$\r\n- Rebalnce the tree  \r\n    + right rotation: bright left node --> root\r\n    + left rotation\r\n    + combine\r\n- cost of rotation:  \r\n    + time complexity: const  \r\n    + space complexity: $O(\\log(n))$\r\n    => insert n key --> cost nlog(n)\r\n\r\n4. Red-black trees  \r\n- \r\n\r\n5. B-trees\r\n\r\n\r\n",
       "metadata": {
         "language": "markdown",
         "id": "61d65bda-86c1-4a6f-aab7-fff1aa1cd193"
