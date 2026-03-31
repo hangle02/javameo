@@ -1,0 +1,166 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "d81d59d9-e571-4ab5-b533-accdeaa94838",
+      "cell_type": "markdown",
+      "source": "# Binary tree (part II): Binary Serach Trees (BSTs)",
+      "metadata": {
+        "language": "markdown",
+        "id": "d81d59d9-e571-4ab5-b533-accdeaa94838"
+      }
+    },
+    {
+      "id": "d710d264-a1d4-4269-a86e-fb5ee8f535cd",
+      "cell_type": "markdown",
+      "source": "Exercise 1: Run the code below to see how to create a binary and print it out ",
+      "metadata": {
+        "language": "markdown",
+        "id": "d710d264-a1d4-4269-a86e-fb5ee8f535cd"
+      }
+    },
+    {
+      "id": "7b4d2c4c-097a-4f10-9b2b-f6bf81f8d6a6",
+      "cell_type": "code",
+      "source": "import java.util.LinkedList;\n\nclass BinaryTreeNode<T> {\n    T key;\n    BinaryTreeNode<T> left, right;\n\n    // constructor\n    public BinaryTreeNode(T key_, BinaryTreeNode<T> left_, BinaryTreeNode<T> right_) {\n        key = key_;\n        left = left_;\n        right = right_;\n    }\n}\n\nclass VisualTreeNode<T> {\n    BinaryTreeNode<T> tree_node;\n    int depth;  // root depth = 0\n    int index;  // from 0 to 2^depth - 1\n    public VisualTreeNode(BinaryTreeNode<T> tree_node, int depth, int index) {\n        this.tree_node = tree_node;\n        this.depth = depth;\n        this.index = index;\n    }\n}\n\nclass BinaryTree<T>{\n    BinaryTreeNode<T> root;\n    public BinaryTree(BinaryTreeNode<T> root_) {\n        root = root_;\n    }\n\n    public void print() {\n        LinkedList<VisualTreeNode<T>> queue = new LinkedList<VisualTreeNode<T>>();\n        LinkedList<VisualTreeNode<T>> result_queue = new LinkedList<VisualTreeNode<T>>();\n        queue.add(new VisualTreeNode<T>(root, 0, 0));\n        int max_depth = 0;\n        while (!queue.isEmpty()){\n            VisualTreeNode<T> tmp = queue.remove();\n            result_queue.add(tmp);\n            if (max_depth < tmp.depth)\n                max_depth = tmp.depth;\n            if (tmp.tree_node.left != null)\n                queue.add(new VisualTreeNode<T>(tmp.tree_node.left, tmp.depth + 1, 2*tmp.index));\n            if (tmp.tree_node.right != null)\n                queue.add(new VisualTreeNode<T>(tmp.tree_node.right, tmp.depth + 1, 2*tmp.index + 1));\n        }\n        \n        int space_num = 4; // at the leaf node\n        int current_depth = 0;\n        String line = \"\", path = \"\";\n        int current_line_pos = 0, current_path_pos = 0;\n        while (!result_queue.isEmpty()) {\n            VisualTreeNode<T> tmp = result_queue.remove();\n            if (tmp.depth > current_depth) {\n                current_depth++;\n                if (current_depth > 1)\n                    System.out.println(path);\n                System.out.println(line);\n                line = path = \"\";\n                current_line_pos = current_path_pos = 0;\n            }\n            // Update the line (i.e. tree node info)\n            int padding = (int) Math.round(((Math.pow(2, max_depth - tmp.depth) - 1)/2)*space_num);\n            int width = (int) Math.pow(2, max_depth - tmp.depth)*space_num;\n            int line_pos = padding + tmp.index*width;\n            for (int i = current_line_pos; i <= line_pos; i++)\n                line += \" \";\n            //line += Integer.toString(tmp.tree_node.key);\n            line += String.valueOf(tmp.tree_node.key);\n            current_line_pos = line_pos + 1;\n            // Update the path (i.e. \"/\" and \"\\\" to connect nodes)\n            int parent_index = (int)Math.round((tmp.index - 0.5)/2);\n            int parent_padding = padding + width/2;\n            int parent_width = 2*width;\n            int path_pos = (line_pos + parent_padding + parent_index*parent_width)/2;\n            for (int i = current_path_pos; i <= path_pos; i++)\n                path += \" \";\n            path += ((tmp.index % 2 == 0)? \"/\":\"\\\\\");\n            current_path_pos = path_pos + 1; \n            if (result_queue.isEmpty()) {\n                if (current_depth > 0)\n                    System.out.println(path);\n                System.out.println(line);\n            } \n        }\n    }\n}\n\n\nBinaryTreeNode<Integer> n2 = new BinaryTreeNode<Integer>(2, null, new BinaryTreeNode<Integer>(-2, null, null));\nBinaryTreeNode<Integer> n4 = new BinaryTreeNode<Integer>(4, new BinaryTreeNode<Integer>(3, null, null), new BinaryTreeNode<Integer>(7, null, null));\nBinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(1, n2, n4);\nBinaryTree<Integer> my_tree = new BinaryTree<Integer>(root);\nmy_tree.print();\n",
+      "metadata": {
+        "language": "java",
+        "id": "7b4d2c4c-097a-4f10-9b2b-f6bf81f8d6a6",
+        "executionSummary": {
+          "executionOrder": 1,
+          "success": true
+        }
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "       1\r\n     /    \\\r\n   2        4\r\n    \\      /  \\\r\n     -2    3    7\r\n"
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "id": "ce19e04f-1018-4cbb-9760-10ff33826c45",
+      "cell_type": "markdown",
+      "source": "Exercise 2: Write a function is_BST to check if the input root node is the root of a BST\n\n\nTest cases:\n    BinaryTreeNode<Integer> n2 = new BinaryTreeNode<Integer>(2, null, new       BinaryTreeNode<Integer>(-2, null, null));\n    BinaryTreeNode<Integer> n4 = new BinaryTreeNode<Integer>(4, new BinaryTreeNode<Integer>(3, null, null), new BinaryTreeNode<Integer>(7, null, null));\n    BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5, n2, n9);\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "ce19e04f-1018-4cbb-9760-10ff33826c45"
+      }
+    },
+    {
+      "id": "303b613a-7369-40dc-89f2-20203875b1cc",
+      "cell_type": "code",
+      "source": " public boolean is_BST(BinaryTreeNode<Integer> root){\r\n    return is_BST_(root, null, null);\r\n }\r\n public boolean is_BST_(BinaryTreeNode<Integer> node, Integer min, Integer max){\r\n    if(node == null){\r\n        return true;\r\n    }\r\n    else{\r\n        if(min != null && node.data.compareTo(min)<0 ){\r\n            return false;\r\n        }\r\n        if(max!= null && node.data.compareTo(max)>0){\r\n            return false;\r\n        }\r\n        return (is_BST_(node.left, min, node.data) && is_BST_(node.right, node.data, max));\r\n    }\r\n }\r\n BinaryTreeNode<Integer> n2 = new BinaryTreeNode<Integer>(2, null, new BinaryTreeNode<Integer>(1, null, null));\r\n    BinaryTreeNode<Integer> n4 = new BinaryTreeNode<Integer>(4, new BinaryTreeNode<Integer>(3, null, null), new BinaryTreeNode<Integer>(7, null, null));\r\n    BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5, n2, n4);\r\n\r\nIO.println(is_BST(root));",
+      "metadata": {
+        "language": "java",
+        "id": "303b613a-7369-40dc-89f2-20203875b1cc",
+        "executionSummary": {
+          "executionOrder": 10,
+          "success": false
+        }
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Created method is_BST_. However, it cannot be invoked or used or instantiated until variable data is declared\nCreated method is_BST_. However, it cannot be referenced until variable data is declared\nAttempt to use definition snippet with unresolved references in MethodSnippet:is_BST_/(BinaryTreeNode<Integer>,Integer,Integer)boolean-public boolean is_BST_(BinaryTreeNode<Integer> node, Integer min, Integer max){\r\n    if(node == null){\r\n        return true;\r\n    }\r\n    else{\r\n        if(min != null && node.data.compareTo(min)<0 ){\r\n            return false;\r\n        }\r\n        if(max!= null && node.data.compareTo(max)>0){\r\n            return false;\r\n        }\r\n        return (is_BST_(node.left, min, node.data) && is_BST_(node.right, node.data, max));\r\n    }\r\n }\n"
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "id": "3f2b293a-87eb-42bf-940f-96a39fa98c8c",
+      "cell_type": "code",
+      "source": "public boolean is_BST(BinaryTreeNode<Integer> root) {\r\n    // Gọi hàm phụ trợ (Helper), ban đầu giới hạn Min và Max đều là null (không có giới hạn)\r\n    return is_BST_Helper(root, null, null);\r\n}\r\n\r\nprivate boolean is_BST_Helper(BinaryTreeNode<Integer> node, Integer min, Integer max) {\r\n    // Base case: Cây rỗng là một BST hợp lệ\r\n    if (node == null) {\r\n        return true;\r\n    }\r\n\r\n    // Kiểm tra xem Node hiện tại có phá vỡ giới hạn Min/Max hay không\r\n    if (min != null && node.data.compareTo(min) <= 0) {\r\n        return false; // Phải lớn hơn giá trị Min\r\n    }\r\n    if (max != null && node.data.compareTo(max) >= 0) {\r\n        return false; // Phải nhỏ hơn giá trị Max\r\n    }\r\n\r\n    // Đệ quy kiểm tra 2 nhánh:\r\n    // 1. Sang trái: Cập nhật Max = giá trị node hiện tại\r\n    // 2. Sang phải: Cập nhật Min = giá trị node hiện tại\r\n    return is_BST_Helper(node.left, min, node.data) && \r\n           is_BST_Helper(node.right, node.data, max);\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 11,
+          "success": false
+        }
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Created method is_BST. However, it cannot be invoked or used or instantiated until method is_BST_Helper(BinaryTreeNode<java.lang.Integer>,<nulltype>,<nulltype>) is declared\nCreated method is_BST_Helper. However, it cannot be invoked or used or instantiated until variable data is declared\n"
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "id": "07a2ebdb-1959-40b8-aac4-f0116911ca12",
+      "cell_type": "markdown",
+      "source": "Exercise 3: Modify the code in exercise 1 to implement the search method of a BST\n\n    Testcases:\n        BinaryTreeNode<Integer> n2 = new BinaryTreeNode<Integer>(2, null, new BinaryTreeNode<Integer>(1, null, null));\n        BinaryTreeNode<Integer> n4 = new BinaryTreeNode<Integer>(4, new BinaryTreeNode<Integer>(3, null, null), new BinaryTreeNode<Integer>(7, null, null));\n        BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5, n2, n9);\n        BinaryTree<Integer> my_tree = new BinaryTree<Integer>(root);\n        \n",
+      "metadata": {
+        "language": "markdown",
+        "id": "07a2ebdb-1959-40b8-aac4-f0116911ca12"
+      }
+    },
+    {
+      "id": "4ea23a03-2105-4af7-a571-2f3a53d06236",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "2f87fa80-0865-4897-9d9a-0e9bb08714e4",
+      "cell_type": "markdown",
+      "source": "Exercise 4: Implement the insertion method to insert a new key into a BST",
+      "metadata": {
+        "language": "markdown",
+        "id": "2f87fa80-0865-4897-9d9a-0e9bb08714e4"
+      }
+    },
+    {
+      "id": "bf1a7ec5-c626-4bdf-8afb-fd0a04c307c2",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "b4bbcc7a-2ac3-4265-b1b9-ee0332328f42",
+      "cell_type": "markdown",
+      "source": "Exercise 5: Implement the deletion method to delete a new key into a BST",
+      "metadata": {
+        "language": "markdown",
+        "id": "b4bbcc7a-2ac3-4265-b1b9-ee0332328f42"
+      }
+    },
+    {
+      "id": "19040f74-cdea-4499-86e8-1ff91ea3f61d",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}

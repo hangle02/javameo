@@ -24,11 +24,11 @@
         "language": "java",
         "id": "7872a866-49d4-49a7-88ec-8045ffa28f4c",
         "executionSummary": {
-          "executionOrder": 3,
+          "executionOrder": 2,
           "success": true
         }
       },
-      "execution_count": 3,
+      "execution_count": 2,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -36,7 +36,7 @@
             "text/plain": "D B A C F G E "
           },
           "metadata": {},
-          "execution_count": 3
+          "execution_count": 2
         }
       ]
     },
@@ -57,12 +57,19 @@
         "language": "java",
         "id": "f550596b-74a5-468f-b755-bd0f803743f7",
         "executionSummary": {
-          "executionOrder": 4,
+          "executionOrder": 3,
           "success": true
         }
       },
-      "execution_count": 4,
-      "outputs": []
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
     },
     {
       "id": "c4275cb8-92f7-4e53-a4d6-03a629a19f93",
@@ -108,11 +115,11 @@
         "language": "java",
         "id": "3b28702e-89f4-4955-b37b-cb307a84f21c",
         "executionSummary": {
-          "executionOrder": 5,
+          "executionOrder": 4,
           "success": true
         }
       },
-      "execution_count": 5,
+      "execution_count": 4,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -120,7 +127,7 @@
             "text/plain": "D B A C F G E "
           },
           "metadata": {},
-          "execution_count": 5
+          "execution_count": 4
         }
       ]
     },
@@ -179,11 +186,11 @@
         "language": "java",
         "id": "c9283663-3921-4eea-9997-8e1eeb6cca21",
         "executionSummary": {
-          "executionOrder": 6,
+          "executionOrder": 5,
           "success": false
         }
       },
-      "execution_count": 6,
+      "execution_count": 5,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -191,7 +198,7 @@
             "text/plain": "Created method print_BFS. However, it cannot be invoked or used or instantiated until variable isEmpty is declared\n"
           },
           "metadata": {},
-          "execution_count": 6
+          "execution_count": 5
         }
       ]
     },
@@ -221,12 +228,19 @@
         "language": "java",
         "id": "67a09e76-54fb-4cba-9027-3dbf173fb3ce",
         "executionSummary": {
-          "executionOrder": 39,
+          "executionOrder": 6,
           "success": true
         }
       },
-      "execution_count": 39,
-      "outputs": []
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
     },
     {
       "id": "f67c43bb-ebb7-4c00-baab-30f8c6971c55",
@@ -236,11 +250,11 @@
         "language": "java",
         "id": "f67c43bb-ebb7-4c00-baab-30f8c6971c55",
         "executionSummary": {
-          "executionOrder": 41,
+          "executionOrder": 7,
           "success": true
         }
       },
-      "execution_count": 41,
+      "execution_count": 7,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -248,7 +262,7 @@
             "text/plain": "true\r\nfalse\r\ntrue\r\n"
           },
           "metadata": {},
-          "execution_count": 41
+          "execution_count": 7
         }
       ]
     },
@@ -260,12 +274,19 @@
         "language": "java",
         "id": "9171c159-2066-4851-bb1e-c5a19b01c019",
         "executionSummary": {
-          "executionOrder": 15,
+          "executionOrder": 8,
           "success": true
         }
       },
-      "execution_count": 15,
-      "outputs": []
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
     }
   ]
 }
