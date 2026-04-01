@@ -30,8 +30,16 @@ interface Hw7_interface<T> {
 public class BinaryTreeOperation_hw7<T> implements Hw7_interface<T> {
     public BinaryTree<T> build_tree(String input_str){
         BinaryTree<T> root = new BinaryTree(null, null, null);
-        return root;
+        for (int i =0; i< input_str.length(); i++){
+            char c = input_str.charAt(i);
+            if ( c!='(' || c!= ')') {
+                BinaryTree<> new_node = new BinaryTree<>(c, null, null);
+
+            } 
+            }
+        }
     }
+
 
     public String print_tree_in_vertical_format(BinaryTree<T> input_tree){
         String s = new String();
