@@ -214,12 +214,21 @@
       }
     },
     {
-      "id": "af4d9496-56b1-40a9-87c5-ace6689cd2b6",
+      "id": "052b48b5-40e8-497c-82b0-2a9c897d4ca2",
       "cell_type": "markdown",
       "source": "# B-trees  \r\n- Multiple branches \r\n- Splitting/merging instead of rotation\r\n- Need more space\r\n- Advantages:  \r\n    + B-trees can store in multiple hard disk\r\n    + useful if time to access a node >> the time to \r\n\r\n",
       "metadata": {
         "language": "markdown",
-        "id": "af4d9496-56b1-40a9-87c5-ace6689cd2b6"
+        "id": "052b48b5-40e8-497c-82b0-2a9c897d4ca2"
+      }
+    },
+    {
+      "id": "ebbf19de-81e1-4a52-af66-ddca8962ad2c",
+      "cell_type": "markdown",
+      "source": "# Hash table  \r\n- uniform distribution: a distribution has constant probability\r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "ebbf19de-81e1-4a52-af66-ddca8962ad2c"
       }
     },
     {
