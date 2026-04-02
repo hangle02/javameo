@@ -1,0 +1,86 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "cf2c12be-3946-45de-9a0d-77c4c79dfa79",
+      "cell_type": "markdown",
+      "source": "# Empty Notebook\n\nThe notebook file appears to be empty.",
+      "metadata": {
+        "language": "markdown",
+        "id": "cf2c12be-3946-45de-9a0d-77c4c79dfa79"
+      }
+    },
+    {
+      "id": "f5a75ad7-075a-416c-8045-58ef6c0dcc72",
+      "cell_type": "markdown",
+      "source": "Exercise 1: Write the code for the method update_height() in the class AVLTreeNode below.",
+      "metadata": {
+        "language": "markdown",
+        "id": "f5a75ad7-075a-416c-8045-58ef6c0dcc72"
+      }
+    },
+    {
+      "id": "13872054-5cb6-4ecc-a940-0fd8666f87f9",
+      "cell_type": "code",
+      "source": "class AVLTreeNode<T> {\n    T key;\n    AVLTreeNode<T> left, right;\n    int height;\n\n    // constructor\n    public AVLTreeNode(T key_, AVLTreeNode<T> left_, AVLTreeNode<T> right_) {\n        height = 0;\n        key = key_;\n        left = left_;\n        right = right_;\n    }\n    void update_height() {\n        if(left!=null){\n            left.update_height();\n        }\n        if(right!=null){\n            right.update_height();\n        }\n        if(left== null && right ==null){\n            height = 0;\n        }\n        else{\n            height = 1 + Math.max((left==null)? 0 : left.height, (right==null)? 0 : right.height);\n        }\n\n    }\n}\n\nAVLTreeNode<Integer> n1 = new AVLTreeNode<Integer>(1, null, null);\nn1.update_height();\nIO.println(n1.height == 0);\n\nAVLTreeNode<Integer> n2 = new AVLTreeNode<Integer>(2, \n    new AVLTreeNode<Integer>(1, null, null), \n    null);\nn2.update_height();\nIO.println(n2.height == 1);\n\nAVLTreeNode<Integer> n3 = new AVLTreeNode<Integer>(2, \n    new AVLTreeNode<Integer>(1, null, null), \n    new AVLTreeNode<Integer>(3, null, null));\nn3.update_height();\nIO.println(n3.height == 1);\n\nAVLTreeNode<Integer> n4 = new AVLTreeNode<Integer>(3, \n    new AVLTreeNode<Integer>(1, null, new AVLTreeNode<Integer>(2, null, null)), \n    new AVLTreeNode<Integer>(4, null, null));\nn4.update_height();\nIO.println(n4.height == 2);\n\nAVLTreeNode<Integer> n4 = new AVLTreeNode<Integer>(4, \n    new AVLTreeNode<Integer>(1, null, new AVLTreeNode<Integer>(3, new AVLTreeNode<Integer>(2, null, null), null)), \n    null);\nn4.update_height();\nIO.println(n4.height == 3);",
+      "metadata": {
+        "language": "java",
+        "id": "13872054-5cb6-4ecc-a940-0fd8666f87f9",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\ntrue\r\ntrue\r\ntrue\r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "437b30a3-0b88-4857-a290-23f8361f4b62",
+      "cell_type": "markdown",
+      "source": "Exercise 2: Copy your code in exercise 1 into the method update_height() of the AVLTreeNode class. Then write the code for the method insert(T data) of the AVLTree class below.",
+      "metadata": {
+        "language": "markdown",
+        "id": "437b30a3-0b88-4857-a290-23f8361f4b62"
+      }
+    },
+    {
+      "id": "33125ce8-3c14-4428-8d8b-2446eee08823",
+      "cell_type": "code",
+      "source": "class AVLTreeNode<T> {\n    T key;\n    AVLTreeNode<T> left, right;\n    int height;\n\n    // constructor\n    public AVLTreeNode(T key_, AVLTreeNode<T> left_, AVLTreeNode<T> right_) {\n        height = 0;\n        key = key_;\n        left = left_;\n        right = right_;\n    }\n    void update_height() {\n        if(left!=null){\n            left.update_height();\n        }\n        if(right!=null){\n            right.update_height();\n        }\n        if(left== null && right ==null){\n            height = 0;\n        }\n        else{\n            height = 1 + Math.max((left==null)? 0 : left.height, (right==null)? 0 : right.height);\n        }\n\n    }\n}\n\nclass VisualTreeNode<T> {\n    AVLTreeNode<T> tree_node;\n    int depth;  // root depth = 0\n    int index;  // from 0 to 2^depth - 1\n    public VisualTreeNode(AVLTreeNode<T> tree_node, int depth, int index) {\n        this.tree_node = tree_node;\n        this.depth = depth;\n        this.index = index;\n    }\n}\n\nclass AVLTree<T>{\n    AVLTreeNode<T> root;\n    public AVLTree(AVLTreeNode<T> root_) {\n        root = root_;\n    }\n\n    // --- INSERTION ---\n    public void insert(T key) {\n        root = insert_(root, key);\n        root.update_height();\n        int left_height = (left==null)?0: (1+left.height);\n        int right_height = (right==null)?0: (1+right.height);\n        if(){\n            \n        }\n\n    }\n\n    private AVLTreeNode<T> insert_(AVLTreeNode<T> node, T key) {\n        // Base case: Found an empty spot, create the node!\n        if (node == null) {\n            return new AVLTreeNode<>(key, null, null);\n        }\n        // If key is smaller, go LEFT and RE-ATTACH\n        if ((Integer)key<((Integer)node.key) ) {\n            node.left = insert_(node.left, key);\n        } \n        // If key is larger, go RIGHT and RE-ATTACH\n        else if ((Integer)key>((Integer)node.key) ) {\n            node.right = insert_(node.right, key);\n        } \n        // If equal, it's a duplicate\n        else {\n            System.out.println(\"Duplicate key: \" + key);\n        }\n\n        // Return the unchanged node pointer to keep the tree connected!\n        return node;\n    }\n\n    public void print() {\n        LinkedList<VisualTreeNode<T>> queue = new LinkedList<VisualTreeNode<T>>();\n        LinkedList<VisualTreeNode<T>> result_queue = new LinkedList<VisualTreeNode<T>>();\n        queue.add(new VisualTreeNode<T>(root, 0, 0));\n        int max_depth = 0;\n        while (!queue.isEmpty()){\n            VisualTreeNode<T> tmp = queue.remove();\n            result_queue.add(tmp);\n            if (max_depth < tmp.depth)\n                max_depth = tmp.depth;\n            if (tmp.tree_node.left != null)\n                queue.add(new VisualTreeNode<T>(tmp.tree_node.left, tmp.depth + 1, 2*tmp.index));\n            if (tmp.tree_node.right != null)\n                queue.add(new VisualTreeNode<T>(tmp.tree_node.right, tmp.depth + 1, 2*tmp.index + 1));\n        }\n        \n        int space_num = 4; // at the leaf node\n        int current_depth = 0;\n        String line = \"\", path = \"\";\n        int current_line_pos = 0, current_path_pos = 0;\n        while (!result_queue.isEmpty()) {\n            VisualTreeNode<T> tmp = result_queue.remove();\n            if (tmp.depth > current_depth) {\n                current_depth++;\n                if (current_depth > 1)\n                    System.out.println(path);\n                System.out.println(line);\n                line = path = \"\";\n                current_line_pos = current_path_pos = 0;\n            }\n            // Update the line (i.e. tree node info)\n            int padding = (int) Math.round(((Math.pow(2, max_depth - tmp.depth) - 1)/2)*space_num);\n            int width = (int) Math.pow(2, max_depth - tmp.depth)*space_num;\n            int line_pos = padding + tmp.index*width;\n            for (int i = current_line_pos; i <= line_pos; i++)\n                line += \" \";\n            //line += Integer.toString(tmp.tree_node.key);\n            line += String.valueOf(tmp.tree_node.key);\n            current_line_pos = line_pos + 1;\n            // Update the path (i.e. \"/\" and \"\\\" to connect nodes)\n            int parent_index = (int)Math.round((tmp.index - 0.5)/2);\n            int parent_padding = padding + width/2;\n            int parent_width = 2*width;\n            int path_pos = (line_pos + parent_padding + parent_index*parent_width)/2;\n            for (int i = current_path_pos; i <= path_pos; i++)\n                path += \" \";\n            path += ((tmp.index % 2 == 0)? \"/\":\"\\\\\");\n            current_path_pos = path_pos + 1; \n            if (result_queue.isEmpty()) {\n                if (current_depth > 0)\n                    System.out.println(path);\n                System.out.println(line);\n            } \n        }\n    }\n}\n\nAVLTree<Integer> my_tree = new AVLTree<Integer>(null);\nint[] key_list = {15, 20, 24, 10, 13, 7, 30, 36, 25};\nfor (int key: key_list) {\n    my_tree.insert(key);\n    my_tree.print();\n}\n",
+      "metadata": {
+        "language": "java",
+        "id": "33125ce8-3c14-4428-8d8b-2446eee08823",
+        "executionSummary": {
+          "executionOrder": 20,
+          "success": true
+        }
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": " 15\r\n   15\r\n    \\\r\n     20\r\n       15\r\n         \\\r\n           20\r\n            \\\r\n             24\r\n       15\r\n     /    \\\r\n   10        20\r\n            \\\r\n             24\r\n       15\r\n     /    \\\r\n   10        20\r\n    \\        \\\r\n     13        24\r\n       15\r\n     /    \\\r\n   10        20\r\n  /  \\        \\\r\n 7    13        24\r\n               15\r\n           /        \\\r\n       10                20\r\n     /    \\                \\\r\n   7        13                24\r\n                            \\\r\n                             30\r\n                               15\r\n                       /                \\\r\n               10                                20\r\n           /        \\                                \\\r\n       7                13                                24\r\n                                                         \\\r\n                                                           30\r\n                                                            \\\r\n                                                             36\r\n                               15\r\n                       /                \\\r\n               10                                20\r\n           /        \\                                \\\r\n       7                13                                24\r\n                                                         \\\r\n                                                           30\r\n                                                          /  \\\r\n                                                         25    36\r\n"
+          },
+          "metadata": {},
+          "execution_count": 20
+        }
+      ]
+    }
+  ]
+}

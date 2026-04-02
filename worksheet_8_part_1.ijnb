@@ -62,14 +62,7 @@
         }
       },
       "execution_count": 3,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 3
-        }
-      ]
+      "outputs": []
     },
     {
       "id": "c4275cb8-92f7-4e53-a4d6-03a629a19f93",
@@ -214,10 +207,19 @@
     {
       "id": "61d65bda-86c1-4a6f-aab7-fff1aa1cd193",
       "cell_type": "markdown",
-      "source": "# BINARY SEARCH TREE (BST)\r\n- How to check if a binary tree is a BTS?\r\n- Where the minimum \r\n- Where the maximum\r\n\r\n1. Basic operations  / Time complexity\r\n- Searching ~ binary search / O depends on the tree structure matters\r\n- Insertion: search first / \r\n- Deletion: search first  \r\n    + need to find the min of right-sub tree\r\n\r\n2. Height of a tree\r\n- Balance factor:  \r\n    $$ BF(node) = H(node.right) - H(node.left)$$\r\n\r\n3. AVL tree (Adelson-Velsky and Landis)  \r\n- Self-balance tree, $BF \\in \\{-1;0;1\\}$\r\n- Rebalnce the tree  \r\n    + right rotation: bright left node --> root\r\n    + left rotation\r\n    + combine\r\n- cost of rotation:  \r\n    + time complexity: const  \r\n    + space complexity: $O(\\log(n))$\r\n    => insert n key --> cost nlog(n)\r\n\r\n4. Red-black trees  \r\n- \r\n\r\n5. B-trees\r\n\r\n\r\n",
+      "source": "# BINARY SEARCH TREE (BST)\r\n- How to check if a binary tree is a BTS?\r\n- Where the minimum \r\n- Where the maximum\r\n\r\n1. Basic operations  / Time complexity\r\n- Searching ~ binary search / O depends on the tree structure matters\r\n- Insertion: search first / \r\n- Deletion: search first  \r\n    + need to find the min of right-sub tree\r\n\r\n2. Height of a tree\r\n- Balance factor:  \r\n    $$ BF(node) = H(node.right) - H(node.left)$$\r\n\r\n3. AVL tree (Adelson-Velsky and Landis)  \r\n- Self-balance tree, $BF \\in \\{-1;0;1\\}$\r\n- Rebalnce the tree  \r\n    + right rotation: bright left node --> root\r\n    + left rotation\r\n    + combine\r\n- cost of rotation:  \r\n    + time complexity: const  \r\n    + space complexity: $O(\\log(n))$\r\n    => insert n key --> cost nlog(n)\r\n\r\n4. Red-black trees  \r\n- \r\n\r\n\r\n\r\n",
       "metadata": {
         "language": "markdown",
         "id": "61d65bda-86c1-4a6f-aab7-fff1aa1cd193"
+      }
+    },
+    {
+      "id": "af4d9496-56b1-40a9-87c5-ace6689cd2b6",
+      "cell_type": "markdown",
+      "source": "# B-trees  \r\n- Multiple branches \r\n- Splitting/merging instead of rotation\r\n- Need more space\r\n- Advantages:  \r\n    + B-trees can store in multiple hard disk\r\n    + useful if time to access a node >> the time to \r\n\r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "af4d9496-56b1-40a9-87c5-ace6689cd2b6"
       }
     },
     {
@@ -233,14 +235,7 @@
         }
       },
       "execution_count": 6,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 6
-        }
-      ]
+      "outputs": []
     },
     {
       "id": "f67c43bb-ebb7-4c00-baab-30f8c6971c55",
@@ -279,14 +274,7 @@
         }
       },
       "execution_count": 8,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 8
-        }
-      ]
+      "outputs": []
     }
   ]
 }
