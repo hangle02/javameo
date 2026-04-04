@@ -76,94 +76,69 @@ public class BinaryTreeOperation_hw7<T> implements Hw7_interface<T> {
             boolean isRightTail = (boolean) curr[2];
             boolean isRoot = (boolean) curr[3];
             boolean isDummy = (boolean) curr[4];
+            if (isRoot) {
+                finalString += node.data + "\n";
+            } else if (isDummy) {
+                finalString += prefix + (isRightTail ? "|_" : "|_") + "\n";
+                continue;
 
-        if (isRoot) {
-            finalString += node.data + "\n";
-        } else if (isDummy) {
-            finalString += prefix +  "|_" + "\n";
-            continue; 
-        } else {
-            finalString += prefix + "|_" + node.data + "\n";
-        }
-        String childPrefix = isRoot ? "" : prefix + (isRightTail ? "  " : "| ");
-        boolean hasLeft = false;
-        if (node != null && node.left != null) {
-            String leftVal = node.left.data.toString().trim();
-            if (!leftVal.equals("") && !leftVal.equals("()")) {
-                hasLeft = true;
-            }
-        }
-
-        boolean hasRight = false;
-        if (node != null && node.right != null) {
-            String rightVal = node.right.data.toString().trim();
-            if (!rightVal.equals("") && !rightVal.equals("()")) {
-                hasRight = true;
-            }
-        }
-
-        
-        if (hasRight) {
-            stack.push(new Object[]{node.right, childPrefix, true, false, false});
-        }
-
-        
-        if (hasLeft || hasRight) {
-            if (!hasLeft) {
-                stack.push(new Object[]{null, childPrefix, !hasRight, false, true});
             } else {
-                stack.push(new Object[]{node.left, childPrefix, !hasRight, false, false});
+                finalString += prefix + (isRightTail ? "|_" : "|_") + node.data + "\n";
+            }
+            String childPrefix = isRoot ? "" : prefix + (isRightTail ? "  " : "| ");
+            boolean hasLeft = (node != null && node.left != null);
+            boolean hasRight = (node != null && node.right != null);
+
+            if (hasRight) {
+                stack.push(new Object[]{node.right, childPrefix, true, false, false});
+            }
+            if (hasLeft || hasRight) {
+                if (!hasLeft) {
+                    stack.push(new Object[]{null, childPrefix, !hasRight, false, true});
+                } else {
+                    stack.push(new Object[]{node.left, childPrefix, !hasRight, false, false});
+                }
             }
         }
-    }
-
-    return finalString;
-    }
-
-    public String print_tree_in_horizontal_format (BinaryTree<T> input_tree){
-        if (input_tree == null) {
-            return "";
+        if (finalString.endsWith("\n")) {
+            finalString = finalString.substring(0, finalString.length() - 1);
         }
+        return finalString;
+    }
+
+   public String print_tree_in_horizontal_format(BinaryTree<T> input_tree) {
+        if (input_tree == null) return "";
 
         Deque<BinaryTree<T>> queue = new ArrayDeque<>();
+        String treeString = ""; 
         queue.offer(input_tree);
-        
-        String finalTreeString = ""; 
         
         while (!queue.isEmpty()) { 
             int tree_level = queue.size();
-            String currentRow = ""; 
             for (int i = 0; i < tree_level; i++) {
                 BinaryTree<T> tmp = queue.poll();
-                if (tmp != null && tmp.data != null) {
-                    String val = tmp.data.toString();
-                    if (!val.equals("") && !val.equals("()")) {
-                        if (currentRow.length() > 0) {
-                            currentRow += " ";
-                        }
-                        currentRow += val;
-                    }
-                    if (tmp.left != null) { queue.offer(tmp.left); }
-                    if (tmp.right != null) { queue.offer(tmp.right); }
+                treeString += tmp.data.toString(); 
+                
+                if (i < tree_level - 1) {
+                    treeString += " ";
                 }
+                
+                if (tmp.left != null) { queue.offer(tmp.left); }
+                if (tmp.right != null) { queue.offer(tmp.right); }
             }
-            if (currentRow.length() > 0) {
-                if (finalTreeString.length() > 0) {
-                    finalTreeString += "\n";
-                }
-                finalTreeString += currentRow;
+            if (!queue.isEmpty()) {
+                treeString += "\n";
             }
         }
-        
-        return finalTreeString;
+        return treeString;
     }
 
 public static void main(String[] args) {
     // System.out.println("a ");
 
     // BinaryTreeOperation_hw7<Integer> bto_hw7_int = new BinaryTreeOperation_hw7<>();
-    // BinaryTree<Integer> tree_1 = bto_hw7_int.build_tree("(1(2(3(4)())(5))(6(7(8)())(9(10)(11))))");
-    // System.out.println(bto_hw7_int.print_tree_in_horizontal_format(tree_1));
+    // BinaryTree<Integer> tree_1 = bto_hw7_int.build_tree("(1(2()(3(4)(5)))(6))");
+    // System.out.println(bto_hw7_int.print_tree_in_vertical_format(tree_1));
 }
 
 }
