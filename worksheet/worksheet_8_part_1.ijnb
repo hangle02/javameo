@@ -223,15 +223,6 @@
       }
     },
     {
-      "id": "ebbf19de-81e1-4a52-af66-ddca8962ad2c",
-      "cell_type": "markdown",
-      "source": "# Hash table  \r\n- uniform distribution: a distribution has constant probability  \r\n    key (--hash function--> index --> access data)  \r\n               hash table  \r\n\r\n",
-      "metadata": {
-        "language": "markdown",
-        "id": "ebbf19de-81e1-4a52-af66-ddca8962ad2c"
-      }
-    },
-    {
       "id": "67a09e76-54fb-4cba-9027-3dbf173fb3ce",
       "cell_type": "code",
       "source": "class BST{\r\n    BinaryTreeNode<Integer> root;\r\n\r\n    public BST() {\r\n        root = null;\r\n    }\r\n    public BinaryTreeNode<Integer> insert_(BinaryTreeNode<Integer> origin_root, Integer key){\r\n        if(origin_root == null){\r\n            return new BinaryTreeNode<>(key, null, null);\r\n        }\r\n        else{\r\n            if(origin_root.data.equals(key)){\r\n                IO.print(\"Duplicate key\");\r\n            }\r\n            if(origin_root.data.compareTo(key)>0){\r\n                origin_root.left= insert_(origin_root.left,key);\r\n            }\r\n            if(origin_root.data.compareTo(key)<0){\r\n                origin_root.right =  insert_(origin_root.right,key);\r\n            }\r\n        }\r\n        return origin_root;\r\n\r\n    }\r\n    public void insert(Integer key){\r\n        root = insert_(root, key);\r\n    }\r\n\r\n    public boolean search(Integer key){\r\n        return search_(root, key);\r\n        \r\n    }\r\n\r\n    public boolean search_(BinaryTreeNode<Integer> node, Integer key){\r\n        if(node == null){\r\n            return false;\r\n        }\r\n        else{\r\n            if(key.equals(node.data)){\r\n                return true;\r\n            }\r\n            if(key.compareTo(node.data)<0){\r\n                return search_(node.left, key);\r\n            }\r\n            else{\r\n                return search_(node.right, key);\r\n            }\r\n        }\r\n    }\r\n\r\n    public void delete(int key){\r\n        root = delete_(root, key);\r\n    }\r\n\r\n    public BinaryTreeNode<Integer> delete_(BinaryTreeNode<Integer> node, Integer key){\r\n        if(node==null){\r\n            return null;\r\n        }\r\n        else{\r\n            if(node.data.compareTo(key)>0){\r\n                node.left = delete_(node.left, key);\r\n            }\r\n            if(node.data.compareTo(key)<0){\r\n                node.right = delete_(node.right, key);\r\n            }\r\n            else{\r\n                // node has only one/0 child\r\n                if(node.left == null){\r\n                    return node.right;\r\n                }\r\n                if(node.right == null){\r\n                    return node.left;\r\n                }\r\n                //if node has 2 child\r\n                else{\r\n                    //find min of right-sub tree\r\n                    Integer minVal = node.data;\r\n                    while(node.left!=null){\r\n                        minVal = node.left.data;\r\n                        node = node.left;\r\n                    }\r\n                    node.data = minVal;\r\n                    node.right = delete_(node.right, minVal);\r\n                }\r\n            }\r\n        }\r\n        return node;\r\n\r\n    }\r\n}",
@@ -283,6 +274,49 @@
         }
       },
       "execution_count": 8,
+      "outputs": []
+    },
+    {
+      "id": "b8c6cfec-3669-4872-9b20-7a3e4dab6b63",
+      "cell_type": "markdown",
+      "source": "# Hash table  \r\n- uniform distribution: a distribution has constant probability  \r\n    key (--hash function--> index --> access data)  \r\n               hash table  \r\n\r\n- How to handle collision  \r\n    + Seprate chaining (closed addressing): create linked list at that index\r\n    + Open addressing-more popular- (closed hash table): if an index already have data--> move to next index (linear probing) or move +(n^2) (quadratic probing)\r\n    + compare: \r\n\r\n- Space complexity: O(n)\r\n- Time complexity: searching: O(n)->linkedlist or O(logn)->avl tree  \r\n--> why hash table?? in practice, time complexity nearly constant, but will need more memory\r\n\r\n- Application of hash funcion\r\n\r\n\r\n\r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "b8c6cfec-3669-4872-9b20-7a3e4dab6b63"
+      }
+    },
+    {
+      "id": "b7986dc1-d651-457d-9642-d93b7fb5c309",
+      "cell_type": "code",
+      "source": "int hash_function(String key){\r\n    int hash_value = 0;\r\n    for(int i=0; i<key.length(); i++){\r\n        hash_value += (int) key.charAt(i);\r\n    }\r\n    return hash_value;\r\n}\r\n\r\nString[] keys = {\"John Smith\", \"Lisa Smith\", \"Sandra Dea\", \"Donald Trump\"};\r\nfor(String key: keys){\r\n    IO.println(hash_function(key));\r\n}\r\n",
+      "metadata": {
+        "language": "java",
+        "id": "b7986dc1-d651-457d-9642-d93b7fb5c309",
+        "executionSummary": {
+          "executionOrder": 1,
+          "success": true
+        }
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "948\r\n942\r\n899\r\n1162\r\n"
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "id": "467754c2-5677-41d4-a5d9-e9444089e01a",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
       "outputs": []
     }
   ]
