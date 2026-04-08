@@ -24,11 +24,11 @@
         "language": "java",
         "id": "7872a866-49d4-49a7-88ec-8045ffa28f4c",
         "executionSummary": {
-          "executionOrder": 3,
+          "executionOrder": 1,
           "success": true
         }
       },
-      "execution_count": 3,
+      "execution_count": 1,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -36,7 +36,7 @@
             "text/plain": "D B A C F G E "
           },
           "metadata": {},
-          "execution_count": 3
+          "execution_count": 1
         }
       ]
     },
@@ -57,12 +57,19 @@
         "language": "java",
         "id": "f550596b-74a5-468f-b755-bd0f803743f7",
         "executionSummary": {
-          "executionOrder": 4,
+          "executionOrder": 2,
           "success": true
         }
       },
-      "execution_count": 4,
-      "outputs": []
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
     },
     {
       "id": "c4275cb8-92f7-4e53-a4d6-03a629a19f93",
@@ -108,11 +115,11 @@
         "language": "java",
         "id": "3b28702e-89f4-4955-b37b-cb307a84f21c",
         "executionSummary": {
-          "executionOrder": 4,
+          "executionOrder": 3,
           "success": true
         }
       },
-      "execution_count": 4,
+      "execution_count": 3,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -120,7 +127,7 @@
             "text/plain": "D B A C F G E "
           },
           "metadata": {},
-          "execution_count": 4
+          "execution_count": 3
         }
       ]
     },
@@ -136,12 +143,26 @@
     {
       "id": "80809dca-7b56-4219-9400-b1856468dfaa",
       "cell_type": "code",
-      "source": "",
+      "source": "public <T> void pre_order_print(BinaryTreeNode<T> root){\r\n    if(root==null){\r\n        return;\r\n    }\r\n    else{\r\n        pre_order_print(root.left);\r\n        IO.print(root.data.toString() + \" \");\r\n        pre_order_print(root.right);\r\n    }\r\n}\r\n\r\npre_order_print(root2);",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "80809dca-7b56-4219-9400-b1856468dfaa",
+        "executionSummary": {
+          "executionOrder": 4,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "A B C D G F E "
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
     },
     {
       "id": "b39898b2-0c19-49a2-a78a-c18c2f94a095",
@@ -155,12 +176,26 @@
     {
       "id": "f895bab9-bfdd-4795-81c4-970c3c2efcff",
       "cell_type": "code",
-      "source": "",
+      "source": "public <T> void pre_order_print(BinaryTreeNode<T> root){\r\n    if(root==null){\r\n        return;\r\n    }\r\n    else{\r\n        pre_order_print(root.right);\r\n        IO.print(root.data.toString() + \" \");\r\n        pre_order_print(root.left);\r\n    }\r\n}\r\n\r\npre_order_print(root2);",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "f895bab9-bfdd-4795-81c4-970c3c2efcff",
+        "executionSummary": {
+          "executionOrder": 5,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "E F G D C B A "
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
     },
     {
       "id": "39e47d8f-75f5-42e3-a7ff-d9f989d03543",
@@ -174,24 +209,24 @@
     {
       "id": "c9283663-3921-4eea-9997-8e1eeb6cca21",
       "cell_type": "code",
-      "source": "import java.util.Queue;\r\nimport java.util.LinkedList;\r\npublic <T> void print_BFS(BinaryTreeNode<T> tree_root){\r\n    Queue<BinaryTreeNode<T>> queue = new LinkedList<>();;\r\n    queue.offer(tree_root);\r\n    while(!queue.isEmpty){ \r\n        BinaryTreeNode<T> tmp = queue.poll();\r\n        if(tmp!=null){\r\n            IO.print(tmp.data.toString() + \" \");\r\n            queue.offer(tmp.left);\r\n            queue.offer(tmp.right);\r\n        }\r\n    }\r\n}",
+      "source": "import java.util.Queue;\r\nimport java.util.LinkedList;\r\npublic <T> void print_BFS(BinaryTreeNode<T> tree_root){\r\n    Queue<BinaryTreeNode<T>> queue = new LinkedList<>();;\r\n    queue.offer(tree_root);\r\n    while(!queue.isEmpty()){ \r\n        BinaryTreeNode<T> tmp = queue.poll();\r\n            IO.print(tmp.data.toString() + \" \");\r\n            if(tmp.left!=null) {queue.offer(tmp.left);}\r\n            if(tmp.right!=null) {queue.offer(tmp.right);}\r\n    }\r\n}\r\nprint_BFS(root2);",
       "metadata": {
         "language": "java",
         "id": "c9283663-3921-4eea-9997-8e1eeb6cca21",
         "executionSummary": {
-          "executionOrder": 1,
-          "success": false
+          "executionOrder": 13,
+          "success": true
         }
       },
-      "execution_count": 1,
+      "execution_count": 13,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "Created method print_BFS. However, it cannot be referenced until class BinaryTreeNode is declared\n"
+            "text/plain": "D B F A C G E "
           },
           "metadata": {},
-          "execution_count": 1
+          "execution_count": 13
         }
       ]
     },

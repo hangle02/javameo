@@ -33,19 +33,19 @@
         "language": "java",
         "id": "7b4d2c4c-097a-4f10-9b2b-f6bf81f8d6a6",
         "executionSummary": {
-          "executionOrder": 1,
-          "success": true
+          "executionOrder": 2,
+          "success": false
         }
       },
-      "execution_count": 1,
+      "execution_count": 2,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "       1\r\n     /    \\\r\n   2        4\r\n    \\      /  \\\r\n     -2    3    7\r\n"
+            "text/plain": "Created method is_BST_. However, it cannot be invoked or used or instantiated until variable data is declared\n       1\r\n     /    \\\r\n   2        4\r\n    \\      /  \\\r\n     -2    3    7\r\n"
           },
           "metadata": {},
-          "execution_count": 1
+          "execution_count": 2
         }
       ]
     },
@@ -66,11 +66,11 @@
         "language": "java",
         "id": "303b613a-7369-40dc-89f2-20203875b1cc",
         "executionSummary": {
-          "executionOrder": 10,
+          "executionOrder": 3,
           "success": false
         }
       },
-      "execution_count": 10,
+      "execution_count": 3,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -78,7 +78,7 @@
             "text/plain": "Created method is_BST_. However, it cannot be invoked or used or instantiated until variable data is declared\nCreated method is_BST_. However, it cannot be referenced until variable data is declared\nAttempt to use definition snippet with unresolved references in MethodSnippet:is_BST_/(BinaryTreeNode<Integer>,Integer,Integer)boolean-public boolean is_BST_(BinaryTreeNode<Integer> node, Integer min, Integer max){\r\n    if(node == null){\r\n        return true;\r\n    }\r\n    else{\r\n        if(min != null && node.data.compareTo(min)<0 ){\r\n            return false;\r\n        }\r\n        if(max!= null && node.data.compareTo(max)>0){\r\n            return false;\r\n        }\r\n        return (is_BST_(node.left, min, node.data) && is_BST_(node.right, node.data, max));\r\n    }\r\n }\n"
           },
           "metadata": {},
-          "execution_count": 10
+          "execution_count": 3
         }
       ]
     },
@@ -88,12 +88,13 @@
       "source": "public boolean is_BST(BinaryTreeNode<Integer> root) {\r\n    // Gọi hàm phụ trợ (Helper), ban đầu giới hạn Min và Max đều là null (không có giới hạn)\r\n    return is_BST_Helper(root, null, null);\r\n}\r\n\r\nprivate boolean is_BST_Helper(BinaryTreeNode<Integer> node, Integer min, Integer max) {\r\n    // Base case: Cây rỗng là một BST hợp lệ\r\n    if (node == null) {\r\n        return true;\r\n    }\r\n\r\n    // Kiểm tra xem Node hiện tại có phá vỡ giới hạn Min/Max hay không\r\n    if (min != null && node.data.compareTo(min) <= 0) {\r\n        return false; // Phải lớn hơn giá trị Min\r\n    }\r\n    if (max != null && node.data.compareTo(max) >= 0) {\r\n        return false; // Phải nhỏ hơn giá trị Max\r\n    }\r\n\r\n    // Đệ quy kiểm tra 2 nhánh:\r\n    // 1. Sang trái: Cập nhật Max = giá trị node hiện tại\r\n    // 2. Sang phải: Cập nhật Min = giá trị node hiện tại\r\n    return is_BST_Helper(node.left, min, node.data) && \r\n           is_BST_Helper(node.right, node.data, max);\r\n}",
       "metadata": {
         "language": "java",
+        "id": "3f2b293a-87eb-42bf-940f-96a39fa98c8c",
         "executionSummary": {
-          "executionOrder": 11,
+          "executionOrder": 4,
           "success": false
         }
       },
-      "execution_count": 11,
+      "execution_count": 4,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -101,7 +102,7 @@
             "text/plain": "Created method is_BST. However, it cannot be invoked or used or instantiated until method is_BST_Helper(BinaryTreeNode<java.lang.Integer>,<nulltype>,<nulltype>) is declared\nCreated method is_BST_Helper. However, it cannot be invoked or used or instantiated until variable data is declared\n"
           },
           "metadata": {},
-          "execution_count": 11
+          "execution_count": 4
         }
       ]
     },

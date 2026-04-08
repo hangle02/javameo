@@ -54,23 +54,23 @@ public class sample_test_2 {
         TreeNode root_2 = new TreeNode(50, null, new TreeNode(60, null, new TreeNode(70, null, null)));
         System.out.println(get_median_element(root_2) == 60); // true
         TreeNode node_1 = new TreeNode(1, null, null);
-TreeNode node_2 = new TreeNode(2, node_1, null);
-TreeNode new_node = delete_one_child_node(node_2);
-System.out.println(new_node == node_1); // true
+        TreeNode node_2 = new TreeNode(2, node_1, null);
+        TreeNode new_node = delete_one_child_node(node_2);
+        System.out.println(new_node == node_1); // true
 
-TreeNode n3 = new TreeNode(3, null, null);
-TreeNode n4 = new TreeNode(4, n3, null);
-TreeNode n1 = new TreeNode(1, null, null);
-TreeNode n6 = new TreeNode(6, n1, n4);
-TreeNode n9 = new TreeNode(9, null, null);
-TreeNode n2 = new TreeNode(2, null, n9);
-TreeNode n7 = new TreeNode(7, null, n2);
-TreeNode n5 = new TreeNode(5, n6, n7);
-TreeNode new_root = delete_one_child_node(n5);
-System.out.println(new_root == n5
-&& new_root.left == n6
-&& new_root.right == n9
-&& new_root.left.left == n1
-&& new_root.left.right == n3); // true
-    }
+        TreeNode n3 = new TreeNode(3, null, null);
+        TreeNode n4 = new TreeNode(4, n3, null);
+        TreeNode n1 = new TreeNode(1, null, null);
+        TreeNode n6 = new TreeNode(6, n1, n4);
+        TreeNode n9 = new TreeNode(9, null, null);
+        TreeNode n2 = new TreeNode(2, null, n9);
+        TreeNode n7 = new TreeNode(7, null, n2);
+        TreeNode n5 = new TreeNode(5, n6, n7);
+        TreeNode new_root = delete_one_child_node(n5);
+        System.out.println(new_root == n5
+        && new_root.left == n6
+        && new_root.right == n9
+        && new_root.left.left == n1
+        && new_root.left.right == n3); // true
+        }
 }
