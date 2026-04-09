@@ -31,6 +31,7 @@
       "source": "\r\n    public static boolean check_balanced_parenthesis_str(String s){\r\n        int count = 0;\r\n        for (int i=0; i<s.length(); i++){\r\n            char c = s.charAt(i);\r\n            if(c=='('){\r\n                count++;\r\n            }\r\n            if(s.charAt(i)==')'){\r\n                count--;\r\n            }\r\n            if(count<0){\r\n                return false;\r\n            }\r\n        }\r\n        if(count ==0){return true;}\r\n        return false;\r\n\r\n   }\r\n   System.out.println(check_balanced_parenthesis_str(\")(())\")); // true \r\n\r\n\r\n",
       "metadata": {
         "language": "java",
+        "id": "b1454bc1-4401-4efc-b1c9-858501248bcf",
         "executionSummary": {
           "executionOrder": 19,
           "success": true
@@ -54,6 +55,7 @@
       "source": "String x = \"abc\";\r\nx=x.replace(\"b\",\"\");\r\nIO.println(x);",
       "metadata": {
         "language": "java",
+        "id": "b82f537a-635f-4087-a06c-f72b2f93c62c",
         "executionSummary": {
           "executionOrder": 7,
           "success": true
@@ -68,6 +70,171 @@
           },
           "metadata": {},
           "execution_count": 7
+        }
+      ]
+    },
+    {
+      "id": "470a63ee-1527-41c7-9186-79790d549950",
+      "cell_type": "code",
+      "source": "class TreeNode {\r\n    public int data;\r\n    public TreeNode left, right;\r\n    public TreeNode (int data_, TreeNode left_, TreeNode right_) {\r\n        this.data = data_;\r\n        this.left = left_;\r\n        this.right = right_;\r\n    }\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 1,
+          "success": true
+        }
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "id": "0ff22d20-c88a-418c-a935-2145fa5d12cd",
+      "cell_type": "code",
+      "source": "public void print_preorder(TreeNode root){\r\n\r\n}\r\n\r\npublic void print_inorder(TreeNode root){\r\n\r\n}\r\npublic void print_postorder(TreeNode root){\r\n\r\n}\r\npublic void print_bfs(TreeNode root){\r\n\r\n}\r\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "6ed1bd7b-cfe9-496f-8f08-b7efdd562849",
+      "cell_type": "code",
+      "source": "public TreeNode reorganizeTree(TreeNode node) {\r\n    // BƯỚC 1: Điều kiện cơ sở (Base Case)\r\n    // Nếu đi vào đường cụt, trả về rỗng để báo cho cha biết nhánh này không có gì.\r\n    if (node == null) {\r\n        return null;\r\n    }\r\n\r\n    // BƯỚC 2: Đệ quy xử lý các nhánh con trước (Bottom-up)\r\n    // Bắt các node con tự cấu trúc lại chính chúng, sau đó gán ngược lại cho liên kết của node hiện tại.\r\n    node.left = reorganizeTree(node.left);\r\n    node.right = reorganizeTree(node.right);\r\n\r\n    // BƯỚC 3: Logic xử lý tại Node hiện tại (Core Logic)\r\n    // Lúc này, nhánh trái và phải đã chuẩn chỉnh. Ta đưa ra quyết định cho node này.\r\n    \r\n    // Ví dụ 1: Xóa node theo điều kiện (giống bài xóa node 1 con)\r\n    /*\r\n    if (chỉ có con phải) return node.right;\r\n    if (chỉ có con trái) return node.left;\r\n    */\r\n    \r\n    // Ví dụ 2: Cắt tỉa (Pruning - xóa lá có giá trị 0)\r\n    /*\r\n    if (node.left == null && node.right == null && node.data == 0) {\r\n        return null; // Trả về null để ngắt kết nối với cha\r\n    }\r\n    */\r\n    \r\n    // BƯỚC 4: Trả về kết quả\r\n    // Nếu node hiện tại an toàn, không bị biến đổi gì, trả chính nó lên cho tầng đệ quy phía trên.\r\n    return node;\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "88512fca-e67f-4ecc-b56a-dfbeed9f22e9",
+      "cell_type": "code",
+      "source": "public TreeNode delete_one_child_node(TreeNode node){\r\n    if(node == null){\r\n        return node;\r\n    }\r\n    node.left = delete_one_child_node(node.left);\r\n    node.right = delete_one_child_node(node.right);\r\n\r\n    if(node.right==null && node.left!=null){\r\n        return node.left;\r\n    }\r\n    else if(node.right!=null && node.left==null){\r\n        return node.right;\r\n    }\r\n    return node;\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "8eac22de-0feb-4c15-907e-7508481e0f4c",
+      "cell_type": "code",
+      "source": "public TreeNode delete_two_child_node(TreeNode node){\r\n    if(node == null){\r\n        return node;\r\n    }\r\n    node.left = delete_two_child_node(node.left);\r\n    node.right = delete_two_child_node(node.right);\r\n\r\n    if(node.right!=null && node.left!=null){\r\n        return null;\r\n    }\r\n    return node;\r\n}\r\n\r\nTreeNode root_2 = new TreeNode(50, null, new TreeNode(60, null, new TreeNode(70, null, null)));\r\n        \r\n        TreeNode node_1 = new TreeNode(1, null, null);\r\n        TreeNode node_2 = new TreeNode(2, node_1, null);\r\n        TreeNode new_node = delete_one_child_node(node_2);\r\n        System.out.println(new_node == node_1); // true\r\n\r\n        TreeNode n3 = new TreeNode(3, null, null);\r\n        TreeNode n4 = new TreeNode(4, n3, null);\r\n        TreeNode n1 = new TreeNode(1, null, null);\r\n        TreeNode n6 = new TreeNode(6, n1, n4);\r\n        TreeNode n9 = new TreeNode(9, null, null);\r\n        TreeNode n2 = new TreeNode(2, null, n9);\r\n        TreeNode n7 = new TreeNode(7, null, n2);\r\n        TreeNode n5 = new TreeNode(5, n6, n7);\r\n        TreeNode new_root = delete_two_child_node(n5);\r\n\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "id": "268570c7-0233-4763-b9d0-555eb1e4ca79",
+      "cell_type": "code",
+      "source": "String a1 = new String(\"aa\");\r\nString a2 = new String(\"aa\");\r\nString a4 = a1;\r\na4=\"aa\";\r\nIO.println(a4==a1);\r\nString a3 = \"aa\";\r\na3=a1;\r\nIO.println(a1==a2);\r\nIO.println(a1==a3);\r\nIO.println(a1.equals(a3));\r\n\r\na1 = a1+a3;\r\nIO.println(a1);\r\n\r\nInteger b1 = new Integer(1);\r\nInteger b2 = new Integer(1);\r\nInteger b3 = 1;\r\nint b4=1;\r\nIO.println(b4==b3);\r\nIO.println(b1.equals(b3));\r\n\r\nb2 = b1+b2;\r\nIO.println(b2);\r\n\r\nInteger a = 128; \r\nInteger b = 128;\r\nIO.println(a==b);\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 31,
+          "success": true
+        }
+      },
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "false\r\nfalse\r\ntrue\r\ntrue\r\naaaa\r\ntrue\r\ntrue\r\n2\r\nfalse\r\n"
+          },
+          "metadata": {},
+          "execution_count": 31
+        }
+      ]
+    },
+    {
+      "id": "0421eda8-2579-4b1a-a9cb-d9ce8ac233a9",
+      "cell_type": "code",
+      "source": "class Node{\r\n    public int data;\r\n    public Node(int data_){\r\n        this.data = data_;\r\n    }\r\n}\r\n\r\nNode a = new Node(1);\r\nNode b = new Node(2);\r\na = b;\r\nb = new Node(99);\r\nSystem.out.println(a.data);\r\n\r\nInteger val1 = Integer.valueOf(127);\r\nInteger val2 = Integer.valueOf(127);\r\nInteger val3 = new Integer(127);\r\nSystem.out.println((val1 == val2) + \" \" + (val1 == val3));\r\n\r\nvoid modify(int[] arr) {\r\n    arr[0] = 99;\r\n    arr = new int[]{1, 2, 3};\r\n}\r\n\r\n    int[] nums = {10, 20, 30};\r\n    modify(nums);\r\n    System.out.println(nums[0]);\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 30,
+          "success": true
+        }
+      },
+      "execution_count": 30,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "2\r\ntrue false\r\n99\r\n"
+          },
+          "metadata": {},
+          "execution_count": 30
+        }
+      ]
+    },
+    {
+      "id": "504d4525-74b9-418d-992b-82b633cde474",
+      "cell_type": "code",
+      "source": "// right rotation\r\nclass AVLTreeNode{\r\n    public int data;\r\n    public int height;\r\n    public AVLTreeNode left;\r\n    public AVLTreeNode right;\r\n    public AVLTreeNode(int data_, AVLTreeNode left_, AVLTreeNode right_){\r\n        this.left = left_;\r\n        this.right = right_;\r\n        this.data = data_;\r\n        this.height = 1;\r\n    }\r\n}\r\nclass VisualTreeNode {\r\n    AVLTreeNode tree_node;\r\n    int depth;  // root depth = 0\r\n    int index;  // from 0 to 2^depth - 1\r\n    public VisualTreeNode(AVLTreeNode tree_node, int depth, int index) {\r\n        this.tree_node = tree_node;\r\n        this.depth = depth;\r\n        this.index = index;\r\n    }\r\n}\r\n\r\nclass AVL_Tree{\r\n    AVLTreeNode root;\r\n    public AVL_Tree(AVLTreeNode root_) {\r\n        root = root_;\r\n    }\r\n    public int height(AVLTreeNode node){\r\n        if(node==null){return 0;}\r\n        return node.height;\r\n    }\r\n    //Balance factor = H(right) - H(left)\r\n    int get_balance(AVLTreeNode node){\r\n        if(node==null){return 0;}\r\n        return height(node.right) - height(node.left);\r\n    }\r\n\r\n    //rotation\r\n    public AVLTreeNode right_rotation(AVLTreeNode node){\r\n        AVLTreeNode A = node;\r\n        AVLTreeNode B = node.left;\r\n        AVLTreeNode C = B.right;\r\n        B.right = A;\r\n        A.left = C; \r\n        //update height\r\n        A.height = 1 + Math.max(height(A.left), height(A.right));\r\n        B.height = 1 + Math.max(height(B.left), height(B.right));\r\n        return B;\r\n    }\r\n    public AVLTreeNode left_rotation(AVLTreeNode node){\r\n        AVLTreeNode A = node;\r\n        AVLTreeNode B = node.right;\r\n        AVLTreeNode C = B.left;\r\n        B.left = A;\r\n        A.right = C; \r\n        //update height\r\n        A.height = 1 + Math.max(height(A.left), height(A.right));\r\n        B.height = 1 + Math.max(height(B.left), height(B.right));\r\n        return B;\r\n    }\r\n    public void insert(int data){\r\n        root = insert_helper(root, data);\r\n    }\r\n    public AVLTreeNode insert_helper(AVLTreeNode node, int data){\r\n        if(node==null){\r\n            return new AVLTreeNode(data, null, null);\r\n        }\r\n        if(data<node.data){\r\n            node.left = insert_helper(node.left, data);\r\n        }\r\n        else if(data>node.data){\r\n            node.right = insert_helper(node.right, data);\r\n        }\r\n        else{\r\n            return node;\r\n        }\r\n        //update height\r\n        node.height = 1 + Math.max(height(node.left), height(node.right));\r\n        //balance factor\r\n        int balance = get_balance(node);\r\n        //4 cases\r\n        //left left case\r\n        if(balance<-1 && data<node.left.data){\r\n            return right_rotation(node);\r\n        }\r\n        //right right case\r\n        if(balance>1 && data>node.right.data){\r\n            return left_rotation(node);\r\n        }\r\n        //left right case\r\n        if(balance<-1 && data>node.left.data){\r\n            node.left = left_rotation(node.left);\r\n            return right_rotation(node);\r\n        }\r\n        //right left case\r\n        if(balance>1 && data<node.right.data){\r\n            node.right = right_rotation(node.right);\r\n            return left_rotation(node);\r\n        }\r\n        return node;\r\n    }\r\n\r\n    public void print() {\r\n        LinkedList<VisualTreeNode> queue = new LinkedList<VisualTreeNode>();\r\n        LinkedList<VisualTreeNode> result_queue = new LinkedList<VisualTreeNode>();\r\n        queue.add(new VisualTreeNode(root, 0, 0));\r\n        int max_depth = 0;\r\n        while (!queue.isEmpty()){\r\n            VisualTreeNode tmp = queue.remove();\r\n            result_queue.add(tmp);\r\n            if (max_depth < tmp.depth)\r\n                max_depth = tmp.depth;\r\n            if (tmp.tree_node.left != null)\r\n                queue.add(new VisualTreeNode(tmp.tree_node.left, tmp.depth + 1, 2*tmp.index));\r\n            if (tmp.tree_node.right != null)\r\n                queue.add(new VisualTreeNode(tmp.tree_node.right, tmp.depth + 1, 2*tmp.index + 1));\r\n        }\r\n        \r\n        int space_num = 4; // at the leaf node\r\n        int current_depth = 0;\r\n        String line = \"\", path = \"\";\r\n        int current_line_pos = 0, current_path_pos = 0;\r\n        while (!result_queue.isEmpty()) {\r\n            VisualTreeNode tmp = result_queue.remove();\r\n            if (tmp.depth > current_depth) {\r\n                current_depth++;\r\n                if (current_depth > 1)\r\n                    System.out.println(path);\r\n                System.out.println(line);\r\n                line = path = \"\";\r\n                current_line_pos = current_path_pos = 0;\r\n            }\r\n            // Update the line (i.e. tree node info)\r\n            int padding = (int) Math.round(((Math.pow(2, max_depth - tmp.depth) - 1)/2)*space_num);\r\n            int width = (int) Math.pow(2, max_depth - tmp.depth)*space_num;\r\n            int line_pos = padding + tmp.index*width;\r\n            for (int i = current_line_pos; i <= line_pos; i++)\r\n                line += \" \";\r\n            //line += Integer.toString(tmp.tree_node.key);\r\n            line += String.valueOf(tmp.tree_node.data);\r\n            current_line_pos = line_pos + 1;\r\n            // Update the path (i.e. \"/\" and \"\\\" to connect nodes)\r\n            int parent_index = (int)Math.round((tmp.index - 0.5)/2);\r\n            int parent_padding = padding + width/2;\r\n            int parent_width = 2*width;\r\n            int path_pos = (line_pos + parent_padding + parent_index*parent_width)/2;\r\n            for (int i = current_path_pos; i <= path_pos; i++)\r\n                path += \" \";\r\n            path += ((tmp.index % 2 == 0)? \"/\":\"\\\\\");\r\n            current_path_pos = path_pos + 1; \r\n            if (result_queue.isEmpty()) {\r\n                if (current_depth > 0)\r\n                    System.out.println(path);\r\n                System.out.println(line);\r\n            } \r\n        }\r\n    }\r\n\r\n\r\n}\r\n\r\nAVL_Tree my_tree = new AVL_Tree();\r\nint[] key_list = {15, 20, 24, 10, 13, 7, 30, 36, 25};\r\nfor (int key: key_list) {\r\n    my_tree.insert(key);\r\n    my_tree.print();\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 46,
+          "success": false
+        }
+      },
+      "execution_count": 46,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "constructor AVL_Tree in class AVL_Tree cannot be applied to given types;\n  required: AVLTreeNode\n  found:    no arguments\n  reason: actual and formal argument lists differ in length\nAVL_Tree my_tree = new AVL_Tree();\n                   ^------------^\ncannot find symbol\n  symbol:   variable my_tree\n    my_tree.insert(key);\n    ^-----^\ncannot find symbol\n  symbol:   variable my_tree\n    my_tree.print();\n    ^-----^\n"
+          },
+          "metadata": {},
+          "execution_count": 46
         }
       ]
     }
