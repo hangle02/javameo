@@ -1,0 +1,189 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "b96159ce-02d3-45ea-b46b-35afb55eb899",
+      "cell_type": "markdown",
+      "source": "# Tree operations\n\nThe notebook file appears to be empty.",
+      "metadata": {
+        "language": "markdown",
+        "id": "b96159ce-02d3-45ea-b46b-35afb55eb899"
+      }
+    },
+    {
+      "id": "4078815c-6b2a-464e-b4f6-8733dcfcab97",
+      "cell_type": "code",
+      "source": "import java.util.Deque;\r\nimport java.util.ArrayDeque;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\nclass TreeNode {\r\n    public int data;\r\n    public TreeNode left, right;\r\n    public TreeNode (int data_, TreeNode left_, TreeNode right_) {\r\n        this.data = data_;\r\n        this.left = left_;\r\n        this.right = right_;\r\n    }\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 5,
+          "success": true
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "id": "828f666c-3d0f-470e-8c63-99dced896080",
+      "cell_type": "code",
+      "source": "public TreeNode reorganizeTree(TreeNode node) {\r\n    // BƯỚC 1: Điều kiện cơ sở (Base Case)\r\n    // Nếu đi vào đường cụt, trả về rỗng để báo cho cha biết nhánh này không có gì.\r\n    if (node == null) {\r\n        return null;\r\n    }\r\n\r\n    // BƯỚC 2: Đệ quy xử lý các nhánh con trước (Bottom-up)\r\n    // Bắt các node con tự cấu trúc lại chính chúng, sau đó gán ngược lại cho liên kết của node hiện tại.\r\n    node.left = reorganizeTree(node.left);\r\n    node.right = reorganizeTree(node.right);\r\n\r\n    // BƯỚC 3: Logic xử lý tại Node hiện tại (Core Logic)\r\n    // Lúc này, nhánh trái và phải đã chuẩn chỉnh. Ta đưa ra quyết định cho node này.\r\n    \r\n    // Ví dụ 1: Xóa node theo điều kiện (giống bài xóa node 1 con)\r\n    /*\r\n    if (chỉ có con phải) return node.right;\r\n    if (chỉ có con trái) return node.left;\r\n    */\r\n    \r\n    // Ví dụ 2: Cắt tỉa (Pruning - xóa lá có giá trị 0)\r\n    /*\r\n    if (node.left == null && node.right == null && node.data == 0) {\r\n        return null; // Trả về null để ngắt kết nối với cha\r\n    }\r\n    */\r\n    \r\n    // BƯỚC 4: Trả về kết quả\r\n    // Nếu node hiện tại an toàn, không bị biến đổi gì, trả chính nó lên cho tầng đệ quy phía trên.\r\n    return node;\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "id": "6ea2b517-b80f-4f1b-8dad-a682fa9fe15c",
+      "cell_type": "code",
+      "source": "TreeNode delete_one_child_node(TreeNode root){\r\n    if(root==null){return null;}\r\n    else{\r\n        root.left = delete_one_child_node(root.left);\r\n        root.right = delete_one_child_node(root.right);\r\n        if(root.left ==null && root.right !=null){return root.right;}\r\n        if(root.left!=null &&root.right==null){return root.left;}\r\n        return root;\r\n    }\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 7,
+          "success": true
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "id": "ca1f224e-d104-49b0-81bc-57df22e56f08",
+      "cell_type": "code",
+      "source": "TreeNode flatten_tree(TreeNode root){\r\n    if(root==null){return null;}\r\n    else{\r\n        root.left= flatten_tree(root.left);\r\n        root.right = flatten_tree(root.right);\r\n       \r\n        if(root.left!=null){\r\n            TreeNode tmp = root.right;\r\n            root.right = root.left;\r\n            root.left = null;\r\n            TreeNode cur = root.right;\r\n            while(cur.right!=null){\r\n                cur = cur.right;\r\n            }\r\n            cur.right = tmp;\r\n        }\r\n        return root;\r\n    }\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "id": "778044b0-7023-4732-b222-570243534146",
+      "cell_type": "code",
+      "source": "int get_height(TreeNode root){\r\n    if(root==null){return 0;}\r\n    return (1+Math.max(get_height(root.left), get_height(root.right)));\r\n}\r\n right_rotate",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 9,
+          "success": false
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "cannot find symbol\n  symbol:   variable right_rotate\nright_rotate\n^----------^\n"
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "id": "fb460f81-24e4-4a1a-8901-17e3b776b125",
+      "cell_type": "code",
+      "source": "void rebalance_BST(TreeNode root){\r\n    if(root==null){return;}\r\n    else{\r\n        List<Integer> datas = new ArrayList<>();\r\n        inorder_traversal(root, datas);\r\n        root = buildTree(datas, 0, datas.size()-1);\r\n    }\r\n}\r\n\r\nvoid inorder_traversal(TreeNode root, List<Integer> datas){\r\n    if(root==null){return;}\r\n    else{\r\n        inorder_traversal(root.left, datas);\r\n        datas.add(root.data);\r\n        inorder_traversal(root.right, datas);\r\n    }\r\n}\r\n\r\nTreeNode buildTree(List<Integer> datas, int left, int right){\r\n    if(left>right){return null;}\r\n    else{\r\n        int mid = left + (right-left)/2;\r\n        TreeNode root = new TreeNode(datas.get(mid),null,null);\r\n        root.left = buildTree(datas, left, mid-1);\r\n        root.right = buildTree(datas, mid+1, right);\r\n        return root;\r\n    }\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 19,
+          "success": true
+        }
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "id": "67bf1f0a-6234-44d8-b642-28aef218049f",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "b56546fc-dd7e-4016-9f45-19448dc7abe6",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "4e7cded2-8089-4699-983b-915c89975b33",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 11,
+          "success": true
+        }
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    }
+  ]
+}
