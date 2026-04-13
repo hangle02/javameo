@@ -10,7 +10,7 @@
     {
       "id": "e0059a86-32d1-4d8c-807a-2ab1b5f6ed0e",
       "cell_type": "markdown",
-      "source": "# Empty Notebook\n\nThe notebook file appears to be empty.",
+      "source": "#   \n\nThe notebook file appears to be empty.",
       "metadata": {
         "language": "markdown",
         "id": "e0059a86-32d1-4d8c-807a-2ab1b5f6ed0e"
@@ -33,11 +33,11 @@
         "language": "java",
         "id": "b1454bc1-4401-4efc-b1c9-858501248bcf",
         "executionSummary": {
-          "executionOrder": 19,
+          "executionOrder": 92,
           "success": true
         }
       },
-      "execution_count": 19,
+      "execution_count": 92,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -45,7 +45,7 @@
             "text/plain": "false\r\n"
           },
           "metadata": {},
-          "execution_count": 19
+          "execution_count": 92
         }
       ]
     },
@@ -57,11 +57,11 @@
         "language": "java",
         "id": "b82f537a-635f-4087-a06c-f72b2f93c62c",
         "executionSummary": {
-          "executionOrder": 7,
+          "executionOrder": 93,
           "success": true
         }
       },
-      "execution_count": 7,
+      "execution_count": 93,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -69,7 +69,7 @@
             "text/plain": "ac\r\n"
           },
           "metadata": {},
-          "execution_count": 7
+          "execution_count": 93
         }
       ]
     },
@@ -79,30 +79,67 @@
       "source": "class TreeNode {\r\n    public int data;\r\n    public TreeNode left, right;\r\n    public TreeNode (int data_, TreeNode left_, TreeNode right_) {\r\n        this.data = data_;\r\n        this.left = left_;\r\n        this.right = right_;\r\n    }\r\n}",
       "metadata": {
         "language": "java",
+        "id": "470a63ee-1527-41c7-9186-79790d549950",
         "executionSummary": {
-          "executionOrder": 1,
+          "executionOrder": 94,
           "success": true
         }
       },
-      "execution_count": 1,
+      "execution_count": 94,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {},
           "metadata": {},
-          "execution_count": 1
+          "execution_count": 94
+        }
+      ]
+    },
+    {
+      "id": "d0754eb4-9ce6-4e8e-9874-8f5a97851c40",
+      "cell_type": "code",
+      "source": "import java.util.Deque;\r\nimport java.util.ArrayDeque;",
+      "metadata": {
+        "language": "java",
+        "id": "d0754eb4-9ce6-4e8e-9874-8f5a97851c40",
+        "executionSummary": {
+          "executionOrder": 95,
+          "success": true
+        }
+      },
+      "execution_count": 95,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 95
         }
       ]
     },
     {
       "id": "0ff22d20-c88a-418c-a935-2145fa5d12cd",
       "cell_type": "code",
-      "source": "public void print_preorder(TreeNode root){\r\n\r\n}\r\n\r\npublic void print_inorder(TreeNode root){\r\n\r\n}\r\npublic void print_postorder(TreeNode root){\r\n\r\n}\r\npublic void print_bfs(TreeNode root){\r\n\r\n}\r\n",
+      "source": "public void print_preorder(TreeNode root){\r\n    if(root == null){\r\n        return;\r\n    }\r\n    else{\r\n        IO.print(root.data + \" \");\r\n        print_preorder(root.left);\r\n        print_preorder(root.right);\r\n    }\r\n}\r\n\r\npublic void print_inorder(TreeNode root){\r\n    if(root == null){\r\n        return;\r\n    }\r\n    else{\r\n        print_inorder(root.left);\r\n       IO.print(root.data + \" \");\r\n        print_inorder(root.right);\r\n    }\r\n}\r\npublic void print_postorder(TreeNode root){\r\n    if(root == null){\r\n        return;\r\n    }\r\n    else{\r\n        print_postorder(root.left);\r\n        print_postorder(root.right);\r\n       IO.print(root.data + \" \");\r\n    }\r\n}\r\npublic void print_bfs(TreeNode root){\r\n    if(root==null){\r\n        return;\r\n    }\r\n    else{\r\n        Deque<TreeNode> queue = new ArrayDeque<TreeNode>();\r\n        queue.offer(root);\r\n        while(!queue.isEmpty()){\r\n            TreeNode tmp = queue.poll();\r\n           IO.print(tmp.data + \" \");\r\n            if(tmp.left!=null){queue.offer(tmp.left);}\r\n            if(tmp.right!=null){queue.offer(tmp.right);}\r\n        }\r\n    }\r\n\r\n}\r\nTreeNode n3 = new TreeNode(3, null, null);\r\n        TreeNode n4 = new TreeNode(4, n3, null);\r\n        TreeNode n1 = new TreeNode(1, null, null);\r\n        TreeNode n6 = new TreeNode(6, n1, n4);\r\n        TreeNode n9 = new TreeNode(9, null, null);\r\n        TreeNode n2 = new TreeNode(2, null, n9);\r\n        TreeNode n7 = new TreeNode(7, null, n2);\r\n        TreeNode n5 = new TreeNode(5, n6, n7);\r\n\r\nprint_bfs(n5);\r\n\r\n",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "0ff22d20-c88a-418c-a935-2145fa5d12cd",
+        "executionSummary": {
+          "executionOrder": 96,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 96,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "5 6 7 1 4 2 3 9 "
+          },
+          "metadata": {},
+          "execution_count": 96
+        }
+      ]
     },
     {
       "id": "6ed1bd7b-cfe9-496f-8f08-b7efdd562849",
@@ -110,18 +147,19 @@
       "source": "public TreeNode reorganizeTree(TreeNode node) {\r\n    // BƯỚC 1: Điều kiện cơ sở (Base Case)\r\n    // Nếu đi vào đường cụt, trả về rỗng để báo cho cha biết nhánh này không có gì.\r\n    if (node == null) {\r\n        return null;\r\n    }\r\n\r\n    // BƯỚC 2: Đệ quy xử lý các nhánh con trước (Bottom-up)\r\n    // Bắt các node con tự cấu trúc lại chính chúng, sau đó gán ngược lại cho liên kết của node hiện tại.\r\n    node.left = reorganizeTree(node.left);\r\n    node.right = reorganizeTree(node.right);\r\n\r\n    // BƯỚC 3: Logic xử lý tại Node hiện tại (Core Logic)\r\n    // Lúc này, nhánh trái và phải đã chuẩn chỉnh. Ta đưa ra quyết định cho node này.\r\n    \r\n    // Ví dụ 1: Xóa node theo điều kiện (giống bài xóa node 1 con)\r\n    /*\r\n    if (chỉ có con phải) return node.right;\r\n    if (chỉ có con trái) return node.left;\r\n    */\r\n    \r\n    // Ví dụ 2: Cắt tỉa (Pruning - xóa lá có giá trị 0)\r\n    /*\r\n    if (node.left == null && node.right == null && node.data == 0) {\r\n        return null; // Trả về null để ngắt kết nối với cha\r\n    }\r\n    */\r\n    \r\n    // BƯỚC 4: Trả về kết quả\r\n    // Nếu node hiện tại an toàn, không bị biến đổi gì, trả chính nó lên cho tầng đệ quy phía trên.\r\n    return node;\r\n}",
       "metadata": {
         "language": "java",
+        "id": "6ed1bd7b-cfe9-496f-8f08-b7efdd562849",
         "executionSummary": {
-          "executionOrder": 2,
+          "executionOrder": 97,
           "success": true
         }
       },
-      "execution_count": 2,
+      "execution_count": 97,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {},
           "metadata": {},
-          "execution_count": 2
+          "execution_count": 97
         }
       ]
     },
@@ -131,18 +169,19 @@
       "source": "public TreeNode delete_one_child_node(TreeNode node){\r\n    if(node == null){\r\n        return node;\r\n    }\r\n    node.left = delete_one_child_node(node.left);\r\n    node.right = delete_one_child_node(node.right);\r\n\r\n    if(node.right==null && node.left!=null){\r\n        return node.left;\r\n    }\r\n    else if(node.right!=null && node.left==null){\r\n        return node.right;\r\n    }\r\n    return node;\r\n}",
       "metadata": {
         "language": "java",
+        "id": "88512fca-e67f-4ecc-b56a-dfbeed9f22e9",
         "executionSummary": {
-          "executionOrder": 3,
+          "executionOrder": 98,
           "success": true
         }
       },
-      "execution_count": 3,
+      "execution_count": 98,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {},
           "metadata": {},
-          "execution_count": 3
+          "execution_count": 98
         }
       ]
     },
@@ -152,12 +191,13 @@
       "source": "public TreeNode delete_two_child_node(TreeNode node){\r\n    if(node == null){\r\n        return node;\r\n    }\r\n    node.left = delete_two_child_node(node.left);\r\n    node.right = delete_two_child_node(node.right);\r\n\r\n    if(node.right!=null && node.left!=null){\r\n        return null;\r\n    }\r\n    return node;\r\n}\r\n\r\nTreeNode root_2 = new TreeNode(50, null, new TreeNode(60, null, new TreeNode(70, null, null)));\r\n        \r\n        TreeNode node_1 = new TreeNode(1, null, null);\r\n        TreeNode node_2 = new TreeNode(2, node_1, null);\r\n        TreeNode new_node = delete_one_child_node(node_2);\r\n        System.out.println(new_node == node_1); // true\r\n\r\n        TreeNode n3 = new TreeNode(3, null, null);\r\n        TreeNode n4 = new TreeNode(4, n3, null);\r\n        TreeNode n1 = new TreeNode(1, null, null);\r\n        TreeNode n6 = new TreeNode(6, n1, n4);\r\n        TreeNode n9 = new TreeNode(9, null, null);\r\n        TreeNode n2 = new TreeNode(2, null, n9);\r\n        TreeNode n7 = new TreeNode(7, null, n2);\r\n        TreeNode n5 = new TreeNode(5, n6, n7);\r\n        TreeNode new_root = delete_two_child_node(n5);\r\n\r\n",
       "metadata": {
         "language": "java",
+        "id": "8eac22de-0feb-4c15-907e-7508481e0f4c",
         "executionSummary": {
-          "executionOrder": 6,
+          "executionOrder": 99,
           "success": true
         }
       },
-      "execution_count": 6,
+      "execution_count": 99,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -165,7 +205,7 @@
             "text/plain": "true\r\n"
           },
           "metadata": {},
-          "execution_count": 6
+          "execution_count": 99
         }
       ]
     },
@@ -175,12 +215,13 @@
       "source": "String a1 = new String(\"aa\");\r\nString a2 = new String(\"aa\");\r\nString a4 = a1;\r\na4=\"aa\";\r\nIO.println(a4==a1);\r\nString a3 = \"aa\";\r\na3=a1;\r\nIO.println(a1==a2);\r\nIO.println(a1==a3);\r\nIO.println(a1.equals(a3));\r\n\r\na1 = a1+a3;\r\nIO.println(a1);\r\n\r\nInteger b1 = new Integer(1);\r\nInteger b2 = new Integer(1);\r\nInteger b3 = 1;\r\nint b4=1;\r\nIO.println(b4==b3);\r\nIO.println(b1.equals(b3));\r\n\r\nb2 = b1+b2;\r\nIO.println(b2);\r\n\r\nInteger a = 128; \r\nInteger b = 128;\r\nIO.println(a==b);\r\n",
       "metadata": {
         "language": "java",
+        "id": "268570c7-0233-4763-b9d0-555eb1e4ca79",
         "executionSummary": {
-          "executionOrder": 31,
+          "executionOrder": 100,
           "success": true
         }
       },
-      "execution_count": 31,
+      "execution_count": 100,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -188,7 +229,7 @@
             "text/plain": "false\r\nfalse\r\ntrue\r\ntrue\r\naaaa\r\ntrue\r\ntrue\r\n2\r\nfalse\r\n"
           },
           "metadata": {},
-          "execution_count": 31
+          "execution_count": 100
         }
       ]
     },
@@ -198,12 +239,13 @@
       "source": "class Node{\r\n    public int data;\r\n    public Node(int data_){\r\n        this.data = data_;\r\n    }\r\n}\r\n\r\nNode a = new Node(1);\r\nNode b = new Node(2);\r\na = b;\r\nb = new Node(99);\r\nSystem.out.println(a.data);\r\n\r\nInteger val1 = Integer.valueOf(127);\r\nInteger val2 = Integer.valueOf(127);\r\nInteger val3 = new Integer(127);\r\nSystem.out.println((val1 == val2) + \" \" + (val1 == val3));\r\n\r\nvoid modify(int[] arr) {\r\n    arr[0] = 99;\r\n    arr = new int[]{1, 2, 3};\r\n}\r\n\r\n    int[] nums = {10, 20, 30};\r\n    modify(nums);\r\n    System.out.println(nums[0]);\r\n",
       "metadata": {
         "language": "java",
+        "id": "0421eda8-2579-4b1a-a9cb-d9ce8ac233a9",
         "executionSummary": {
-          "executionOrder": 30,
+          "executionOrder": 101,
           "success": true
         }
       },
-      "execution_count": 30,
+      "execution_count": 101,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -211,30 +253,286 @@
             "text/plain": "2\r\ntrue false\r\n99\r\n"
           },
           "metadata": {},
-          "execution_count": 30
+          "execution_count": 101
+        }
+      ]
+    },
+    {
+      "id": "fd8652d6-f617-4a84-b7da-f6b62eab3e63",
+      "cell_type": "code",
+      "source": "int get_max(TreeNode root){\r\n    if(root == null){\r\n        return 0;\r\n    }\r\n    if(root.left ==null && root.right == null){\r\n        return root.data;\r\n    }\r\n    if(root.left==null){\r\n        return Math.max(root.data, get_max(root.right));\r\n    }\r\n    if(root.right==null){\r\n        return Math.max(root.data, get_max(root.left));\r\n    }\r\n    return Math.max(root.data, Math.max(get_max(root.left), get_max(root.right)));\r\n}\r\n\r\nint get_min(TreeNode root){\r\n    if(root == null){\r\n        return 0;\r\n    }\r\n    if(root.left ==null && root.right == null){\r\n        return root.data;\r\n    }\r\n    if(root.left==null){\r\n        return Math.min(root.data, get_min(root.right));\r\n    }\r\n    if(root.right==null){\r\n        return Math.min(root.data, get_min(root.left));\r\n    }\r\n    return Math.min(root.data, Math.min(get_min(root.left), get_min(root.right)));\r\n}\r\n\r\nint get_height(TreeNode node){\r\n    if(node == null){\r\n        return 0;\r\n    }\r\n    return 1 + Math.max(get_height(node.left), get_height(node.right));\r\n}\r\n\r\nint balance_factor(TreeNode root){\r\n    if(root ==null){return 0;}\r\n    return (get_height(root.right)-get_height(root.left));\r\n}\r\n\r\nboolean is_BST(TreeNode node){\r\n    if(node==null){\r\n        return true;\r\n    }\r\n    if(node.left!=null && get_max(node.left)>=node.data){\r\n        return false;\r\n    }\r\n\r\n    if(node.right!=null && get_min(node.right)<=node.data){\r\n        return false;\r\n    }\r\n    return is_BST(node.left) && is_BST(node.right);\r\n}\r\n\r\nboolean is_AVL(TreeNode root){\r\n    if(root==null){\r\n        return true;\r\n    }\r\n    if((root.left==null || root.right==null) && (!is_BST(root) || Math.abs(balance_factor(root))>1)){\r\n        return false;\r\n    }\r\n    return is_AVL(root.left) && is_AVL(root.right);\r\n\r\n}\r\n\r\nTreeNode root= new TreeNode(3,new TreeNode(2,new TreeNode(1,null,null),null), new TreeNode(5,null,null));\r\nIO.println(balance_factor(root));\r\n\r\nIO.println(get_min(root));\r\nIO.println(get_max(root));\r\nIO.println(is_AVL(root));\r\n",
+      "metadata": {
+        "language": "java",
+        "id": "fd8652d6-f617-4a84-b7da-f6b62eab3e63",
+        "executionSummary": {
+          "executionOrder": 102,
+          "success": true
+        }
+      },
+      "execution_count": 102,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "-1\r\n1\r\n5\r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 102
         }
       ]
     },
     {
       "id": "504d4525-74b9-418d-992b-82b633cde474",
       "cell_type": "code",
-      "source": "// right rotation\r\nclass AVLTreeNode{\r\n    public int data;\r\n    public int height;\r\n    public AVLTreeNode left;\r\n    public AVLTreeNode right;\r\n    public AVLTreeNode(int data_, AVLTreeNode left_, AVLTreeNode right_){\r\n        this.left = left_;\r\n        this.right = right_;\r\n        this.data = data_;\r\n        this.height = 1;\r\n    }\r\n}\r\nclass VisualTreeNode {\r\n    AVLTreeNode tree_node;\r\n    int depth;  // root depth = 0\r\n    int index;  // from 0 to 2^depth - 1\r\n    public VisualTreeNode(AVLTreeNode tree_node, int depth, int index) {\r\n        this.tree_node = tree_node;\r\n        this.depth = depth;\r\n        this.index = index;\r\n    }\r\n}\r\n\r\nclass AVL_Tree{\r\n    AVLTreeNode root;\r\n    public AVL_Tree(AVLTreeNode root_) {\r\n        root = root_;\r\n    }\r\n    public int height(AVLTreeNode node){\r\n        if(node==null){return 0;}\r\n        return node.height;\r\n    }\r\n    //Balance factor = H(right) - H(left)\r\n    int get_balance(AVLTreeNode node){\r\n        if(node==null){return 0;}\r\n        return height(node.right) - height(node.left);\r\n    }\r\n\r\n    //rotation\r\n    public AVLTreeNode right_rotation(AVLTreeNode node){\r\n        AVLTreeNode A = node;\r\n        AVLTreeNode B = node.left;\r\n        AVLTreeNode C = B.right;\r\n        B.right = A;\r\n        A.left = C; \r\n        //update height\r\n        A.height = 1 + Math.max(height(A.left), height(A.right));\r\n        B.height = 1 + Math.max(height(B.left), height(B.right));\r\n        return B;\r\n    }\r\n    public AVLTreeNode left_rotation(AVLTreeNode node){\r\n        AVLTreeNode A = node;\r\n        AVLTreeNode B = node.right;\r\n        AVLTreeNode C = B.left;\r\n        B.left = A;\r\n        A.right = C; \r\n        //update height\r\n        A.height = 1 + Math.max(height(A.left), height(A.right));\r\n        B.height = 1 + Math.max(height(B.left), height(B.right));\r\n        return B;\r\n    }\r\n    public void insert(int data){\r\n        root = insert_helper(root, data);\r\n    }\r\n    public AVLTreeNode insert_helper(AVLTreeNode node, int data){\r\n        if(node==null){\r\n            return new AVLTreeNode(data, null, null);\r\n        }\r\n        if(data<node.data){\r\n            node.left = insert_helper(node.left, data);\r\n        }\r\n        else if(data>node.data){\r\n            node.right = insert_helper(node.right, data);\r\n        }\r\n        else{\r\n            return node;\r\n        }\r\n        //update height\r\n        node.height = 1 + Math.max(height(node.left), height(node.right));\r\n        //balance factor\r\n        int balance = get_balance(node);\r\n        //4 cases\r\n        //left left case\r\n        if(balance<-1 && data<node.left.data){\r\n            return right_rotation(node);\r\n        }\r\n        //right right case\r\n        if(balance>1 && data>node.right.data){\r\n            return left_rotation(node);\r\n        }\r\n        //left right case\r\n        if(balance<-1 && data>node.left.data){\r\n            node.left = left_rotation(node.left);\r\n            return right_rotation(node);\r\n        }\r\n        //right left case\r\n        if(balance>1 && data<node.right.data){\r\n            node.right = right_rotation(node.right);\r\n            return left_rotation(node);\r\n        }\r\n        return node;\r\n    }\r\n\r\n    public void print() {\r\n        LinkedList<VisualTreeNode> queue = new LinkedList<VisualTreeNode>();\r\n        LinkedList<VisualTreeNode> result_queue = new LinkedList<VisualTreeNode>();\r\n        queue.add(new VisualTreeNode(root, 0, 0));\r\n        int max_depth = 0;\r\n        while (!queue.isEmpty()){\r\n            VisualTreeNode tmp = queue.remove();\r\n            result_queue.add(tmp);\r\n            if (max_depth < tmp.depth)\r\n                max_depth = tmp.depth;\r\n            if (tmp.tree_node.left != null)\r\n                queue.add(new VisualTreeNode(tmp.tree_node.left, tmp.depth + 1, 2*tmp.index));\r\n            if (tmp.tree_node.right != null)\r\n                queue.add(new VisualTreeNode(tmp.tree_node.right, tmp.depth + 1, 2*tmp.index + 1));\r\n        }\r\n        \r\n        int space_num = 4; // at the leaf node\r\n        int current_depth = 0;\r\n        String line = \"\", path = \"\";\r\n        int current_line_pos = 0, current_path_pos = 0;\r\n        while (!result_queue.isEmpty()) {\r\n            VisualTreeNode tmp = result_queue.remove();\r\n            if (tmp.depth > current_depth) {\r\n                current_depth++;\r\n                if (current_depth > 1)\r\n                    System.out.println(path);\r\n                System.out.println(line);\r\n                line = path = \"\";\r\n                current_line_pos = current_path_pos = 0;\r\n            }\r\n            // Update the line (i.e. tree node info)\r\n            int padding = (int) Math.round(((Math.pow(2, max_depth - tmp.depth) - 1)/2)*space_num);\r\n            int width = (int) Math.pow(2, max_depth - tmp.depth)*space_num;\r\n            int line_pos = padding + tmp.index*width;\r\n            for (int i = current_line_pos; i <= line_pos; i++)\r\n                line += \" \";\r\n            //line += Integer.toString(tmp.tree_node.key);\r\n            line += String.valueOf(tmp.tree_node.data);\r\n            current_line_pos = line_pos + 1;\r\n            // Update the path (i.e. \"/\" and \"\\\" to connect nodes)\r\n            int parent_index = (int)Math.round((tmp.index - 0.5)/2);\r\n            int parent_padding = padding + width/2;\r\n            int parent_width = 2*width;\r\n            int path_pos = (line_pos + parent_padding + parent_index*parent_width)/2;\r\n            for (int i = current_path_pos; i <= path_pos; i++)\r\n                path += \" \";\r\n            path += ((tmp.index % 2 == 0)? \"/\":\"\\\\\");\r\n            current_path_pos = path_pos + 1; \r\n            if (result_queue.isEmpty()) {\r\n                if (current_depth > 0)\r\n                    System.out.println(path);\r\n                System.out.println(line);\r\n            } \r\n        }\r\n    }\r\n\r\n\r\n}\r\n\r\nAVL_Tree my_tree = new AVL_Tree();\r\nint[] key_list = {15, 20, 24, 10, 13, 7, 30, 36, 25};\r\nfor (int key: key_list) {\r\n    my_tree.insert(key);\r\n    my_tree.print();\r\n}",
+      "source": "// right rotation\r\nimport java.util.LinkedList;\r\nclass AVLTreeNode{\r\n    public int data;\r\n    public int height;\r\n    public AVLTreeNode left;\r\n    public AVLTreeNode right;\r\n    public AVLTreeNode(int data_, AVLTreeNode left_, AVLTreeNode right_){\r\n        this.left = left_;\r\n        this.right = right_;\r\n        this.data = data_;\r\n        this.height = 1;\r\n    }\r\n}\r\nclass VisualTreeNode {\r\n    AVLTreeNode tree_node;\r\n    int depth;  // root depth = 0\r\n    int index;  // from 0 to 2^depth - 1\r\n    public VisualTreeNode(AVLTreeNode tree_node, int depth, int index) {\r\n        this.tree_node = tree_node;\r\n        this.depth = depth;\r\n        this.index = index;\r\n    }\r\n}\r\n\r\nclass AVL_Tree{\r\n    AVLTreeNode root;\r\n    public AVL_Tree(AVLTreeNode root_) {\r\n        root = root_;\r\n    }\r\n    public int height(AVLTreeNode node){\r\n        if(node==null){return 0;}\r\n        return node.height;\r\n    }\r\n    //Balance factor = H(right) - H(left)\r\n    int get_balance(AVLTreeNode node){\r\n        if(node==null){return 0;}\r\n        return height(node.right) - height(node.left);\r\n    }\r\n\r\n    //rotation\r\n    public AVLTreeNode right_rotation(AVLTreeNode node){\r\n        AVLTreeNode A = node;\r\n        AVLTreeNode B = node.left;\r\n        AVLTreeNode C = B.right;\r\n        B.right = A;\r\n        A.left = C; \r\n        //update height\r\n        A.height = 1 + Math.max(height(A.left), height(A.right));\r\n        B.height = 1 + Math.max(height(B.left), height(B.right));\r\n        return B;\r\n    }\r\n    public AVLTreeNode left_rotation(AVLTreeNode node){\r\n        AVLTreeNode A = node;\r\n        AVLTreeNode B = node.right;\r\n        AVLTreeNode C = B.left;\r\n        B.left = A;\r\n        A.right = C; \r\n        //update height\r\n        A.height = 1 + Math.max(height(A.left), height(A.right));\r\n        B.height = 1 + Math.max(height(B.left), height(B.right));\r\n        return B;\r\n    }\r\n    public void insert(int data){\r\n        root = insert_helper(root, data);\r\n    }\r\n    public AVLTreeNode insert_helper(AVLTreeNode node, int data){\r\n        if(node==null){\r\n            return new AVLTreeNode(data, null, null);\r\n        }\r\n        if(data<node.data){\r\n            node.left = insert_helper(node.left, data);\r\n        }\r\n        else if(data>node.data){\r\n            node.right = insert_helper(node.right, data);\r\n        }\r\n        else{\r\n            return node;\r\n        }\r\n        //update height\r\n        node.height = 1 + Math.max(height(node.left), height(node.right));\r\n        //balance factor\r\n        int balance = get_balance(node);\r\n        //4 cases\r\n        //left left case\r\n        if(balance<-1 && data<node.left.data){\r\n            return right_rotation(node);\r\n        }\r\n        //right right case\r\n        if(balance>1 && data>node.right.data){\r\n            return left_rotation(node);\r\n        }\r\n        //left right case\r\n        if(balance<-1 && data>node.left.data){\r\n            node.left = left_rotation(node.left);\r\n            return right_rotation(node);\r\n        }\r\n        //right left case\r\n        if(balance>1 && data<node.right.data){\r\n            node.right = right_rotation(node.right);\r\n            return left_rotation(node);\r\n        }\r\n        return node;\r\n    }\r\n\r\n    public void print() {\r\n        LinkedList<VisualTreeNode> queue = new LinkedList<VisualTreeNode>();\r\n        LinkedList<VisualTreeNode> result_queue = new LinkedList<VisualTreeNode>();\r\n        queue.add(new VisualTreeNode(root, 0, 0));\r\n        int max_depth = 0;\r\n        while (!queue.isEmpty()){\r\n            VisualTreeNode tmp = queue.remove();\r\n            result_queue.add(tmp);\r\n            if (max_depth < tmp.depth)\r\n                max_depth = tmp.depth;\r\n            if (tmp.tree_node.left != null)\r\n                queue.add(new VisualTreeNode(tmp.tree_node.left, tmp.depth + 1, 2*tmp.index));\r\n            if (tmp.tree_node.right != null)\r\n                queue.add(new VisualTreeNode(tmp.tree_node.right, tmp.depth + 1, 2*tmp.index + 1));\r\n        }\r\n        \r\n        int space_num = 4; // at the leaf node\r\n        int current_depth = 0;\r\n        String line = \"\", path = \"\";\r\n        int current_line_pos = 0, current_path_pos = 0;\r\n        while (!result_queue.isEmpty()) {\r\n            VisualTreeNode tmp = result_queue.remove();\r\n            if (tmp.depth > current_depth) {\r\n                current_depth++;\r\n                if (current_depth > 1)\r\n                    System.out.println(path);\r\n                System.out.println(line);\r\n                line = path = \"\";\r\n                current_line_pos = current_path_pos = 0;\r\n            }\r\n            // Update the line (i.e. tree node info)\r\n            int padding = (int) Math.round(((Math.pow(2, max_depth - tmp.depth) - 1)/2)*space_num);\r\n            int width = (int) Math.pow(2, max_depth - tmp.depth)*space_num;\r\n            int line_pos = padding + tmp.index*width;\r\n            for (int i = current_line_pos; i <= line_pos; i++)\r\n                line += \" \";\r\n            //line += Integer.toString(tmp.tree_node.key);\r\n            line += String.valueOf(tmp.tree_node.data);\r\n            current_line_pos = line_pos + 1;\r\n            // Update the path (i.e. \"/\" and \"\\\" to connect nodes)\r\n            int parent_index = (int)Math.round((tmp.index - 0.5)/2);\r\n            int parent_padding = padding + width/2;\r\n            int parent_width = 2*width;\r\n            int path_pos = (line_pos + parent_padding + parent_index*parent_width)/2;\r\n            for (int i = current_path_pos; i <= path_pos; i++)\r\n                path += \" \";\r\n            path += ((tmp.index % 2 == 0)? \"/\":\"\\\\\");\r\n            current_path_pos = path_pos + 1; \r\n            if (result_queue.isEmpty()) {\r\n                if (current_depth > 0)\r\n                    System.out.println(path);\r\n                System.out.println(line);\r\n            } \r\n        }\r\n    }\r\n\r\n\r\n}\r\n\r\nAVL_Tree my_tree = new AVL_Tree(null);\r\nint[] key_list = {15, 20, 24, 10, 13, 7, 30, 36, 25};\r\nfor (int key: key_list) {\r\n    my_tree.insert(key);\r\n   \r\n}\r\n my_tree.print();",
       "metadata": {
         "language": "java",
+        "id": "504d4525-74b9-418d-992b-82b633cde474",
         "executionSummary": {
-          "executionOrder": 46,
-          "success": false
+          "executionOrder": 103,
+          "success": true
         }
       },
-      "execution_count": 46,
+      "execution_count": 103,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "constructor AVL_Tree in class AVL_Tree cannot be applied to given types;\n  required: AVLTreeNode\n  found:    no arguments\n  reason: actual and formal argument lists differ in length\nAVL_Tree my_tree = new AVL_Tree();\n                   ^------------^\ncannot find symbol\n  symbol:   variable my_tree\n    my_tree.insert(key);\n    ^-----^\ncannot find symbol\n  symbol:   variable my_tree\n    my_tree.print();\n    ^-----^\n"
+            "text/plain": "               13\r\n           /        \\\r\n       10                24\r\n     /                /    \\\r\n   7                20        30\r\n                  /        /  \\\r\n                 15        25    36\r\n"
           },
           "metadata": {},
-          "execution_count": 46
+          "execution_count": 103
+        }
+      ]
+    },
+    {
+      "id": "a23a8682-3c31-4b83-9b49-99f7e97b2bb2",
+      "cell_type": "code",
+      "source": "void invert_tree(TreeNode root){\r\n    if(root == null){return;}\r\n    else{\r\n            TreeNode cur = root;\r\n            TreeNode tmp = cur.left;\r\n            cur.left = cur.right;\r\n            cur.right = tmp;\r\n            invert_tree(cur.left);\r\n            invert_tree(cur.right);\r\n        }\r\n    }\r\n\r\nTreeNode root= new TreeNode(3,new TreeNode(2,new TreeNode(1,null,null),null), new TreeNode(5,null,null));\r\nprint_bfs(root);\r\nIO.println();\r\ninvert_tree(root);\r\nprint_bfs(root);",
+      "metadata": {
+        "language": "java",
+        "id": "a23a8682-3c31-4b83-9b49-99f7e97b2bb2",
+        "executionSummary": {
+          "executionOrder": 104,
+          "success": true
+        }
+      },
+      "execution_count": 104,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "3 2 5 1 \r\n3 5 2 1 "
+          },
+          "metadata": {},
+          "execution_count": 104
+        }
+      ]
+    },
+    {
+      "id": "9b4da6ed-f1bb-45d4-97cf-567e785c32f2",
+      "cell_type": "code",
+      "source": "//Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.\r\n//The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).\r\nTreeNode find_LCA(TreeNode root, TreeNode p, TreeNode q){\r\n    if(root == null){\r\n        return null;\r\n    }\r\n    if(root == p || root ==q){\r\n        return root;\r\n    }\r\n\r\n    TreeNode left_LCA = find_LCA(root.left,p,q);\r\n    TreeNode right_LCA = find_LCA(root.right,p,q);\r\n    if(left_LCA!=null && right_LCA!=null){\r\n        return root;\r\n    }\r\n    return (left_LCA!=null)? left_LCA: right_LCA;\r\n}   \r\nTreeNode root= new TreeNode(3,new TreeNode(2,new TreeNode(1,null,null),new TreeNode(4,null,null)), new TreeNode(5,null,null));\r\nTreeNode p = root.left.right; // node 4\r\nTreeNode q = root.left.left; // node 1\r\nTreeNode LCA = find_LCA(root, p, q);\r\nIO.println(LCA.data); // 2\r\n",
+      "metadata": {
+        "language": "java",
+        "id": "9b4da6ed-f1bb-45d4-97cf-567e785c32f2",
+        "executionSummary": {
+          "executionOrder": 105,
+          "success": true
+        }
+      },
+      "execution_count": 105,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "2\r\n"
+          },
+          "metadata": {},
+          "execution_count": 105
+        }
+      ]
+    },
+    {
+      "id": "b9373725-fa14-492e-a5fb-94e3d340de60",
+      "cell_type": "code",
+      "source": "//Given the root of a binary search tree, and an integer k, \r\n// return the kth smallest value (1-indexed) of all the values of the nodes in the tree.\r\nimport java.util.List;\r\nimport java.util.ArrayList;\r\nint kth_biggest(TreeNode root, int k){\r\n    if(root ==null){\r\n        return 0;\r\n    }\r\n    else{\r\n        List<Integer> datas = new ArrayList<>();\r\n        Deque<TreeNode> stack = new ArrayDeque<>();\r\n        TreeNode cur = root;\r\n        while(cur!=null || !stack.isEmpty()){\r\n            while(cur!=null){\r\n                stack.push(cur);\r\n                cur = cur.right;\r\n            }\r\n            cur = stack.pop();\r\n            datas.add(cur.data);\r\n            cur = cur.left;\r\n        }\r\n        IO.println(datas);\r\n        if(k <= datas.size()){return datas.get(k-1);}\r\n        return 0;\r\n    }\r\n}\r\nTreeNode root= new TreeNode(3,new TreeNode(1,null,null), new TreeNode(4,null,null));\r\nint k = 1;\r\nIO.println(kth_biggest(root, k));\r\n",
+      "metadata": {
+        "language": "java",
+        "id": "b9373725-fa14-492e-a5fb-94e3d340de60",
+        "executionSummary": {
+          "executionOrder": 106,
+          "success": true
+        }
+      },
+      "execution_count": 106,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "[4, 3, 1]\r\n4\r\n"
+          },
+          "metadata": {},
+          "execution_count": 106
+        }
+      ]
+    },
+    {
+      "id": "a6012f43-fba6-4e68-8b71-2a249b46f2a6",
+      "cell_type": "code",
+      "source": "int kth_smallest(TreeNode root, int k){\r\n    if(root==null){return 0;}\r\n    else{\r\n        List<Integer> datas = new ArrayList<>();\r\n        Deque<TreeNode> stack = new ArrayDeque<>();\r\n        TreeNode cur = root;\r\n        while(cur!=null || !stack.isEmpty()){\r\n            while(cur!=null){\r\n                stack.push(cur);\r\n                cur=cur.left;\r\n            }\r\n            cur = stack.pop();\r\n            datas.add(cur.data);\r\n            cur = cur.right;\r\n        }\r\n        return datas.get(k-1);\r\n    }\r\n}\r\n\r\nTreeNode root= new TreeNode(3,new TreeNode(1,null,null), new TreeNode(4,null,null));\r\nint k = 3;\r\nIO.println(kth_smallest(root, k));\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 125,
+          "success": true
+        }
+      },
+      "execution_count": 125,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "4\r\n"
+          },
+          "metadata": {},
+          "execution_count": 125
+        }
+      ]
+    },
+    {
+      "id": "d9849436-2d60-466c-af31-701b25db6e79",
+      "cell_type": "code",
+      "source": "int longestZigZag(TreeNode root) {\r\n        if(root == null){\r\n            return 0;\r\n        }\r\n        else{\r\n            int max_length = 0;\r\n            Deque<TreeNode> stack = new ArrayDeque<>();\r\n            Deque<Integer> length_stack = new ArrayDeque<>();\r\n            stack.push(root);\r\n            length_stack.push(0);\r\n            while(!stack.isEmpty()){\r\n                TreeNode tmp = stack.pop();\r\n                int length = length_stack.pop();\r\n                max_length = Math.max(max_length, length);\r\n                if(tmp.left!=null){\r\n                    stack.push(tmp.left);\r\n                    length_stack.push(length+1);\r\n                }\r\n                if(tmp.right!=null){\r\n                    stack.push(tmp.right);\r\n                    length_stack.push(length+1);\r\n                }\r\n            }\r\n            return max_length;\r\n    }\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 108,
+          "success": true
+        }
+      },
+      "execution_count": 108,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 108
+        }
+      ]
+    },
+    {
+      "id": "936ec414-e7f8-45dc-9457-a1ef506f7c91",
+      "cell_type": "code",
+      "source": "// convert sorted array to bst\r\nTreeNode to_BST(int[] lst){\r\n    if(lst.length==0){return null;}\r\n    else{\r\n        return buildTree(lst, 0, lst.length-1);\r\n    }\r\n}\r\n// concept of binary search\r\nTreeNode buildTree(int[] nums, int left, int right){\r\n    if(left>right){\r\n        return null;\r\n    }\r\n    int mid = left + (right-left)/2;\r\n    TreeNode root = new TreeNode(nums[mid],null,null);\r\n    root.left = buildTree(nums, left, mid-1);\r\n    root.right = buildTree(nums, mid+1, right);\r\n    return root;\r\n}\r\n\r\nint[] nums = new int[]{2,3,4,5,6,7,8,9};\r\nTreeNode root = to_BST(nums);\r\nprint_inorder(root);\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 126,
+          "success": true
+        }
+      },
+      "execution_count": 126,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "2 3 4 5 6 7 8 9 "
+          },
+          "metadata": {},
+          "execution_count": 126
+        }
+      ]
+    },
+    {
+      "id": "42dd82e1-07bc-4efd-80af-68bed959e900",
+      "cell_type": "code",
+      "source": "TreeNode arr_toBST(int[] nums){\r\n    if(nums.length==0){return null;}\r\n    return buildTree(nums, 0, nums.length-1);\r\n}\r\n\r\nTreeNode buildTree(int[] nums, int left, int right){\r\n    if(left>right){\r\n        return null;\r\n    }\r\n    else{\r\n        int mid = left +(right -left)/2;\r\n        TreeNode root = new TreeNode(nums[mid], null, null);\r\n        root.left = buildTree(nums, left, mid-1);\r\n        root.right = buildTree(nums, mid+1, right);\r\n        return root;\r\n    }\r\n}\r\n\r\nint[] nums = new int[]{2,3,4,5,6,7,8,9};\r\nTreeNode root = to_BST(nums);\r\nprint_inorder(root);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 128,
+          "success": true
+        }
+      },
+      "execution_count": 128,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "2 3 4 5 6 7 8 9 "
+          },
+          "metadata": {},
+          "execution_count": 128
+        }
+      ]
+    },
+    {
+      "id": "d965d7ca-2b1c-4a71-84e6-3e3b1ac91e5f",
+      "cell_type": "code",
+      "source": "boolean same_tree(TreeNode root1, TreeNode root2){\r\n    if(root1==null && root2==null){\r\n        return true;\r\n    }\r\n    if((root1!=null && root2==null)||(root1==null && root2!=null)){\r\n        return false;\r\n    }\r\n    else{\r\n        if(root1.data!=root2.data){return false;}\r\n        return (same_tree(root1.left,root2.left) && same_tree(root1.right,root2.right));\r\n    }\r\n}\r\n\r\nTreeNode root1 = new TreeNode(1, new TreeNode(2, null, null), new TreeNode(3, null, null));\r\nTreeNode root2 = new TreeNode(1, new TreeNode(2, null, null), new TreeNode(3, null, null));\r\nIO.println(same_tree(root1, root2)); // true",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 111,
+          "success": true
+        }
+      },
+      "execution_count": 111,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 111
+        }
+      ]
+    },
+    {
+      "id": "86e61a2a-b1a2-45dc-b531-d82b4b1c7f6c",
+      "cell_type": "code",
+      "source": "boolean search_BST(TreeNode root, int k){\r\n    if(root==null){\r\n        return false;\r\n    }\r\n    else{\r\n        if(root.data==k){\r\n            return true;\r\n        }\r\n        if(root.data>k){\r\n            return search_BST(root.left,k);\r\n        }\r\n        else if(root.data<k){\r\n            return search_BST(root.right,k);\r\n        }\r\n    }\r\n    return false;\r\n}\r\n\r\nint[] nums = new int[]{2,3,4,5,6,7,8,9};\r\nTreeNode root = to_BST(nums);\r\nprint_inorder(root);\r\nIO.println();\r\nIO.println(search_BST(root, 5));",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 137,
+          "success": true
+        }
+      },
+      "execution_count": 137,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "2 3 4 5 6 7 8 9 \r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 137
+        }
+      ]
+    },
+    {
+      "id": "e7b6084a-bf1d-478b-bf9b-2e3a0243105b",
+      "cell_type": "code",
+      "source": "boolean check_zig_zag(TreeNode root){\r\n    if(root==null){\r\n        return true;\r\n    }\r\n    return zig_zag_helper(root, true, true);\r\n\r\n}\r\n\r\nboolean zig_zag_helper(TreeNode root, boolean isLeft, boolean isRight){\r\n    if(root==null){\r\n        return true;\r\n    }\r\n    if(root.left==null && isRight==true && isLeft==false){\r\n        return false;\r\n    }\r\n    if(root.right==null && isLeft==true && isRight==false ){\r\n        return false;\r\n    }\r\n    return zig_zag_helper(root.left, true, false) || zig_zag_helper(root.right, false, true);\r\n}\r\n\r\nTreeNode root= new TreeNode(3,new TreeNode(2,null,null), new TreeNode(5,null,null));\r\nIO.println(check_zig_zag(root)); // false\r\nTreeNode root_1 = new TreeNode(1, new TreeNode(2, null, null), null);\r\nIO.println(check_zig_zag(root_1)); // true",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 146,
+          "success": true
+        }
+      },
+      "execution_count": 146,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "false\r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 146
         }
       ]
     }
