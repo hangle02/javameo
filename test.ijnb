@@ -33,11 +33,11 @@
         "language": "java",
         "id": "b1454bc1-4401-4efc-b1c9-858501248bcf",
         "executionSummary": {
-          "executionOrder": 92,
+          "executionOrder": 5,
           "success": true
         }
       },
-      "execution_count": 92,
+      "execution_count": 5,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -45,7 +45,7 @@
             "text/plain": "false\r\n"
           },
           "metadata": {},
-          "execution_count": 92
+          "execution_count": 5
         }
       ]
     },
@@ -57,11 +57,11 @@
         "language": "java",
         "id": "b82f537a-635f-4087-a06c-f72b2f93c62c",
         "executionSummary": {
-          "executionOrder": 93,
+          "executionOrder": 6,
           "success": true
         }
       },
-      "execution_count": 93,
+      "execution_count": 6,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -69,7 +69,7 @@
             "text/plain": "ac\r\n"
           },
           "metadata": {},
-          "execution_count": 93
+          "execution_count": 6
         }
       ]
     },
@@ -81,17 +81,17 @@
         "language": "java",
         "id": "470a63ee-1527-41c7-9186-79790d549950",
         "executionSummary": {
-          "executionOrder": 94,
+          "executionOrder": 7,
           "success": true
         }
       },
-      "execution_count": 94,
+      "execution_count": 7,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {},
           "metadata": {},
-          "execution_count": 94
+          "execution_count": 7
         }
       ]
     },
@@ -103,17 +103,17 @@
         "language": "java",
         "id": "d0754eb4-9ce6-4e8e-9874-8f5a97851c40",
         "executionSummary": {
-          "executionOrder": 95,
+          "executionOrder": 8,
           "success": true
         }
       },
-      "execution_count": 95,
+      "execution_count": 8,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {},
           "metadata": {},
-          "execution_count": 95
+          "execution_count": 8
         }
       ]
     },
@@ -125,11 +125,11 @@
         "language": "java",
         "id": "0ff22d20-c88a-418c-a935-2145fa5d12cd",
         "executionSummary": {
-          "executionOrder": 96,
+          "executionOrder": 9,
           "success": true
         }
       },
-      "execution_count": 96,
+      "execution_count": 9,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -137,7 +137,7 @@
             "text/plain": "5 6 7 1 4 2 3 9 "
           },
           "metadata": {},
-          "execution_count": 96
+          "execution_count": 9
         }
       ]
     },
@@ -149,17 +149,17 @@
         "language": "java",
         "id": "6ed1bd7b-cfe9-496f-8f08-b7efdd562849",
         "executionSummary": {
-          "executionOrder": 97,
+          "executionOrder": 10,
           "success": true
         }
       },
-      "execution_count": 97,
+      "execution_count": 10,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {},
           "metadata": {},
-          "execution_count": 97
+          "execution_count": 10
         }
       ]
     },
@@ -171,17 +171,17 @@
         "language": "java",
         "id": "88512fca-e67f-4ecc-b56a-dfbeed9f22e9",
         "executionSummary": {
-          "executionOrder": 98,
+          "executionOrder": 11,
           "success": true
         }
       },
-      "execution_count": 98,
+      "execution_count": 11,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {},
           "metadata": {},
-          "execution_count": 98
+          "execution_count": 11
         }
       ]
     },
@@ -193,11 +193,11 @@
         "language": "java",
         "id": "8eac22de-0feb-4c15-907e-7508481e0f4c",
         "executionSummary": {
-          "executionOrder": 99,
+          "executionOrder": 12,
           "success": true
         }
       },
-      "execution_count": 99,
+      "execution_count": 12,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -205,7 +205,7 @@
             "text/plain": "true\r\n"
           },
           "metadata": {},
-          "execution_count": 99
+          "execution_count": 12
         }
       ]
     },
@@ -217,11 +217,11 @@
         "language": "java",
         "id": "268570c7-0233-4763-b9d0-555eb1e4ca79",
         "executionSummary": {
-          "executionOrder": 100,
+          "executionOrder": 13,
           "success": true
         }
       },
-      "execution_count": 100,
+      "execution_count": 13,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -229,7 +229,7 @@
             "text/plain": "false\r\nfalse\r\ntrue\r\ntrue\r\naaaa\r\ntrue\r\ntrue\r\n2\r\nfalse\r\n"
           },
           "metadata": {},
-          "execution_count": 100
+          "execution_count": 13
         }
       ]
     },
@@ -241,11 +241,11 @@
         "language": "java",
         "id": "0421eda8-2579-4b1a-a9cb-d9ce8ac233a9",
         "executionSummary": {
-          "executionOrder": 101,
+          "executionOrder": 14,
           "success": true
         }
       },
-      "execution_count": 101,
+      "execution_count": 14,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -253,7 +253,7 @@
             "text/plain": "2\r\ntrue false\r\n99\r\n"
           },
           "metadata": {},
-          "execution_count": 101
+          "execution_count": 14
         }
       ]
     },
@@ -265,11 +265,11 @@
         "language": "java",
         "id": "fd8652d6-f617-4a84-b7da-f6b62eab3e63",
         "executionSummary": {
-          "executionOrder": 102,
+          "executionOrder": 15,
           "success": true
         }
       },
-      "execution_count": 102,
+      "execution_count": 15,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -277,7 +277,7 @@
             "text/plain": "-1\r\n1\r\n5\r\ntrue\r\n"
           },
           "metadata": {},
-          "execution_count": 102
+          "execution_count": 15
         }
       ]
     },
@@ -289,11 +289,11 @@
         "language": "java",
         "id": "504d4525-74b9-418d-992b-82b633cde474",
         "executionSummary": {
-          "executionOrder": 103,
+          "executionOrder": 16,
           "success": true
         }
       },
-      "execution_count": 103,
+      "execution_count": 16,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -301,23 +301,23 @@
             "text/plain": "               13\r\n           /        \\\r\n       10                24\r\n     /                /    \\\r\n   7                20        30\r\n                  /        /  \\\r\n                 15        25    36\r\n"
           },
           "metadata": {},
-          "execution_count": 103
+          "execution_count": 16
         }
       ]
     },
     {
       "id": "a23a8682-3c31-4b83-9b49-99f7e97b2bb2",
       "cell_type": "code",
-      "source": "void invert_tree(TreeNode root){\r\n    if(root == null){return;}\r\n    else{\r\n            TreeNode cur = root;\r\n            TreeNode tmp = cur.left;\r\n            cur.left = cur.right;\r\n            cur.right = tmp;\r\n            invert_tree(cur.left);\r\n            invert_tree(cur.right);\r\n        }\r\n    }\r\n\r\nTreeNode root= new TreeNode(3,new TreeNode(2,new TreeNode(1,null,null),null), new TreeNode(5,null,null));\r\nprint_bfs(root);\r\nIO.println();\r\ninvert_tree(root);\r\nprint_bfs(root);",
+      "source": "void invert_tree(TreeNode root){\r\n    if(root == null){return;}\r\n    else{   \r\n            TreeNode cur = root;\r\n            TreeNode tmp = cur.left;\r\n            cur.left = cur.right;\r\n            cur.right = tmp;\r\n            invert_tree(cur.left);\r\n            invert_tree(cur.right);\r\n            \r\n        }\r\n    }\r\n\r\nTreeNode root= new TreeNode(3,new TreeNode(2,new TreeNode(1,null,null),null), new TreeNode(5,null,null));\r\nprint_bfs(root);\r\nIO.println();\r\ninvert_tree(root);\r\nprint_bfs(root);",
       "metadata": {
         "language": "java",
         "id": "a23a8682-3c31-4b83-9b49-99f7e97b2bb2",
         "executionSummary": {
-          "executionOrder": 104,
+          "executionOrder": 17,
           "success": true
         }
       },
-      "execution_count": 104,
+      "execution_count": 17,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -325,7 +325,7 @@
             "text/plain": "3 2 5 1 \r\n3 5 2 1 "
           },
           "metadata": {},
-          "execution_count": 104
+          "execution_count": 17
         }
       ]
     },
@@ -337,11 +337,11 @@
         "language": "java",
         "id": "9b4da6ed-f1bb-45d4-97cf-567e785c32f2",
         "executionSummary": {
-          "executionOrder": 105,
+          "executionOrder": 18,
           "success": true
         }
       },
-      "execution_count": 105,
+      "execution_count": 18,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -349,7 +349,7 @@
             "text/plain": "2\r\n"
           },
           "metadata": {},
-          "execution_count": 105
+          "execution_count": 18
         }
       ]
     },
@@ -361,11 +361,11 @@
         "language": "java",
         "id": "b9373725-fa14-492e-a5fb-94e3d340de60",
         "executionSummary": {
-          "executionOrder": 106,
+          "executionOrder": 19,
           "success": true
         }
       },
-      "execution_count": 106,
+      "execution_count": 19,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -373,22 +373,23 @@
             "text/plain": "[4, 3, 1]\r\n4\r\n"
           },
           "metadata": {},
-          "execution_count": 106
+          "execution_count": 19
         }
       ]
     },
     {
-      "id": "a6012f43-fba6-4e68-8b71-2a249b46f2a6",
+      "id": "19d5c35b-851e-441c-8bcb-f2e1f147a0d1",
       "cell_type": "code",
       "source": "int kth_smallest(TreeNode root, int k){\r\n    if(root==null){return 0;}\r\n    else{\r\n        List<Integer> datas = new ArrayList<>();\r\n        Deque<TreeNode> stack = new ArrayDeque<>();\r\n        TreeNode cur = root;\r\n        while(cur!=null || !stack.isEmpty()){\r\n            while(cur!=null){\r\n                stack.push(cur);\r\n                cur=cur.left;\r\n            }\r\n            cur = stack.pop();\r\n            datas.add(cur.data);\r\n            cur = cur.right;\r\n        }\r\n        return datas.get(k-1);\r\n    }\r\n}\r\n\r\nTreeNode root= new TreeNode(3,new TreeNode(1,null,null), new TreeNode(4,null,null));\r\nint k = 3;\r\nIO.println(kth_smallest(root, k));\r\n",
       "metadata": {
         "language": "java",
+        "id": "19d5c35b-851e-441c-8bcb-f2e1f147a0d1",
         "executionSummary": {
-          "executionOrder": 125,
+          "executionOrder": 20,
           "success": true
         }
       },
-      "execution_count": 125,
+      "execution_count": 20,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -396,66 +397,69 @@
             "text/plain": "4\r\n"
           },
           "metadata": {},
-          "execution_count": 125
+          "execution_count": 20
         }
       ]
     },
     {
-      "id": "d9849436-2d60-466c-af31-701b25db6e79",
+      "id": "fe1092b5-3f96-4b9e-8548-137bc2dc83a5",
       "cell_type": "code",
       "source": "int longestZigZag(TreeNode root) {\r\n        if(root == null){\r\n            return 0;\r\n        }\r\n        else{\r\n            int max_length = 0;\r\n            Deque<TreeNode> stack = new ArrayDeque<>();\r\n            Deque<Integer> length_stack = new ArrayDeque<>();\r\n            stack.push(root);\r\n            length_stack.push(0);\r\n            while(!stack.isEmpty()){\r\n                TreeNode tmp = stack.pop();\r\n                int length = length_stack.pop();\r\n                max_length = Math.max(max_length, length);\r\n                if(tmp.left!=null){\r\n                    stack.push(tmp.left);\r\n                    length_stack.push(length+1);\r\n                }\r\n                if(tmp.right!=null){\r\n                    stack.push(tmp.right);\r\n                    length_stack.push(length+1);\r\n                }\r\n            }\r\n            return max_length;\r\n    }\r\n}",
       "metadata": {
         "language": "java",
+        "id": "fe1092b5-3f96-4b9e-8548-137bc2dc83a5",
         "executionSummary": {
-          "executionOrder": 108,
+          "executionOrder": 21,
           "success": true
         }
       },
-      "execution_count": 108,
+      "execution_count": 21,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {},
           "metadata": {},
-          "execution_count": 108
+          "execution_count": 21
         }
       ]
     },
     {
-      "id": "936ec414-e7f8-45dc-9457-a1ef506f7c91",
+      "id": "49eee8a5-042a-49cd-b10d-9f20c45db13b",
       "cell_type": "code",
       "source": "// convert sorted array to bst\r\nTreeNode to_BST(int[] lst){\r\n    if(lst.length==0){return null;}\r\n    else{\r\n        return buildTree(lst, 0, lst.length-1);\r\n    }\r\n}\r\n// concept of binary search\r\nTreeNode buildTree(int[] nums, int left, int right){\r\n    if(left>right){\r\n        return null;\r\n    }\r\n    int mid = left + (right-left)/2;\r\n    TreeNode root = new TreeNode(nums[mid],null,null);\r\n    root.left = buildTree(nums, left, mid-1);\r\n    root.right = buildTree(nums, mid+1, right);\r\n    return root;\r\n}\r\n\r\nint[] nums = new int[]{2,3,4,5,6,7,8,9};\r\nTreeNode root = to_BST(nums);\r\nprint_inorder(root);\r\n",
       "metadata": {
         "language": "java",
+        "id": "49eee8a5-042a-49cd-b10d-9f20c45db13b",
         "executionSummary": {
-          "executionOrder": 126,
-          "success": true
+          "executionOrder": 22,
+          "success": false
         }
       },
-      "execution_count": 126,
+      "execution_count": 22,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "2 3 4 5 6 7 8 9 "
+            "text/plain": "Created method to_BST. However, it cannot be invoked or used or instantiated until method buildTree(int[],int,int) is declared\n2 3 4 5 6 7 8 9 "
           },
           "metadata": {},
-          "execution_count": 126
+          "execution_count": 22
         }
       ]
     },
     {
-      "id": "42dd82e1-07bc-4efd-80af-68bed959e900",
+      "id": "e71050ce-cbd1-49aa-95f4-fd6e9e319001",
       "cell_type": "code",
       "source": "TreeNode arr_toBST(int[] nums){\r\n    if(nums.length==0){return null;}\r\n    return buildTree(nums, 0, nums.length-1);\r\n}\r\n\r\nTreeNode buildTree(int[] nums, int left, int right){\r\n    if(left>right){\r\n        return null;\r\n    }\r\n    else{\r\n        int mid = left +(right -left)/2;\r\n        TreeNode root = new TreeNode(nums[mid], null, null);\r\n        root.left = buildTree(nums, left, mid-1);\r\n        root.right = buildTree(nums, mid+1, right);\r\n        return root;\r\n    }\r\n}\r\n\r\nint[] nums = new int[]{2,3,4,5,6,7,8,9};\r\nTreeNode root = to_BST(nums);\r\nprint_inorder(root);",
       "metadata": {
         "language": "java",
+        "id": "e71050ce-cbd1-49aa-95f4-fd6e9e319001",
         "executionSummary": {
-          "executionOrder": 128,
+          "executionOrder": 23,
           "success": true
         }
       },
-      "execution_count": 128,
+      "execution_count": 23,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -463,22 +467,23 @@
             "text/plain": "2 3 4 5 6 7 8 9 "
           },
           "metadata": {},
-          "execution_count": 128
+          "execution_count": 23
         }
       ]
     },
     {
-      "id": "d965d7ca-2b1c-4a71-84e6-3e3b1ac91e5f",
+      "id": "b61ce532-47fc-4218-92fd-d58b1ddb0d36",
       "cell_type": "code",
       "source": "boolean same_tree(TreeNode root1, TreeNode root2){\r\n    if(root1==null && root2==null){\r\n        return true;\r\n    }\r\n    if((root1!=null && root2==null)||(root1==null && root2!=null)){\r\n        return false;\r\n    }\r\n    else{\r\n        if(root1.data!=root2.data){return false;}\r\n        return (same_tree(root1.left,root2.left) && same_tree(root1.right,root2.right));\r\n    }\r\n}\r\n\r\nTreeNode root1 = new TreeNode(1, new TreeNode(2, null, null), new TreeNode(3, null, null));\r\nTreeNode root2 = new TreeNode(1, new TreeNode(2, null, null), new TreeNode(3, null, null));\r\nIO.println(same_tree(root1, root2)); // true",
       "metadata": {
         "language": "java",
+        "id": "b61ce532-47fc-4218-92fd-d58b1ddb0d36",
         "executionSummary": {
-          "executionOrder": 111,
+          "executionOrder": 24,
           "success": true
         }
       },
-      "execution_count": 111,
+      "execution_count": 24,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -486,22 +491,23 @@
             "text/plain": "true\r\n"
           },
           "metadata": {},
-          "execution_count": 111
+          "execution_count": 24
         }
       ]
     },
     {
-      "id": "86e61a2a-b1a2-45dc-b531-d82b4b1c7f6c",
+      "id": "f4c439a1-379b-423a-926c-1ca978849eb6",
       "cell_type": "code",
       "source": "boolean search_BST(TreeNode root, int k){\r\n    if(root==null){\r\n        return false;\r\n    }\r\n    else{\r\n        if(root.data==k){\r\n            return true;\r\n        }\r\n        if(root.data>k){\r\n            return search_BST(root.left,k);\r\n        }\r\n        else if(root.data<k){\r\n            return search_BST(root.right,k);\r\n        }\r\n    }\r\n    return false;\r\n}\r\n\r\nint[] nums = new int[]{2,3,4,5,6,7,8,9};\r\nTreeNode root = to_BST(nums);\r\nprint_inorder(root);\r\nIO.println();\r\nIO.println(search_BST(root, 5));",
       "metadata": {
         "language": "java",
+        "id": "f4c439a1-379b-423a-926c-1ca978849eb6",
         "executionSummary": {
-          "executionOrder": 137,
+          "executionOrder": 25,
           "success": true
         }
       },
-      "execution_count": 137,
+      "execution_count": 25,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -509,30 +515,75 @@
             "text/plain": "2 3 4 5 6 7 8 9 \r\ntrue\r\n"
           },
           "metadata": {},
-          "execution_count": 137
+          "execution_count": 25
         }
       ]
     },
     {
-      "id": "e7b6084a-bf1d-478b-bf9b-2e3a0243105b",
+      "id": "17eb9d37-0000-4340-8c60-da99d559bb7e",
       "cell_type": "code",
       "source": "boolean check_zig_zag(TreeNode root){\r\n    if(root==null){\r\n        return true;\r\n    }\r\n    return zig_zag_helper(root, true, true);\r\n\r\n}\r\n\r\nboolean zig_zag_helper(TreeNode root, boolean isLeft, boolean isRight){\r\n    if(root==null){\r\n        return true;\r\n    }\r\n    if(root.left==null && isRight==true && isLeft==false){\r\n        return false;\r\n    }\r\n    if(root.right==null && isLeft==true && isRight==false ){\r\n        return false;\r\n    }\r\n    return zig_zag_helper(root.left, true, false) || zig_zag_helper(root.right, false, true);\r\n}\r\n\r\nTreeNode root= new TreeNode(3,new TreeNode(2,null,null), new TreeNode(5,null,null));\r\nIO.println(check_zig_zag(root)); // false\r\nTreeNode root_1 = new TreeNode(1, new TreeNode(2, null, null), null);\r\nIO.println(check_zig_zag(root_1)); // true",
       "metadata": {
         "language": "java",
+        "id": "17eb9d37-0000-4340-8c60-da99d559bb7e",
         "executionSummary": {
-          "executionOrder": 146,
-          "success": true
+          "executionOrder": 26,
+          "success": false
         }
       },
-      "execution_count": 146,
+      "execution_count": 26,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
-            "text/plain": "false\r\ntrue\r\n"
+            "text/plain": "Created method check_zig_zag. However, it cannot be invoked or used or instantiated until method zig_zag_helper(TreeNode,boolean,boolean) is declared\nfalse\r\ntrue\r\n"
           },
           "metadata": {},
-          "execution_count": 146
+          "execution_count": 26
+        }
+      ]
+    },
+    {
+      "id": "2e277c4b-c278-49bb-ba21-dfe5132421a0",
+      "cell_type": "code",
+      "source": "boolean check_zig_zag(TreeNode root) {\r\n    if (root == null) return true;\r\n    \r\n    // Gốc không có con cũng là một cây ZigZag hợp lệ\r\n    if (root.left == null && root.right == null) return true;\r\n    \r\n    // Nếu gốc có cả 2 con -> Không phải là một đường đi đơn -> Sai\r\n    if (root.left != null && root.right != null) return false;\r\n    \r\n    // Bắt đầu khởi tạo luồng đi\r\n    if (root.left != null) {\r\n        // Vừa rẽ trái xong, node tiếp theo KỲ VỌNG phải rẽ phải (expectLeft = false)\r\n        return zig_zag_helper(root.left, false); \r\n    } else {\r\n        // Vừa rẽ phải xong, node tiếp theo KỲ VỌNG phải rẽ trái (expectLeft = true)\r\n        return zig_zag_helper(root.right, true); \r\n    }\r\n}\r\n\r\nboolean zig_zag_helper(TreeNode node, boolean expectLeft) {\r\n    if (node == null) return true;\r\n    \r\n    // Nếu là node lá (đã đi đến cuối đường an toàn) -> Hợp lệ\r\n    if (node.left == null && node.right == null) return true;\r\n    \r\n    // Nếu node có cả 2 con -> Vi phạm quy tắc đường đi đơn -> Sai\r\n    if (node.left != null && node.right != null) return false;\r\n    \r\n    // Xử lý logic ngoằn ngoèo\r\n    if (expectLeft) {\r\n        if (node.left != null) {\r\n            // Đi đúng hướng Trái, chặng tiếp theo sẽ kỳ vọng hướng Phải\r\n            return zig_zag_helper(node.left, false); \r\n        } else {\r\n            return false; // Bắt buộc rẽ trái nhưng lại chỉ có nhánh phải\r\n        }\r\n    } else { // Kỳ vọng rẽ phải (expectLeft == false)\r\n        if (node.right != null) {\r\n            // Đi đúng hướng Phải, chặng tiếp theo sẽ kỳ vọng hướng Trái\r\n            return zig_zag_helper(node.right, true); \r\n        } else {\r\n            return false; // Bắt buộc rẽ phải nhưng lại chỉ có nhánh trái\r\n        }\r\n    }\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 27,
+          "success": false
+        }
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "method zig_zag_helper in class  cannot be applied to given types;\n  required: TreeNode,boolean,boolean\n  found:    TreeNode,boolean\n  reason: actual and formal argument lists differ in length\n        return zig_zag_helper(root.left, false); \n               ^------------^\nmethod zig_zag_helper in class  cannot be applied to given types;\n  required: TreeNode,boolean,boolean\n  found:    TreeNode,boolean\n  reason: actual and formal argument lists differ in length\n        return zig_zag_helper(root.right, true); \n               ^------------^\n"
+          },
+          "metadata": {},
+          "execution_count": 27
+        }
+      ]
+    },
+    {
+      "id": "afda391d-8378-48c4-a639-0407c255fe5e",
+      "cell_type": "code",
+      "source": "int max_road = 0;\r\n\r\nint longestZigZag(TreeNode root){\r\n    if(root==null){return 0;}\r\n    dfs(root.left, true, 1);\r\n    dfs(root.right,false,1);\r\n    return max_road;\r\n}\r\n\r\nvoid dfs(TreeNode node, boolean isLeft, int curlen){\r\n    if(node==null){return;}\r\n    max_road = Math.max(max_road, curlen);\r\n    if(isLeft){\r\n        dfs(node.right, false, curlen+1);\r\n        dfs(node.left, true, 1);\r\n    }\r\n    else{\r\n        dfs(node.left, true, curlen+1);\r\n        dfs(node.right,false,1);\r\n    }\r\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 28,
+          "success": true
+        }
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 28
         }
       ]
     }
