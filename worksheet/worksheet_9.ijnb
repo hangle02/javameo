@@ -1,0 +1,48 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "8ada8747-6f13-41e5-9bee-c2d28b1d31ea",
+      "cell_type": "markdown",
+      "source": "# Graph\n\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "8ada8747-6f13-41e5-9bee-c2d28b1d31ea"
+      }
+    },
+    {
+      "id": "d570b339-95b2-4a04-b5f0-e020fbbc3452",
+      "cell_type": "markdown",
+      "source": "",
+      "metadata": {
+        "language": "markdown",
+        "id": "d570b339-95b2-4a04-b5f0-e020fbbc3452"
+      }
+    },
+    {
+      "id": "ebb125c7-fd76-4173-be56-451d578cb321",
+      "cell_type": "markdown",
+      "source": "How many way to represent a graph?\r\n- Adjacency Matrix  \r\n    + a 2D array (grid) of size $V \\times V$ (where $V$ is the number of vertices). If there is an edge between Node $i$ and Node $j$, the cell matrix[i][j] is set to 1 (or the edge's weight). If there is no edge, it is 0.  \r\n    + Pros: Checking if a specific edge exists between two nodes is instant: $O(1)$. Adding or removing an edge is also $O(1)$.  \r\n    + Cons: It wastes a massive amount of memory for \"sparse\" graphs (graphs with many nodes but few connections) because you have to allocate $O(V^2)$ space, storing mostly zeros.\r\n    + \r\n- Adjacency List  \r\n    + an array (or HashMap) where every node acts as a key, and its value is a List containing only the neighbors it is directly connected to.\r\n    + Pros: Extremely memory-efficient for most real-world graphs. It only takes $O(V + E)$ space (where $E$ is the number of edges). It is also the absolute fastest way to iterate through a node's neighbors, making it the gold standard for Breadth-First Search (BFS) and Depth-First Search (DFS).\r\n    + Cons: Checking if a specific edge exists between Node A and Node Z takes $O(K)$ time (where $K$ is the number of A's neighbors), because you have to search through A's list.\r\n- Incidence matrix:\r\n    ",
+      "metadata": {
+        "language": "markdown",
+        "id": "ebb125c7-fd76-4173-be56-451d578cb321"
+      }
+    },
+    {
+      "id": "70ba7c23-3333-49ab-b6d4-9dbc7f74a597",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
