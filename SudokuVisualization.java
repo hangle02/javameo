@@ -1,29 +1,31 @@
+// package com.gradescope.cs201; 
+// (Comment lại package nếu bạn chạy file này độc lập ngoài thư mục dự án)
+
 import java.awt.*;
+import java.util.Arrays;
 import javax.swing.*;
 
 public class SudokuVisualization extends JFrame {
     private static final int GRID_SIZE = 9;
     private JTextField[][] cells = new JTextField[GRID_SIZE][GRID_SIZE];
-    private int[][] board = new int[GRID_SIZE][GRID_SIZE];
+    private int[][] matrix = new int[GRID_SIZE][GRID_SIZE];
     private JButton solveButton;
     private JButton clearButton;
-    
-    // Thêm JTextArea để in ra phần giải thích thuật toán
-    private JTextArea logArea;
 
-    // Thời gian trễ (milliseconds) để mắt người có thể nhìn kịp thuật toán chạy
-    private static final int ANIMATION_DELAY = 10; 
+    // Thời gian trễ để quan sát màu sắc chuyển động (giảm xuống nếu muốn chạy nhanh hơn)
+    private static final int ANIMATION_DELAY = 30;
 
     public SudokuVisualization() {
-        setTitle("Sudoku DSA - Trực quan hóa Backtracking (Quay lui)");
-        setSize(800, 550); // Tăng chiều rộng để chứa bảng Log
+        setTitle("Sudoku Visualization");
+        setSize(400, 450); // Đã giảm size của board cho gọn gàng và dễ nhìn
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
+        setResizable(false);
 
-        // 1. Tạo lưới Sudoku 9x9
+        // Tạo lưới UI
         JPanel gridPanel = new JPanel();
         gridPanel.setLayout(new GridLayout(GRID_SIZE, GRID_SIZE));
-        Font font = new Font("SansSerif", Font.BOLD, 20);
+        Font font = new Font("SansSerif", Font.BOLD, 18);
 
         for (int row = 0; row < GRID_SIZE; row++) {
             for (int col = 0; col < GRID_SIZE; col++) {
@@ -31,7 +33,7 @@ public class SudokuVisualization extends JFrame {
                 cells[row][col].setHorizontalAlignment(JTextField.CENTER);
                 cells[row][col].setFont(font);
                 
-                // Tạo viền đậm để phân chia các ô 3x3
+                // Viền đậm cho các khối 3x3
                 int top = (row % 3 == 0) ? 2 : 1;
                 int left = (col % 3 == 0) ? 2 : 1;
                 int bottom = (row == 8) ? 2 : 1;
@@ -43,18 +45,9 @@ public class SudokuVisualization extends JFrame {
         }
         add(gridPanel, BorderLayout.CENTER);
 
-        // 2. Tạo bảng Log giải thích thuật toán ở bên phải
-        logArea = new JTextArea();
-        logArea.setEditable(false);
-        logArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
-        JScrollPane scrollPane = new JScrollPane(logArea);
-        scrollPane.setPreferredSize(new Dimension(300, 0));
-        scrollPane.setBorder(BorderFactory.createTitledBorder("Giải thích Thuật toán (Log)"));
-        add(scrollPane, BorderLayout.EAST);
-
-        // 3. Bảng điều khiển (Nút bấm)
+        // Bảng điều khiển
         JPanel controlPanel = new JPanel();
-        solveButton = new JButton("Chạy trực quan hóa");
+        solveButton = new JButton("Giải (Chạy Visual)");
         clearButton = new JButton("Xóa bàn cờ");
 
         solveButton.addActionListener(e -> startSolving());
@@ -64,12 +57,10 @@ public class SudokuVisualization extends JFrame {
         controlPanel.add(clearButton);
         add(controlPanel, BorderLayout.SOUTH);
 
-        // Tải một bài toán mẫu
         loadSamplePuzzle();
     }
 
     private void loadSamplePuzzle() {
-        // Ma trận Sudoku mẫu (0 là ô trống)
         int[][] sample = {
             {5, 3, 0, 0, 7, 0, 0, 0, 0},
             {6, 0, 0, 1, 9, 5, 0, 0, 0},
@@ -98,7 +89,6 @@ public class SudokuVisualization extends JFrame {
     }
 
     private void clearBoard() {
-        logArea.setText(""); // Xóa log
         for (int r = 0; r < GRID_SIZE; r++) {
             for (int c = 0; c < GRID_SIZE; c++) {
                 cells[r][c].setText("");
@@ -109,132 +99,171 @@ public class SudokuVisualization extends JFrame {
         }
     }
 
-    // Ghi log ra màn hình an toàn với Java Swing
-    private void logMessage(String message) {
-        SwingUtilities.invokeLater(() -> {
-            logArea.append(message + "\n");
-            // Tự động cuộn xuống dòng mới nhất
-            logArea.setCaretPosition(logArea.getDocument().getLength());
-        });
-    }
-
     private void startSolving() {
         solveButton.setEnabled(false);
         clearButton.setEnabled(false);
-        logArea.setText(""); // Xóa log cũ
-        logMessage("BẮT ĐẦU GIẢI...\n----------------");
 
-        // Đọc trạng thái từ giao diện vào mảng board
+        // Đọc dữ liệu từ UI vào ma trận của thuật toán
         for (int r = 0; r < GRID_SIZE; r++) {
             for (int c = 0; c < GRID_SIZE; c++) {
                 String text = cells[r][c].getText().trim();
-                if (!text.isEmpty()) {
-                    board[r][c] = Integer.parseInt(text);
-                } else {
-                    board[r][c] = 0;
-                }
+                matrix[r][c] = text.isEmpty() ? 0 : Integer.parseInt(text);
             }
         }
 
-        // Chạy thuật toán trên luồng nền (Background thread) để không làm đơ UI
+        // Chạy thuật toán trên luồng nền
         new Thread(() -> {
-            boolean success = solveBoard();
+            boolean success = solve_m(matrix);
             SwingUtilities.invokeLater(() -> {
                 solveButton.setEnabled(true);
                 clearButton.setEnabled(true);
                 if (success) {
-                    logMessage("\nHOÀN THÀNH! Đã tìm thấy nghiệm.");
+                    JOptionPane.showMessageDialog(this, "Hoàn thành!");
                 } else {
-                    logMessage("\nTHẤT BẠI! Bài toán không có nghiệm.");
-                    JOptionPane.showMessageDialog(this, "Bài toán không thể giải!");
+                    JOptionPane.showMessageDialog(this, "Không thể giải!");
                 }
             });
         }).start();
     }
 
-    // DSA Method: Thuật toán Đệ quy Quay lui (Recursive Backtracking)
-    private boolean solveBoard() {
-        for (int row = 0; row < GRID_SIZE; row++) {
-            for (int col = 0; col < GRID_SIZE; col++) {
-                
-                // Tìm thấy ô trống
-                if (board[row][col] == 0) {
-                    
-                    // Thử điền các số từ 1 đến 9
-                    for (int num = 1; num <= GRID_SIZE; num++) {
-                        if (isValidPlacement(row, col, num)) {
-                            
-                            // 1. CHỌN (Choose)
-                            logMessage("→ Thử điền số " + num + " vào [" + row + "][" + col + "]");
-                            board[row][col] = num;
-                            updateCellUI(row, col, num, Color.BLUE);
-                            
-                            // 2. KHÁM PHÁ (Explore - Đệ quy xuống tầng tiếp theo)
-                            if (solveBoard()) {
-                                return true; // Đã tìm thấy nghiệm hợp lệ ở các bước sau!
-                            }
-                            
-                            // 3. QUAY LUI (Un-choose / Backtrack)
-                            // Nếu chạy đến đây nghĩa là nhánh đệ quy trên đã trả về false (ngõ cụt)
-                            logMessage("← QUAY LUI: Xóa [" + row + "][" + col + "] (Số " + num + " sai)");
-                            board[row][col] = 0;
-                            updateCellUI(row, col, 0, Color.RED);
-                        }
-                    }
-                    // Đã thử từ 1-9 mà không số nào hợp lệ -> Trả về false để báo hiệu ngõ cụt
-                    return false; 
-                }
-            }
-        }
-        return true; // Không còn ô trống nào -> Đã giải xong toàn bộ
-    }
-
-    // DSA Method: Kiểm tra điều kiện (Constraint Checking)
-    private boolean isValidPlacement(int row, int col, int num) {
-        // Kiểm tra hàng ngang
-        for (int i = 0; i < GRID_SIZE; i++) {
-            if (board[row][i] == num) return false;
-        }
-
-        // Kiểm tra hàng dọc
-        for (int i = 0; i < GRID_SIZE; i++) {
-            if (board[i][col] == num) return false;
-        }
-
-        // Kiểm tra ô 3x3 chứa nó
-        int subgridRowStart = row - row % 3;
-        int subgridColStart = col - col % 3;
-        for (int r = subgridRowStart; r < subgridRowStart + 3; r++) {
-            for (int c = subgridColStart; c < subgridColStart + 3; c++) {
-                if (board[r][c] == num) return false;
-            }
-        }
-
-        return true; // Hợp lệ
-    }
-
-    // Cập nhật giao diện (UI) một cách an toàn và tạo độ trễ để tạo hiệu ứng chuyển động
-    private void updateCellUI(int row, int col, int num, Color color) {
-        try {
-            Thread.sleep(ANIMATION_DELAY); 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+    // Cập nhật UI với màu sắc để trực quan hóa
+    private void updateUI(int r, int c, int val, Color textCol, Color bgCol) {
+        try { Thread.sleep(ANIMATION_DELAY); } catch (InterruptedException e) {}
         SwingUtilities.invokeLater(() -> {
-            if (num == 0) {
-                cells[row][col].setText("");
+            cells[r][c].setBackground(bgCol);
+            if (val == 0) {
+                cells[r][c].setText("");
             } else {
-                cells[row][col].setText(String.valueOf(num));
-                cells[row][col].setForeground(color);
+                cells[r][c].setText(String.valueOf(val));
+                cells[r][c].setForeground(textCol);
             }
         });
     }
 
+    // =========================================================================
+    // DƯỚI ĐÂY LÀ PHẦN LOGIC THUẬT TOÁN BẠN ĐÃ VIẾT (Được tích hợp UI Update)
+    // =========================================================================
+
+    public int[] find_possible_values(int[][] matrix, int x, int y){
+        int[] arr_1 = new int[0];
+        int[] arr_2 = new int[0];
+        
+        int startRow = x - (x % 3);
+        int startCol = y - (y % 3);
+        int[] miss_block = find_block_missing(matrix, 1, arr_1, startRow, startCol);
+
+        int[] miss_x = find_row_missing(matrix, 1, arr_1, x);
+        int[] miss_y = find_col_missing(matrix, 1, arr_2, y);
+        
+        int[] r1 = check_same_value(miss_x, miss_y);
+        int[] final_possible = check_same_value(r1, miss_block);
+        
+        return final_possible;
+    }
+
+    private int[] find_row_missing(int[][] matrix, int index, int[] current_num, int x){
+        if (index > 9) return current_num;
+        for (int i = 0; i < 9; i++ ){
+            if(matrix[x][i] == index){
+                return find_row_missing(matrix, index + 1, current_num, x);
+            }
+        }
+        int[] new_num = Arrays.copyOf(current_num, current_num.length + 1);
+        new_num[new_num.length - 1] = index;
+        return find_row_missing(matrix, index + 1, new_num, x);
+    }
+
+    private int[] find_col_missing(int[][] matrix, int index, int[] current_num, int y){
+        if (index > 9) return current_num;
+        for (int i = 0; i < 9; i++ ){
+            if(matrix[i][y] == index){
+                return find_col_missing(matrix, index + 1, current_num, y);
+            }
+        }
+        int[] new_num = Arrays.copyOf(current_num, current_num.length + 1);
+        new_num[new_num.length - 1] = index;
+        return find_col_missing(matrix, index + 1, new_num, y);
+    }
+
+    private int[] find_block_missing(int[][] matrix, int index, int[] current_num, int startRow, int startCol){
+        if (index > 9) return current_num;
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(matrix[startRow + i][startCol + j] == index){
+                    return find_block_missing(matrix, index + 1, current_num, startRow, startCol);
+                }
+            }
+        }
+        int[] new_num = Arrays.copyOf(current_num, current_num.length + 1);
+        new_num[new_num.length - 1] = index;
+        return find_block_missing(matrix, index + 1, new_num, startRow, startCol);
+    }
+
+    private int[] check_same_value(int[] row, int[] col){
+        int n = 0;
+        for(int i = 0; i < row.length; i++){
+            for(int j = 0; j < col.length; j++){
+                if(col[j] == row[i]){
+                    n = n + 1;
+                }
+            }
+        }
+        int[] same = new int[n];
+        int k = 0; 
+        for(int i = 0; i < row.length; i++){
+            for(int j = 0; j < col.length; j++){
+                if(col[j] == row[i]){
+                    same[k] = col[j];
+                    k++;
+                }
+            }
+        }
+        return same;
+    }
+
+    private boolean solve_m(int[][] matrix){
+        for(int r = 0; r < 9; r++){
+            for(int c = 0; c < 9; c++){
+                if(matrix[r][c] == 0){
+                    
+                    // BẬT MÀU VÀNG: Báo hiệu đang tìm giá trị khả thi tại ô này
+                    updateUI(r, c, 0, Color.BLACK, Color.YELLOW);
+                    
+                    int[] possible_values = find_possible_values(matrix, r, c);
+                    
+                    for(int i = 0; i < possible_values.length; i++){
+                        matrix[r][c] = possible_values[i];
+                        
+                        // HIỆN SỐ MÀU XANH: Thử điền một giá trị khả thi
+                        updateUI(r, c, matrix[r][c], Color.BLUE, Color.WHITE);
+                        
+                        if(solve_m(matrix)){
+                            return true; 
+                        }
+                        
+                        // QUAY LUI (Backtrack) - Nếu bước trước không thành công, xóa số
+                        matrix[r][c] = 0;
+                    }
+                    
+                    // BẬT MÀU ĐỎ: Nếu đã thử hết các số khả thi mà vẫn sai, báo ngõ cụt!
+                    updateUI(r, c, 0, Color.BLACK, Color.RED);
+                    try { Thread.sleep(ANIMATION_DELAY * 2); } catch (Exception e){} // Dừng lâu hơn xíu để nhìn rõ màu đỏ
+                    updateUI(r, c, 0, Color.BLACK, Color.WHITE); // Trả về màu trắng để lùi lại ô trước
+                    
+                    return false; 
+                }
+            }
+        }
+        return true;
+    }
+    
+    public void solve(int[][] matrix){
+        solve_m(matrix);
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            SudokuVisualization visualizer = new SudokuVisualization();
-            visualizer.setVisible(true);
+            new SudokuVisualization().setVisible(true);
         });
     }
 }
