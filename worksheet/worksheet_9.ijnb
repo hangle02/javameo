@@ -28,7 +28,7 @@
     {
       "id": "ebb125c7-fd76-4173-be56-451d578cb321",
       "cell_type": "markdown",
-      "source": "How many way to represent a graph?\r\n- Adjacency Matrix  \r\n    + a 2D array (grid) of size $V \\times V$ (where $V$ is the number of vertices). If there is an edge between Node $i$ and Node $j$, the cell matrix[i][j] is set to 1 (or the edge's weight). If there is no edge, it is 0.  \r\n    + Pros: Checking if a specific edge exists between two nodes is instant: $O(1)$. Adding or removing an edge is also $O(1)$.  \r\n    + Cons: It wastes a massive amount of memory for \"sparse\" graphs (graphs with many nodes but few connections) because you have to allocate $O(V^2)$ space, storing mostly zeros.\r\n    + \r\n- Adjacency List  \r\n    + an array (or HashMap) where every node acts as a key, and its value is a List containing only the neighbors it is directly connected to.\r\n    + Pros: Extremely memory-efficient for most real-world graphs. It only takes $O(V + E)$ space (where $E$ is the number of edges). It is also the absolute fastest way to iterate through a node's neighbors, making it the gold standard for Breadth-First Search (BFS) and Depth-First Search (DFS).\r\n    + Cons: Checking if a specific edge exists between Node A and Node Z takes $O(K)$ time (where $K$ is the number of A's neighbors), because you have to search through A's list.\r\n- Incidence matrix:\r\n    ",
+      "source": "How many way to represent a graph? V<<E\r\n- Adjacency Matrix  \r\n    + a 2D array (grid) of size $V \\times V$ (where $V$ is the number of vertices). If there is an edge between Node $i$ and Node $j$, the cell matrix[i][j] is set to 1 (or the edge's weight). If there is no edge, it is 0.  \r\n    + Pros: Checking if a specific edge exists between two nodes is instant: $O(1)$. Adding or removing an edge is also $O(1)$.  \r\n    + Cons: It wastes a massive amount of memory for \"sparse\" graphs (graphs with many nodes but few connections) because you have to allocate $O(V^2)$ space, storing mostly zeros.\r\n    + \r\n- Adjacency List  \r\n    + an array (or HashMap) where every node acts as a key, and its value is a List containing only the neighbors it is directly connected to.\r\n    + Pros: Extremely memory-efficient for most real-world graphs. It only takes $O(V + E)$ space (where $E$ is the number of edges). It is also the absolute fastest way to iterate through a node's neighbors, making it the gold standard for Breadth-First Search (BFS) and Depth-First Search (DFS).\r\n    + Cons: Checking if a specific edge exists between Node A and Node Z takes $O(K)$ time (where $K$ is the number of A's neighbors), because you have to search through A's list.\r\n- Incidence matrix:  \r\n    + Space complexity: $O(V \\cdot E)$ 2D matrix\r\n    + Application: is the absolute mathematical foundation for electronic circuit simulation and network flow analysis.\r\n    \r\n\r\n    ",
       "metadata": {
         "language": "markdown",
         "id": "ebb125c7-fd76-4173-be56-451d578cb321"
@@ -37,12 +37,26 @@
     {
       "id": "70ba7c23-3333-49ab-b6d4-9dbc7f74a597",
       "cell_type": "code",
-      "source": "",
+      "source": "import java.util.LinkedList;\r\n\r\ninterface Graph{\r\n    public void add_vertex1(int node_id);\r\n    public void add_vertex2(String node_name);\r\n    public void remove_vertex(int node_id);\r\n    public void remove_vertex2(String node_name);\r\n\r\n    public void add_edge(String src, String dest, int weight);\r\n    public void add_edge(int src, int dest, int weight);\r\n    public void remove_edge(String src, String dest, int weight);\r\n\r\n    public void set_vertex_value(String node_name, int val);\r\n    public void set_vertex_value(int node_id, int val);\r\n\r\n    public int adjacent(String src, String dest);\r\n    public int adjacent(int src, int dest);\r\n\r\n    public LinkedList<Integer> get_neighbors(int node);\r\n}\r\nclass ADJ_Graph implements Graph{\r\n    int[][] adj_matrix;\r\n    int node_num;\r\n    public static final int NO_CONNECTION = 0;\r\n\r\n    ADJ_Graph(int max_size){\r\n        adj_matrix = new int[max_size][max_size];\r\n        for(int src=0; src<max_size; src++)\r\n            for(int dest=0; dest<max_size; dest++)\r\n                adj_matrix[src][dest] = NO_CONNECTION;\r\n    }\r\n    public void add_vertex1(int node_id){\r\n        node_num++;\r\n        if(node_num > max_size){\r\n            // we have to migrate and resize;\r\n            IO.println(\"matrix full!\");\r\n        }\r\n\r\n    }\r\n    public void add_vertex2(String node_name){}\r\n    public void remove_vertex(int node_id){}\r\n    public void remove_vertex2(String node_name){}\r\n\r\n    public void add_edge(String src, String dest, int weight){}\r\n    public void add_edge(int src, int dest, int weight){\r\n        adj_matrix[src][dest] = weight;\r\n        adj_matrix[dest][src] = weight;\r\n    }\r\n    public void remove_edge(String src, String dest, int weight){}\r\n\r\n    public void set_vertex_value(String node_name, int val){}\r\n    public void set_vertex_value(int node_id, int val){}\r\n\r\n    public int adjacent(String src, String dest){return 0;}\r\n    public int adjacent(int src, int dest){\r\n        return adj_matrix[src][dest];\r\n    }\r\n\r\n    public LinkedList<Integer> get_neighbors(int node){\r\n        LinkedList<Integer> tmp = new LinkedList<>();\r\n        for(int dest=0; dest< node_num; dest++){\r\n            if(adj_matrix[node][dest]!= NO_CONNECTION){\r\n                tmp.add(dest);\r\n            }\r\n        }\r\n        return tmp;\r\n    }\r\n\r\n}",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "70ba7c23-3333-49ab-b6d4-9dbc7f74a597",
+        "executionSummary": {
+          "executionOrder": 31,
+          "success": false
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Created class ADJ_Graph. However, it cannot be referenced until variable max_size is declared\nCreated class ADJ_Graph. However, it cannot be referenced until variable max_size is declared\n"
+          },
+          "metadata": {},
+          "execution_count": 31
+        }
+      ]
     }
   ]
 }
