@@ -17,21 +17,39 @@
       }
     },
     {
-      "id": "d570b339-95b2-4a04-b5f0-e020fbbc3452",
-      "cell_type": "markdown",
-      "source": "",
-      "metadata": {
-        "language": "markdown",
-        "id": "d570b339-95b2-4a04-b5f0-e020fbbc3452"
-      }
-    },
-    {
       "id": "ebb125c7-fd76-4173-be56-451d578cb321",
       "cell_type": "markdown",
       "source": "How many way to represent a graph? V<<E\r\n- Adjacency Matrix  \r\n    + a 2D array (grid) of size $V \\times V$ (where $V$ is the number of vertices). If there is an edge between Node $i$ and Node $j$, the cell matrix[i][j] is set to 1 (or the edge's weight). If there is no edge, it is 0.  \r\n    + Pros: Checking if a specific edge exists between two nodes is instant: $O(1)$. Adding or removing an edge is also $O(1)$.  \r\n    + Cons: It wastes a massive amount of memory for \"sparse\" graphs (graphs with many nodes but few connections) because you have to allocate $O(V^2)$ space, storing mostly zeros.\r\n    + \r\n- Adjacency List  \r\n    + an array (or HashMap) where every node acts as a key, and its value is a List containing only the neighbors it is directly connected to.\r\n    + Pros: Extremely memory-efficient for most real-world graphs. It only takes $O(V + E)$ space (where $E$ is the number of edges). It is also the absolute fastest way to iterate through a node's neighbors, making it the gold standard for Breadth-First Search (BFS) and Depth-First Search (DFS).\r\n    + Cons: Checking if a specific edge exists between Node A and Node Z takes $O(K)$ time (where $K$ is the number of A's neighbors), because you have to search through A's list.\r\n- Incidence matrix:  \r\n    + Space complexity: $O(V \\cdot E)$ 2D matrix\r\n    + Application: is the absolute mathematical foundation for electronic circuit simulation and network flow analysis.\r\n    \r\n\r\n    ",
       "metadata": {
         "language": "markdown",
         "id": "ebb125c7-fd76-4173-be56-451d578cb321"
+      }
+    },
+    {
+      "id": "85452cea-61e9-4a74-8504-386ae603b0dd",
+      "cell_type": "markdown",
+      "source": "- time complexity of \r\n    + DFS: O(V+E)\r\n    + BFS: O(V+E)\r\n- ",
+      "metadata": {
+        "language": "markdown",
+        "id": "85452cea-61e9-4a74-8504-386ae603b0dd"
+      }
+    },
+    {
+      "id": "94e07119-80f1-4404-bb67-f372621f7c9c",
+      "cell_type": "markdown",
+      "source": "Cycle detection  \r\n    - Undirected graph\r\n    - Directed graph:  \r\n        + need 2 mark: visited, current_path\r\n    - in text book, it will be 3 mark, +empty(invisit)\r\n\r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "94e07119-80f1-4404-bb67-f372621f7c9c"
+      }
+    },
+    {
+      "id": "2b0f76cc-faee-4e3e-9f71-9e0e7d1a6d71",
+      "cell_type": "markdown",
+      "source": "1. Connected components  \r\n    - jkl;\r\n2. Topological sorting  \r\n    - a way of ordering the vertices (nodes) of a directed graph in a linear sequence, such that for every directed edge $u \\to v$ from vertex $u$ to vertex $v$, $u$ comes before $v$ in the ordering.\r\n    ",
+      "metadata": {
+        "language": "markdown",
+        "id": "2b0f76cc-faee-4e3e-9f71-9e0e7d1a6d71"
       }
     },
     {
@@ -42,11 +60,11 @@
         "language": "java",
         "id": "70ba7c23-3333-49ab-b6d4-9dbc7f74a597",
         "executionSummary": {
-          "executionOrder": 35,
+          "executionOrder": 2,
           "success": false
         }
       },
-      "execution_count": 35,
+      "execution_count": 2,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -54,9 +72,19 @@
             "text/plain": "ADJ_Graph is not abstract and does not override abstract method add_edge(java.lang.String,java.lang.String,int) in Graph\nclass ADJ_Graph implements Graph{\n^--------------------------------...\ncannot find symbol\n  symbol:   class ADJ_Graph\nADJ_Graph g = new ADJ_Graph(100);\n^-------^\ncannot find symbol\n  symbol:   class ADJ_Graph\nADJ_Graph g = new ADJ_Graph(100);\n                  ^-------^\ncannot find symbol\n  symbol:   variable g\n            g.add_vertex1(node_id);\n            ^\ncannot find symbol\n  symbol:   variable g\ng.add_edge(nodeMap.get(\"A\"), nodeMap.get(\"B\"), 1);\n^\ncannot find symbol\n  symbol:   variable g\ng.add_edge(nodeMap.get(\"A\"), nodeMap.get(\"D\"), 1);\n^\ncannot find symbol\n  symbol:   variable g\nIO.println(g.adjacent(0,1));\n           ^\ncannot find symbol\n  symbol:   variable g\nIO.println(g.adjacent(0,3));\n           ^\ncannot find symbol\n  symbol:   variable g\ng.DFS(0);\n^\n"
           },
           "metadata": {},
-          "execution_count": 35
+          "execution_count": 2
         }
       ]
+    },
+    {
+      "id": "168ecb90-a51e-493f-bcb8-3ab0f23be427",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
     }
   ]
 }

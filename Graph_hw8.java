@@ -1,5 +1,6 @@
 // package com.gradescope.cs201;
 // import com.gradescope.cs201.Hw8_interface;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 interface Hw8_interface {
@@ -20,18 +21,28 @@ interface Hw8_interface {
 }
 
 public class Graph_hw8 implements Hw8_interface {
+    //directed graph
     HashMap<Integer, LinkedList<Integer>> adj_list;
     int node_num;
-    public static final int NO_CONNECTION = 0;
     public Graph_hw8(){
         this.adj_list = new HashMap<>();
         this.node_num =0;
     }
     public boolean is_adjacent(int x, int y){
-         return (adj_list.get(y).contains(x));
+        if(adj_list.containsKey(y)&&adj_list.containsKey(x)){
+            return (adj_list.get(x).contains(y));
+        }
+         return false;
     }
     public LinkedList<Integer> get_neighbors(int x){
-        return adj_list.get(x);
+        LinkedList<Integer> neighbors = adj_list.get(x);
+        for(int node: adj_list.keySet()){
+            if(adj_list.get(node).contains(x) && !neighbors.contains(node)){
+                neighbors.add(node);
+            }
+        }
+        neighbors.sort(Comparator.naturalOrder());
+        return neighbors;
     }
     public boolean add_node(int x){
         if(adj_list.containsKey(x)){
@@ -54,22 +65,69 @@ public class Graph_hw8 implements Hw8_interface {
         return true;
     }
     public boolean add_edge(int x, int y){
-        if(adj_list.containsKey(y) && adj_list.containsKey(x) && !adj_list.get(y).contains(x)){
-            adj_list.get(y).add(x);
+        if(adj_list.containsKey(y) && adj_list.containsKey(x) && !adj_list.get(x).contains(y)){
+            //adj_list.get(y).add(x);
             adj_list.get(x).add(y);
             return true;
         }
         return false;
     }
     public boolean remove_edge(int x, int y){
-        return true;
+        if(adj_list.containsKey(x) && adj_list.containsKey(y) && adj_list.get(x).contains(y)){
+            adj_list.get(x).remove((Integer) y);
+           return true;
+        }
+        return false;
     }
-    public int max_degree(){return 0;}
-    public int max_in_degree(){return 0;}
-    public int max_out_degree(){return 0;}
+    public int max_degree(){
+        int max_deg = 0;
+        for(int node: adj_list.keySet()){
+            int node_deg = get_neighbors(node).size();
+            if(node_deg>max_deg){
+                max_deg=node_deg;
+            }
+        }
+        return max_deg;
+    }
+    private int get_in_deg(int x){
+        int in_deg=0;
+        for(int node: adj_list.keySet()){
+            if(adj_list.get(node).contains(x)){
+                in_deg++;
+            }
+        }
+        return in_deg/2;
+    }
+    private int get_out_deg(int x){
+        return adj_list.get(x).size()-1;
+    }
+    public int max_in_degree(){
+        int max_ideg = 0;
+        for(int node: adj_list.keySet()){
+            if(get_in_deg(node)>max_ideg){
+                max_ideg = get_in_deg(node);
+            }
+        }
+        return max_ideg;}
+    public int max_out_degree(){
+        int max_odeg = 0;
+        for(int node: adj_list.keySet()){
+            if(get_out_deg(node)>max_odeg){
+                max_odeg = get_out_deg(node);
+            }
+        }
+        return max_odeg;}
     //public double average_in_degree();
     //public double average_out_degree();
-    public double average_degree(){return 0;}
+    public double average_degree(){
+         int sum_deg = 0;
+        for(int node: adj_list.keySet()){
+            int node_deg = get_neighbors(node).size();
+            sum_deg+=node_deg;
+        }
+        double avg_deg = sum_deg/(adj_list.keySet().size());
+        return avg_deg;
+    }
     public LinkedList<Integer> get_hubs(int degree){return null;}
     public LinkedList<Integer> get_isolated_nodes(){return null;}
     public static void main(String[] args) {
@@ -110,5 +168,9 @@ public class Graph_hw8 implements Hw8_interface {
         System.out.println(my_graph.is_adjacent(3,6) == false); // true
         System.out.println(my_graph.is_adjacent(3,6) == false); // true
         System.out.println(my_graph.get_neighbors(5).toString().equals("[2, 6]")); //true
+        System.out.println(my_graph.max_degree() == 4); // true
+        System.out.println(my_graph.max_in_degree() == 2); // true
+        System.out.println(my_graph.max_out_degree() == 3); // true
+        System.out.println(((int)Math.round(8*my_graph.average_degree()))==9); //true
     }
 }
