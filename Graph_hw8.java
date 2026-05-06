@@ -1,24 +1,23 @@
-// package com.gradescope.cs201;
-// import com.gradescope.cs201.Hw8_interface;
+package com.gradescope.cs201;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
-interface Hw8_interface {
-    public boolean is_adjacent(int x, int y);
-    public LinkedList<Integer> get_neighbors(int x);
-    public boolean add_node(int x);
-    public boolean remove_node(int x);
-    public boolean add_edge(int x, int y);
-    public boolean remove_edge(int x, int y);
-    public int max_degree();
-    public int max_in_degree();
-    public int max_out_degree();
-    //public double average_in_degree();
-    //public double average_out_degree();
-    public double average_degree();
-    public LinkedList<Integer> get_hubs(int degree);
-    public LinkedList<Integer> get_isolated_nodes();
-}
+// interface Hw8_interface {
+//     public boolean is_adjacent(int x, int y);
+//     public LinkedList<Integer> get_neighbors(int x);
+//     public boolean add_node(int x);
+//     public boolean remove_node(int x);
+//     public boolean add_edge(int x, int y);
+//     public boolean remove_edge(int x, int y);
+//     public int max_degree();
+//     public int max_in_degree();
+//     public int max_out_degree();
+//     //public double average_in_degree();
+//     //public double average_out_degree();
+//     public double average_degree();
+//     public LinkedList<Integer> get_hubs(int degree);
+//     public LinkedList<Integer> get_isolated_nodes();
+// }
 
 public class Graph_hw8 implements Hw8_interface {
     //directed graph
@@ -83,8 +82,8 @@ public class Graph_hw8 implements Hw8_interface {
     public int max_degree(){
         int max_deg = 0;
         for(int node: adj_list.keySet()){
-            //int node_deg = get_neighbors(node).size();
-            int node_deg = get_in_deg(node) + get_out_deg(node);
+            int node_deg = get_neighbors(node).size();
+            //int node_deg = get_in_deg(node) + get_out_deg(node);
             if(node_deg>max_deg){
                 max_deg=node_deg;
             }
@@ -162,48 +161,48 @@ public class Graph_hw8 implements Hw8_interface {
         isolated_nodes.sort(Comparator.naturalOrder());
         return isolated_nodes;}
     public static void main(String[] args) {
-        Graph_hw8 my_graph = new Graph_hw8();
-        my_graph.add_node(1);
-        my_graph.add_node(2);
-        my_graph.add_node(3);
-        my_graph.add_node(4);
-        my_graph.add_node(5);
-        my_graph.add_node(6);
-        my_graph.add_node(9);
-        my_graph.add_node(10);
-        System.out.println(my_graph.add_node(11)); // true
-        System.out.println(my_graph.add_node(1) == false); // true
-        my_graph.add_edge(1,2);
-        my_graph.add_edge(1,6);
-        my_graph.add_edge(2,3);
-        my_graph.add_edge(2,4);
-        my_graph.add_edge(2,5);
-        my_graph.add_edge(2,10);
-        my_graph.add_edge(3,4);
-        my_graph.add_edge(4,9);
-        my_graph.add_edge(5,6);
-        my_graph.add_edge(6,3);
-        my_graph.add_edge(6,5);
-        my_graph.add_edge(9,3);
-        System.out.println(my_graph.add_edge(9,11)); //true
-        System.out.println(my_graph.add_edge(3, 4) == false); // true
-        System.out.println(my_graph.add_edge(2, 8) == false); // true
-        System.out.println(my_graph.add_edge(8, 10) == false); // true
-        System.out.println(my_graph.remove_edge(2,10)); // true
-        System.out.println(my_graph.remove_edge(1,4) == false); // true
-        System.out.println(my_graph.remove_node(9)); // true
-        System.out.println(my_graph.remove_node(9) == false); // true
-        System.out.println(my_graph.remove_edge(4,9) == false); // true
-        System.out.println(my_graph.is_adjacent(4,9) == false); // true
-        System.out.println(my_graph.is_adjacent(1,2)); // true
-        System.out.println(my_graph.is_adjacent(3,6) == false); // true
-        System.out.println(my_graph.is_adjacent(3,6) == false); // true
-        System.out.println(my_graph.get_neighbors(5).toString().equals("[2, 6]")); //true
-        System.out.println(my_graph.max_degree() == 4); // true
-        System.out.println(my_graph.max_in_degree() == 2); // true
-        System.out.println(my_graph.max_out_degree() == 3); // true
-        System.out.println(((int)Math.round(8*my_graph.average_degree()))==9); //true
-        System.out.println(my_graph.get_hubs(3).toString().equals("[2, 3, 5, 6]")); //true
-        System.out.println(my_graph.get_isolated_nodes().toString().equals("[10,11]")); // true
+        // Graph_hw8 my_graph = new Graph_hw8();
+        // my_graph.add_node(1);
+        // my_graph.add_node(2);
+        // my_graph.add_node(3);
+        // my_graph.add_node(4);
+        // my_graph.add_node(5);
+        // my_graph.add_node(6);
+        // my_graph.add_node(9);
+        // my_graph.add_node(10);
+        // System.out.println(my_graph.add_node(11)); // true
+        // System.out.println(my_graph.add_node(1) == false); // true
+        // my_graph.add_edge(1,2);
+        // my_graph.add_edge(1,6);
+        // my_graph.add_edge(2,3);
+        // my_graph.add_edge(2,4);
+        // my_graph.add_edge(2,5);
+        // my_graph.add_edge(2,10);
+        // my_graph.add_edge(3,4);
+        // my_graph.add_edge(4,9);
+        // my_graph.add_edge(5,6);
+        // my_graph.add_edge(6,3);
+        // my_graph.add_edge(6,5);
+        // my_graph.add_edge(9,3);
+        // System.out.println(my_graph.add_edge(9,11)); //true
+        // System.out.println(my_graph.add_edge(3, 4) == false); // true
+        // System.out.println(my_graph.add_edge(2, 8) == false); // true
+        // System.out.println(my_graph.add_edge(8, 10) == false); // true
+        // System.out.println(my_graph.remove_edge(2,10)); // true
+        // System.out.println(my_graph.remove_edge(1,4) == false); // true
+        // System.out.println(my_graph.remove_node(9)); // true
+        // System.out.println(my_graph.remove_node(9) == false); // true
+        // System.out.println(my_graph.remove_edge(4,9) == false); // true
+        // System.out.println(my_graph.is_adjacent(4,9) == false); // true
+        // System.out.println(my_graph.is_adjacent(1,2)); // true
+        // System.out.println(my_graph.is_adjacent(3,6) == false); // true
+        // System.out.println(my_graph.is_adjacent(3,6) == false); // true
+        // System.out.println(my_graph.get_neighbors(5).toString().equals("[2, 6]")); //true
+        // System.out.println(my_graph.max_degree() == 4); // true
+        // System.out.println(my_graph.max_in_degree() == 2); // true
+        // System.out.println(my_graph.max_out_degree() == 3); // true
+        // System.out.println(((int)Math.round(8*my_graph.average_degree()))==9); //true
+        // System.out.println(my_graph.get_hubs(3).toString().equals("[2, 3, 5, 6]")); //true
+        // System.out.println(my_graph.get_isolated_nodes().toString().equals("[10, 11]")); // true
     }
 }
