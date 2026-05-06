@@ -35,7 +35,7 @@ public class Graph_hw8 implements Hw8_interface {
          return false;
     }
     public LinkedList<Integer> get_neighbors(int x){
-        LinkedList<Integer> neighbors = adj_list.get(x);
+        LinkedList<Integer> neighbors = new LinkedList<>(adj_list.get(x));
         for(int node: adj_list.keySet()){
             if(adj_list.get(node).contains(x) && !neighbors.contains(node)){
                 neighbors.add(node);
@@ -56,9 +56,10 @@ public class Graph_hw8 implements Hw8_interface {
         if(!adj_list.containsKey(x)){
             return false;
         }
-        LinkedList<Integer> neighborsOfx = adj_list.get(x);
-        for(int node: neighborsOfx){
-            adj_list.get(node).remove((Integer) x);
+        for(int node: adj_list.keySet()){
+            if(adj_list.get(node).contains(x)){
+                adj_list.get(node).remove((Integer)x);
+            }
         }
         adj_list.remove(x);
         node_num--;
@@ -82,7 +83,8 @@ public class Graph_hw8 implements Hw8_interface {
     public int max_degree(){
         int max_deg = 0;
         for(int node: adj_list.keySet()){
-            int node_deg = get_neighbors(node).size();
+            //int node_deg = get_neighbors(node).size();
+            int node_deg = get_in_deg(node) + get_out_deg(node);
             if(node_deg>max_deg){
                 max_deg=node_deg;
             }
@@ -96,10 +98,10 @@ public class Graph_hw8 implements Hw8_interface {
                 in_deg++;
             }
         }
-        return in_deg/2;
+        return in_deg;
     }
     private int get_out_deg(int x){
-        return adj_list.get(x).size()-1;
+        return adj_list.get(x).size();
     }
     public int max_in_degree(){
         int max_ideg = 0;
@@ -120,16 +122,45 @@ public class Graph_hw8 implements Hw8_interface {
     //public double average_in_degree();
     //public double average_out_degree();
     public double average_degree(){
-         int sum_deg = 0;
-        for(int node: adj_list.keySet()){
-            int node_deg = get_neighbors(node).size();
-            sum_deg+=node_deg;
+        //  int sum_deg = 0;
+        // for(int node: adj_list.keySet()){
+        //     int node_deg = get_in_deg(node) + get_out_deg(node)-1;
+        //     sum_deg+=node_deg;
+        // }
+        // double avg_deg = sum_deg/(adj_list.size());
+        // return avg_deg;
+        if (adj_list.isEmpty()) return 0.0;
+        
+        int total_edges = 0;
+        for (int node : adj_list.keySet()) {
+            total_edges += adj_list.get(node).size(); // Tổng số cạnh
         }
-        double avg_deg = sum_deg/(adj_list.keySet().size());
-        return avg_deg;
+        
+        // Công thức của assignment: E / V
+        return (double) total_edges / adj_list.size();
     }
-    public LinkedList<Integer> get_hubs(int degree){return null;}
-    public LinkedList<Integer> get_isolated_nodes(){return null;}
+    
+    public LinkedList<Integer> get_hubs(int degree){
+        LinkedList<Integer> hubs = new LinkedList<>();
+        for(int node: adj_list.keySet()){
+            int node_deg = get_in_deg(node) + get_out_deg(node);
+            if(node_deg>=degree){
+                hubs.add(node);
+            }
+        }
+        hubs.sort(Comparator.naturalOrder());
+        return hubs;
+    }
+    public LinkedList<Integer> get_isolated_nodes(){
+        LinkedList<Integer> isolated_nodes = new LinkedList<>();
+        for(int node: adj_list.keySet()){
+            int node_deg = get_in_deg(node) + get_out_deg(node);
+            if(node_deg==0){
+                isolated_nodes.add(node);
+            }
+        }
+        isolated_nodes.sort(Comparator.naturalOrder());
+        return isolated_nodes;}
     public static void main(String[] args) {
         Graph_hw8 my_graph = new Graph_hw8();
         my_graph.add_node(1);
@@ -172,5 +203,7 @@ public class Graph_hw8 implements Hw8_interface {
         System.out.println(my_graph.max_in_degree() == 2); // true
         System.out.println(my_graph.max_out_degree() == 3); // true
         System.out.println(((int)Math.round(8*my_graph.average_degree()))==9); //true
+        System.out.println(my_graph.get_hubs(3).toString().equals("[2, 3, 5, 6]")); //true
+        System.out.println(my_graph.get_isolated_nodes().toString().equals("[10,11]")); // true
     }
 }
