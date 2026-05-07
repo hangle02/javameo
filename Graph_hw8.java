@@ -1,4 +1,5 @@
 package com.gradescope.cs201;
+import com.gradescope.cs201.Hw8_interface;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -67,7 +68,7 @@ public class Graph_hw8 implements Hw8_interface {
     public boolean add_edge(int x, int y){
         if(adj_list.containsKey(y) && adj_list.containsKey(x) && !adj_list.get(x).contains(y)){
             //adj_list.get(y).add(x);
-            adj_list.get(x).add(y);
+            adj_list.get(x).add((Integer)y);
             return true;
         }
         return false;
@@ -136,7 +137,7 @@ public class Graph_hw8 implements Hw8_interface {
         }
         
         // Công thức của assignment: E / V
-        return (double) total_edges / adj_list.size();
+        return (double) 2*total_edges / adj_list.size();
     }
     
     public LinkedList<Integer> get_hubs(int degree){
@@ -204,5 +205,31 @@ public class Graph_hw8 implements Hw8_interface {
         // System.out.println(((int)Math.round(8*my_graph.average_degree()))==9); //true
         // System.out.println(my_graph.get_hubs(3).toString().equals("[2, 3, 5, 6]")); //true
         // System.out.println(my_graph.get_isolated_nodes().toString().equals("[10, 11]")); // true
+        // Graph_hw8 my_graph = new Graph_hw8();
+        // my_graph.add_node(1);
+        // my_graph.add_node(2);
+        // my_graph.add_node(3);
+        // my_graph.add_node(4);
+        // my_graph.add_node(5);
+        // my_graph.add_node(6);
+        // my_graph.add_node(9);
+        // my_graph.add_node(10);
+        // my_graph.add_node(11); // true        
+        // my_graph.add_edge(1,2);
+        // my_graph.add_edge(1,6);
+        // my_graph.add_edge(2,3);
+        // my_graph.add_edge(2,4);
+        // my_graph.add_edge(2,5);
+        // my_graph.add_edge(2,10);
+        // my_graph.add_edge(3,4);
+        // my_graph.add_edge(4,9);
+        // my_graph.add_edge(5,6);
+        // my_graph.add_edge(6,3);
+        // my_graph.add_edge(6,5);
+        // my_graph.add_edge(9,3);        
+        // my_graph.add_edge(9,11); //true 
+        // my_graph.remove_edge(2,10); // true
+        // my_graph.remove_node(9); // true
+        // System.out.println(((int)Math.round(8*my_graph.average_degree()))==18); // true
+        }
     }
-}
