@@ -1,5 +1,5 @@
-package com.gradescope.cs201;
-import com.gradescope.cs201.Hw9_interface;
+// package com.gradescope.cs201;
+// import com.gradescope.cs201.Hw9_interface;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-// interface Hw9_interface {
-//     public boolean add_node(int x);
-//     public boolean add_edge(int x, int y);
-//     public LinkedList<LinkedList<Integer>> find_components(); 
-//     public int find_diameter_length();
-//     public LinkedList<LinkedList<Integer>> find_bridges(); 
-// }
+interface Hw9_interface {
+    public boolean add_node(int x);
+    public boolean add_edge(int x, int y);
+    public LinkedList<LinkedList<Integer>> find_components(); 
+    public int find_diameter_length();
+    public LinkedList<LinkedList<Integer>> find_bridges(); 
+}
 public class Graph_hw9 implements Hw9_interface {
     HashMap<Integer, LinkedList<Integer>> adj_list;
     public Graph_hw9(){

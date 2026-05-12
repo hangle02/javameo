@@ -1,0 +1,157 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "7295c7de-9e89-4238-8983-79ab60b046a1",
+      "cell_type": "markdown",
+      "source": "# Empty Notebook\n\nThe notebook file appears to be empty.",
+      "metadata": {
+        "language": "markdown",
+        "id": "7295c7de-9e89-4238-8983-79ab60b046a1"
+      }
+    },
+    {
+      "id": "54b61e42-e231-47d5-a61e-705b2cd8da0a",
+      "cell_type": "markdown",
+      "source": "Graph, BFS/DFS",
+      "metadata": {
+        "language": "markdown",
+        "id": "54b61e42-e231-47d5-a61e-705b2cd8da0a"
+      }
+    },
+    {
+      "id": "c48f776c-fc5d-40de-87bf-781702e52186",
+      "cell_type": "code",
+      "source": "import java.util.LinkedList;\nimport java.util.HashMap;\n\npublic interface Graph {\n    public void add_vertex(int node_id);\n    public void add_edge(int src, int dest, int weight);\n    public int adjacent(int src, int dest);\n    public LinkedList<Integer> neighbors(int node);\n}\n\npublic class Adjacent_Mat_Graph implements Graph {\n    int[][] adj_matrix;\n    int node_num;\n    public final int NO_CONNECTION = 0;\n    static int WHITE = 0; // unvisited + currently in stack, NOT ON THE CUR PATH\n    static int GREY = 1; //currently ON CUR PATH\n    static int BLACK = 2; // visited already\n\n    Adjacent_Mat_Graph (int max_size) {\n        adj_matrix = new int[max_size][max_size];\n        for (int src = 0; src < max_size; src++)\n            for (int dest = 0; dest < max_size; dest++)\n                adj_matrix[src][dest] = NO_CONNECTION;    \n            \n    }\n\n    public void add_vertex(int node_id) {\n        node_num++;\n        if (node_num > adj_matrix.length) {\n            // We have to migrate and resize the adj_mat\n            IO.println(\"We have to migrate and resize the adj_mat\"); \n        }\n    }\n\n    public void add_edge(int src, int dest, int weight) {\n        adj_matrix[src][dest] = weight;\n    }\n\n    public int adjacent(int src, int dest) {\n        return adj_matrix[src][dest];\n    }\n\n    public LinkedList<Integer> neighbors(int node) {\n        LinkedList<Integer> tmp = new LinkedList<Integer>();\n        for (int dest = 0; dest < node_num; dest++)\n            if (adj_matrix[node][dest] != NO_CONNECTION)\n                tmp.add(dest);\n\n        return tmp;\n    }\n\n    public void DFS_(int source, boolean[] is_visited) {\n        is_visited[source] = true;\n        // To debug\n        IO.println(source);\n        LinkedList<Integer> neighbors = neighbors(source);\n        for (int neighbor: neighbors)\n            if (!is_visited[neighbor])\n                DFS_(neighbor, is_visited); \n\n\n    }\n\n    public void DFS(int source) {\n        // Need something to check if source node has been visited\n        boolean is_visited[] = new boolean[node_num];\n        for (int v = 0; v < node_num; v++)\n            is_visited[v] = false;\n        DFS_(source, is_visited);\n    }\n\n    public void BFS(int source) {\n        boolean is_visited[] = new boolean[node_num];\n        for (int v = 0; v < node_num; v++)\n            is_visited[v] = false;\n\n        LinkedList<Integer> waiting_queue = new LinkedList<>();\n        waiting_queue.addFirst(source);\n\n        while(!waiting_queue.isEmpty()) {\n            int current_node = waiting_queue.removeLast();\n            if (!is_visited[current_node]) {\n                is_visited[current_node] = true;\n                // for debugging\n                IO.println(current_node);\n\n                LinkedList<Integer> neighbors = neighbors(current_node);\n                for (int neighbor: neighbors)\n                    waiting_queue.addFirst(neighbor);\n            }                \n        }\n    }\n\n    /*public boolean is_cyclic() {\n        static int WHITE = 0; // Unvisited, currently in the stack, but not on the current path\n        static int GREY = 1; // In the current path\n        static int BLACK = 2; // Visited already and has been popped out\n        int color[] = new int[node_num];\n        for (int v = 0; v < node_num; v++)\n            color[v] = WHITE;\n\n        int source = 0;\n\n        LinkedList<Integer> waiting_stack = new LinkedList<>();\n        waiting_stack.addFirst(source);\n\n        while(!waiting_stack.isEmpty()) {\n            int current_node = waiting_stack.removeFirst();\n            if (color[current_node] != BLACK) {\n                //color[current_node] = ?;\n                // for debugging\n                // IO.println(current_node);\n\n                LinkedList<Integer> neighbors = neighbors(current_node);\n                for (int neighbor: neighbors)\n                    if (color[neighbor] == WHITE) {\n                        waiting_stack.addFirst(neighbor);\n                    }\n                color[current_node] = BLACK;\n            }\n            else { // color[current_node] == BLACK\n                IO.print(\"BLACK Node!\");\n            }\n        }\n    }*/\n}\n",
+      "metadata": {
+        "language": "java",
+        "id": "c48f776c-fc5d-40de-87bf-781702e52186",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "24a0f5a0-06b6-4cd5-ab0d-33ffdc59a2fc",
+      "cell_type": "markdown",
+      "source": "\nExample 1: Cycle detection\n\nGraph 1 (no cycle)\n\n0 ----> 1 -----> 2 -----> 3\n|           |         |\n|           |         |\n---> 4 ---> 5 ------> 6\n\nGraph 2 (cycle)\n\n0 ----> 1 -----> 2 -----> 3\n|           |             |\n|           |             |\n---> 4 ---> 5 <------ 6 <--\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "24a0f5a0-06b6-4cd5-ab0d-33ffdc59a2fc"
+      }
+    },
+    {
+      "id": "14abe382-6bc0-415a-9e84-1d203cce96ec",
+      "cell_type": "code",
+      "source": "import java.util.LinkedList;\nimport java.util.HashMap;\n\npublic interface Graph {\n    public void add_vertex(int node_id);\n    public void add_edge(int src, int dest, int weight);\n    public int adjacent(int src, int dest);\n    public LinkedList<Integer> neighbors(int node);\n}\n\npublic class Adjacent_Mat_Graph implements Graph {\n    int[][] adj_matrix;\n    int node_num;\n    public final int NO_CONNECTION = 0;\n    public static int WHITE = 0; // Unvisited, currently in the stack, but not on the current path\n    public static int GREY = 1; // In the current path\n    public static int BLACK = 2; // Visited already and has been popped out\n    \n    Adjacent_Mat_Graph (int max_size) {\n        adj_matrix = new int[max_size][max_size];\n        for (int src = 0; src < max_size; src++)\n            for (int dest = 0; dest < max_size; dest++)\n                adj_matrix[src][dest] = NO_CONNECTION;    \n            \n    }\n\n    public void add_vertex(int node_id) {\n        node_num++;\n        if (node_num > adj_matrix.length) {\n            // We have to migrate and resize the adj_mat\n            IO.println(\"We have to migrate and resize the adj_mat\"); \n        }\n    }\n\n    public void add_edge(int src, int dest, int weight) {\n        adj_matrix[src][dest] = weight;\n    }\n\n    public int adjacent(int src, int dest) {\n        return adj_matrix[src][dest];\n    }\n\n    public LinkedList<Integer> neighbors(int node) {\n        LinkedList<Integer> tmp = new LinkedList<Integer>();\n        for (int dest = 0; dest < node_num; dest++)\n            if (adj_matrix[node][dest] != NO_CONNECTION)\n                tmp.add(dest);\n\n        return tmp;\n    }\n\n    public void DFS_(int source, boolean[] is_visited) {\n        is_visited[source] = true;\n        // To debug\n        IO.println(source);\n        LinkedList<Integer> neighbors = neighbors(source);\n        for (int neighbor: neighbors)\n            if (!is_visited[neighbor])\n                DFS_(neighbor, is_visited); \n\n\n    }\n\n    public void DFS(int source) {\n        // Need something to check if source node has been visited\n        boolean is_visited[] = new boolean[node_num];\n        for (int v = 0; v < node_num; v++)\n            is_visited[v] = false;\n        DFS_(source, is_visited);\n    }\n\n    public void BFS(int source) {\n        boolean is_visited[] = new boolean[node_num];\n        for (int v = 0; v < node_num; v++)\n            is_visited[v] = false;\n\n        LinkedList<Integer> waiting_queue = new LinkedList<>();\n        waiting_queue.addFirst(source);\n\n        while(!waiting_queue.isEmpty()) {\n            int current_node = waiting_queue.removeLast();\n            if (!is_visited[current_node]) {\n                is_visited[current_node] = true;\n                // for debugging\n                IO.println(current_node);\n\n                LinkedList<Integer> neighbors = neighbors(current_node);\n                for (int neighbor: neighbors)\n                    waiting_queue.addFirst(neighbor);\n            }                \n        }\n    }\n\n    public boolean _is_cyclic_(int source, int[] color) {\n        for (int v = 0; v < node_num; v++)\n            if (color[v] == GREY && adjacent(source, v) != NO_CONNECTION)\n                return true;\n        color[source] = GREY;\n        // To debug\n        //IO.println(source);\n        LinkedList<Integer> neighbors = neighbors(source);\n        for (int neighbor: neighbors)\n            if (color[neighbor] == WHITE)\n                if (_is_cyclic_(neighbor, color))\n                    return true; \n        color[source] = BLACK;\n        return false;\n    }\n\n    public boolean is_cyclic() {  \n        for (int source = 0; source < node_num; source++) {\n            int color[] = new int[node_num];\n            for (int v = 0; v < node_num; v++)\n                color[v] = WHITE;\n            if (_is_cyclic_(source, color))\n                return true;\n        }\n        return false;\n    }    \n\n    /*public boolean is_cyclic() {\n        int color[] = new int[node_num];\n        for (int v = 0; v < node_num; v++)\n            color[v] = WHITE;\n\n        int source = 0;\n\n        LinkedList<Integer> waiting_stack = new LinkedList<>();\n        waiting_stack.addFirst(source);\n\n        while(!waiting_stack.isEmpty()) {\n            int current_node = waiting_stack.removeFirst();\n            if (color[current_node] != BLACK) {\n                //color[current_node] = ?;\n                // for debugging\n                // IO.println(current_node);\n\n                LinkedList<Integer> neighbors = neighbors(current_node);\n                for (int neighbor: neighbors)\n                    if (color[neighbor] == WHITE) {\n                        waiting_stack.addFirst(neighbor);\n                    }\n                color[current_node] = BLACK;\n            }\n            else { // color[current_node] == BLACK\n                IO.print(\"BLACK Node!\");\n            }\n        }\n    }*/\n}\n\n\nAdjacent_Mat_Graph graph_1 = new Adjacent_Mat_Graph(100);\n               \nfor (int node_id = 0; node_id < 7; node_id++)\n    graph_1.add_vertex(node_id);\nstatic int CONNECTION = 1;\n\ngraph_1.add_edge(0, 1, CONNECTION);\ngraph_1.add_edge(1, 2, CONNECTION);\ngraph_1.add_edge(2, 3, CONNECTION);\ngraph_1.add_edge(0, 4, CONNECTION);\ngraph_1.add_edge(4, 5, CONNECTION);\ngraph_1.add_edge(5, 6, CONNECTION);\ngraph_1.add_edge(5, 2, CONNECTION);\ngraph_1.add_edge(6, 3, CONNECTION);\n\n\nAdjacent_Mat_Graph graph_2 = new Adjacent_Mat_Graph(100);\n               \nfor (int node_id = 0; node_id < 7; node_id++)\n    graph_2.add_vertex(node_id);\nstatic int CONNECTION = 1;\n\ngraph_2.add_edge(0, 1, CONNECTION);\ngraph_2.add_edge(1, 2, CONNECTION);\ngraph_2.add_edge(2, 3, CONNECTION);\ngraph_2.add_edge(0, 4, CONNECTION);\ngraph_2.add_edge(4, 5, CONNECTION);\ngraph_2.add_edge(6, 5, CONNECTION);\ngraph_2.add_edge(5, 2, CONNECTION);\ngraph_2.add_edge(3, 6, CONNECTION);\n\n\nIO.println(graph_1.is_cyclic());\nIO.println(graph_2.is_cyclic());\n",
+      "metadata": {
+        "language": "java",
+        "id": "14abe382-6bc0-415a-9e84-1d203cce96ec",
+        "executionSummary": {
+          "executionOrder": 22,
+          "success": true
+        }
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "false\r\ntrue\r\n"
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "id": "6114eec1-de2b-4ff4-8214-5ce79ca5a08e",
+      "cell_type": "markdown",
+      "source": "Example 2: Connected components (undirected graph)\n\n\n1 -- 2     3 ---- 4------9      11    12 ---- 13  \n| \\  |           /|      | \n|  \\ |          / |      |\n|   \\|         /  |      |\n5    6        7   8 ---- 10  \n",
+      "metadata": {
+        "language": "markdown",
+        "id": "6114eec1-de2b-4ff4-8214-5ce79ca5a08e"
+      }
+    },
+    {
+      "id": "6d46528a-289a-47f2-891d-edfddf80713a",
+      "cell_type": "code",
+      "source": "import java.util.LinkedList;\nimport java.util.HashMap;\n\npublic interface Graph {\n    public void add_vertex(int node_id);\n    public void add_edge(int src, int dest, int weight);\n    public int adjacent(int src, int dest);\n    public LinkedList<Integer> neighbors(int node);\n}\n\npublic class Adjacent_Mat_Graph implements Graph {\n    int[][] adj_matrix;\n    int node_num;\n    public final int NO_CONNECTION = 0;\n\n    Adjacent_Mat_Graph (int max_size) {\n        adj_matrix = new int[max_size][max_size];\n        for (int src = 0; src < max_size; src++)\n            for (int dest = 0; dest < max_size; dest++)\n                adj_matrix[src][dest] = NO_CONNECTION;    \n            \n    }\n\n    public void add_vertex(int node_id) {\n        node_num++;\n        if (node_num > adj_matrix.length) {\n            // We have to migrate and resize the adj_mat\n            IO.println(\"We have to migrate and resize the adj_mat\"); \n        }\n    }\n\n    public void add_edge(int src, int dest, int weight) {\n        adj_matrix[src][dest] = weight;\n    }\n\n    public int adjacent(int src, int dest) {\n        return adj_matrix[src][dest];\n    }\n\n    public LinkedList<Integer> neighbors(int node) {\n        LinkedList<Integer> tmp = new LinkedList<Integer>();\n        for (int dest = 0; dest < node_num; dest++)\n            if (adj_matrix[node][dest] != NO_CONNECTION)\n                tmp.add(dest);\n\n        return tmp;\n    }\n\n    public void find_component (int[] component_ids) {\n        int HOMELESS = 0;\n        //component_ids = new int[node_num];\n        for (int v = 0; v < node_num; v++)\n            component_ids[v] = HOMELESS; // 0: unassigned component id\n\n        boolean is_done = false;\n        int current_component_id = 1;\n        boolean[] visited = new boolean[node_num];\n        while (!is_done) {\n            LinkedList<Integer> waiting_queue = new LinkedList<>();\n            is_done = true;\n            for (int v = 0; v < node_num; v++){\n                if(!visited[v]){\n                    if (component_ids[v] == HOMELESS) {\n                        is_done = false;\n                        waiting_queue.addFirst(v);\n                        visited[v] = true;\n                        break;\n                    }\n                }\n            }\n            while(!waiting_queue.isEmpty()) {\n                int current_node = waiting_queue.removeLast();\n                if (component_ids[current_node] == HOMELESS) {\n                    component_ids[current_node] = current_component_id;\n                    // for debugging\n                    //IO.println(current_node);\n                    LinkedList<Integer> neighbors = neighbors(current_node);\n                    for (int neighbor: neighbors)\n                        if(!visited[neighbor]){\n                            visited[neighbor] = true;\n                            waiting_queue.addFirst(neighbor);\n                            \n                        }\n                }                \n            }\n            current_component_id++;       \n        }\n    }\n}\n\n\nAdjacent_Mat_Graph graph_1 = new Adjacent_Mat_Graph(100);\n               \nfor (int node_id = 1; node_id <= 13; node_id++)\n    graph_1.add_vertex(node_id);\nstatic int CONNECTION = 1;\n\ngraph_1.add_edge(1, 2, CONNECTION); graph_1.add_edge(2, 1, CONNECTION);\ngraph_1.add_edge(1, 5, CONNECTION); graph_1.add_edge(5, 1, CONNECTION);\ngraph_1.add_edge(1, 6, CONNECTION); graph_1.add_edge(6, 1, CONNECTION);\ngraph_1.add_edge(2, 6, CONNECTION); graph_1.add_edge(6, 2, CONNECTION);\n\ngraph_1.add_edge(3, 4, CONNECTION); graph_1.add_edge(4, 3, CONNECTION);\ngraph_1.add_edge(7, 4, CONNECTION); graph_1.add_edge(4, 7, CONNECTION);\ngraph_1.add_edge(4, 9, CONNECTION); graph_1.add_edge(9, 4, CONNECTION);\ngraph_1.add_edge(4, 8, CONNECTION); graph_1.add_edge(8, 4, CONNECTION);\ngraph_1.add_edge(8, 10, CONNECTION); graph_1.add_edge(10, 8, CONNECTION);\ngraph_1.add_edge(9, 10, CONNECTION); graph_1.add_edge(10, 9, CONNECTION);\n\ngraph_1.add_edge(12, 13, CONNECTION); graph_1.add_edge(13, 12, CONNECTION);\n\nint[] component_ids = new int[graph_1.node_num];\ngraph_1.find_component(component_ids);\n\nfor (int i = 0; i < component_ids.length; i++) {\n    IO.println(component_ids[i]);    \n}",
+      "metadata": {
+        "language": "java",
+        "id": "6d46528a-289a-47f2-891d-edfddf80713a",
+        "executionSummary": {
+          "executionOrder": 33,
+          "success": true
+        }
+      },
+      "execution_count": 33,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "1\r\n2\r\n2\r\n3\r\n3\r\n2\r\n2\r\n3\r\n3\r\n3\r\n3\r\n4\r\n5\r\n"
+          },
+          "metadata": {},
+          "execution_count": 33
+        }
+      ]
+    },
+    {
+      "id": "b260dd23-524b-4ace-ae1b-7294050e89a7",
+      "cell_type": "markdown",
+      "source": "Example 3: Topological sorting\n\nLinear Alg ------> Discrete Math -----------------------------\n                                     |                       |\n                                     |                       |\nCS1 -------------> CS2 ---------------------> Algorithms ----------> Graduation\n                    |                                        |\n                    |---------|                              |\n                              |                              |\n                              |                              |\nDST ----------> Comp Org -----------> OS---------------------|",
+      "metadata": {
+        "language": "markdown",
+        "id": "b260dd23-524b-4ace-ae1b-7294050e89a7"
+      }
+    },
+    {
+      "id": "e0bc88ee-a87c-4b71-9957-2de1bdc69435",
+      "cell_type": "code",
+      "source": "import java.util.HashMap;\r\n\r\nHashMap<String, Integer> node_name_to_id = new HashMap<>();\r\n    node_name_to_id.put(\"Linear Alg\", 0);\r\n    node_name_to_id.put(\"Discrete Math\", 1);\r\n    node_name_to_id.put(\"CS1\",2);\r\n    node_name_to_id.put(\"CS2\",3);\r\n    node_name_to_id.put(\"DST\",4);\r\n    node_name_to_id.put(\"Com ord\",5);\r\n    node_name_to_id.put(\"Algorithms\",6);\r\n    node_name_to_id.put(\"OS\",7);\r\n    node_name_to_id.put(\"GRAD\",8);\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 34,
+          "success": true
+        }
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {},
+          "metadata": {},
+          "execution_count": 34
+        }
+      ]
+    },
+    {
+      "id": "24dc5215-e37d-4038-8124-c6c4733b850a",
+      "cell_type": "code",
+      "source": "import java.util.LinkedList;\r\nimport java.util.HashMap;\r\n\r\npublic interface Graph {\r\n    public void add_vertex(int node_id);\r\n    public void add_edge(int src, int dest, int weight);\r\n    public int adjacent(int src, int dest);\r\n    public LinkedList<Integer> neighbors(int node);\r\n}\r\n\r\npublic class Adjacent_Mat_Graph implements Graph {\r\n    int[][] adj_matrix;\r\n    int node_num;\r\n    public final int NO_CONNECTION = 0;\r\n\r\n    Adjacent_Mat_Graph (int max_size) {\r\n        adj_matrix = new int[max_size][max_size];\r\n        for (int src = 0; src < max_size; src++)\r\n            for (int dest = 0; dest < max_size; dest++)\r\n                adj_matrix[src][dest] = NO_CONNECTION;    \r\n            \r\n    }\r\n\r\n    public void add_vertex(int node_id) {\r\n        node_num++;\r\n        if (node_num > adj_matrix.length) {\r\n            // We have to migrate and resize the adj_mat\r\n            IO.println(\"We have to migrate and resize the adj_mat\"); \r\n        }\r\n    }\r\n\r\n    public void add_edge(int src, int dest, int weight) {\r\n        adj_matrix[src][dest] = weight;\r\n    }\r\n\r\n    public int adjacent(int src, int dest) {\r\n        return adj_matrix[src][dest];\r\n    }\r\n\r\n    public LinkedList<Integer> neighbors(int node) {\r\n        LinkedList<Integer> tmp = new LinkedList<Integer>();\r\n        for (int dest = 0; dest < node_num; dest++)\r\n            if (adj_matrix[node][dest] != NO_CONNECTION)\r\n                tmp.add(dest);\r\n\r\n        return tmp;\r\n    }\r\n    public int in_deg(int dest){\r\n\r\n    }\r\n\r\n    public void find_component (int[] component_ids) {\r\n        int HOMELESS = 0;\r\n        //component_ids = new int[node_num];\r\n        for (int v = 0; v < node_num; v++)\r\n            component_ids[v] = HOMELESS; // 0: unassigned component id\r\n\r\n        boolean is_done = false;\r\n        int current_component_id = 1;\r\n        boolean[] visited = new boolean[node_num];\r\n        while (!is_done) {\r\n            LinkedList<Integer> waiting_queue = new LinkedList<>();\r\n            is_done = true;\r\n            for (int v = 0; v < node_num; v++){\r\n                if(!visited[v]){\r\n                    if (component_ids[v] == HOMELESS) {\r\n                        is_done = false;\r\n                        waiting_queue.addFirst(v);\r\n                        visited[v] = true;\r\n                        break;\r\n                    }\r\n                }\r\n            }\r\n            while(!waiting_queue.isEmpty()) {\r\n                int current_node = waiting_queue.removeLast();\r\n                if (component_ids[current_node] == HOMELESS) {\r\n                    component_ids[current_node] = current_component_id;\r\n                    // for debugging\r\n                    //IO.println(current_node);\r\n                    LinkedList<Integer> neighbors = neighbors(current_node);\r\n                    for (int neighbor: neighbors)\r\n                        if(!visited[neighbor]){\r\n                            visited[neighbor] = true;\r\n                            waiting_queue.addFirst(neighbor);\r\n                            \r\n                        }\r\n                }                \r\n            }\r\n            current_component_id++;       \r\n        }\r\n    }\r\n}\r\n\r\n\r\nAdjacent_Mat_Graph graph_1 = new Adjacent_Mat_Graph(100);\r\n               \r\nfor (int node_id = 1; node_id <= 13; node_id++)\r\n    graph_1.add_vertex(node_id);\r\nstatic int CONNECTION = 1;\r\n\r\ngraph_1.add_edge(1, 2, CONNECTION); graph_1.add_edge(2, 1, CONNECTION);\r\ngraph_1.add_edge(1, 5, CONNECTION); graph_1.add_edge(5, 1, CONNECTION);\r\ngraph_1.add_edge(1, 6, CONNECTION); graph_1.add_edge(6, 1, CONNECTION);\r\ngraph_1.add_edge(2, 6, CONNECTION); graph_1.add_edge(6, 2, CONNECTION);\r\n\r\ngraph_1.add_edge(3, 4, CONNECTION); graph_1.add_edge(4, 3, CONNECTION);\r\ngraph_1.add_edge(7, 4, CONNECTION); graph_1.add_edge(4, 7, CONNECTION);\r\ngraph_1.add_edge(4, 9, CONNECTION); graph_1.add_edge(9, 4, CONNECTION);\r\ngraph_1.add_edge(4, 8, CONNECTION); graph_1.add_edge(8, 4, CONNECTION);\r\ngraph_1.add_edge(8, 10, CONNECTION); graph_1.add_edge(10, 8, CONNECTION);\r\ngraph_1.add_edge(9, 10, CONNECTION); graph_1.add_edge(10, 9, CONNECTION);\r\n\r\ngraph_1.add_edge(12, 13, CONNECTION); graph_1.add_edge(13, 12, CONNECTION);\r\n\r\nint[] component_ids = new int[graph_1.node_num];\r\ngraph_1.find_component(component_ids);\r\n\r\nfor (int i = 0; i < component_ids.length; i++) {\r\n    IO.println(component_ids[i]);    \r\n}",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
