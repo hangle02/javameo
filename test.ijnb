@@ -86,14 +86,7 @@
         }
       },
       "execution_count": 7,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 7
-        }
-      ]
+      "outputs": []
     },
     {
       "id": "d0754eb4-9ce6-4e8e-9874-8f5a97851c40",
@@ -108,14 +101,7 @@
         }
       },
       "execution_count": 8,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 8
-        }
-      ]
+      "outputs": []
     },
     {
       "id": "0ff22d20-c88a-418c-a935-2145fa5d12cd",
@@ -154,14 +140,7 @@
         }
       },
       "execution_count": 10,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 10
-        }
-      ]
+      "outputs": []
     },
     {
       "id": "88512fca-e67f-4ecc-b56a-dfbeed9f22e9",
@@ -176,14 +155,7 @@
         }
       },
       "execution_count": 11,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 11
-        }
-      ]
+      "outputs": []
     },
     {
       "id": "8eac22de-0feb-4c15-907e-7508481e0f4c",
@@ -414,14 +386,7 @@
         }
       },
       "execution_count": 21,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {},
-          "metadata": {},
-          "execution_count": 21
-        }
-      ]
+      "outputs": []
     },
     {
       "id": "49eee8a5-042a-49cd-b10d-9f20c45db13b",
@@ -549,6 +514,7 @@
       "source": "boolean check_zig_zag(TreeNode root) {\r\n    if (root == null) return true;\r\n    \r\n    // Gốc không có con cũng là một cây ZigZag hợp lệ\r\n    if (root.left == null && root.right == null) return true;\r\n    \r\n    // Nếu gốc có cả 2 con -> Không phải là một đường đi đơn -> Sai\r\n    if (root.left != null && root.right != null) return false;\r\n    \r\n    // Bắt đầu khởi tạo luồng đi\r\n    if (root.left != null) {\r\n        // Vừa rẽ trái xong, node tiếp theo KỲ VỌNG phải rẽ phải (expectLeft = false)\r\n        return zig_zag_helper(root.left, false); \r\n    } else {\r\n        // Vừa rẽ phải xong, node tiếp theo KỲ VỌNG phải rẽ trái (expectLeft = true)\r\n        return zig_zag_helper(root.right, true); \r\n    }\r\n}\r\n\r\nboolean zig_zag_helper(TreeNode node, boolean expectLeft) {\r\n    if (node == null) return true;\r\n    \r\n    // Nếu là node lá (đã đi đến cuối đường an toàn) -> Hợp lệ\r\n    if (node.left == null && node.right == null) return true;\r\n    \r\n    // Nếu node có cả 2 con -> Vi phạm quy tắc đường đi đơn -> Sai\r\n    if (node.left != null && node.right != null) return false;\r\n    \r\n    // Xử lý logic ngoằn ngoèo\r\n    if (expectLeft) {\r\n        if (node.left != null) {\r\n            // Đi đúng hướng Trái, chặng tiếp theo sẽ kỳ vọng hướng Phải\r\n            return zig_zag_helper(node.left, false); \r\n        } else {\r\n            return false; // Bắt buộc rẽ trái nhưng lại chỉ có nhánh phải\r\n        }\r\n    } else { // Kỳ vọng rẽ phải (expectLeft == false)\r\n        if (node.right != null) {\r\n            // Đi đúng hướng Phải, chặng tiếp theo sẽ kỳ vọng hướng Trái\r\n            return zig_zag_helper(node.right, true); \r\n        } else {\r\n            return false; // Bắt buộc rẽ phải nhưng lại chỉ có nhánh trái\r\n        }\r\n    }\r\n}",
       "metadata": {
         "language": "java",
+        "id": "2e277c4b-c278-49bb-ba21-dfe5132421a0",
         "executionSummary": {
           "executionOrder": 27,
           "success": false
@@ -572,18 +538,82 @@
       "source": "int max_road = 0;\r\n\r\nint longestZigZag(TreeNode root){\r\n    if(root==null){return 0;}\r\n    dfs(root.left, true, 1);\r\n    dfs(root.right,false,1);\r\n    return max_road;\r\n}\r\n\r\nvoid dfs(TreeNode node, boolean isLeft, int curlen){\r\n    if(node==null){return;}\r\n    max_road = Math.max(max_road, curlen);\r\n    if(isLeft){\r\n        dfs(node.right, false, curlen+1);\r\n        dfs(node.left, true, 1);\r\n    }\r\n    else{\r\n        dfs(node.left, true, curlen+1);\r\n        dfs(node.right,false,1);\r\n    }\r\n}",
       "metadata": {
         "language": "java",
+        "id": "afda391d-8378-48c4-a639-0407c255fe5e",
         "executionSummary": {
           "executionOrder": 28,
           "success": true
         }
       },
       "execution_count": 28,
+      "outputs": []
+    },
+    {
+      "id": "a56ac830-b361-4a25-8b55-51a64cac18c1",
+      "cell_type": "code",
+      "source": "import java.util.LinkedList;\r\nimport java.util.HashMap;\r\n\r\npublic interface Graph {\r\n    public void add_vertex(int node_id);\r\n    public void add_edge(int src, int dest, int weight);\r\n    public int adjacent(int src, int dest);\r\n    public LinkedList<Integer> neighbors(int node);\r\n}\r\n\r\npublic class Adjacent_Mat_Graph implements Graph {\r\n    int[][] adj_matrix;\r\n    int node_num;\r\n    public final int NO_CONNECTION = 0;\r\n    public static int WHITE = 0; // Unvisited, currently in the stack, but not on the current path\r\n    public static int GREY = 1; // In the current path\r\n    public static int BLACK = 2; // Visited already and has been popped out\r\n    \r\n    Adjacent_Mat_Graph (int max_size) {\r\n        adj_matrix = new int[max_size][max_size];\r\n        for (int src = 0; src < max_size; src++)\r\n            for (int dest = 0; dest < max_size; dest++)\r\n                adj_matrix[src][dest] = NO_CONNECTION;    \r\n            \r\n    }\r\n\r\n    public void add_vertex(int node_id) {\r\n        node_num++;\r\n        if (node_num > adj_matrix.length) {\r\n            // We have to migrate and resize the adj_mat\r\n            IO.println(\"We have to migrate and resize the adj_mat\"); \r\n        }\r\n    }\r\n\r\n    public void add_edge(int src, int dest, int weight) {\r\n        adj_matrix[src][dest] = weight;\r\n    }\r\n\r\n    public int adjacent(int src, int dest) {\r\n        return adj_matrix[src][dest];\r\n    }\r\n\r\n    public LinkedList<Integer> neighbors(int node) {\r\n        LinkedList<Integer> tmp = new LinkedList<Integer>();\r\n        for (int dest = 0; dest < node_num; dest++)\r\n            if (adj_matrix[node][dest] != NO_CONNECTION)\r\n                tmp.add(dest);\r\n        return tmp;\r\n    }\r\n\r\n    public void DFS(int source) {\r\n      boolean[] is_visited = new boolean[node_num];\r\n      for(int v=0; v<node_num; v++){\r\n        is_visited[v] =false;\r\n      }\r\n      DFS_(source, is_visited);\r\n    }\r\n    public void DFS_(int source, boolean[] is_visited){\r\n        is_visited[source] = true;\r\n        //IO.printlin(source);\r\n        LinkedList<Integer> neighbors = neighbors(source);\r\n        for(int neighbor: neighbors){\r\n            if(!is_visited[neighbor])\r\n                DFS_(neighbor, is_visited);\r\n        }\r\n    }\r\n\r\n    public void BFS(int source) {\r\n        boolean is_visited[] = new boolean[node_num];\r\n        for (int v = 0; v < node_num; v++)\r\n            is_visited[v] = false;\r\n\r\n        LinkedList<Integer> waiting_queue = new LinkedList<>();\r\n        waiting_queue.addFirst(source);\r\n\r\n        while(!waiting_queue.isEmpty()) {\r\n            int current_node = waiting_queue.removeLast();\r\n            if (!is_visited[current_node]) {\r\n                is_visited[current_node] = true;\r\n                // for debugging\r\n                //IO.println(current_node);\r\n\r\n                LinkedList<Integer> neighbors = neighbors(current_node);\r\n                for (int neighbor: neighbors)\r\n                    waiting_queue.addFirst(neighbor);\r\n            }                \r\n        }\r\n    }\r\n\r\n    public boolean _is_cyclic_(int source, int[] color) {\r\n        for(int v=0; v<node_num; v++)\r\n            if(color[v]==GREY && adjacent(source, v)!=NO_CONNECTION)\r\n                return true;\r\n        color[source] = GREY;\r\n        LinkedList<Integer> neighbors = neighbors(source);\r\n        for(int neighbor: neighbors){\r\n            if(color[neighbor]==WHITE)\r\n                if(_is_cyclic_(neighbor, color))\r\n                    return true;\r\n        }\r\n        color[source] = BLACK;\r\n        return false;\r\n    }\r\n\r\n    public boolean is_cyclic() {  \r\n        for(int source=0; source<node_num; source++){\r\n            int[] color = new int[node_num];\r\n            for(int v=0; v< node_num; v++){\r\n                color[v] = WHITE;\r\n            }\r\n            if(_is_cyclic_(source, color)){\r\n                return true;\r\n            }\r\n        }\r\n        return false;\r\n    }\r\n    \r\n    public void find_components(int[] component_ids){\r\n        int HOMELESS = 0;\r\n        for(int v=0; v<node_num; v++)\r\n            component_ids[v] = HOMELESS;\r\n        boolean is_done = false;\r\n        int cur_component_id = 1;\r\n        boolean[] visited = new boolean[node_num];\r\n        while(!is_done){\r\n            LinkedList<Integer> waiting_queue = new LinkedList<>();\r\n            is_done = true;\r\n            for(int v=0; v<node_num; v++){\r\n                if(!visited[v]){\r\n                    if(component_ids[v]==HOMELESS){\r\n                        is_done = false;\r\n                        waiting_queue.addFirst(v);\r\n                        visited[v]= true;\r\n                        break;\r\n                    }\r\n                }\r\n            }\r\n            while(!waiting_queue.isEmpty()){\r\n                int cur_node = waiting_queue.removeLast();\r\n                if(component_ids[cur_node]==HOMELESS){\r\n                    component_ids[cur_node]=cur_component_id;\r\n                    LinkedList<Integer> neighbors = neighbors(cur_node);\r\n                    for(int neighbor: neighbors){\r\n                        if(!visited[neighbor]){\r\n                            visited[neighbor] =true;\r\n                            waiting_queue.addFirst(neighbor);\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n            cur_component_id++;\r\n        }\r\n    }\r\n}\r\n\r\n\r\nAdjacent_Mat_Graph graph_1 = new Adjacent_Mat_Graph(100);\r\n               \r\nfor (int node_id = 0; node_id < 7; node_id++)\r\n    graph_1.add_vertex(node_id);\r\nstatic int CONNECTION = 1;\r\n\r\ngraph_1.add_edge(0, 1, CONNECTION);\r\ngraph_1.add_edge(1, 2, CONNECTION);\r\ngraph_1.add_edge(2, 3, CONNECTION);\r\ngraph_1.add_edge(0, 4, CONNECTION);\r\ngraph_1.add_edge(4, 5, CONNECTION);\r\ngraph_1.add_edge(5, 6, CONNECTION);\r\ngraph_1.add_edge(5, 2, CONNECTION);\r\ngraph_1.add_edge(6, 3, CONNECTION);\r\n\r\n\r\nAdjacent_Mat_Graph graph_2 = new Adjacent_Mat_Graph(100);\r\n               \r\nfor (int node_id = 0; node_id < 7; node_id++)\r\n    graph_2.add_vertex(node_id);\r\nstatic int CONNECTION = 1;\r\n\r\ngraph_2.add_edge(0, 1, CONNECTION);\r\ngraph_2.add_edge(1, 2, CONNECTION);\r\ngraph_2.add_edge(2, 3, CONNECTION);\r\ngraph_2.add_edge(0, 4, CONNECTION);\r\ngraph_2.add_edge(4, 5, CONNECTION);\r\ngraph_2.add_edge(6, 5, CONNECTION);\r\ngraph_2.add_edge(5, 2, CONNECTION);\r\ngraph_2.add_edge(3, 6, CONNECTION);\r\n\r\n\r\nIO.println(graph_1.is_cyclic());\r\nIO.println(graph_2.is_cyclic());\r\n\r\nAdjacent_Mat_Graph graph_1 = new Adjacent_Mat_Graph(100);\r\n               \r\nfor (int node_id = 1; node_id <= 13; node_id++)\r\n    graph_1.add_vertex(node_id);\r\nstatic int CONNECTION = 1;\r\n\r\ngraph_1.add_edge(1, 2, CONNECTION); graph_1.add_edge(2, 1, CONNECTION);\r\ngraph_1.add_edge(1, 5, CONNECTION); graph_1.add_edge(5, 1, CONNECTION);\r\ngraph_1.add_edge(1, 6, CONNECTION); graph_1.add_edge(6, 1, CONNECTION);\r\ngraph_1.add_edge(2, 6, CONNECTION); graph_1.add_edge(6, 2, CONNECTION);\r\n\r\ngraph_1.add_edge(3, 4, CONNECTION); graph_1.add_edge(4, 3, CONNECTION);\r\ngraph_1.add_edge(7, 4, CONNECTION); graph_1.add_edge(4, 7, CONNECTION);\r\ngraph_1.add_edge(4, 9, CONNECTION); graph_1.add_edge(9, 4, CONNECTION);\r\ngraph_1.add_edge(4, 8, CONNECTION); graph_1.add_edge(8, 4, CONNECTION);\r\ngraph_1.add_edge(8, 10, CONNECTION); graph_1.add_edge(10, 8, CONNECTION);\r\ngraph_1.add_edge(9, 10, CONNECTION); graph_1.add_edge(10, 9, CONNECTION);\r\n\r\ngraph_1.add_edge(12, 13, CONNECTION); graph_1.add_edge(13, 12, CONNECTION);\r\n\r\nint[] component_ids = new int[graph_1.node_num];\r\ngraph_1.find_components(component_ids);\r\n\r\nfor (int i = 0; i < component_ids.length; i++) {\r\n    IO.println(component_ids[i]);    \r\n}\r\n",
+      "metadata": {
+        "language": "java",
+        "id": "a56ac830-b361-4a25-8b55-51a64cac18c1",
+        "executionSummary": {
+          "executionOrder": 16,
+          "success": true
+        }
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "false\r\ntrue\r\n1\r\n2\r\n2\r\n3\r\n3\r\n2\r\n2\r\n3\r\n3\r\n3\r\n3\r\n4\r\n5\r\n"
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "id": "f7dd6cec-b4f2-49a9-90e9-63763f4716c3",
+      "cell_type": "code",
+      "source": "import java.util.LinkedList;\r\nimport java.util.HashMap;\r\nimport java.util.Comparator;\r\n\r\npublic class Adjacent_List_Graph{\r\n    HashMap<Integer, LinkedList<Integer>> adj_list;\r\n    public Adjacent_List_Graph(){\r\n        this.adj_list = new HashMap<>();\r\n    }\r\n    public void add_vertex(int node_id){\r\n        adj_list.putIfAbsent(node_id, new LinkedList<>());\r\n    }\r\n    public void add_edge(int source, int dest){\r\n        adj_list.get(source).add(dest);\r\n    }\r\n    public LinkedList<Integer> neighbors(int source){\r\n        LinkedList<Integer> neighbors = adj_list.get(source);\r\n        for(int node: adj_list.keySet()){\r\n            if(adj_list.get(node).contains(source) && !neighbors.contains(node)){\r\n                neighbors.add(node);\r\n            }\r\n        }\r\n        return neighbors;\r\n    }\r\n    public int in_deg(int node){\r\n        int in_deg =0;\r\n        for(int source: adj_list.keySet()){\r\n            if(adj_list.get(source).contains(node)){\r\n                in_deg++;\r\n            }\r\n        }\r\n        return in_deg;\r\n    }\r\n    public int out_degree(int node){\r\n        return adj_list.get(node).size();\r\n    }\r\n    public LinkedList<LinkedList<Integer>> find_components(){\r\n        LinkedList<LinkedList<Integer>> components = new LinkedList<>();\r\n        boolean[] visited = new boolean[adj_list.size()];\r\n        for(int node: adj_list.keySet()){\r\n            if(!visited[node]){\r\n                LinkedList<Integer> cur_component = new LinkedList<>();\r\n                LinkedList<Integer> queue = new LinkedList<>();\r\n                queue.offer(node);\r\n                visited[node] = true;\r\n                while(!queue.isEmpty()){\r\n                    int cur_node = queue.poll();\r\n                    cur_component.add(cur_node);\r\n                    for(int child: adj_list.get(cur_node)){\r\n                        if(!visited[child]){\r\n                            visited[child] = true;\r\n                            queue.offer(child);\r\n                        }\r\n                    }\r\n                }\r\n                cur_component.sort(Comparator.naturalOrder());\r\n                components.add(cur_component);\r\n            }\r\n        }\r\n        return components;\r\n    }\r\n    public LinkedList<LinkedList<Integer>> find_bridges(){\r\n        LinkedList<LinkedList<Integer>> bridges = new LinkedList<>();\r\n        LinkedList<int[]> allEdges = new LinkedList<>();\r\n        int initial_components_num = find_components().size();\r\n        for(int source: adj_list.keySet()){\r\n            for(int dest: adj_list.get(source)){\r\n                int[] edge = new int[]{source, dest};\r\n                allEdges.add(edge);\r\n            }\r\n        }\r\n        for(int[] edge: allEdges){\r\n            int source = edge[0];\r\n            int dest = edge[1];\r\n            adj_list.get(source).remove(dest); \r\n            // edge.get(dest).remove(source); //undirected graph\r\n            int new_comp_num = find_components().size();\r\n            if(new_comp_num> initial_components_num){\r\n                LinkedList<Integer> bridge = new LinkedList<>();\r\n                bridge.add(source);\r\n                bridge.add(dest);\r\n                bridges.add(bridge);\r\n            }\r\n        }\r\n        return bridges;\r\n    }\r\n    public int find_diameter_length(){\r\n        int max_diameter =0;\r\n        for(int node: adj_list.keySet()){\r\n            HashMap<Integer, Integer> distances = new HashMap<>();\r\n            LinkedList<Integer> queue = new LinkedList<>();\r\n            queue.offer(node);\r\n            distances.put(node,0);\r\n            while(!queue.isEmpty()){\r\n                int cur = queue.poll();\r\n                int cur_dis = distances.get(cur);\r\n                max_diameter = Math.max(max_diameter, cur_dis);\r\n                for(int child: adj_list.get(cur)){\r\n                    if(!distances.containsKey(child)){\r\n                        distances.put(child, cur_dis+1);\r\n                        queue.offer(child);\r\n                    }\r\n                }\r\n\r\n            }\r\n        }\r\n        return max_diameter;\r\n    }\r\n}",
+      "metadata": {
+        "language": "java",
+        "id": "f7dd6cec-b4f2-49a9-90e9-63763f4716c3",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {},
           "metadata": {},
-          "execution_count": 28
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "fd8fbb76-bfbe-42ff-afa2-3e38b2cd070d",
+      "cell_type": "code",
+      "source": "int[] meo = {1,2,3};\r\nfor(int num: meo)\r\n    IO.println(num);",
+      "metadata": {
+        "language": "java",
+        "id": "fd8fbb76-bfbe-42ff-afa2-3e38b2cd070d",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "1\r\n2\r\n3\r\n"
+          },
+          "metadata": {},
+          "execution_count": 6
         }
       ]
     }
